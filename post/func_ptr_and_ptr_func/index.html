@@ -55,7 +55,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x &#43; y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p&#43;1)); return 0; }   Output 20">
 <meta itemprop="datePublished" content="2020-09-14T16:12:24+08:00" />
 <meta itemprop="dateModified" content="2020-09-14T16:12:24+08:00" />
-<meta itemprop="wordCount" content="321">
+<meta itemprop="wordCount" content="322">
 
 
 
@@ -155,7 +155,9 @@
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#__1-ponter-function__"><strong>1 Ponter function</strong></a></li>
+            <li><a href="#__2-function-pointer__"><strong>2 Function pointer</strong></a></li>
+            <li><a href="#__3-set-function-pointers-as-the-parameters-of-a-function__"><strong>3 Set function pointers as the parameters of a function</strong></a></li>
           </ul>
         </li>
       </ul>
@@ -165,7 +167,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h5 id="__1-ponter-function__"><strong>1 Ponter function</strong></h5>
+      <h3 id="__1-ponter-function__"><strong>1 Ponter function</strong></h3>
 <p>Function pointer is a pointer in c, and it returns a pointer of some type.
 For instance, its declaration follows</p>
 <div class="highlight"><div class="chroma">
@@ -213,7 +215,7 @@ For instance, its declaration follows</p>
 </div>
 </div><p>Output
 <code>20</code></p>
-<h5 id="__function-pointer__"><strong>Function pointer</strong></h5>
+<h3 id="__2-function-pointer__"><strong>2 Function pointer</strong></h3>
 <p>Actually, function pointer is a pointer, and it points at a function.
 Its declaration is given by</p>
 <div class="highlight"><div class="chroma">
@@ -261,7 +263,7 @@ Its declaration is given by</p>
 </div>
 </div><p>output
 <code>20</code></p>
-<h5 id="__3-set-function-pointers-as-the-parameters-of-a-function__"><strong>3 Set function pointers as the parameters of a function</strong></h5>
+<h3 id="__3-set-function-pointers-as-the-parameters-of-a-function__"><strong>3 Set function pointers as the parameters of a function</strong></h3>
 <p>Formal parameter:
 <code>type (*func) ();</code>
 Calling the function:

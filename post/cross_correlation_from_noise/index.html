@@ -155,7 +155,14 @@ $\boxed{\text{Data processing steps}}$
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#1-__cut-data__">1. <strong>Cut data</strong></a></li>
+            <li><a href="#2-__removing-mean-trend-and-tapering__">2. <strong>Removing mean, trend and tapering</strong></a></li>
+            <li><a href="#3-__removing-instrument-response__">3. <strong>Removing instrument response</strong></a></li>
+            <li><a href="#4-__band-pass-filtering__">4. <strong>Band-pass filtering</strong></a></li>
+            <li><a href="#5-__temperal-normalization__">5. <strong>Temperal normalization</strong></a></li>
+            <li><a href="#__6-spectral-whitening__"><strong>6. Spectral whitening</strong></a></li>
+            <li><a href="#__7-computing-cross-correlation-time-functions__"><strong>7. Computing cross-correlation time functions.</strong></a></li>
+            <li><a href="#__references__"><strong>References</strong></a></li>
           </ul>
         </li>
       </ul>
@@ -170,11 +177,11 @@ by cross-correlating ambient seismic noise or coda (Campillo &amp; Paul, 2003; B
 However, some processing techniques should be taken into consideration to retrieve clear
 emperical green&rsquo;s functions (EGFs). Here we show these steps in detail.</p>
 <p>$\boxed{\text{Data processing steps}}$</p>
-<h4 id="1-__cut-data__">1. <strong>Cut data</strong></h4>
-<h4 id="2-__removing-mean-trend-and-tapering__">2. <strong>Removing mean, trend and tapering</strong></h4>
-<h4 id="3-__removing-instrument-response__">3. <strong>Removing instrument response</strong></h4>
-<h4 id="4-__band-pass-filtering__">4. <strong>Band-pass filtering</strong></h4>
-<h4 id="5-__temperal-normalization__">5. <strong>Temperal normalization</strong></h4>
+<h3 id="1-__cut-data__">1. <strong>Cut data</strong></h3>
+<h3 id="2-__removing-mean-trend-and-tapering__">2. <strong>Removing mean, trend and tapering</strong></h3>
+<h3 id="3-__removing-instrument-response__">3. <strong>Removing instrument response</strong></h3>
+<h3 id="4-__band-pass-filtering__">4. <strong>Band-pass filtering</strong></h3>
+<h3 id="5-__temperal-normalization__">5. <strong>Temperal normalization</strong></h3>
 <p>$\boxed{\text{One-bit}}$
 $$
 \tilde{d_j}=sign(d_j) \tag{1}
@@ -186,7 +193,7 @@ w_j &amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\<br>
 \tilde{d_j} &amp;= \frac{d_j}{w_j}
 \end{aligned} \tag{2}.
 $$</p>
-<h4 id="__6-spectral-whitening__"><strong>6. Spectral whitening</strong></h4>
+<h3 id="__6-spectral-whitening__"><strong>6. Spectral whitening</strong></h3>
 <p>Using $\text{run absolute mean}$ algorithm.
 $$
 \begin{aligned}
@@ -356,7 +363,7 @@ where, in general, $\Delta f = \frac{f_1}{4}$ and $Env[x_{f_k, f_k+\Delta f}]$ i
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/CCF-AMBIENT-IMG/Norm.png" alt="Norm"></p>
-<h4 id="__7-computing-cross-correlation-time-functions__"><strong>7. Computing cross-correlation time functions.</strong></h4>
+<h3 id="__7-computing-cross-correlation-time-functions__"><strong>7. Computing cross-correlation time functions.</strong></h3>
 <p>$$
 C_{12}(t) = \int_{-\infty}^{\infty}u_1(\tau+t)u_2(\tau)d\tau \tag{5}.
 $$
@@ -364,7 +371,7 @@ Stacking all cross-correlations to get EGFs,
 $$
 EGF(t) = \frac{1}{N}\sum_{n=1}^{N}C_n(t) \tag{6}.
 $$</p>
-<h4 id="__references__"><strong>References</strong></h4>
+<h3 id="__references__"><strong>References</strong></h3>
 <p>Bensen, G. D. , Ritzwoller, M. H. , Barmin, M. P. , Levshin, A. L. , Lin, F. , &amp; Moschetti, M. P. , et al. (0).
 Processing seismic ambient noise data to obtain reliable broad‐band surface wave dispersion measurements.
 Geophysical Journal International(3), 3.</p>

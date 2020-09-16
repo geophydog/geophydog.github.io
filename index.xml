@@ -90,7 +90,9 @@ For instance, there are some SAC files with same header gcarc, and can use the f
       <pubDate>Sat, 12 Sep 2020 10:07:00 +0800</pubDate>
       
       <guid>http://localhost:1313/post/nice_cover/</guid>
-      <description></description>
+      <description>Hello, there. Hope you have a nice journey. 1 1 2 3 4 5
+2 2 3 4 5 6
+3 3 4 5 6 7</description>
     </item>
     
     <item>
@@ -121,7 +123,7 @@ $\boxed{\text{Data processing steps}}$
       <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
       
       <guid>http://localhost:1313/post/cross_spectra_beamforing/</guid>
-      <description>Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al., 2014; Rost &amp;amp; Thomas, 2002)</description>
+      <description>Basic princeples Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.</description>
     </item>
     
     <item>

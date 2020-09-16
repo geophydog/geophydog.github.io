@@ -157,11 +157,17 @@ For instance, there are some SAC files with same header gcarc, and can use the f
   <ul>
     <li>
       <ul>
-        <li>
+        <li><a href="#__1-remove-repeated-lines__"><strong>1 Remove repeated lines</strong></a></li>
+        <li><a href="#__2-print-single-and-double-quation-marks--and-__"><strong>2 Print single and double quation marks: <code>&quot;</code> and <code>'</code></strong></a></li>
+        <li><a href="#__3-arrays__"><strong>3 Arrays</strong></a>
           <ul>
-            <li></li>
+            <li><a href="#__31-1d-array__"><strong>3.1 1D array</strong></a></li>
+            <li><a href="#__32-2d-array__"><strong>3.2 2D array</strong></a></li>
           </ul>
         </li>
+        <li><a href="#__4-use-lengtharray-to-get-length-of-array__"><strong>4 Use <code>length(array)</code> to get length of <code>array</code></strong></a></li>
+        <li><a href="#__5-sort-elements-of-a-array__"><strong>5 Sort elements of a array</strong></a></li>
+        <li><a href="#__6-index-of-array__"><strong>6 Index of array</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -169,7 +175,7 @@ For instance, there are some SAC files with same header gcarc, and can use the f
   </div>
 </div>
     <div class="post-content">
-      <h4 id="__1-remove-repeated-lines__"><strong>1 Remove repeated lines</strong></h4>
+      <h2 id="__1-remove-repeated-lines__"><strong>1 Remove repeated lines</strong></h2>
 <p>Sometimes we want to remove these repeated lines according to some column(s).</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -192,7 +198,7 @@ the following command to achieve that.</p>
 </code></pre></td></tr></table>
 </div>
 </div><p>It will show the lines after removing repeated lines.</p>
-<h4 id="__2-print-single-and-double-quation-marks--and-__"><strong>2 Print single and double quation marks: <code>&quot;</code> and <code>'</code></strong></h4>
+<h2 id="__2-print-single-and-double-quation-marks--and-__"><strong>2 Print single and double quation marks: <code>&quot;</code> and <code>'</code></strong></h2>
 <p>Add back slash before double quotation marks.</p>
 <ul>
 <li><code>&quot;</code></li>
@@ -217,8 +223,8 @@ the following command to achieve that.</p>
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">awk &#39;BEGIN{for(i=1;i&lt;=10;i++) {print &#34;&#39;\&#39;&#39;&#34;}}&#39;
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="__3-arrays__"><strong>3 Arrays</strong></h4>
-<h5 id="__31-1d-array__"><strong>3.1 1D array</strong></h5>
+</div><h2 id="__3-arrays__"><strong>3 Arrays</strong></h2>
+<h3 id="__31-1d-array__"><strong>3.1 1D array</strong></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -258,7 +264,7 @@ the following command to achieve that.</p>
 3 = 5
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="__32-2d-array__"><strong>3.2 2D array</strong></h5>
+</div><h3 id="__32-2d-array__"><strong>3.2 2D array</strong></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -337,7 +343,7 @@ the following command to achieve that.</p>
 </code></pre></td></tr></table>
 </div>
 </div><p>Attention must be paid to the output, and the lines are unordered.</p>
-<h4 id="__4-use-lengtharray-to-get-length-of-array__"><strong>4 Use <code>length(array) to get length of </code>array`</strong></h4>
+<h2 id="__4-use-lengtharray-to-get-length-of-array__"><strong>4 Use <code>length(array)</code> to get length of <code>array</code></strong></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -381,7 +387,7 @@ the following command to achieve that.</p>
 3 = a
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="__5-sort-elements-of-a-array__"><strong>5 Sort elements of a array</strong></h4>
+</div><h2 id="__5-sort-elements-of-a-array__"><strong>5 Sort elements of a array</strong></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -479,7 +485,7 @@ asort(array) =  4
 4 = test
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="__6-index-of-array__"><strong>6 Index of array</strong></h4>
+</div><h2 id="__6-index-of-array__"><strong>6 Index of array</strong></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
