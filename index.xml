@@ -1,25 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geophydog</title>
-    <link>/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>cn-CN</language>
-    <copyright>All rights reserved 2020</copyright>
-    <lastBuildDate>Thu, 03 Sep 2020 17:11:08 +0800</lastBuildDate>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Fourier Transform</title>
-      <link>/post/fourier_transform/</link>
-      <pubDate>Thu, 03 Sep 2020 17:11:08 +0800</pubDate>
-      
-      <guid>/post/fourier_transform/</guid>
-      <description>1 Header 1 2 Header 2 3 Header 3 4 Header 4 $ X(\omega) = \int_{-infty}^\infty x(t)e^{-i \omega t} $</description>
-    </item>
     
   </channel>
 </rss>
