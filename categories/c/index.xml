@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c on Geophydog</title>
+    <link>http://localhost:1313/categories/c/</link>
+    <description>Recent content in c on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Mon, 14 Sep 2020 16:25:13 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Print Colorful Strings in C</title>
+      <link>http://localhost:1313/post/colorful_strings_in_c/</link>
+      <pubDate>Mon, 14 Sep 2020 16:25:13 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/colorful_strings_in_c/</guid>
+      <description>It&amp;rsquo;s wonderful to printing colorful strings on your terminal.
+1 2 3 4 5 6 7 8 9 10 11  #include &amp;lt;stdio.h&amp;gt; int main() { char ss[1024] = {&amp;#34;Colorful!!!&amp;#34;}; printf(&amp;#34;\033[0;31m %s \033[0;39m\n&amp;#34;, ss); // red  printf(&amp;#34;\033[0;32m %s \033[0;39m\n&amp;#34;, ss); // green  printf(&amp;#34;\033[0;33m %s \033[0;39m\n&amp;#34;, ss); // yellow  printf(&amp;#34;\033[0;34m %s \033[0;39m\n&amp;#34;, ss); // blue  printf(&amp;#34;\033[0;35m %s \033[0;39m\n&amp;#34;, ss); // purple  return 0; }   </description>
+    </item>
+    
+    <item>
+      <title>Function Pointer &amp; Pointer Function</title>
+      <link>http://localhost:1313/post/func_ptr_and_ptr_func/</link>
+      <pubDate>Mon, 14 Sep 2020 16:12:24 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/func_ptr_and_ptr_func/</guid>
+      <description>1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
+1 2  int *f()int x, int y);   Let&amp;rsquo;s give a code demo to show function pointer.
+1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x + y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&amp;#34;%d\n&amp;#34;, *(p+1)); return 0; }   Output 20</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>virsualization on Geophydog</title>
+    <link>http://localhost:1313/tags/virsualization/</link>
+    <description>Recent content in virsualization on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Mon, 14 Sep 2020 16:30:22 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/virsualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Error Bars in GMT</title>
+      <link>http://localhost:1313/post/gmt_errorbar/</link>
+      <pubDate>Mon, 14 Sep 2020 16:30:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/gmt_errorbar/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14  R=0/10/0/100 J=X5i/5i PS=error-bar-gmt.ps PDF=error-bar-gmt.pdf awk &amp;#39;BEGIN{for(i=2;i&amp;lt;10;i++){print i,i*i}}&amp;#39; &amp;gt; tmp.lst psxy -R$R -J$J -K -T &amp;gt; $PS psxy tmp.lst -R -J -K -O -B1:&amp;#34;X-axis&amp;#34;:/10:&amp;#34;Y-axis&amp;#34;:WSen -W1p,&amp;#34;--&amp;#34; &amp;gt;&amp;gt; $PS awk &amp;#39;{print $1,$2,3.5,1}&amp;#39; tmp.lst | psxy -R -J -K -O -Ey/3p &amp;gt;&amp;gt; $PS psxy tmp.lst -R -J -K -O -Si0.5c -Gblack &amp;gt;&amp;gt; $PS psxy -R -J -O -T&amp;gt;&amp;gt; $PS ps2pdf $PS $PDF   </description>
+    </item>
+    
+  </channel>
+</rss>

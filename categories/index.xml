@@ -7,9 +7,91 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Wed, 16 Sep 2020 08:56:15 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>filter</title>
+      <link>http://localhost:1313/categories/filter/</link>
+      <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/filter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gmt</title>
+      <link>http://localhost:1313/categories/gmt/</link>
+      <pubDate>Mon, 14 Sep 2020 16:30:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/gmt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>http://localhost:1313/categories/c/</link>
+      <pubDate>Mon, 14 Sep 2020 16:25:13 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>http://localhost:1313/categories/awk/</link>
+      <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Seismic Interferometry</title>
+      <link>http://localhost:1313/categories/seismic-interferometry/</link>
+      <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/seismic-interferometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>beamforming</title>
+      <link>http://localhost:1313/categories/beamforming/</link>
+      <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/beamforming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scientific Computation</title>
+      <link>http://localhost:1313/categories/scientific-computation/</link>
+      <pubDate>Fri, 04 Sep 2020 10:37:51 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/scientific-computation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hilbert Transform</title>
+      <link>http://localhost:1313/categories/hilbert-transform/</link>
+      <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/hilbert-transform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fft</title>
+      <link>http://localhost:1313/categories/fft/</link>
+      <pubDate>Thu, 03 Sep 2020 17:11:08 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/fft/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

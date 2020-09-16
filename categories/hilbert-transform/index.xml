@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hilbert Transform on Geophydog</title>
+    <link>http://localhost:1313/categories/hilbert-transform/</link>
+    <description>Recent content in Hilbert Transform on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Thu, 03 Sep 2020 21:23:30 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/hilbert-transform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hilbert Transform</title>
+      <link>http://localhost:1313/post/hilbert_transform/</link>
+      <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/hilbert_transform/</guid>
+      <description>Firstly, compute the FFT of real signal $x(n)$ $$ X(k) = \mathscr{F}[x(n)]=\sum_{n=0}^{N-1}x(n)e^{-\frac{i2\pi kn}{N}} \tag{1}. $$
+Let the FFT of $h(n)$ be $H(k)$ to yield
+$$ H(k)= \begin{cases} &amp;amp;X(k), &amp;amp;\text{ for } k=0 \\
+&amp;amp;2X(k), &amp;amp;\text{ for } k=1, 2, \cdots, \frac{N}{2}-1 \\
+&amp;amp;0, &amp;amp;\text{ for } k=\frac{N}{2}, \frac{N}{2}+1,\cdots, N-1 \end{cases} \tag{2}. $$
+The hilbert transform $h(n)$ of the real signal $x(n)$ is given by
+$$ h(n) = \mathscr{I} { \mathscr{F}^{-1}[H(k)] } \tag{3}.</description>
+    </item>
+    
+  </channel>
+</rss>
