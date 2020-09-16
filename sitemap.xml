@@ -177,7 +177,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/nice_cover/</loc>
+    <loc>http://localhost:1313/post/nice_cover/</loc>
     <lastmod>2020-09-12T10:07:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -85,11 +85,11 @@ For instance, there are some SAC files with same header gcarc, and can use the f
     </item>
     
     <item>
-      <title>Home</title>
-      <link>http://localhost:1313/nice_cover/</link>
+      <title></title>
+      <link>http://localhost:1313/post/nice_cover/</link>
       <pubDate>Sat, 12 Sep 2020 10:07:00 +0800</pubDate>
       
-      <guid>http://localhost:1313/nice_cover/</guid>
+      <guid>http://localhost:1313/post/nice_cover/</guid>
       <description></description>
     </item>
     
