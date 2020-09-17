@@ -176,8 +176,7 @@ x_1(t) &amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \tag{1
   
   <div class="post-content">
     <div class="post-summary">
-      For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
-&amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1.
+      1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
     </div>
     <div class="read-more">
       <a href="/post/high-pass_filter/" class="read-more-link">Read more...</a>

@@ -16,8 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Geophydog" /><meta name="description" content="For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
-&amp;amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Geophydog" /><meta name="description" content="1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -41,26 +40,23 @@
 
 
 <meta property="og:title" content="The Journey to Digital Filter Design: High-pass Filter" />
-<meta property="og:description" content="For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
-&amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1." />
+<meta property="og:description" content="1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/high-pass_filter/" />
 <meta property="article:published_time" content="2020-09-15T23:42:50+08:00" />
 <meta property="article:modified_time" content="2020-09-15T23:42:50+08:00" />
 <meta itemprop="name" content="The Journey to Digital Filter Design: High-pass Filter">
-<meta itemprop="description" content="For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
-&amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1.">
+<meta itemprop="description" content="1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\">
 <meta itemprop="datePublished" content="2020-09-15T23:42:50+08:00" />
 <meta itemprop="dateModified" content="2020-09-15T23:42:50+08:00" />
-<meta itemprop="wordCount" content="388">
+<meta itemprop="wordCount" content="394">
 
 
 
 <meta itemprop="keywords" content="fft,filter design," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="The Journey to Digital Filter Design: High-pass Filter"/>
-<meta name="twitter:description" content="For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
-&amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1."/>
+<meta name="twitter:description" content="1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1&#43;(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1&#43;e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1&#43;z^{-1}})^{2N}&#43;tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1&#43;z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k&#43;1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -145,11 +141,21 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#__1-basic-princeples__"><strong>1 Basic princeples</strong></a></li>
+        <li><a href="#__2-python-code__"><strong>2 Python code</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p>For a Butterworth high-pass filter, the squared frequency response is given by
+      <h2 id="__1-basic-princeples__"><strong>1 Basic princeples</strong></h2>
+<p>For a Butterworth high-pass filter, the squared frequency response is given by
 $$
 |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}.
 $$
@@ -170,8 +176,9 @@ and $z_k=\frac{1+q_k}{1-q_k}$.
 The transfer function of a Butterworth high-pass filter is given by
 $$
 H(z)= \frac{1}{2^N}\frac{\prod_{|z_k|&lt;1}(1+z_k)(1-z^{-1})^N}{\prod_{|z_k|&lt;1}(1-z_kz^{-1})} \tag{4}.
-$$
-Here, we give an example of implementing the Butterworth high-pass filter and compare it with that generated by scipy.</p>
+$$</p>
+<h2 id="__2-python-code__"><strong>2 Python code</strong></h2>
+<p>Here, we give an example of implementing the Butterworth high-pass filter and compare it with that generated by scipy.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
