@@ -38,7 +38,7 @@ x_1(t) &amp;amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \t
       <pubDate>Tue, 15 Sep 2020 23:42:50 +0800</pubDate>
       
       <guid>http://localhost:1313/post/high-pass_filter/</guid>
-      <description>For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega}{2}}{\frac{\omega_c}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
+      <description>For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
 &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1.</description>
     </item>
     
@@ -124,6 +124,17 @@ $\boxed{\text{Data processing steps}}$
       
       <guid>http://localhost:1313/post/cross_spectra_beamforing/</guid>
       <description>Basic princeples Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.</description>
+    </item>
+    
+    <item>
+      <title>Advanced Operations in Eigen3</title>
+      <link>http://localhost:1313/post/advanced_eigen3/</link>
+      <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/advanced_eigen3/</guid>
+      <description>1 Matrix &amp;lt;-&amp;gt; C/C++ array 1.1 Matrix -&amp;gt; C/C++ array .data() stores the address, so we can give the address to a pointer.
+1.2. C/C++ array -&amp;gt; Matrix Using Map to convert a C/C++ array to a Matrix.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  #include &amp;lt;iostream&amp;gt;#include &amp;lt;Eigen/Dense&amp;gt; using namespace Eigen; using namespace std; int main(int argc, char *argv[]){ int n; n = atoi(argv[1]); MatrixXf b(n, 1); b = MatrixXf::Random(n, 1); cout &amp;lt;&amp;lt; &amp;#34;b:\n&amp;#34; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; endl; // convert Matrix b to C/C++ array c.</description>
     </item>
     
     <item>

@@ -268,42 +268,49 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/eigen3_operations/</loc>
-    <lastmod>2020-09-04T10:37:51+08:00</lastmod>
+    <loc>http://localhost:1313/post/advanced_eigen3/</loc>
+    <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/c&#43;&#43;/</loc>
-    <lastmod>2020-09-04T10:37:51+08:00</lastmod>
+    <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/eigen3/</loc>
-    <lastmod>2020-09-04T10:37:51+08:00</lastmod>
+    <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/linear-algebra/</loc>
-    <lastmod>2020-09-04T10:37:51+08:00</lastmod>
+    <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/matrix/</loc>
-    <lastmod>2020-09-04T10:37:51+08:00</lastmod>
+    <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/categories/scientific-computation/</loc>
+    <lastmod>2020-09-05T10:30:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/eigen3_operations/</loc>
     <lastmod>2020-09-04T10:37:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
