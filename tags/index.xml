@@ -49,24 +49,6 @@
     </item>
     
     <item>
-      <title>c</title>
-      <link>http://localhost:1313/tags/c/</link>
-      <pubDate>Mon, 14 Sep 2020 16:25:13 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/c/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>colorful strings</title>
-      <link>http://localhost:1313/tags/colorful-strings/</link>
-      <pubDate>Mon, 14 Sep 2020 16:25:13 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/colorful-strings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>function pointer</title>
       <link>http://localhost:1313/tags/function-pointer/</link>
       <pubDate>Mon, 14 Sep 2020 16:12:24 +0800</pubDate>
@@ -166,15 +148,6 @@
     </item>
     
     <item>
-      <title>C&#43;&#43;</title>
-      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Eigen3</title>
       <link>http://localhost:1313/tags/eigen3/</link>
       <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
@@ -202,7 +175,7 @@
     </item>
     
     <item>
-      <title>Hilbert Transform</title>
+      <title>hilbert transform</title>
       <link>http://localhost:1313/tags/hilbert-transform/</link>
       <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
       

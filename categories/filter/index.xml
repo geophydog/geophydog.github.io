@@ -29,7 +29,7 @@ x_1(t) &amp;amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \t
       <pubDate>Tue, 15 Sep 2020 23:47:06 +0800</pubDate>
       
       <guid>http://localhost:1313/post/band-pass_filter/</guid>
-      <description></description>
+      <description>1 Basic princeples To design a Butterworth band-pass filter, we can combine a low-pass filter and a high-pass filter as below, $$ H(z) = H_{lp}(z) \cdot H_{hp}(z) \tag{1}. $$</description>
     </item>
     
     <item>

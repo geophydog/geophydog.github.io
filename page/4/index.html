@@ -121,114 +121,22 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/func_ptr_and_ptr_func/">Function Pointer &amp; Pointer Function</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/fourier_transform/">Fourier Transform</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-09-14 </span>
+      <span class="post-time"> 2020-09-03 </span>
       <div class="post-category">
-          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
+          <a href="/categories/signal-processing/"> signal processing </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f()int x, int y);   Let&rsquo;s give a code demo to show function pointer.
-1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x + y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p+1)); return 0; }   Output 20
+      The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
+For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.
     </div>
     <div class="read-more">
-      <a href="/post/func_ptr_and_ptr_func/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/awk_notes/">Awk notes</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      <div class="post-category">
-          <a href="/categories/awk/"> awk </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
-1  awk &#39;!a[$2,$3]++&#39; pushLog.log   Above command will print the unique lines after removing repeated in columns 2 and 3.
-For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
-1  saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!
-    </div>
-    <div class="read-more">
-      <a href="/post/awk_notes/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/nice_cover/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Hello, there. Hope you have a nice journey. 1 1 2 3 4 5
-2 2 3 4 5 6
-3 3 4 5 6 7
-    </div>
-    <div class="read-more">
-      <a href="/post/nice_cover/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/low-pass_filter/">The Journey to Digital Filter Design: Low-pass Filter</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-11 </span>
-      <div class="post-category">
-          <a href="/categories/filter/"> filter </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Butterworth filters $$ |H(w)|^2=\frac{1}{1+( \frac{tan\frac{\omega}{2}} {tan\frac{\omega_c}{2}})^{2N}} \tag{1} $$
-Low-pass filter Given the attenuation values $A_c$ and $A_r$ at cut-off frequencies $\omega_c$ and $\omega_r$, respectively, we first calculate the orders $N$ of filter. We know, $$ \begin{aligned} A_r &amp;= -20lg|H(\omega_s)|\\
-&amp;= -20lg\frac{1}{\sqrt{1+(\frac{tan\frac{\omega _r}{2}}{\frac{\omega_c}{2}})^{2N}}} \end{aligned} \tag{2}, $$ and the orders $N$ is given by $$ N = \frac{1}{2}\frac{lg(10^{\frac{A_r}{10}}-1)}{lg(\frac{tan\frac{\omega_r}{2}}{tan\frac{\omega_c}{2}})} \tag{3}. $$ However, if you give the filter orders $N$, it can control the width of transition band of the filter.
-    </div>
-    <div class="read-more">
-      <a href="/post/low-pass_filter/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/cross_correlation_from_noise/">Cross-correlations From Seismic Ambient Noise</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-08 </span>
-      <div class="post-category">
-          <a href="/categories/seismic-interferometry/"> Seismic Interferometry </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      New responses between station pairs can be extracted from diffuse wave field by cross-correlating ambient seismic noise or coda (Campillo &amp; Paul, 2003; Bensen et al., 2007). However, some processing techniques should be taken into consideration to retrieve clear emperical green&rsquo;s functions (EGFs). Here we show these steps in detail.
-$\boxed{\text{Data processing steps}}$
-1. Cut data 2. Removing mean, trend and tapering 3. Removing instrument response 4. Band-pass filtering 5. Temperal normalization $\boxed{\text{One-bit}}$ $$ \tilde{d_j}=sign(d_j) \tag{1} $$ $\boxed{\text{run absolute mean}}$ $$ \begin{aligned} w_j &amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\
-    </div>
-    <div class="read-more">
-      <a href="/post/cross_correlation_from_noise/" class="read-more-link">Read more...</a>
+      <a href="/post/fourier_transform/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -236,14 +144,11 @@ $\boxed{\text{Data processing steps}}$
     </section>
   
   <nav class="pagination">
-    <a class="prev" href="/">
+    <a class="prev" href="/page/3/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text">Prev</span>
       </a>
-    <a class="next" href="/page/3/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
+    
   </nav>
         </div>
         

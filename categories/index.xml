@@ -31,15 +31,6 @@
     </item>
     
     <item>
-      <title>c</title>
-      <link>http://localhost:1313/categories/c/</link>
-      <pubDate>Mon, 14 Sep 2020 16:25:13 +0800</pubDate>
-      
-      <guid>http://localhost:1313/categories/c/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>awk</title>
       <link>http://localhost:1313/categories/awk/</link>
       <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
@@ -76,20 +67,20 @@
     </item>
     
     <item>
-      <title>Hilbert Transform</title>
-      <link>http://localhost:1313/categories/hilbert-transform/</link>
+      <title>signal processing</title>
+      <link>http://localhost:1313/categories/signal-processing/</link>
       <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/hilbert-transform/</guid>
+      <guid>http://localhost:1313/categories/signal-processing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>fft</title>
-      <link>http://localhost:1313/categories/fft/</link>
-      <pubDate>Thu, 03 Sep 2020 17:11:08 +0800</pubDate>
+      <title>c/c&#43;&#43;</title>
+      <link>http://localhost:1313/categories/c/c&#43;&#43;/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/fft/</guid>
+      <guid>http://localhost:1313/categories/c/c&#43;&#43;/</guid>
       <description></description>
     </item>
     

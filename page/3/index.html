@@ -147,6 +147,7 @@
       <span class="post-time"> 2020-09-05 </span>
       <div class="post-category">
           <a href="/categories/scientific-computation/"> Scientific Computation </a>
+          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
           </div>
     </div>
   </header>
@@ -170,6 +171,7 @@
       <span class="post-time"> 2020-09-04 </span>
       <div class="post-category">
           <a href="/categories/scientific-computation/"> Scientific Computation </a>
+          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
           </div>
     </div>
   </header>
@@ -190,7 +192,7 @@
     <div class="post-meta">
       <span class="post-time"> 2020-09-03 </span>
       <div class="post-category">
-          <a href="/categories/hilbert-transform/"> Hilbert Transform </a>
+          <a href="/categories/signal-processing/"> signal processing </a>
           </div>
     </div>
   </header>
@@ -203,7 +205,7 @@ $$ H(k)= \begin{cases} &amp;X(k), &amp;\text{ for } k=0 \\
 &amp;2X(k), &amp;\text{ for } k=1, 2, \cdots, \frac{N}{2}-1 \\
 &amp;0, &amp;\text{ for } k=\frac{N}{2}, \frac{N}{2}+1,\cdots, N-1 \end{cases} \tag{2}. $$
 The hilbert transform $h(n)$ of the real signal $x(n)$ is given by
-$$ h(n) = \mathscr{I} { \mathscr{F}^{-1}[H(k)] } \tag{3}.
+$$ h(n) = \mathscr{I} \{ \mathscr{F}^{-1}[H(k)] \} \tag{3}.
     </div>
     <div class="read-more">
       <a href="/post/hilbert_transform/" class="read-more-link">Read more...</a>
@@ -213,22 +215,21 @@ $$ h(n) = \mathscr{I} { \mathscr{F}^{-1}[H(k)] } \tag{3}.
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/fourier_transform/">Fourier Transform</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/about/">About</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-09-03 </span>
-      <div class="post-category">
-          <a href="/categories/fft/"> fft </a>
-          </div>
+      
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.
+      Introduction Geophydog, a PhD student in seismology @ SUSTech, his research interests focus on multi-modes of surface waves, seismic interferometry, array seismology and some software developments for civil engineering purposes. This web is used to write down some academic notes for his researches and it comes with no WARRANTY!!!
+Education 2019 - present, PhD student of seismology, Department of Earth and Space Sciences, SUSTech
+2016 - 2019, Master of seismology, School of Earth Sciences and Eingineering, Nanjing University
     </div>
     <div class="read-more">
-      <a href="/post/fourier_transform/" class="read-more-link">Read more...</a>
+      <a href="/post/about/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -240,7 +241,10 @@ For the operation in programming, we need its disctrete form, namely, $$ X(k) = 
         <i class="iconfont icon-left"></i>
         <span class="prev-text">Prev</span>
       </a>
-    
+    <a class="next" href="/page/4/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         
