@@ -29,7 +29,9 @@ x_1(t) &amp;amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \t
       <pubDate>Tue, 15 Sep 2020 23:47:06 +0800</pubDate>
       
       <guid>http://localhost:1313/post/band-pass_filter/</guid>
-      <description>1 Basic princeples To design a Butterworth band-pass filter, we can combine a low-pass filter and a high-pass filter as below, $$ H(z) = H_{lp}(z) \cdot H_{hp}(z) \tag{1}. $$</description>
+      <description>1 Basic princeples To design a Butterworth band-pass filter, we can combine a low-pass filter and a high-pass filter as below, $$ H(z) = H_{lp}(z) \cdot H_{hp}(z) \tag{1}. $$ In previous blogs, we&amp;rsquo;ve gone over the Butterworth low-pass and high-pass filters. Here, we use the dedigned filters to construct a band-pass filters. $$ \begin{cases} H_{lp}(z) &amp;amp;= H_{\omega_2}(z)\\
+H_{hp}(z) &amp;amp;= H_{\omega_1}(z) \end{cases} \tag{2}. $$
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71  import numpy as np import matplotlib.</description>
     </item>
     
     <item>
