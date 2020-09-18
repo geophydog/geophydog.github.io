@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 16 Sep 2020 08:56:15 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 17:36:40 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>animation</title>
+      <link>http://localhost:1313/tags/animation/</link>
+      <pubDate>Fri, 18 Sep 2020 17:36:40 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Fri, 18 Sep 2020 17:36:40 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virsualization</title>
+      <link>http://localhost:1313/tags/virsualization/</link>
+      <pubDate>Fri, 18 Sep 2020 15:52:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/virsualization/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>fft</title>
@@ -36,15 +63,6 @@
       <pubDate>Mon, 14 Sep 2020 16:30:22 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/gmt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Virsualization</title>
-      <link>http://localhost:1313/tags/virsualization/</link>
-      <pubDate>Mon, 14 Sep 2020 16:30:22 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/virsualization/</guid>
       <description></description>
     </item>
     
@@ -90,15 +108,6 @@
       <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/basemap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     
