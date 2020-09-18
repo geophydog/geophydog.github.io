@@ -40,7 +40,7 @@
     </item>
     
     <item>
-      <title>virsualization</title>
+      <title>Virsualization</title>
       <link>http://localhost:1313/tags/virsualization/</link>
       <pubDate>Mon, 14 Sep 2020 16:30:22 +0800</pubDate>
       
@@ -81,6 +81,24 @@
       <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
       
       <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basemap</title>
+      <link>http://localhost:1313/tags/basemap/</link>
+      <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/basemap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
+      
+      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     
