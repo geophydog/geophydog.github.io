@@ -53,7 +53,7 @@
 
 
 
-<meta itemprop="keywords" content="gmt,virsualization," />
+<meta itemprop="keywords" content="gmt,visualization," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Error Bars in GMT"/>
 <meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14  R=0/10/0/100 J=X5i/5i PS=error-bar-gmt.ps PDF=error-bar-gmt.pdf awk &#39;BEGIN{for(i=2;i&lt;10;i&#43;&#43;){print i,i*i}}&#39; &gt; tmp.lst psxy -R$R -J$J -K -T &gt; $PS psxy tmp.lst -R -J -K -O -B1:&#34;X-axis&#34;:/10:&#34;Y-axis&#34;:WSen -W1p,&#34;--&#34; &gt;&gt; $PS awk &#39;{print $1,$2,3.5,1}&#39; tmp.lst | psxy -R -J -K -O -Ey/3p &gt;&gt; $PS psxy tmp.lst -R -J -K -O -Si0.5c -Gblack &gt;&gt; $PS psxy -R -J -O -T&gt;&gt; $PS ps2pdf $PS $PDF   "/>
@@ -132,7 +132,7 @@
       <div class="post-meta">
         <span class="post-time"> 2020-09-14 </span>
         <div class="post-category">
-            <a href="/categories/gmt/"> gmt </a>
+            <a href="/categories/visualization/"> visualization </a>
             </div>
         
       </div>
@@ -201,7 +201,7 @@ ps2pdf <span class="nv">$PS</span> <span class="nv">$PDF</span>
 <footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/gmt/">gmt</a>
-          <a href="/tags/virsualization/">virsualization</a>
+          <a href="/tags/visualization/">visualization</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/post/high-pass_filter/">
