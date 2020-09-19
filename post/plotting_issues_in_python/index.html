@@ -52,7 +52,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.">
 <meta itemprop="datePublished" content="2020-09-18T15:52:22+08:00" />
 <meta itemprop="dateModified" content="2020-09-18T15:52:22+08:00" />
-<meta itemprop="wordCount" content="411">
+<meta itemprop="wordCount" content="518">
 
 
 
@@ -161,6 +161,7 @@
         <li><a href="#__3-background-error-bars__"><strong>3 Background, error bars</strong></a></li>
         <li><a href="#__4-inset-a-smaller-figure__"><strong>4 Inset a smaller figure</strong></a></li>
         <li><a href="#__5-remove-the-withe-grid-lines-in-saved-pdf-file__"><strong>5 Remove the withe grid lines in saved PDF file</strong></a></li>
+        <li><a href="#__5-make-a-colormap-with-your-own-colors__"><strong>5 Make a colormap with your own colors</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -385,6 +386,41 @@ Setting frames: visibale (True) or invisble(False):</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">bazz</span><span class="p">,</span> <span class="n">sloww</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">PP</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;CMRmap&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">rasterized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="__5-make-a-colormap-with-your-own-colors__"><strong>5 Make a colormap with your own colors</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#EEEEEE    #E9EAEF    #E5E6F0    #E2E3F0    #E0DDEF    #DCDAEF&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#D9D8F0    #D4D4F0    #D0D1F1    #CDCCF0    #CBCAF1    #C5C6F1&#39;</span>\
+	  <span class="o">+</span>	<span class="s1">&#39;#C1C2F2    #C0C1F2    #AEADEE    #9F9FF2    #9292F5    #8786F8&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#7272F9    #6261F5    #5959F8    #4544FA    #3434F6    #2827F9&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#1618F9    #0100FF    #0f0eEF    #1817E4    #2F2FCE    #4647B4&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#5251A9    #6B6A92    #7D7D7D    #929567    #9EA058    #B7B645&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#CDCF2E    #D8D424    #EDF107    #FFF802    #FEE601    #FEDB00&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#FDC800    #FDB500    #FFAC02    #FE9700    #FF8402    #FD7700&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#FF6B00    #FF5602    #FE4800    #FF3E01    #FC2C00    #FF2203&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#FF2103    #FE1F00    #FE1A00    #FE1600    #FE1400    #FE1000&#39;</span>\
+	  <span class="o">+</span> <span class="s1">&#39;#FE0c00    #FE0a00    #FD0700    #FD0200&#39;</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;cmap&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="mi">101</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div>
