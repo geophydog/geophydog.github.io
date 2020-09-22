@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Sat, 19 Sep 2020 21:14:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 20:12:37 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Distribute and Install Your Own Python Package</title>
+      <link>http://localhost:1313/post/your_own_python_package/</link>
+      <pubDate>Tue, 22 Sep 2020 20:12:37 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/your_own_python_package/</guid>
+      <description>Python is very convenient for us to develop a package. How to install your own python package and import it like numpy or other packages? Here, we&amp;rsquo;ll give a very simple example to you.
+1 Prepare your python package Create a empty directory called whatever, and here we name it Lib_Hello. Now give a name to your python package and we call it HelloPackage, and in directory HelloPackage, implement a python module.</description>
+    </item>
+    
+    <item>
+      <title>Munerical Modeling of Acoustic Wave Propagation</title>
+      <link>http://localhost:1313/post/acoustic_wave_modeling/</link>
+      <pubDate>Mon, 21 Sep 2020 22:34:07 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/acoustic_wave_modeling/</guid>
+      <description>1 Basic princeples The acoustic wave equation in vector form given by $$ p_{tt}=c^2 \nabla^2 p \tag{1} $$ where, $p$ the acoustic pressure, $c$ is the propagation speed of acoutic wave, and $\nabla^2$ denotes the $Laplacian$ operator.</description>
+    </item>
     
     <item>
       <title>Seismic Data Processing in Python</title>

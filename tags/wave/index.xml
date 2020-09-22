@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wave on Geophydog</title>
+    <link>http://localhost:1313/tags/wave/</link>
+    <description>Recent content in wave on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Mon, 21 Sep 2020 22:34:07 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/wave/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Munerical Modeling of Acoustic Wave Propagation</title>
+      <link>http://localhost:1313/post/acoustic_wave_modeling/</link>
+      <pubDate>Mon, 21 Sep 2020 22:34:07 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/acoustic_wave_modeling/</guid>
+      <description>1 Basic princeples The acoustic wave equation in vector form given by $$ p_{tt}=c^2 \nabla^2 p \tag{1} $$ where, $p$ the acoustic pressure, $c$ is the propagation speed of acoutic wave, and $\nabla^2$ denotes the $Laplacian$ operator.</description>
+    </item>
+    
+  </channel>
+</rss>

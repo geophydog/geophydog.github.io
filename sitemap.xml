@@ -3,7 +3,77 @@
   
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2020-09-19T21:14:22+08:00</lastmod>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/your_own_python_package/</loc>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/python/</loc>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2020-09-22T20:12:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/acoustic_wave_modeling/</loc>
+    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/numerical-modeling/</loc>
+    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/numerical-modeling/</loc>
+    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/wave/</loc>
+    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -16,28 +86,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2020-09-19T21:14:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/tags/obspy/</loc>
-    <lastmod>2020-09-19T21:14:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2020-09-19T21:14:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2020-09-19T21:14:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,13 +101,6 @@
   
   <url>
     <loc>http://localhost:1313/post/python_data_processing/</loc>
-    <lastmod>2020-09-19T21:14:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2020-09-19T21:14:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
