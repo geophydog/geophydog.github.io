@@ -55,7 +55,7 @@ x_1(t) &amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \tag{1
 2 Two-way filtering However, if we want to ensure that the peaks of original and filtered signals are at the same moment, we need to filter again, which is named $two-way$ filtering.">
 <meta itemprop="datePublished" content="2020-09-16T08:56:15+08:00" />
 <meta itemprop="dateModified" content="2020-09-16T08:56:15+08:00" />
-<meta itemprop="wordCount" content="437">
+<meta itemprop="wordCount" content="442">
 
 
 
@@ -182,8 +182,8 @@ peaks of original and filtered signals are at the same moment, we need to filter
 again, which is named $two-way$ filtering.
 $$
 \begin{cases}
-X_2(\omega) &amp;= \mathscr{F}[Reverse [x_1(n)] ] \cdot H(\omega)\\<br>
-x_2(t) &amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_2(\omega)] \}
+X_2(\omega) &amp;= \mathscr{F} \{ Reverse [x_1(n)] \} \cdot H(\omega)\\<br>
+x_2(t) &amp;= Reverse \{ \mathscr{R} \{ \mathscr{F}^{-1}[X_2(\omega)] \} \}
 \end{cases} \tag{2}.
 $$</p>
 <p>Here, we give an example to show these two types of filters.</p>
