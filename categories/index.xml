@@ -58,6 +58,15 @@
     </item>
     
     <item>
+      <title>signal processing</title>
+      <link>http://localhost:1313/categories/signal-processing/</link>
+      <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/signal-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>awk</title>
       <link>http://localhost:1313/categories/awk/</link>
       <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
@@ -90,15 +99,6 @@
       <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/scientific-computation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>signal processing</title>
-      <link>http://localhost:1313/categories/signal-processing/</link>
-      <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
-      
-      <guid>http://localhost:1313/categories/signal-processing/</guid>
       <description></description>
     </item>
     

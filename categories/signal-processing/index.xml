@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Thu, 03 Sep 2020 21:23:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 08:56:15 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/signal-processing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Journey to Digital Filter Design: One-way and Two-way Filters</title>
+      <link>http://localhost:1313/post/one-way_two-way_filter/</link>
+      <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/one-way_two-way_filter/</guid>
+      <description>1 One-way filtering For given filter transfer function $H(\omega)$, the filtered data $X_1(\omega)$ is $$ \begin{cases} X_1(\omega) &amp;amp;= H(\omega) \cdot X(\omega)\\
+x_1(t) &amp;amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \tag{1}. $$ Eq. $(1)$ is called $one-way$ filtering, and it ensure that the onsets of original and filtered signals are at the same moment.
+2 Two-way filtering However, if we want to ensure that the peaks of original and filtered signals are at the same moment, we need to filter again, which is named $two-way$ filtering.</description>
+    </item>
     
     <item>
       <title>Hilbert Transform</title>

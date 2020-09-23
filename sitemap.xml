@@ -163,6 +163,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/categories/signal-processing/</loc>
+    <lastmod>2020-09-16T08:56:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/one-way_two-way_filter/</loc>
     <lastmod>2020-09-16T08:56:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -409,13 +416,6 @@
   
   <url>
     <loc>http://localhost:1313/tags/hilbert-transform/</loc>
-    <lastmod>2020-09-03T21:23:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/signal-processing/</loc>
     <lastmod>2020-09-03T21:23:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
