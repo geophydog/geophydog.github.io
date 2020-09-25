@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Tue, 22 Sep 2020 20:12:37 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2020 08:56:35 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>beamforming</title>
+      <link>http://localhost:1313/categories/beamforming/</link>
+      <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/beamforming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>python</title>
       <link>http://localhost:1313/categories/python/</link>
-      <pubDate>Tue, 22 Sep 2020 20:12:37 +0800</pubDate>
+      <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/python/</guid>
       <description></description>
@@ -81,15 +90,6 @@
       <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/seismic-interferometry/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>beamforming</title>
-      <link>http://localhost:1313/categories/beamforming/</link>
-      <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
-      
-      <guid>http://localhost:1313/categories/beamforming/</guid>
       <description></description>
     </item>
     
