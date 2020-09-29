@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Seismic Interferometry on Geophydog</title>
+    <title>seismic interferometry on Geophydog</title>
     <link>http://localhost:1313/tags/seismic-interferometry/</link>
-    <description>Recent content in Seismic Interferometry on Geophydog</description>
+    <description>Recent content in seismic interferometry on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Tue, 08 Sep 2020 22:11:34 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2020 13:43:54 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/tags/seismic-interferometry/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EGFs from Cross-correlations of noise Excited by a Circle-Shaped Sources</title>
+      <link>http://localhost:1313/post/ccf_noise_source/</link>
+      <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ccf_noise_source/</guid>
+      <description>New responses, if the wave field is diffuse, can be retrieved from interstaion cross-correlation of ambient noise. However, the cross-correlation time functions are asymmetric if the noise sources distribute unevenly. Here, we give you an example to show that how the cross-correlation functions vary with the angles of noise sources. We computed synthetic seismograms of earthquakes with angles from 1 to 360 degrees with interval of 1 degree and data are recorded by two receivers; then we compute the cross-correlation time functions and align them with the angles; lastly, we stack all the cross-correlations to show you it&amp;rsquo;s symmetric under the condition that the noise sources distribute evenly.</description>
+    </item>
     
     <item>
       <title>Cross-correlations From Seismic Ambient Noise</title>

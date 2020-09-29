@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Fri, 25 Sep 2020 08:56:35 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2020 13:43:54 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EGFs from Cross-correlations of noise Excited by a Circle-Shaped Sources</title>
+      <link>http://localhost:1313/post/ccf_noise_source/</link>
+      <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ccf_noise_source/</guid>
+      <description>New responses, if the wave field is diffuse, can be retrieved from interstaion cross-correlation of ambient noise. However, the cross-correlation time functions are asymmetric if the noise sources distribute unevenly. Here, we give you an example to show that how the cross-correlation functions vary with the angles of noise sources. We computed synthetic seismograms of earthquakes with angles from 1 to 360 degrees with interval of 1 degree and data are recorded by two receivers; then we compute the cross-correlation time functions and align them with the angles; lastly, we stack all the cross-correlations to show you it&amp;rsquo;s symmetric under the condition that the noise sources distribute evenly.</description>
+    </item>
     
     <item>
       <title>Calculating Ray Parameters Using Obspy</title>
