@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Geophydog" /><meta name="description" content="1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f()int x, int y);   Let&amp;rsquo;s give a code demo to show function pointer.
+1 2  int *f(int x, int y);   Let&amp;rsquo;s give a code demo to show function pointer.
 1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x &#43; y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&amp;#34;%d\n&amp;#34;, *(p&#43;1)); return 0; }   Output 20" /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -37,13 +37,13 @@
 
 
 
-<link href="/sass/main.min.d673ac3919b15d2fe4baa5970d45a748215d3b9eff8cc8607aa41dfaf30eb116.css" rel="stylesheet">
+<link href="/sass/main.min.d2ea1cff77f6d36a7b4a58bad5a982d9f31a6b98cb2d0e192ce874dd3333017d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Function Pointer &amp; Pointer Function" />
 <meta property="og:description" content="1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f()int x, int y);   Let&rsquo;s give a code demo to show function pointer.
+1 2  int *f(int x, int y);   Let&rsquo;s give a code demo to show function pointer.
 1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x &#43; y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p&#43;1)); return 0; }   Output 20" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/func_ptr_and_ptr_func/" />
@@ -51,7 +51,7 @@
 <meta property="article:modified_time" content="2020-09-14T16:12:24+08:00" />
 <meta itemprop="name" content="Function Pointer &amp; Pointer Function">
 <meta itemprop="description" content="1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f()int x, int y);   Let&rsquo;s give a code demo to show function pointer.
+1 2  int *f(int x, int y);   Let&rsquo;s give a code demo to show function pointer.
 1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x &#43; y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p&#43;1)); return 0; }   Output 20">
 <meta itemprop="datePublished" content="2020-09-14T16:12:24+08:00" />
 <meta itemprop="dateModified" content="2020-09-14T16:12:24+08:00" />
@@ -63,7 +63,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Function Pointer &amp; Pointer Function"/>
 <meta name="twitter:description" content="1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f()int x, int y);   Let&rsquo;s give a code demo to show function pointer.
+1 2  int *f(int x, int y);   Let&rsquo;s give a code demo to show function pointer.
 1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x &#43; y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p&#43;1)); return 0; }   Output 20"/>
 
 <!--[if lte IE 9]>
@@ -176,7 +176,7 @@ For instance, its declaration follows</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="o">*</span><span class="nf">f</span><span class="p">()</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="o">*</span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
 
 </code></pre></td></tr></table>
 </div>

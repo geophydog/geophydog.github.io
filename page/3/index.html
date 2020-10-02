@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.d673ac3919b15d2fe4baa5970d45a748215d3b9eff8cc8607aa41dfaf30eb116.css" rel="stylesheet">
+<link href="/sass/main.min.d2ea1cff77f6d36a7b4a58bad5a982d9f31a6b98cb2d0e192ce874dd3333017d.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -153,7 +153,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      It&rsquo;s wonderful to printing colorful strings on your terminal.
+      It&rsquo;s wonderful to print colorful strings on your terminal and here we show you how to do that.
 1 2 3 4 5 6 7 8 9 10 11  #include &lt;stdio.h&gt; int main() { char ss[1024] = {&#34;Colorful!!!&#34;}; printf(&#34;\033[0;31m %s \033[0;39m\n&#34;, ss); // red  printf(&#34;\033[0;32m %s \033[0;39m\n&#34;, ss); // green  printf(&#34;\033[0;33m %s \033[0;39m\n&#34;, ss); // yellow  printf(&#34;\033[0;34m %s \033[0;39m\n&#34;, ss); // blue  printf(&#34;\033[0;35m %s \033[0;39m\n&#34;, ss); // purple  return 0; }   
     </div>
     <div class="read-more">
@@ -176,7 +176,7 @@
   <div class="post-content">
     <div class="post-summary">
       1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f()int x, int y);   Let&rsquo;s give a code demo to show function pointer.
+1 2  int *f(int x, int y);   Let&rsquo;s give a code demo to show function pointer.
 1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x + y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p+1)); return 0; }   Output 20
     </div>
     <div class="read-more">
