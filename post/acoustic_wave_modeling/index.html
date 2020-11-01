@@ -58,7 +58,7 @@ where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wa
 2 Propagation in 1D space The Taylar&rsquo;s series of $p(t&#43;\Delta t)$ and $p(t-\Delta t)$ are given by">
 <meta itemprop="datePublished" content="2020-09-21T22:34:07+08:00" />
 <meta itemprop="dateModified" content="2020-09-21T22:34:07+08:00" />
-<meta itemprop="wordCount" content="642">
+<meta itemprop="wordCount" content="857">
 
 
 
@@ -355,6 +355,113 @@ time domain with given parameters.
 </div>
 </div><p><img src="/NUMERICAL_MODELING/1D_HOMO_ACO.png" alt="1D_HOMO"></p>
 <h3 id="52-2d">5.2 2D</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="c1">#from numba import jit</span>
+
+<span class="c1">#@jit(nopython=True)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="mi">501</span>
+    <span class="n">ny</span> <span class="o">=</span> <span class="mi">501</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="mi">401</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-3</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">340</span>
+    <span class="n">rx</span> <span class="o">=</span> <span class="mi">150</span>
+    <span class="n">ry</span> <span class="o">=</span> <span class="mi">150</span>
+    <span class="n">sx</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">sy</span> <span class="o">=</span> <span class="mi">250</span>
+    <span class="n">f0</span> <span class="o">=</span> <span class="mi">45</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="mf">0.02</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">sr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">u1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+    <span class="n">u2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+    <span class="n">u3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">11</span><span class="p">,</span> <span class="n">nt</span><span class="p">))</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="n">dt</span><span class="o">*</span><span class="n">c</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nt</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">sy</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">==</span> <span class="n">sx</span><span class="p">:</span>
+                    <span class="n">u3</span><span class="p">[</span><span class="n">sy</span><span class="p">,</span> <span class="n">sx</span><span class="p">]</span> <span class="o">=</span> <span class="n">sr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">u3</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">u2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">u1</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> \
+                           <span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="n">u2</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">u2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span>\
+                           <span class="n">u2</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">u2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span>\
+                           <span class="mi">4</span><span class="o">*</span><span class="n">u2</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">])</span>
+        <span class="n">u1</span> <span class="o">=</span> <span class="n">u2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">u2</span> <span class="o">=</span> <span class="n">u3</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">u1</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">u1</span>  <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;wave.txt&#39;</span><span class="p">,</span> <span class="n">u1</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y (m)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/NUMERICAL_MODELING/2D_HOMO_ACO.png" alt="2D-HOMO"></p>
 
     </div>
 
