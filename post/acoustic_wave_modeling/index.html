@@ -18,7 +18,7 @@
 
 <meta name="author" content="Geophydog" /><meta name="description" content="1 Acoustic wave equation The acoustic wave equation in vector form is given by
 $$ p_{tt}=c^2 \nabla^2 p \tag{1} $$
-where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
+where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
 2 Propagation in 1D space The Taylar&amp;rsquo;s series of $p(t&#43;\Delta t)$ and $p(t-\Delta t)$ are given by" /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -45,7 +45,7 @@ where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave,
 <meta property="og:title" content="Numerical Modeling of Acoustic Wave Propagation" />
 <meta property="og:description" content="1 Acoustic wave equation The acoustic wave equation in vector form is given by
 $$ p_{tt}=c^2 \nabla^2 p \tag{1} $$
-where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
+where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
 2 Propagation in 1D space The Taylar&rsquo;s series of $p(t&#43;\Delta t)$ and $p(t-\Delta t)$ are given by" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/acoustic_wave_modeling/" />
@@ -54,11 +54,11 @@ where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave,
 <meta itemprop="name" content="Numerical Modeling of Acoustic Wave Propagation">
 <meta itemprop="description" content="1 Acoustic wave equation The acoustic wave equation in vector form is given by
 $$ p_{tt}=c^2 \nabla^2 p \tag{1} $$
-where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
+where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
 2 Propagation in 1D space The Taylar&rsquo;s series of $p(t&#43;\Delta t)$ and $p(t-\Delta t)$ are given by">
 <meta itemprop="datePublished" content="2020-09-21T22:34:07+08:00" />
 <meta itemprop="dateModified" content="2020-09-21T22:34:07+08:00" />
-<meta itemprop="wordCount" content="631">
+<meta itemprop="wordCount" content="642">
 
 
 
@@ -67,7 +67,7 @@ where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave,
 <meta name="twitter:title" content="Numerical Modeling of Acoustic Wave Propagation"/>
 <meta name="twitter:description" content="1 Acoustic wave equation The acoustic wave equation in vector form is given by
 $$ p_{tt}=c^2 \nabla^2 p \tag{1} $$
-where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
+where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
 2 Propagation in 1D space The Taylar&rsquo;s series of $p(t&#43;\Delta t)$ and $p(t-\Delta t)$ are given by"/>
 
 <!--[if lte IE 9]>
@@ -179,7 +179,7 @@ where, $p$ the acoustic pressure, $c$ is the propagation speed of acoustic wave,
 <p>$$
 p_{tt}=c^2 \nabla^2 p \tag{1}
 $$</p>
-<p>where, $p$ the acoustic pressure, $c$ is the propagation speed of
+<p>where, $p$ is the acoustic pressure, $c$ is the propagation speed of
 acoustic wave, $p_{tt}$ is the second time derivative of $p$, 
 and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize
 the equation using finite difference method in the following parts.</p>
@@ -195,16 +195,20 @@ p(t-\Delta t) &amp;= p(t) - p&rsquo;(t)\Delta t + \frac{1}{2}p&rsquo;'(t)\Delta 
 $$</p>
 <p>so we get $p_{tt}$ in discrete form as</p>
 <p>$$
-p_{tt}=p&rsquo;'(t)=\frac{p(t+\Delta t)-2p(t)+p(t-\Delta t)}{\Delta t^2} \tag{3}.
+p_{tt}=\frac{\partial ^2 p(x, t)}{\partial t^2}=
+\frac{p(x, t+\Delta t)-2p(x, t)+p(x, t-\Delta t)}{\Delta t^2} \tag{3}.
 $$</p>
 <p>Similarly, the discretae form of $\nabla^2p$ becomes</p>
 <p>$$
-\nabla^2 p = \frac{p(x+\Delta x)-2p(x)+p(x-\Delta x}{\Delta x^2} \tag{4}.
+\nabla^2 p = \frac{p(x+\Delta x)-2p(x)+p(x-\Delta x)}{\Delta x^2} \tag{4}.
 $$</p>
 <p>Lastly, we get the 3-point finite difference in time and space domains of 1D acoustic wave
 and the updated pressure is given by</p>
 <p>$$
-p(x, t+\Delta t) = 2p(x, t) - p(x, t-\Delta t) + \frac{c^2\Delta t^2}{\Delta x^2}[p(x+\Delta x, t)-2p(x, t)+p(x-\Delta x, t)] \tag{5}.
+\begin{aligned}
+p(x, t+\Delta t) &amp;= 2p(x, t) - p(x, t-\Delta t)\\<br>
+&amp;+ \frac{c^2\Delta t^2}{\Delta x^2}[p(x+\Delta x, t)-2p(x, t)+p(x-\Delta x, t)]
+\end{aligned} \tag{5}.
 $$</p>
 <p>For simplicity, we rewrite eq. (5) as 
 $$
