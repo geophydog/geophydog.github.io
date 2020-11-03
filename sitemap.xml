@@ -2,28 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2020-09-29T13:43:54+08:00</lastmod>
+    <loc>http://localhost:1313/post/boundary_conditions/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/ccf_noise_source/</loc>
-    <lastmod>2020-09-29T13:43:54+08:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2020-09-29T13:43:54+08:00</lastmod>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/numerical-modeling/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/numerical-modeling/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/post/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/wave/</loc>
+    <lastmod>2020-11-02T20:44:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/ccf_noise_source/</loc>
     <lastmod>2020-09-29T13:43:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -38,13 +73,6 @@
   
   <url>
     <loc>http://localhost:1313/categories/seismic-interferometry/</loc>
-    <lastmod>2020-09-29T13:43:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2020-09-29T13:43:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -100,28 +128,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/numerical-modeling/</loc>
-    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/numerical-modeling/</loc>
-    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/post/acoustic_wave_modeling/</loc>
-    <lastmod>2020-09-21T22:34:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/wave/</loc>
     <lastmod>2020-09-21T22:34:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
