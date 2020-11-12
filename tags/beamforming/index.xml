@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>beamforming on Geophydog</title>
-    <link>http://localhost:1313/tags/beamforming/</link>
+    <link>https://geophydog.cool/tags/beamforming/</link>
     <description>Recent content in beamforming on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
     <lastBuildDate>Fri, 25 Sep 2020 08:56:35 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/beamforming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://geophydog.cool/tags/beamforming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Calculating Ray Parameters Using Obspy</title>
-      <link>http://localhost:1313/post/obspy_ray_parameter/</link>
+      <link>https://geophydog.cool/post/obspy_ray_parameter/</link>
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/obspy_ray_parameter/</guid>
+      <guid>https://geophydog.cool/post/obspy_ray_parameter/</guid>
       <description>Usually, we need to do back-projection from our back-azimuth $&amp;ndash;$ slowness panel of body waves to geographic locations. We&amp;rsquo;ll obtain the location of some body phase if we know the ray parameter of the body phase of corresponding epicentral distance. Here, we show you how to calculate the ray parameters versus the epicentral distances using the python library obspy.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  from obspy.</description>
     </item>
     
     <item>
       <title>Cross Spectral Beamforming</title>
-      <link>http://localhost:1313/post/cross_spectra_beamforing/</link>
+      <link>https://geophydog.cool/post/cross_spectra_beamforing/</link>
       <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cross_spectra_beamforing/</guid>
+      <guid>https://geophydog.cool/post/cross_spectra_beamforing/</guid>
       <description>Basic princeples Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.</description>
     </item>
     

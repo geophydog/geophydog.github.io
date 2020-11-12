@@ -2,274 +2,274 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Geophydog</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://geophydog.cool/tags/</link>
     <description>Recent content in Tags on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
     <lastBuildDate>Sun, 08 Nov 2020 18:31:43 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>arrow</title>
-      <link>http://localhost:1313/tags/arrow/</link>
+      <link>https://geophydog.cool/tags/arrow/</link>
       <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/arrow/</guid>
+      <guid>https://geophydog.cool/tags/arrow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gmt</title>
-      <link>http://localhost:1313/tags/gmt/</link>
+      <link>https://geophydog.cool/tags/gmt/</link>
       <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/gmt/</guid>
+      <guid>https://geophydog.cool/tags/gmt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vector</title>
-      <link>http://localhost:1313/tags/vector/</link>
+      <link>https://geophydog.cool/tags/vector/</link>
       <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/vector/</guid>
+      <guid>https://geophydog.cool/tags/vector/</guid>
       <description></description>
     </item>
     
     <item>
       <title>numerical modeling</title>
-      <link>http://localhost:1313/tags/numerical-modeling/</link>
+      <link>https://geophydog.cool/tags/numerical-modeling/</link>
       <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/numerical-modeling/</guid>
+      <guid>https://geophydog.cool/tags/numerical-modeling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wave</title>
-      <link>http://localhost:1313/tags/wave/</link>
+      <link>https://geophydog.cool/tags/wave/</link>
       <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/wave/</guid>
+      <guid>https://geophydog.cool/tags/wave/</guid>
       <description></description>
     </item>
     
     <item>
       <title>seismic interferometry</title>
-      <link>http://localhost:1313/tags/seismic-interferometry/</link>
+      <link>https://geophydog.cool/tags/seismic-interferometry/</link>
       <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/seismic-interferometry/</guid>
+      <guid>https://geophydog.cool/tags/seismic-interferometry/</guid>
       <description></description>
     </item>
     
     <item>
       <title>beamforming</title>
-      <link>http://localhost:1313/tags/beamforming/</link>
+      <link>https://geophydog.cool/tags/beamforming/</link>
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/beamforming/</guid>
+      <guid>https://geophydog.cool/tags/beamforming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>obspy</title>
-      <link>http://localhost:1313/tags/obspy/</link>
+      <link>https://geophydog.cool/tags/obspy/</link>
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/obspy/</guid>
+      <guid>https://geophydog.cool/tags/obspy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://geophydog.cool/tags/python/</link>
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://geophydog.cool/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data processing</title>
-      <link>http://localhost:1313/tags/data-processing/</link>
+      <link>https://geophydog.cool/tags/data-processing/</link>
       <pubDate>Sat, 19 Sep 2020 21:14:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/data-processing/</guid>
+      <guid>https://geophydog.cool/tags/data-processing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>animation</title>
-      <link>http://localhost:1313/tags/animation/</link>
+      <link>https://geophydog.cool/tags/animation/</link>
       <pubDate>Fri, 18 Sep 2020 17:36:40 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/animation/</guid>
+      <guid>https://geophydog.cool/tags/animation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization</title>
-      <link>http://localhost:1313/tags/visualization/</link>
+      <link>https://geophydog.cool/tags/visualization/</link>
       <pubDate>Fri, 18 Sep 2020 15:52:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/visualization/</guid>
+      <guid>https://geophydog.cool/tags/visualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fft</title>
-      <link>http://localhost:1313/tags/fft/</link>
+      <link>https://geophydog.cool/tags/fft/</link>
       <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/fft/</guid>
+      <guid>https://geophydog.cool/tags/fft/</guid>
       <description></description>
     </item>
     
     <item>
       <title>filter design</title>
-      <link>http://localhost:1313/tags/filter-design/</link>
+      <link>https://geophydog.cool/tags/filter-design/</link>
       <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/filter-design/</guid>
+      <guid>https://geophydog.cool/tags/filter-design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>function pointer</title>
-      <link>http://localhost:1313/tags/function-pointer/</link>
+      <link>https://geophydog.cool/tags/function-pointer/</link>
       <pubDate>Mon, 14 Sep 2020 16:12:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/function-pointer/</guid>
+      <guid>https://geophydog.cool/tags/function-pointer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pointer function</title>
-      <link>http://localhost:1313/tags/pointer-function/</link>
+      <link>https://geophydog.cool/tags/pointer-function/</link>
       <pubDate>Mon, 14 Sep 2020 16:12:24 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/pointer-function/</guid>
+      <guid>https://geophydog.cool/tags/pointer-function/</guid>
       <description></description>
     </item>
     
     <item>
       <title>awk</title>
-      <link>http://localhost:1313/tags/awk/</link>
+      <link>https://geophydog.cool/tags/awk/</link>
       <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/awk/</guid>
+      <guid>https://geophydog.cool/tags/awk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>https://geophydog.cool/tags/linux/</link>
       <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>https://geophydog.cool/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Basemap</title>
-      <link>http://localhost:1313/tags/basemap/</link>
+      <link>https://geophydog.cool/tags/basemap/</link>
       <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/basemap/</guid>
+      <guid>https://geophydog.cool/tags/basemap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ambient Noise</title>
-      <link>http://localhost:1313/tags/ambient-noise/</link>
+      <link>https://geophydog.cool/tags/ambient-noise/</link>
       <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/ambient-noise/</guid>
+      <guid>https://geophydog.cool/tags/ambient-noise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cross-correlation</title>
-      <link>http://localhost:1313/tags/cross-correlation/</link>
+      <link>https://geophydog.cool/tags/cross-correlation/</link>
       <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/cross-correlation/</guid>
+      <guid>https://geophydog.cool/tags/cross-correlation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EGFs</title>
-      <link>http://localhost:1313/tags/egfs/</link>
+      <link>https://geophydog.cool/tags/egfs/</link>
       <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/egfs/</guid>
+      <guid>https://geophydog.cool/tags/egfs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Normalization</title>
-      <link>http://localhost:1313/tags/normalization/</link>
+      <link>https://geophydog.cool/tags/normalization/</link>
       <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/normalization/</guid>
+      <guid>https://geophydog.cool/tags/normalization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>seismic array</title>
-      <link>http://localhost:1313/tags/seismic-array/</link>
+      <link>https://geophydog.cool/tags/seismic-array/</link>
       <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/seismic-array/</guid>
+      <guid>https://geophydog.cool/tags/seismic-array/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eigen3</title>
-      <link>http://localhost:1313/tags/eigen3/</link>
+      <link>https://geophydog.cool/tags/eigen3/</link>
       <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/eigen3/</guid>
+      <guid>https://geophydog.cool/tags/eigen3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linear Algebra</title>
-      <link>http://localhost:1313/tags/linear-algebra/</link>
+      <link>https://geophydog.cool/tags/linear-algebra/</link>
       <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/linear-algebra/</guid>
+      <guid>https://geophydog.cool/tags/linear-algebra/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Matrix</title>
-      <link>http://localhost:1313/tags/matrix/</link>
+      <link>https://geophydog.cool/tags/matrix/</link>
       <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/matrix/</guid>
+      <guid>https://geophydog.cool/tags/matrix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hilbert transform</title>
-      <link>http://localhost:1313/tags/hilbert-transform/</link>
+      <link>https://geophydog.cool/tags/hilbert-transform/</link>
       <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/hilbert-transform/</guid>
+      <guid>https://geophydog.cool/tags/hilbert-transform/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spectral analysis</title>
-      <link>http://localhost:1313/tags/spectral-analysis/</link>
+      <link>https://geophydog.cool/tags/spectral-analysis/</link>
       <pubDate>Thu, 03 Sep 2020 17:11:08 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/spectral-analysis/</guid>
+      <guid>https://geophydog.cool/tags/spectral-analysis/</guid>
       <description></description>
     </item>
     

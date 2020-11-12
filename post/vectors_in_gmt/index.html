@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/vectors_in_gmt/" />
+<link rel="canonical" href="https://geophydog.cool/post/vectors_in_gmt/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,14 +35,14 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.d2ea1cff77f6d36a7b4a58bad5a982d9f31a6b98cb2d0e192ce874dd3333017d.css" rel="stylesheet">
+<link href="/sass/main.min.2b8851dfe15a3667fb2579a5f133d27b79318bac31e8db8e051b69c0e536f5e2.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Vectors in GMT" />
 <meta property="og:description" content="Arrow styles in Cartesian coordinate system 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35  PS=plot.ps PDF=plot.pdf R=0/10/0/10 J=X10i/7i gmt psbasemap -R$R -J$J -K -Bx1f0.1 -By1f0.1 -BWSen &gt; $PS echo &#34;1 1 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;b &gt;&gt; $PS echo &#34;1 2 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e &gt;&gt; $PS echo &#34;1 3 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;b&#43;e &gt;&gt; $PS echo &#34;1 4 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;b&#43;h1 &gt;&gt; $PS echo &#34;1 5 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;h1 &gt;&gt; $PS echo &#34;1 5 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;h1 -Gred &gt;&gt; $PS echo &#34;1 6 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;m -Gred &gt;&gt; $PS echo &#34;1 7 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;l -Gred &gt;&gt; $PS echo &#34;1 8 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;r -Gred &gt;&gt; $PS echo &#34;1 9 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;a90 -Gred &gt;&gt; $PS echo &#34;5 1 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;h-2 -Gred &gt;&gt; $PS echo &#34;5 2 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;h-1 -Gred &gt;&gt; $PS echo &#34;5 3 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;e&#43;h2 -Gred &gt;&gt; $PS echo &#34;5 4 0 2i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;b&#43;e&#43;h0 &gt;&gt; $PS echo &#34;8 1 0 1i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;bt &gt;&gt; $PS echo &#34;8 2 0 1i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;bc &gt;&gt; $PS echo &#34;8 3 0 1i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;ba &gt;&gt; $PS echo &#34;8 4 0 1i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;bA &gt;&gt; $PS echo &#34;8 5 0 1i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;bi &gt;&gt; $PS echo &#34;8 6 0 1i&#34; | gmt psxy -R -J -K -O -Sv1c&#43;bI &gt;&gt; $PS echo &#34;5 5 2i 0 45&#34; | gmt psxy -R -J -K -O -Sm1c&#43;b&#43;e&#43;h1 -Gred&gt;&gt; $PS echo &#34;5 7 2i 0 90&#34; | gmt psxy -R -J -O -Sm1c&#43;b&#43;e&#43;h1 -Gred &gt;&gt; $PS gmt psconvert -E150 -Tg -A -P $PS ps2pdf $PS $PDF evince $PDF rm $PS   Vectors in geographic coordinate system 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  R=-100/100/-70/70 J=M7i PS=geo_arrow." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/vectors_in_gmt/" />
+<meta property="og:url" content="https://geophydog.cool/post/vectors_in_gmt/" />
 <meta property="article:published_time" content="2020-11-08T18:31:43+08:00" />
 <meta property="article:modified_time" content="2020-11-08T18:31:43+08:00" />
 <meta itemprop="name" content="Vectors in GMT">
@@ -81,7 +81,7 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/home/">
+    <a href="/">
         <li class="mobile-menu-item">Home</li>
       </a><a href="/">
         <li class="mobile-menu-item">Blogs</li>
@@ -105,7 +105,7 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/home/">Home</a>
+        <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/">Blogs</a>
       </li><li class="menu-item">
@@ -369,7 +369,7 @@ rm <span class="nv">$PS</span> gmt.*
       <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
       <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
       <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
-  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">

@@ -2,121 +2,121 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Geophydog</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://geophydog.cool/categories/</link>
     <description>Recent content in Categories on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
     <lastBuildDate>Sun, 08 Nov 2020 18:31:43 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GMT</title>
-      <link>http://localhost:1313/categories/gmt/</link>
+      <link>https://geophydog.cool/categories/gmt/</link>
       <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/gmt/</guid>
+      <guid>https://geophydog.cool/categories/gmt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>visualization</title>
-      <link>http://localhost:1313/categories/visualization/</link>
+      <link>https://geophydog.cool/categories/visualization/</link>
       <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/visualization/</guid>
+      <guid>https://geophydog.cool/categories/visualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>numerical modeling</title>
-      <link>http://localhost:1313/categories/numerical-modeling/</link>
+      <link>https://geophydog.cool/categories/numerical-modeling/</link>
       <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/numerical-modeling/</guid>
+      <guid>https://geophydog.cool/categories/numerical-modeling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>seismic interferometry</title>
-      <link>http://localhost:1313/categories/seismic-interferometry/</link>
+      <link>https://geophydog.cool/categories/seismic-interferometry/</link>
       <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/seismic-interferometry/</guid>
+      <guid>https://geophydog.cool/categories/seismic-interferometry/</guid>
       <description></description>
     </item>
     
     <item>
       <title>beamforming</title>
-      <link>http://localhost:1313/categories/beamforming/</link>
+      <link>https://geophydog.cool/categories/beamforming/</link>
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/beamforming/</guid>
+      <guid>https://geophydog.cool/categories/beamforming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>http://localhost:1313/categories/python/</link>
+      <link>https://geophydog.cool/categories/python/</link>
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/python/</guid>
+      <guid>https://geophydog.cool/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>seismic data processing</title>
-      <link>http://localhost:1313/categories/seismic-data-processing/</link>
+      <link>https://geophydog.cool/categories/seismic-data-processing/</link>
       <pubDate>Sat, 19 Sep 2020 21:14:22 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/seismic-data-processing/</guid>
+      <guid>https://geophydog.cool/categories/seismic-data-processing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>filter</title>
-      <link>http://localhost:1313/categories/filter/</link>
+      <link>https://geophydog.cool/categories/filter/</link>
       <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/filter/</guid>
+      <guid>https://geophydog.cool/categories/filter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>signal processing</title>
-      <link>http://localhost:1313/categories/signal-processing/</link>
+      <link>https://geophydog.cool/categories/signal-processing/</link>
       <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/signal-processing/</guid>
+      <guid>https://geophydog.cool/categories/signal-processing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>awk</title>
-      <link>http://localhost:1313/categories/awk/</link>
+      <link>https://geophydog.cool/categories/awk/</link>
       <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/awk/</guid>
+      <guid>https://geophydog.cool/categories/awk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Scientific Computation</title>
-      <link>http://localhost:1313/categories/scientific-computation/</link>
+      <link>https://geophydog.cool/categories/scientific-computation/</link>
       <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/scientific-computation/</guid>
+      <guid>https://geophydog.cool/categories/scientific-computation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c/c&#43;&#43;</title>
-      <link>http://localhost:1313/categories/c/c&#43;&#43;/</link>
+      <link>https://geophydog.cool/categories/c/c&#43;&#43;/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/c/c&#43;&#43;/</guid>
+      <guid>https://geophydog.cool/categories/c/c&#43;&#43;/</guid>
       <description></description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>seismic array on Geophydog</title>
-    <link>http://localhost:1313/tags/seismic-array/</link>
+    <link>https://geophydog.cool/tags/seismic-array/</link>
     <description>Recent content in seismic array on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
     <lastBuildDate>Mon, 07 Sep 2020 22:40:07 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/seismic-array/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://geophydog.cool/tags/seismic-array/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cross Spectral Beamforming</title>
-      <link>http://localhost:1313/post/cross_spectra_beamforing/</link>
+      <link>https://geophydog.cool/post/cross_spectra_beamforing/</link>
       <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/cross_spectra_beamforing/</guid>
+      <guid>https://geophydog.cool/post/cross_spectra_beamforing/</guid>
       <description>Basic princeples Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.</description>
     </item>
     

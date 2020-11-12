@@ -1,498 +1,498 @@
-<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://geophydog.cool/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/tags/arrow/</loc>
+    <loc>https://geophydog.cool/tags/arrow/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://geophydog.cool/categories/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://geophydog.cool/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/gmt/</loc>
+    <loc>https://geophydog.cool/categories/gmt/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/gmt/</loc>
+    <loc>https://geophydog.cool/tags/gmt/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://geophydog.cool/post/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://geophydog.cool/tags/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/vector/</loc>
+    <loc>https://geophydog.cool/tags/vector/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vectors_in_gmt/</loc>
+    <loc>https://geophydog.cool/post/vectors_in_gmt/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/visualization/</loc>
+    <loc>https://geophydog.cool/categories/visualization/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/boundary_conditions/</loc>
+    <loc>https://geophydog.cool/post/boundary_conditions/</loc>
     <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/numerical-modeling/</loc>
+    <loc>https://geophydog.cool/tags/numerical-modeling/</loc>
     <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/numerical-modeling/</loc>
+    <loc>https://geophydog.cool/categories/numerical-modeling/</loc>
     <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/wave/</loc>
+    <loc>https://geophydog.cool/tags/wave/</loc>
     <lastmod>2020-11-02T20:44:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/ccf_noise_source/</loc>
+    <loc>https://geophydog.cool/post/ccf_noise_source/</loc>
     <lastmod>2020-09-29T13:43:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/seismic-interferometry/</loc>
+    <loc>https://geophydog.cool/tags/seismic-interferometry/</loc>
     <lastmod>2020-09-29T13:43:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/seismic-interferometry/</loc>
+    <loc>https://geophydog.cool/categories/seismic-interferometry/</loc>
     <lastmod>2020-09-29T13:43:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/beamforming/</loc>
+    <loc>https://geophydog.cool/tags/beamforming/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/beamforming/</loc>
+    <loc>https://geophydog.cool/categories/beamforming/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/obspy_ray_parameter/</loc>
+    <loc>https://geophydog.cool/post/obspy_ray_parameter/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/obspy/</loc>
+    <loc>https://geophydog.cool/tags/obspy/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/python/</loc>
+    <loc>https://geophydog.cool/tags/python/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/python/</loc>
+    <loc>https://geophydog.cool/categories/python/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/your_own_python_package/</loc>
+    <loc>https://geophydog.cool/post/your_own_python_package/</loc>
     <lastmod>2020-09-22T20:12:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/acoustic_wave_modeling/</loc>
+    <loc>https://geophydog.cool/post/acoustic_wave_modeling/</loc>
     <lastmod>2020-09-21T22:34:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/data-processing/</loc>
+    <loc>https://geophydog.cool/tags/data-processing/</loc>
     <lastmod>2020-09-19T21:14:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/seismic-data-processing/</loc>
+    <loc>https://geophydog.cool/categories/seismic-data-processing/</loc>
     <lastmod>2020-09-19T21:14:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/python_data_processing/</loc>
+    <loc>https://geophydog.cool/post/python_data_processing/</loc>
     <lastmod>2020-09-19T21:14:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/animation/</loc>
+    <loc>https://geophydog.cool/tags/animation/</loc>
     <lastmod>2020-09-18T17:36:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/make_animation_python/</loc>
+    <loc>https://geophydog.cool/post/make_animation_python/</loc>
     <lastmod>2020-09-18T17:36:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/plotting_issues_in_python/</loc>
+    <loc>https://geophydog.cool/post/plotting_issues_in_python/</loc>
     <lastmod>2020-09-18T15:52:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/visualization/</loc>
+    <loc>https://geophydog.cool/tags/visualization/</loc>
     <lastmod>2020-09-18T15:52:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/fft/</loc>
+    <loc>https://geophydog.cool/tags/fft/</loc>
     <lastmod>2020-09-16T08:56:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/filter/</loc>
+    <loc>https://geophydog.cool/categories/filter/</loc>
     <lastmod>2020-09-16T08:56:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/filter-design/</loc>
+    <loc>https://geophydog.cool/tags/filter-design/</loc>
     <lastmod>2020-09-16T08:56:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/signal-processing/</loc>
+    <loc>https://geophydog.cool/categories/signal-processing/</loc>
     <lastmod>2020-09-16T08:56:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/one-way_two-way_filter/</loc>
+    <loc>https://geophydog.cool/post/one-way_two-way_filter/</loc>
     <lastmod>2020-09-16T08:56:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/band-pass_filter/</loc>
+    <loc>https://geophydog.cool/post/band-pass_filter/</loc>
     <lastmod>2020-09-15T23:47:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/high-pass_filter/</loc>
+    <loc>https://geophydog.cool/post/high-pass_filter/</loc>
     <lastmod>2020-09-15T23:42:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/gmt_errorbar/</loc>
+    <loc>https://geophydog.cool/post/gmt_errorbar/</loc>
     <lastmod>2020-09-14T16:30:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/colorful_strings_in_c/</loc>
+    <loc>https://geophydog.cool/post/colorful_strings_in_c/</loc>
     <lastmod>2020-09-14T16:25:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/function-pointer/</loc>
+    <loc>https://geophydog.cool/tags/function-pointer/</loc>
     <lastmod>2020-09-14T16:12:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/func_ptr_and_ptr_func/</loc>
+    <loc>https://geophydog.cool/post/func_ptr_and_ptr_func/</loc>
     <lastmod>2020-09-14T16:12:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/pointer-function/</loc>
+    <loc>https://geophydog.cool/tags/pointer-function/</loc>
     <lastmod>2020-09-14T16:12:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/awk/</loc>
+    <loc>https://geophydog.cool/tags/awk/</loc>
     <lastmod>2020-09-12T20:30:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/awk/</loc>
+    <loc>https://geophydog.cool/categories/awk/</loc>
     <lastmod>2020-09-12T20:30:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/awk_notes/</loc>
+    <loc>https://geophydog.cool/post/awk_notes/</loc>
     <lastmod>2020-09-12T20:30:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>https://geophydog.cool/tags/linux/</loc>
     <lastmod>2020-09-12T20:30:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/basemap/</loc>
+    <loc>https://geophydog.cool/tags/basemap/</loc>
     <lastmod>2020-09-12T14:24:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/basemap/</loc>
+    <loc>https://geophydog.cool/post/basemap/</loc>
     <lastmod>2020-09-12T14:24:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/nice_cover/</loc>
+    <loc>https://geophydog.cool/post/nice_cover/</loc>
     <lastmod>2020-09-12T10:07:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/low-pass_filter/</loc>
+    <loc>https://geophydog.cool/post/low-pass_filter/</loc>
     <lastmod>2020-09-11T22:04:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/ambient-noise/</loc>
+    <loc>https://geophydog.cool/tags/ambient-noise/</loc>
     <lastmod>2020-09-08T22:11:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/cross-correlation/</loc>
+    <loc>https://geophydog.cool/tags/cross-correlation/</loc>
     <lastmod>2020-09-08T22:11:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/cross_correlation_from_noise/</loc>
+    <loc>https://geophydog.cool/post/cross_correlation_from_noise/</loc>
     <lastmod>2020-09-08T22:11:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/egfs/</loc>
+    <loc>https://geophydog.cool/tags/egfs/</loc>
     <lastmod>2020-09-08T22:11:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/normalization/</loc>
+    <loc>https://geophydog.cool/tags/normalization/</loc>
     <lastmod>2020-09-08T22:11:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/cross_spectra_beamforing/</loc>
+    <loc>https://geophydog.cool/post/cross_spectra_beamforing/</loc>
     <lastmod>2020-09-07T22:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/seismic-array/</loc>
+    <loc>https://geophydog.cool/tags/seismic-array/</loc>
     <lastmod>2020-09-07T22:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/advanced_eigen3/</loc>
+    <loc>https://geophydog.cool/post/advanced_eigen3/</loc>
     <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/eigen3/</loc>
+    <loc>https://geophydog.cool/tags/eigen3/</loc>
     <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/linear-algebra/</loc>
+    <loc>https://geophydog.cool/tags/linear-algebra/</loc>
     <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/matrix/</loc>
+    <loc>https://geophydog.cool/tags/matrix/</loc>
     <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/scientific-computation/</loc>
+    <loc>https://geophydog.cool/categories/scientific-computation/</loc>
     <lastmod>2020-09-05T10:30:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/eigen3_operations/</loc>
+    <loc>https://geophydog.cool/post/eigen3_operations/</loc>
     <lastmod>2020-09-04T10:37:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hilbert_transform/</loc>
+    <loc>https://geophydog.cool/post/hilbert_transform/</loc>
     <lastmod>2020-09-03T21:23:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/hilbert-transform/</loc>
+    <loc>https://geophydog.cool/tags/hilbert-transform/</loc>
     <lastmod>2020-09-03T21:23:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/about/</loc>
+    <loc>https://geophydog.cool/post/about/</loc>
     <lastmod>2020-09-03T19:16:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/fourier_transform/</loc>
+    <loc>https://geophydog.cool/post/fourier_transform/</loc>
     <lastmod>2020-09-03T17:11:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/spectral-analysis/</loc>
+    <loc>https://geophydog.cool/tags/spectral-analysis/</loc>
     <lastmod>2020-09-03T17:11:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/c/c&#43;&#43;/</loc>
+    <loc>https://geophydog.cool/categories/c/c&#43;&#43;/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
