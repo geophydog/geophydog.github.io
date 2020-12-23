@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Sun, 08 Nov 2020 18:31:43 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Dec 2020 10:32:52 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Multi-channel analysis of Surface waves (MASW)</title>
+      <link>https://geophydog.cool/post/masw_phase_shift/</link>
+      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/masw_phase_shift/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Vectors in GMT</title>
@@ -224,7 +233,7 @@ $\boxed{\text{Data processing steps}}$
       <pubDate>Mon, 07 Sep 2020 22:40:07 +0800</pubDate>
       
       <guid>https://geophydog.cool/post/cross_spectra_beamforing/</guid>
-      <description>Basic princeples Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.</description>
+      <description>1 Basic principles Detection of coherent seismic signals is an interesting topic in seismology. However, it&amp;rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.</description>
     </item>
     
     <item>
@@ -279,7 +288,7 @@ Education 2019 - present, PhD student of seismology, Department of Earth and Spa
       <pubDate>Thu, 03 Sep 2020 17:11:08 +0800</pubDate>
       
       <guid>https://geophydog.cool/post/fourier_transform/</guid>
-      <description>The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
+      <description>1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
 For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.</description>
     </item>
     

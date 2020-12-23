@@ -2,21 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://geophydog.cool/tags/arrow/</loc>
-    <lastmod>2020-11-08T18:31:43+08:00</lastmod>
+    <loc>https://geophydog.cool/categories/array-processing/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://geophydog.cool/categories/</loc>
-    <lastmod>2020-11-08T18:31:43+08:00</lastmod>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://geophydog.cool/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/masw_phase_shift/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/phase-velocity/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/surface-wave/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/surface-wave/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/</loc>
+    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/arrow/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -31,20 +80,6 @@
   
   <url>
     <loc>https://geophydog.cool/tags/gmt/</loc>
-    <lastmod>2020-11-08T18:31:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/post/</loc>
-    <lastmod>2020-11-08T18:31:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/</loc>
     <lastmod>2020-11-08T18:31:43+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

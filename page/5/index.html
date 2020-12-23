@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2020-11-08T18:31:43+08:00" />
+<meta property="og:updated_time" content="2020-12-23T10:32:52+08:00" />
 <meta itemprop="name" content="Geophydog">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
@@ -125,6 +125,29 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/cross_correlation_from_noise/">Cross-correlations From Seismic Ambient Noise</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-08 </span>
+      <div class="post-category">
+          <a href="/categories/seismic-interferometry/"> Seismic Interferometry </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      New responses between station pairs can be extracted from diffuse wave field by cross-correlating ambient seismic noise or coda (Campillo &amp; Paul, 2003; Bensen et al., 2007). However, some processing techniques should be taken into consideration to retrieve clear emperical green&rsquo;s functions (EGFs). Here we show these steps in detail.
+$\boxed{\text{Data processing steps}}$
+1. Cut data 2. Removing mean, trend and tapering 3. Removing instrument response 4. Band-pass filtering 5. Temperal normalization $\boxed{\text{One-bit}}$ $$ \tilde{d_j}=sign(d_j) \tag{1} $$ $\boxed{\text{run absolute mean}}$ $$ \begin{aligned} w_j &amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\
+    </div>
+    <div class="read-more">
+      <a href="/post/cross_correlation_from_noise/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/cross_spectra_beamforing/">Cross Spectral Beamforming</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-09-07 </span>
@@ -136,7 +159,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Basic princeples Detection of coherent seismic signals is an interesting topic in seismology. However, it&rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.
+      1 Basic principles Detection of coherent seismic signals is an interesting topic in seismology. However, it&rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.
     </div>
     <div class="read-more">
       <a href="/post/cross_spectra_beamforing/" class="read-more-link">Read more...</a>
@@ -213,27 +236,6 @@ $$ h(n) = \mathscr{I} \{ \mathscr{F}^{-1}[H(k)] \} \tag{3}.
     </div>
     <div class="read-more">
       <a href="/post/hilbert_transform/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/about/">About</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-03 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Introduction Geophydog, a PhD student in seismology @ SUSTech, his research interests focus on multi-modes of surface waves, seismic interferometry, array seismology and some software developments for civil engineering purposes. This web is used to write down some academic notes for his researches and it comes with no WARRANTY!!!
-Education 2019 - present, PhD student of seismology, Department of Earth and Space Sciences, SUSTech
-2016 - 2019, Master of seismology, School of Earth Sciences and Eingineering, Nanjing University
-    </div>
-    <div class="read-more">
-      <a href="/post/about/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
