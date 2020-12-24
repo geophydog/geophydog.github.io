@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 23 Dec 2020 10:32:52 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Dec 2020 11:42:11 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>array processing</title>
       <link>https://geophydog.cool/categories/array-processing/</link>
-      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
+      <pubDate>Thu, 24 Dec 2020 11:42:11 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/array-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“beamforming”</title>
+      <link>https://geophydog.cool/categories/beamforming/</link>
+      <pubDate>Thu, 24 Dec 2020 11:42:11 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/beamforming/</guid>
       <description></description>
     </item>
     
@@ -63,15 +72,6 @@
       <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/seismic-interferometry/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>beamforming</title>
-      <link>https://geophydog.cool/categories/beamforming/</link>
-      <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/beamforming/</guid>
       <description></description>
     </item>
     

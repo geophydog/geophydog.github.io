@@ -3,21 +3,63 @@
   
   <url>
     <loc>https://geophydog.cool/categories/array-processing/</loc>
-    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/array-response-function/</loc>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/array_response_function/</loc>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/array-transfer-function/</loc>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://geophydog.cool/categories/</loc>
-    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://geophydog.cool/</loc>
-    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/</loc>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/</loc>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/beamforming/</loc>
+    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://geophydog.cool/post/</loc>
-    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://geophydog.cool/tags/surface-wave/</loc>
     <lastmod>2020-12-23T10:32:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -52,13 +87,6 @@
   
   <url>
     <loc>https://geophydog.cool/categories/surface-wave/</loc>
-    <lastmod>2020-12-23T10:32:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/</loc>
     <lastmod>2020-12-23T10:32:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -157,13 +185,6 @@
   
   <url>
     <loc>https://geophydog.cool/tags/beamforming/</loc>
-    <lastmod>2020-09-25T08:56:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/beamforming/</loc>
     <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
