@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2020-12-25T17:16:30+08:00" />
+<meta property="og:updated_time" content="2020-12-28T15:29:40+08:00" />
 <meta itemprop="name" content="Geophydog">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
@@ -123,6 +123,28 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python_data_processing/">Seismic Data Processing in Python</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-19 </span>
+      <div class="post-category">
+          <a href="/categories/seismic-data-processing/"> seismic data processing </a>
+          <a href="/categories/python/"> python </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 Obtaining Seismic Data Using Obspy 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 + 3600 # Get waveforms.
+    </div>
+    <div class="read-more">
+      <a href="/post/python_data_processing/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/make_animation_python/">Make Animations with Python</a></h1>
@@ -211,28 +233,6 @@ x_1(t) &amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \tag{1
     </div>
     <div class="read-more">
       <a href="/post/band-pass_filter/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/high-pass_filter/">The Journey to Digital Filter Design: High-pass Filter</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-15 </span>
-      <div class="post-category">
-          <a href="/categories/filter/"> filter </a>
-          <a href="/categories/signal-processing/"> signal processing </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
-    </div>
-    <div class="read-more">
-      <a href="/post/high-pass_filter/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

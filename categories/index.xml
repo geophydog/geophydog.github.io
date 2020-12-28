@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Fri, 25 Dec 2020 17:16:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2020 15:29:40 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cross-correlation</title>
+      <link>https://geophydog.cool/categories/cross-correlation/</link>
+      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/cross-correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fft</title>
+      <link>https://geophydog.cool/categories/fft/</link>
+      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/fft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic interferometry</title>
+      <link>https://geophydog.cool/categories/seismic-interferometry/</link>
+      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/seismic-interferometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spectral analysis</title>
+      <link>https://geophydog.cool/categories/spectral-analysis/</link>
+      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/spectral-analysis/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Scientific Computation</title>
@@ -72,15 +108,6 @@
       <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/numerical-modeling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>seismic interferometry</title>
-      <link>https://geophydog.cool/categories/seismic-interferometry/</link>
-      <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/seismic-interferometry/</guid>
       <description></description>
     </item>
     
