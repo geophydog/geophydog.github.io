@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Geophydog" /><meta name="description" content="1 Obtaining Seismic Data Using Obspy 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &amp;#39;IRIS&amp;#39; data center. client = Client(&amp;#39;IRIS&amp;#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&amp;#39;2019-09-04T00:00:00&amp;#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Geophydog" /><meta name="description" content="1 Obtaining Seismic Data Using Obspy 1.1 Basic usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &amp;#39;IRIS&amp;#39; data center. client = Client(&amp;#39;IRIS&amp;#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&amp;#39;2019-09-04T00:00:00&amp;#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms." /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -40,23 +40,23 @@
 
 
 <meta property="og:title" content="Seismic Data Processing in Python" />
-<meta property="og:description" content="1 Obtaining Seismic Data Using Obspy 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms." />
+<meta property="og:description" content="1 Obtaining Seismic Data Using Obspy 1.1 Basic usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://geophydog.cool/post/python_data_processing/" />
 <meta property="article:published_time" content="2020-09-19T21:14:22+08:00" />
 <meta property="article:modified_time" content="2020-09-19T21:14:22+08:00" />
 <meta itemprop="name" content="Seismic Data Processing in Python">
-<meta itemprop="description" content="1 Obtaining Seismic Data Using Obspy 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms.">
+<meta itemprop="description" content="1 Obtaining Seismic Data Using Obspy 1.1 Basic usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms.">
 <meta itemprop="datePublished" content="2020-09-19T21:14:22+08:00" />
 <meta itemprop="dateModified" content="2020-09-19T21:14:22+08:00" />
-<meta itemprop="wordCount" content="479">
+<meta itemprop="wordCount" content="666">
 
 
 
 <meta itemprop="keywords" content="python,obspy,data processing," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Seismic Data Processing in Python"/>
-<meta name="twitter:description" content="1 Obtaining Seismic Data Using Obspy 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms."/>
+<meta name="twitter:description" content="1 Obtaining Seismic Data Using Obspy 1.1 Basic usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 &#43; 3600 # Get waveforms."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -81,7 +81,7 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/">
+    <a href="/home">
         <li class="mobile-menu-item">Home</li>
       </a><a href="/">
         <li class="mobile-menu-item">Blogs</li>
@@ -107,7 +107,7 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
+        <a class="menu-item-link" href="/home">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/">Blogs</a>
       </li><li class="menu-item">
@@ -152,7 +152,12 @@
       <ul>
         <li>
           <ul>
-            <li><a href="#__1-obtaining-seismic-data-using-obspy__"><strong>1 Obtaining Seismic Data Using Obspy</strong></a></li>
+            <li><a href="#__1-obtaining-seismic-data-using-obspyhttpsdocsobspyorg__"><strong>1 Obtaining Seismic Data Using <a href="https://docs.obspy.org/">Obspy</a></strong></a></li>
+            <li><a href="#__11-basic-usage__"><strong>1.1 Basic usage</strong></a></li>
+            <li><a href="#__12-fix-internet-service-issue__"><strong>1.2 Fix internet service issue</strong></a></li>
+            <li><a href="#__13-seismic-data-management-center__"><strong>1.3 Seismic data management center</strong></a></li>
+            <li><a href="#__14-other-data-centers__"><strong>1.4 Other data center(s)</strong></a></li>
+            <li><a href="#__15-active-source-data-ph5__"><strong>1.5 Active source data PH5</strong></a></li>
             <li><a href="#__2-remove-instrument-response__"><strong>2 Remove Instrument Response</strong></a></li>
           </ul>
         </li>
@@ -162,6 +167,7 @@
             <li><a href="#__5-calculating-the-distance-between-given-two-points__"><strong>5 Calculating the distance between given two points</strong></a></li>
           </ul>
         </li>
+        <li><a href="#__bibliography__"><strong>Bibliography</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -169,7 +175,8 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="__1-obtaining-seismic-data-using-obspy__"><strong>1 Obtaining Seismic Data Using Obspy</strong></h3>
+      <h3 id="__1-obtaining-seismic-data-using-obspyhttpsdocsobspyorg__"><strong>1 Obtaining Seismic Data Using <a href="https://docs.obspy.org/">Obspy</a></strong></h3>
+<h3 id="__11-basic-usage__"><strong>1.1 Basic usage</strong></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -205,7 +212,7 @@
 <span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="mi">3600</span>
 
 <span class="c1"># Get waveforms.</span>
-<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+<span class="err">​</span><span class="sb">``</span><span class="err">`</span><span class="n">python</span>
 <span class="n">st</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">network</span><span class="o">=</span><span class="s1">&#39;CO&#39;</span><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="s1">&#39;CSB&#39;</span><span class="p">,</span>
 						  <span class="n">location</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s1">&#39;LHZ&#39;</span><span class="p">,</span>
 						  <span class="n">starttime</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">endtime</span><span class="o">=</span><span class="n">t2</span><span class="p">,</span>
@@ -217,7 +224,8 @@ download instrument response. However, the internet service may
 go wrong when you download data of many stations. Fortunately,
 python offers us the exception handling to deal with this situation.
 For instance, the following python codes give you a very simple 
-example.</p>
+example to fix it.</p>
+<h3 id="__12-fix-internet-service-issue__"><strong>1.2 Fix internet service issue</strong></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -244,7 +252,8 @@ example.</p>
 		<span class="k">pass</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Change the data center code if you want to download data from other
+</div><h3 id="__13-seismic-data-management-center__"><strong>1.3 Seismic data management center</strong></h3>
+<p>Change the data center code if you want to download data from other
 organizations. These centers are</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -317,6 +326,79 @@ USGS
 USP
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="__14-other-data-centers__"><strong>1.4 Other data center(s)</strong></h3>
+<p>However, seismic data in Australian seismic network are not included in the above data centers,</p>
+<p>here we show you to retrieve seismic data from <a href="http://auspass.edu.au/">AusPass</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">obspy</span>
+<span class="kn">from</span> <span class="nn">obspy.clients.fdsn</span> <span class="kn">import</span> <span class="n">Client</span> <span class="k">as</span> <span class="n">FDSN_Client</span>
+<span class="kn">from</span> <span class="nn">obspy.core</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">auspass</span> <span class="o">=</span> <span class="n">FDSN_Client</span><span class="p">(</span><span class="s1">&#39;http://auspass.edu.au:8080&#39;</span><span class="p">,</span><span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;email@address.com&#39;</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="s1">&#39;2018-03-29T00:00:00&#39;</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="mi">500</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">auspass</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">network</span><span class="o">=</span><span class="s1">&#39;S1&#39;</span><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="s1">&#39;AUAYR&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+                           <span class="n">channel</span><span class="o">=</span><span class="s1">&#39;BHZ&#39;</span><span class="p">,</span> <span class="n">starttime</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">endtime</span><span class="o">=</span><span class="n">t2</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="__15-active-source-data-ph5__"><strong>1.5 Active source data PH5</strong></h3>
+<p>For controlled (active) source  seismic experiment data, you can request from <a href="https://service.iris.edu/ph5ws/">PH5WS</a>. Here we show you how to obtain active source seismic data using Obspy. For more details, you can find them from <a href="https://github.com/PIC-IRIS/PH5/wiki/PH5-Web-Services-Shot-Gather">https://github.com/PIC-IRIS/PH5/wiki/PH5-Web-Services-Shot-Gather</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">obspy</span>
+<span class="kn">from</span> <span class="nn">obspy.clients.fdsn.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">obspy.core</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+
+
+<span class="n">DATASELECT</span> <span class="o">=</span> <span class="s1">&#39;http://service.iris.edu/ph5ws/dataselect/1&#39;</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">service_mappings</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dataselect&#39;</span><span class="p">:</span> <span class="n">DATASELECT</span><span class="p">},</span>
+               <span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="s1">&#39;2017-08-25T00:00:00&#39;</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">network</span><span class="o">=</span><span class="s1">&#39;YI&#39;</span><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="s1">&#39;60&#39;</span><span class="p">,</span> 
+                        <span class="n">location</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s1">&#39;DPZ&#39;</span><span class="p">,</span>
+                        <span class="n">starttime</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">endtime</span><span class="o">=</span><span class="n">t2</span><span class="p">)</span>
+
+<span class="n">st</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
 </div><h3 id="__2-remove-instrument-response__"><strong>2 Remove Instrument Response</strong></h3>
 <p><code>stream ( or trace).remove_response(pre_filt=[f1, f2, f3, f4], output='DISP')</code>
 The parameter <code>output</code> defines the output physical quantity.                <br>
@@ -324,7 +406,7 @@ The parameter <code>output</code> defines the output physical quantity.         
 <code>VEL</code>: velocity in meters per second;          <br>
 <code>ACC</code>: acceleration in meters per squared seconds.       <br>
 You can set the 4 corner frequencies in parameter <code>pre_filt</code> if you want to
-do pre-filtering on your data, but be careful when you choose frequenies that
+do pre-filtering on your data, but be careful when you choose frequencies that
 are not over <a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist frequency</a>.</p>
 <h2 id="__3-get-information-about-stations__"><strong>3 Get Information about Stations</strong></h2>
 <div class="highlight"><div class="chroma">
@@ -345,7 +427,7 @@ are not over <a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_samp
 <code>network</code>: network code;             <br>
 <code>station</code>: station code;                    <br>
 <code>channel</code>: channel code;                          <br>
-<code>response</code>: instrumrnt response.                           <br>
+<code>response</code>: instrument response.                           <br>
 Usually, we set <code>level</code> as <code>response</code> to download instrument response
 for the later data processing.</p>
 <h3 id="__4-solution-to-empty-sac-attribution-of-sac__"><strong>4 Solution to <code>Empty sac attribution of SAC</code></strong></h3>
@@ -387,7 +469,9 @@ in your python.</p>
 <span class="n">d</span> <span class="o">=</span> <span class="n">geodesic</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">ellipsoid</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="n">WGS</span><span class="o">-</span><span class="mi">84</span><span class="s1">&#39;).km</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><h2 id="__bibliography__"><strong>Bibliography</strong></h2>
+<p><a href="http://auspass.edu.au/help/obspy_request.html">http://auspass.edu.au/help/obspy_request.html</a></p>
+
     </div>
 
     <div class="post-copyright">

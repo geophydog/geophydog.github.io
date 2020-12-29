@@ -75,7 +75,7 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/">
+    <a href="/home">
         <li class="mobile-menu-item">Home</li>
       </a><a href="/">
         <li class="mobile-menu-item">Blogs</li>
@@ -101,7 +101,7 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
+        <a class="menu-item-link" href="/home">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/">Blogs</a>
       </li><li class="menu-item">
@@ -137,7 +137,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      1 Obtaining Seismic Data Using Obspy 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 + 3600 # Get waveforms.
+      1 Obtaining Seismic Data Using Obspy 1.1 Basic usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &#39;IRIS&#39; data center. client = Client(&#39;IRIS&#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&#39;2019-09-04T00:00:00&#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 + 3600 # Get waveforms.
     </div>
     <div class="read-more">
       <a href="/post/python_data_processing/" class="read-more-link">Read more...</a>
@@ -159,8 +159,8 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Making animations using Python is very convenient and here we give a simple example which simulating a clock to show how to use it.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32  import numpy as np import matplotlib.pyplot as plt from matplotlib.animation import FuncAnimation x0 = 1.
+      Making animations using Python is very convenient and here we give you a simple demo which simulates a clock. Enjoy it!
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32  import numpy as np import matplotlib.pyplot as plt from matplotlib.animation import FuncAnimation x0 = 1.5 t = np.
     </div>
     <div class="read-more">
       <a href="/post/make_animation_python/" class="read-more-link">Read more...</a>
