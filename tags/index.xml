@@ -7,10 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Mon, 28 Dec 2020 15:29:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Dec 2020 12:29:18 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>gui</title>
+      <link>https://geophydog.cool/tags/gui/</link>
+      <pubDate>Wed, 30 Dec 2020 12:29:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matlab</title>
+      <link>https://geophydog.cool/tags/matlab/</link>
+      <pubDate>Wed, 30 Dec 2020 12:29:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/matlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data processing</title>
+      <link>https://geophydog.cool/tags/data-processing/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/data-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic tools</title>
+      <link>https://geophydog.cool/tags/seismic-tools/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismic-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismology</title>
+      <link>https://geophydog.cool/tags/seismology/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://geophydog.cool/tags/visualization/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/visualization/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>seismic inteferometry</title>
@@ -157,29 +211,11 @@
     </item>
     
     <item>
-      <title>data processing</title>
-      <link>https://geophydog.cool/tags/data-processing/</link>
-      <pubDate>Sat, 19 Sep 2020 21:14:22 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/data-processing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>animation</title>
       <link>https://geophydog.cool/tags/animation/</link>
       <pubDate>Fri, 18 Sep 2020 17:36:40 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/animation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Visualization</title>
-      <link>https://geophydog.cool/tags/visualization/</link>
-      <pubDate>Fri, 18 Sep 2020 15:52:22 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/visualization/</guid>
       <description></description>
     </item>
     

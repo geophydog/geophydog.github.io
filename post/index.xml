@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Mon, 28 Dec 2020 15:29:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Dec 2020 12:29:18 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Matlab GUI Design: the guide tool</title>
+      <link>https://geophydog.cool/post/matlab_gui_guide/</link>
+      <pubDate>Wed, 30 Dec 2020 12:29:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/matlab_gui_guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Useful seismic tools</title>
+      <link>https://geophydog.cool/post/seismic_useful_tools/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/seismic_useful_tools/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Obtain right Cross-Correlation spectrum</title>
