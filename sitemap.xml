@@ -3,14 +3,70 @@
   
   <url>
     <loc>https://geophydog.cool/categories/</loc>
-    <lastmod>2020-12-30T12:29:18+08:00</lastmod>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://geophydog.cool/</loc>
-    <lastmod>2020-12-30T12:29:18+08:00</lastmod>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/matlab/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/seismic-data-processing/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/seismic-data-processing/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/seismic_data_processing_in_matlab/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/seismology/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/matlab/</loc>
+    <lastmod>2020-12-30T15:29:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,35 +86,7 @@
   </url>
   
   <url>
-    <loc>https://geophydog.cool/tags/matlab/</loc>
-    <lastmod>2020-12-30T12:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://geophydog.cool/post/matlab_gui_guide/</loc>
-    <lastmod>2020-12-30T12:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/post/</loc>
-    <lastmod>2020-12-30T12:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/</loc>
-    <lastmod>2020-12-30T12:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/matlab/</loc>
     <lastmod>2020-12-30T12:29:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -72,21 +100,7 @@
   </url>
   
   <url>
-    <loc>https://geophydog.cool/categories/seismic-data-processing/</loc>
-    <lastmod>2020-12-30T09:31:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://geophydog.cool/tags/seismic-tools/</loc>
-    <lastmod>2020-12-30T09:31:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/seismology/</loc>
     <lastmod>2020-12-30T09:31:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
