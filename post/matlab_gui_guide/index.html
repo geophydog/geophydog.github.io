@@ -49,11 +49,11 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2020-12-30T12:29:18+08:00" />
 <meta itemprop="dateModified" content="2020-12-30T12:29:18+08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="386">
 
 
 
-<meta itemprop="keywords" content="matlab,gui," />
+<meta itemprop="keywords" content="matlab,gui,guide," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Matlab GUI Design: the guide tool"/>
 <meta name="twitter:description" content=""/>
@@ -146,11 +146,61 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#__1-what-is-guide__"><strong>1 What is <code>guide</code></strong></a></li>
+            <li><a href="#__2-the-first-glimpse-of-guide__"><strong>2 The first glimpse of <code>guide</code></strong></a></li>
+            <li><a href="#__3-create-our-first-gui-app__"><strong>3 Create our first GUI app</strong></a></li>
+            <li><a href="#__4-the-first-widget-button__"><strong>4 The first widget: button</strong></a></li>
+            <li><a href="#__5-run-the-gui-app__"><strong>5 Run the GUI app</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      
+      <h3 id="__1-what-is-guide__"><strong>1 What is <code>guide</code></strong></h3>
+<p><a href="https://www.mathworks.com/">MATLAB</a> is a scientific computation software and is very friendly, because it provides us many useful data processing functions. If you are not familiar with it, however, this may cost some time to learn about it. Fortunately, MATLAB prepare a GUI tool for us, called <code>guide</code>.  <code>guide</code> provides us point-and-click of MATLAB applications, and you can share these applications within MATLAB or as a desktop application.</p>
+<h3 id="__2-the-first-glimpse-of-guide__"><strong>2 The first glimpse of <code>guide</code></strong></h3>
+<p>Suppose that you have installed MATLAB and just type <code>guide</code>and press <code>enter</code> in the command prompt window and you will see this.</p>
+<p><img src="/MATLAB_GUI/Fig01.png" alt="type guide"></p>
+<p>One should notes that the language of my  MATLAB interface is Chinese and these option positions of the English version interface are the same as the Chinese version.</p>
+<h3 id="__3-create-our-first-gui-app__"><strong>3 Create our first GUI app</strong></h3>
+<p>Now we want to create our first <code>guide</code> app. These are several steps before we go into the GUI design world.</p>
+<ul>
+<li>1 Click &ldquo;create new GUI&rdquo;;</li>
+<li>2 Choose a blank GUI;</li>
+<li>3 You can choose to save this GUI file;</li>
+<li>4 Press <code>yes</code> to finish our  settings.</li>
+</ul>
+<p><img src="/MATLAB_GUI/Fig02.png" alt="settings"></p>
+<p>There comes the GUI interface and a corresponding MATLAB file.</p>
+<p><img src="/MATLAB_GUI/Fig03.png" alt="new GUI"></p>
+<p>We will show you how to add a push button on our GUI and some information can be printed in the command prompt window you push the button.</p>
+<h3 id="__4-the-first-widget-button__"><strong>4 The first widget: button</strong></h3>
+<ul>
+<li>1 Choose the button option to add a push button;</li>
+<li>2 Double-click on chosen button and a GUI setting interface will appear;</li>
+<li>3 Set the background color (optional);</li>
+<li>4 Set font size (optional);</li>
+<li>5 Set font style (optional);</li>
+<li>6 Set a string displayed on the button if necessary;</li>
+<li>7 Change the handle name of the button and this is <code>important</code> because it locates the callback function of this button;</li>
+<li>8 Press <code>save</code>  on the GUI file (<code>untitled.fig</code>) and the callback function will appear in the corresponding MATLAB file (<code>untitled.m</code>);</li>
+<li>9 Implement this callback function and it will be executed when you run the GUI app.</li>
+</ul>
+<p><img src="/MATLAB_GUI/Fig04.png" alt="button"></p>
+<h3 id="__5-run-the-gui-app__"><strong>5 Run the GUI app</strong></h3>
+<p>Run this GUI app and push the button, and the string <code>The button was pressed!</code> will be displayed in the command prompt window.</p>
+<p><img src="/MATLAB_GUI/Fig05.png" alt="run it"></p>
+<p>Here we introduce a very simple demo  of creating a <code>guide</code> GUI, and we will show you  how to add more widgets on the GUI app in next parts. Enjoy it!.</p>
     </div>
 
     <div class="post-copyright">
@@ -172,6 +222,7 @@
       <div class="post-tags">
           <a href="/tags/matlab/">matlab</a>
           <a href="/tags/gui/">gui</a>
+          <a href="/tags/guide/">guide</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/post/seismic_data_processing_in_matlab/">
@@ -224,7 +275,8 @@
 
   <span class="copyright-year">
     &copy; 
-    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
   </span>
 </div>
 

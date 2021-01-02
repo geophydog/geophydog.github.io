@@ -7,15 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 30 Dec 2020 15:29:30 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Jan 2021 15:26:48 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>gui</title>
+      <link>https://geophydog.cool/tags/gui/</link>
+      <pubDate>Sat, 02 Jan 2021 15:26:48 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guide</title>
+      <link>https://geophydog.cool/tags/guide/</link>
+      <pubDate>Sat, 02 Jan 2021 15:26:48 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>matlab</title>
       <link>https://geophydog.cool/tags/matlab/</link>
-      <pubDate>Wed, 30 Dec 2020 15:29:30 +0800</pubDate>
+      <pubDate>Sat, 02 Jan 2021 15:26:48 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/matlab/</guid>
       <description></description>
@@ -36,15 +54,6 @@
       <pubDate>Wed, 30 Dec 2020 15:29:30 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/seismology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gui</title>
-      <link>https://geophydog.cool/tags/gui/</link>
-      <pubDate>Wed, 30 Dec 2020 12:29:18 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/gui/</guid>
       <description></description>
     </item>
     
