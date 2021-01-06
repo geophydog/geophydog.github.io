@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Matlab GUI Design: axes - Geophydog</title>
+  <title>Matlab GUI Design: popupmenu - Geophydog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://geophydog.cool/post/matlab_guide_axes/" />
+<link rel="canonical" href="https://geophydog.cool/post/matlab_guide_popupmenu/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Matlab GUI Design: axes" />
+<meta property="og:title" content="Matlab GUI Design: popupmenu" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://geophydog.cool/post/matlab_guide_axes/" />
-<meta property="article:published_time" content="2021-01-02T15:26:48+08:00" />
-<meta property="article:modified_time" content="2021-01-02T15:26:48+08:00" />
-<meta itemprop="name" content="Matlab GUI Design: axes">
+<meta property="og:url" content="https://geophydog.cool/post/matlab_guide_popupmenu/" />
+<meta property="article:published_time" content="2021-01-06T19:15:14+08:00" />
+<meta property="article:modified_time" content="2021-01-06T19:15:14+08:00" />
+<meta itemprop="name" content="Matlab GUI Design: popupmenu">
 <meta itemprop="description" content="">
-<meta itemprop="datePublished" content="2021-01-02T15:26:48+08:00" />
-<meta itemprop="dateModified" content="2021-01-02T15:26:48+08:00" />
-<meta itemprop="wordCount" content="184">
+<meta itemprop="datePublished" content="2021-01-06T19:15:14+08:00" />
+<meta itemprop="dateModified" content="2021-01-06T19:15:14+08:00" />
+<meta itemprop="wordCount" content="214">
 
 
 
-<meta itemprop="keywords" content="matlab,gui,guide," />
+<meta itemprop="keywords" content="matlab,guide,GUI," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Matlab GUI Design: axes"/>
+<meta name="twitter:title" content="Matlab GUI Design: popupmenu"/>
 <meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
@@ -131,13 +131,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Matlab GUI Design: axes</h1>
+      <h1 class="post-title">Matlab GUI Design: popupmenu</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-01-02 </span>
+        <span class="post-time"> 2021-01-06 </span>
         <div class="post-category">
             <a href="/categories/matlab/"> matlab </a>
-            <a href="/categories/gui/"> gui </a>
+            <a href="/categories/gui/"> GUI </a>
             </div>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -152,8 +152,8 @@
       <ul>
         <li>
           <ul>
-            <li><a href="#__1-add-an-axes-on-the-gui-app__"><strong>1 Add an axes on the GUI app</strong></a></li>
-            <li><a href="#__2-run-this-app-and-plot-a-sine-function__"><strong>2 Run this app and plot a sine function</strong></a></li>
+            <li><a href="#__1-add-a-poppup-menu-on-the-gui-app__"><strong>1 Add a poppup menu on the GUI app</strong></a></li>
+            <li><a href="#__2-run-the-app__"><strong>2 Run the app</strong></a></li>
           </ul>
         </li>
       </ul>
@@ -163,28 +163,48 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="__1-add-an-axes-on-the-gui-app__"><strong>1 Add an axes on the GUI app</strong></h3>
-<p>We introduced how to add a button on a MATLAB GUI app in the previous part. Here we will show that how to plot the graph of a sine function on the app, and we suppose that you have created a <code>guide</code> file. We need to add an axes on the app before we implement plotting a sine function.</p>
+      <p>In last part, we introduced how to add an axes to plot a graph of sine function. Here we will describe that colors can be chosen in popup menu to change the color of curves.</p>
+<h3 id="__1-add-a-poppup-menu-on-the-gui-app__"><strong>1 Add a poppup menu on the GUI app</strong></h3>
+<p>We firstly, as usual, add a popup menu on the GUI app with the <code>guide</code> tool. The following procedures show the way of  implementing a popup menu.</p>
 <ul>
-<li>1 Add a button (see the previous part);</li>
-<li>2 Add an axes;</li>
-<li>3 Double-click on the axes to call the axes setting interface;</li>
-<li>4 Set the axes name;</li>
-<li>5 Go and implement the callback function of the button;</li>
-<li>6 The specific codes of plotting a sine function.</li>
+<li>
+<p>1 Click the popup menu widget to add it on our app;</p>
+</li>
+<li>
+<p>2 Double-click on the popupmenu to call the setting interface;</p>
+</li>
+<li>
+<p>3 Modify some settings, e.g. font size, weight, color;</p>
+</li>
+<li>
+<p>4 double-click on the <code>String</code> to call the value interface, and you can add some color names in the list;</p>
+</li>
+<li>
+<p>5 Modify the <code>Tag</code> to locate the callback function of the popup menu in <code>m</code> file;</p>
+</li>
+<li>
+<p>6 Obtain the chosen value when you choose some color, and two lines should be added to do it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">list</span> <span class="p">=</span> <span class="n">get</span><span class="p">(</span> <span class="n">hObject</span><span class="p">,</span> <span class="s">&#39;String&#39;</span> <span class="p">);</span> <span class="c">% Get the listof all strings.    </span>
+<span class="n">val</span> <span class="p">=</span> <span class="n">get</span><span class="p">(</span> <span class="n">hObject</span><span class="p">,</span> <span class="s">&#39;Value&#39;</span> <span class="p">);</span> <span class="c">% Get the index of the chosen string.   </span>
+<span class="n">color</span> <span class="p">=</span> <span class="n">list</span><span class="p">{</span> <span class="n">val</span> <span class="p">};</span> <span class="c">% Get the chosen string.          </span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
-<p>One can note that we need to get the axes before we plot the sine function, and the code is</p>
-<p><code>axes( handles.SineAxes);</code>.</p>
-<p><img src="/MATLAB_GUI/Fig06.png" alt="axes"></p>
-<h3 id="__2-run-this-app-and-plot-a-sine-function__"><strong>2 Run this app and plot a sine function</strong></h3>
-<p>We need run the MATLAB GUI file if we want to plot the sine function.</p>
+<p><img src="/MATLAB_GUI/Fig08.png" alt="popupmenu"></p>
+<h3 id="__2-run-the-app__"><strong>2 Run the app</strong></h3>
 <ul>
-<li>1 Run <code>untitled.m</code>;</li>
-<li>2 Press <code>Show</code> button;</li>
-<li>3 The sine function will be shown.</li>
+<li>1 Run the <code>m</code> file;</li>
+<li>2 Choose a color to plot the sine function.</li>
 </ul>
-<p><img src="/MATLAB_GUI/Fig07.png" alt="run axes"></p>
-<p>Adding an axes to plot  is very simple, isn&rsquo;t it?</p>
+<p><img src="/MATLAB_GUI/Fig09.png" alt="run popupmenu"></p>
     </div>
 
     <div class="post-copyright">
@@ -195,7 +215,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-01-02
+        2021-01-06
         
     </span>
   </p>
@@ -205,17 +225,13 @@
 <footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/matlab/">matlab</a>
-          <a href="/tags/gui/">gui</a>
           <a href="/tags/guide/">guide</a>
+          <a href="/tags/gui/">GUI</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/matlab_guide_popupmenu/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Matlab GUI Design: popupmenu</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/seismic_data_processing_in_matlab/">
-            <span class="next-text nav-default">Seismic Data Processing in Matlab</span>
+        
+        <a class="next" href="/post/matlab_guide_axes/">
+            <span class="next-text nav-default">Matlab GUI Design: axes</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
