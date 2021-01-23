@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Geophydog" /><meta name="description" content="1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$." /><meta name="keywords" content="Hugo, theme, even" />
+For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$." /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -42,14 +42,14 @@ For the operation in programming, we need its disctrete form, namely, $$ X(k) = 
 
 <meta property="og:title" content="Fourier Transform" />
 <meta property="og:description" content="1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$." />
+For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://geophydog.cool/post/fourier_transform/" />
 <meta property="article:published_time" content="2020-09-03T17:11:08+08:00" />
 <meta property="article:modified_time" content="2020-09-03T17:11:08+08:00" />
 <meta itemprop="name" content="Fourier Transform">
 <meta itemprop="description" content="1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.">
+For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.">
 <meta itemprop="datePublished" content="2020-09-03T17:11:08+08:00" />
 <meta itemprop="dateModified" content="2020-09-03T17:11:08+08:00" />
 <meta itemprop="wordCount" content="455">
@@ -60,7 +60,7 @@ For the operation in programming, we need its disctrete form, namely, $$ X(k) = 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fourier Transform"/>
 <meta name="twitter:description" content="1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$."/>
+For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -141,6 +141,7 @@ For the operation in programming, we need its disctrete form, namely, $$ X(k) = 
         <span class="post-time"> 2020-09-03 </span>
         <div class="post-category">
             <a href="/categories/signal-processing/"> signal processing </a>
+            <a href="/categories/spectral-analysis/"> spectral analysis </a>
             </div>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -174,7 +175,7 @@ The definition of $Fourier \ Transform$ is given by
 $$
 X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}.
 $$</p>
-<p>For the operation in programming, we need its disctrete form, namely,
+<p>For the operation in programming, we need its discrete form, namely,
 $$
 X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2},
 $$

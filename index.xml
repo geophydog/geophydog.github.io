@@ -358,7 +358,7 @@ $$ h(n) = \mathscr{I} \{ \mathscr{F}^{-1}[H(k)] \} \tag{3}.</description>
       <pubDate>Thu, 03 Sep 2020 19:16:06 +0800</pubDate>
       
       <guid>https://geophydog.cool/post/about/</guid>
-      <description>Introduction Geophydog, a PhD student in seismology @ SUSTech, his research interests focus on multi-modes of surface waves, seismic interferometry, array seismology and some software developments for civil engineering purposes. This web is used to write down some academic notes for his researches and it comes with no WARRANTY!!!
+      <description>Introduction Geophydog, a PhD candidate in seismology @ SUSTech, his research interests focus on multi-modes of surface waves, seismic interferometry, array seismology and some software developments for civil engineering purposes. This blog web is used to write down some academic notes for his researches and it comes with no WARRANTY!!!
 Education 2019 - present, PhD student of seismology, Department of Earth and Space Sciences, SUSTech
 2016 - 2019, Master of seismology, School of Earth Sciences and Eingineering, Nanjing University</description>
     </item>
@@ -370,7 +370,7 @@ Education 2019 - present, PhD student of seismology, Department of Earth and Spa
       
       <guid>https://geophydog.cool/post/fourier_transform/</guid>
       <description>1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its disctrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.</description>
+For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.</description>
     </item>
     
   </channel>
