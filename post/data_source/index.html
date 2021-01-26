@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Geophydog</title>
+  <title>Ocean and Climate Data Source - Geophydog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Geophydog" /><meta name="description" content="Hello, there! Hope you have a nice journey!." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Geophydog" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://geophydog.cool/" />
-  <link href="https://geophydog.cool/index.xml" rel="alternate" type="application/rss+xml" title="Geophydog" />
-  <link href="https://geophydog.cool/index.xml" rel="feed" type="application/rss+xml" title="Geophydog" />
+<link rel="canonical" href="https://geophydog.cool/post/data_source/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,16 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Geophydog" />
-<meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2021-01-26T16:14:05+08:00" />
-<meta itemprop="name" content="Geophydog">
-<meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
+<meta property="og:title" content="Ocean and Climate Data Source" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/data_source/" />
+<meta property="article:published_time" content="2021-01-26T16:14:05+08:00" />
+<meta property="article:modified_time" content="2021-01-26T16:14:05+08:00" />
+<meta itemprop="name" content="Ocean and Climate Data Source">
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2021-01-26T16:14:05+08:00" />
+<meta itemprop="dateModified" content="2021-01-26T16:14:05+08:00" />
+<meta itemprop="wordCount" content="313">
+
+
+
+<meta itemprop="keywords" content="open data,hurricane,sea wave height,typhoon," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Geophydog"/>
-<meta name="twitter:description" content="Hello, there! Hope you have a nice journey!."/>
+<meta name="twitter:title" content="Ocean and Climate Data Source"/>
+<meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -122,62 +128,97 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/about/">About</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-03 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Introduction Geophydog, a PhD candidate in seismology @ SUSTech, his research interests focus on multi-modes of surface waves, seismic interferometry, array seismology and some software developments for civil engineering purposes. This blog web is used to write down some academic notes for his researches and it comes with no WARRANTY!!!
-Education 2019 - present, PhD student of seismology, Department of Earth and Space Sciences, SUSTech
-2016 - 2019, Master of seismology, School of Earth Sciences and Eingineering, Nanjing University
-    </div>
-    <div class="read-more">
-      <a href="/post/about/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/fourier_transform/">Fourier Transform</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-03 </span>
-      <div class="post-category">
-          <a href="/categories/signal-processing/"> signal processing </a>
-          <a href="/categories/spectral-analysis/"> spectral analysis </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
-For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.
-    </div>
-    <div class="read-more">
-      <a href="/post/fourier_transform/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/7/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
+          <article class="post">
     
-  </nav>
+    <header class="post-header">
+      <h1 class="post-title">Ocean and Climate Data Source</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-01-26 </span>
+        <div class="post-category">
+            <a href="/categories/data-source/"> data source </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#__1-sea-wave-height__"><strong>1 Sea wave height</strong></a></li>
+            <li><a href="#__2-hurricane__"><strong>2 Hurricane</strong></a></li>
+            <li><a href="#__3-typhoon__"><strong>3 Typhoon</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Interdisciplinary research is more and more popular in the world, and it can help us understand our real world better. The retrieval of all kinds of data, however, is difficult for us, but it is the fundamental of conducting the furtherwork. Here, we introduce that how to get the right ways of obtaining information about the hurricane, typhoon and sea wave height data.</p>
+<h3 id="__1-sea-wave-height__"><strong>1 Sea wave height</strong></h3>
+<p>Sea wave height data are well organized by some institutions in the Europe (e.g. <a href="https://ec.europa.eu/growth/">EU</a>, <a href="https://www.copernicus.eu/en">Copernicus</a>, <a href="https://www.ecmwf.int/">ECMWF</a> and <a href="https://climate.copernicus.eu/">Climate Change Service</a>), and go into the <a href="https://cds.climate.copernicus.eu/#!/home">homepage</a> to register your account first. Click the <code>Datasets</code> (indicated by the black circle) to goto the search blank.</p>
+<p><img src="/OPEN_DATA/SWH-1.png" alt="SWH-1"></p>
+<p>Here, we give an example of searching sea wave height data. Type <code>swell wave height</code> (black rectangle on the left side) in the search blank, and some results will appear. We choose the first one to show that how to download it.</p>
+<p><img src="/OPEN_DATA/SWH-2.png" alt="SWH-2"></p>
+<p>Click <code>Download data</code> (the red rectangles) to set the options if necessary.</p>
+<p><img src="/OPEN_DATA/SWH-3.png" alt="SWH-3"></p>
+<p>Submit your request by clicking <code>Submit form</code>(the red rectangle).</p>
+<p><img src="/OPEN_DATA/SWH-4.png" alt="SWH-4">.</p>
+<p>Be patient, and a few seconds later (according the data size), the data are prepared. Click <code>Download</code>(the red rectangle) to obtain your data.</p>
+<p><img src="/OPEN_DATA/SWH-5.png" alt="SWH-5"></p>
+<h3 id="__2-hurricane__"><strong>2 Hurricane</strong></h3>
+<p>The main purpose is to obtain the wind speed, path and pressure data of hurricanes, so we directly give the web site (built by the USA). You can find some report documents (e.g. PDF format) of hurricanes, and the site is <a href="https://www.nhc.noaa.gov/data/tcr/">NATIONAL HURRICANE CENTER and CENTRAL PACIFIC HURRICANE CENTER</a>. The information about hurricanes is described in these documents, and directly copy the data if necessary.</p>
+<h3 id="__3-typhoon__"><strong>3 Typhoon</strong></h3>
+<p>Typhoon data are well collected by China at this web site: <a href="http://tcdata.typhoon.org.cn/zjljsjj_zlhq.html">中国气象局热带气旋资料中心</a>, and you can download them directly without registration. Switch to Chinese or English if you are not familiar with the language.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-01-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/open-data/">open data</a>
+          <a href="/tags/hurricane/">hurricane</a>
+          <a href="/tags/sea-wave-height/">sea wave height</a>
+          <a href="/tags/typhoon/">typhoon</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/signal_pws_stack/">
+            <span class="next-text nav-default">Signal Stacking: Phase-Weighted Stack (PWS)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

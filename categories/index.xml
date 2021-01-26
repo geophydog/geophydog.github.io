@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Sat, 16 Jan 2021 11:17:54 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Jan 2021 16:14:05 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>data source</title>
+      <link>https://geophydog.cool/categories/data-source/</link>
+      <pubDate>Tue, 26 Jan 2021 16:14:05 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/data-source/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>signal stacking</title>
