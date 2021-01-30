@@ -49,7 +49,7 @@
 <meta itemprop="description" content="1 Basic principles Detection of coherent seismic signals is an interesting topic in seismology. However, it&rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.">
 <meta itemprop="datePublished" content="2020-09-07T22:40:07+08:00" />
 <meta itemprop="dateModified" content="2020-09-07T22:40:07+08:00" />
-<meta itemprop="wordCount" content="730">
+<meta itemprop="wordCount" content="751">
 
 
 
@@ -154,6 +154,7 @@
           <ul>
             <li><a href="#__1-basic-principles__"><strong>1 Basic principles</strong></a></li>
             <li><a href="#__2-numerical-example__"><strong>2 Numerical example</strong></a></li>
+            <li><a href="#__3-the-c-code-version__"><strong>3 The C code version</strong></a></li>
             <li><a href="#__references__"><strong>References</strong></a></li>
           </ul>
         </li>
@@ -362,6 +363,8 @@ where, $\theta$ is the back-azimuth of signal source relative to the array cente
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/Array_Processing/Cross_Spectral_Beamforming.png" alt="Beam-forming"></p>
+<h3 id="__3-the-c-code-version__"><strong>3 The C code version</strong></h3>
+<p>We also develop a C language version cross-spectral beam-forming, and one can find it at <code>https://github.com/geophydog/Cross_Spectral_Beamforming</code>.</p>
 <h3 id="__references__"><strong>References</strong></h3>
 <p>Capon, J. (1970). Applications of detection and estimation theory to large array seismology.
 Proceedings of the IEEE, 58 (5), 760-770.</p>

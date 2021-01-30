@@ -52,7 +52,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.">
 <meta itemprop="datePublished" content="2020-09-18T15:52:22+08:00" />
 <meta itemprop="dateModified" content="2020-09-18T15:52:22+08:00" />
-<meta itemprop="wordCount" content="518">
+<meta itemprop="wordCount" content="626">
 
 
 
@@ -155,12 +155,13 @@
     <li>
       <ul>
         <li><a href="#__1-pseudo-color-map-with-polar-projection__"><strong>1 Pseudo-color map with polar projection</strong></a></li>
-        <li><a href="#__2-colorbar-ticks-ans-axes-settings__"><strong>2 Colorbar, ticks ans axes settings</strong></a>
+        <li><a href="#__2-color-bar-ticks-ans-axes-settings__"><strong>2 Color bar, ticks ans axes settings</strong></a>
           <ul>
-            <li><a href="#__21-colorbar__"><strong>2.1 Colorbar</strong></a></li>
+            <li><a href="#__21-color-bar__"><strong>2.1 Color bar</strong></a></li>
             <li><a href="#__22-ticks__"><strong>2.2 Ticks</strong></a></li>
-            <li><a href="#__23-axses__"><strong>2.3 Axses</strong></a></li>
-            <li><a href="#__24-grid-lines__"><strong>2.4 Grid lines</strong></a></li>
+            <li><a href="#__23-label__"><strong>2.3 Label</strong></a></li>
+            <li><a href="#__24-axes__"><strong>2.4 Axes</strong></a></li>
+            <li><a href="#__25-grid-lines__"><strong>2.5 Grid lines</strong></a></li>
           </ul>
         </li>
         <li><a href="#__3-background-error-bars__"><strong>3 Background, error bars</strong></a></li>
@@ -212,11 +213,11 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="__2-colorbar-ticks-ans-axes-settings__"><strong>2 Colorbar, ticks ans axes settings</strong></h2>
-<h3 id="__21-colorbar__"><strong>2.1 Colorbar</strong></h3>
-<p><code>shrink</code>: Relative length of colorbar;  <br>
+</div><h2 id="__2-color-bar-ticks-ans-axes-settings__"><strong>2 Color bar, ticks ans axes settings</strong></h2>
+<h3 id="__21-color-bar__"><strong>2.1 Color bar</strong></h3>
+<p><code>shrink</code>: Relative length of color bar;  <br>
 <code>aspect</code>: The ratio of height (length) to width;<br>
-<code>pad</code>:    The distance between map and colorbar.</p>
+<code>pad</code>:    The distance between map and color bar.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -230,19 +231,71 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="__22-ticks__"><strong>2.2 Ticks</strong></h3>
-<p><code>fontsize</code>: Size of tick fonts; <br>
-<code>rotation</code>: The rotation angle of tixk fonts.</p>
+<ul>
+<li>
+<p><code>fontsize</code>: Size of tick fonts;</p>
+</li>
+<li>
+<p><code>rotation</code>: Rotation angle of tick fonts;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">plt.xticks(fontsize=12, rotation=-90)
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="__23-axses__"><strong>2.3 Axses</strong></h3>
-<p><code>plt.gca().invert_x(y)axis()</code>: Invert x(y) axis;
-Setting frames: visibale (True) or invisble(False):</p>
+</div></li>
+<li>
+<p>Setting tick strings:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;III&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;VII&#39;</span><span class="p">,</span> <span class="s1">&#39;IX&#39;</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>The directions of ticks:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;in&#39;</span> <span class="c1"># &#39;out&#39; for outward</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;in&#39;</span> <span class="c1"># &#39;out&#39; for outward</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="__23-label__"><strong>2.3 Label</strong></h3>
+<ul>
+<li><code>color</code>: Color of label;</li>
+<li><code>rotation</code>: Rotation angle of the label;</li>
+<li><code>fontsize</code>: Font size of the label.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">plt.xlabel(&#39;X Label&#39;, fontsize=25, color=&#39;b&#39;, rotation=-30)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="__24-axes__"><strong>2.4 Axes</strong></h3>
+<ul>
+<li><code>plt.gca().invert_x(y)axis()</code>: Invert x (y) axis;</li>
+<li>Setting frames: visible (True) or invisible (False):</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -259,11 +312,55 @@ Setting frames: visibale (True) or invisble(False):</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>The position of axes</code>:
-<code>ax.xaxis_label_position('top')</code>: Setting <code>'bottom'</code> to put it on the bottom side;
+</div><ul>
+<li>
+<p><code>The position of axes</code>:</p>
+<p><code>ax.xaxis_label_position('top')</code>: Setting <code>'bottom'</code> to put it on the bottom side;
 <code>ax.yaxis_label_position('right')</code>: Setting <code>'left'</code> to put it on the left side.</p>
-<h3 id="__24-grid-lines__"><strong>2.4 Grid lines</strong></h3>
-<p>Major grid lines.</p>
+</li>
+<li>
+<p>The width of the frame:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">bwidth</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>The color of the frame:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="__25-grid-lines__"><strong>2.5 Grid lines</strong></h3>
+<ul>
+<li>Major grid lines.</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -272,7 +369,9 @@ Setting frames: visibale (True) or invisble(False):</p>
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">visible</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Minor grid lines.</p>
+</div><ul>
+<li>Minor grid lines.</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -281,7 +380,9 @@ Setting frames: visibale (True) or invisble(False):</p>
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">visible</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Setting grid lines with your style.</p>
+</div><ul>
+<li>Setting grid lines with your style.</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
