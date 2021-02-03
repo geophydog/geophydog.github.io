@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Geophydog" /><meta name="description" content="1 Pseudo-color map with polar projection We uasually need to plot pseudo-color maps in polar projection besides except of thoese in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
+<meta name="author" content="Geophydog" /><meta name="description" content="1 Pseudo-color map with polar projection We usually need to plot pseudo-color maps in polar projection besides except of those in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np." /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -41,25 +41,25 @@
 
 
 <meta property="og:title" content="Settings in Python Plotting" />
-<meta property="og:description" content="1 Pseudo-color map with polar projection We uasually need to plot pseudo-color maps in polar projection besides except of thoese in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
+<meta property="og:description" content="1 Pseudo-color map with polar projection We usually need to plot pseudo-color maps in polar projection besides except of those in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://geophydog.cool/post/plotting_issues_in_python/" />
 <meta property="article:published_time" content="2020-09-18T15:52:22+08:00" />
 <meta property="article:modified_time" content="2020-09-18T15:52:22+08:00" />
 <meta itemprop="name" content="Settings in Python Plotting">
-<meta itemprop="description" content="1 Pseudo-color map with polar projection We uasually need to plot pseudo-color maps in polar projection besides except of thoese in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
+<meta itemprop="description" content="1 Pseudo-color map with polar projection We usually need to plot pseudo-color maps in polar projection besides except of those in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.">
 <meta itemprop="datePublished" content="2020-09-18T15:52:22+08:00" />
 <meta itemprop="dateModified" content="2020-09-18T15:52:22+08:00" />
-<meta itemprop="wordCount" content="626">
+<meta itemprop="wordCount" content="722">
 
 
 
 <meta itemprop="keywords" content="python,visualization," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Settings in Python Plotting"/>
-<meta name="twitter:description" content="1 Pseudo-color map with polar projection We uasually need to plot pseudo-color maps in polar projection besides except of thoese in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
+<meta name="twitter:description" content="1 Pseudo-color map with polar projection We usually need to plot pseudo-color maps in polar projection besides except of those in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np."/>
 
 <!--[if lte IE 9]>
@@ -155,7 +155,7 @@
     <li>
       <ul>
         <li><a href="#__1-pseudo-color-map-with-polar-projection__"><strong>1 Pseudo-color map with polar projection</strong></a></li>
-        <li><a href="#__2-color-bar-ticks-ans-axes-settings__"><strong>2 Color bar, ticks ans axes settings</strong></a>
+        <li><a href="#__2-color-bar-tick-axis-grid-line-and-frame-settings__"><strong>2 Color bar, tick, axis, grid line and frame settings</strong></a>
           <ul>
             <li><a href="#__21-color-bar__"><strong>2.1 Color bar</strong></a></li>
             <li><a href="#__22-ticks__"><strong>2.2 Ticks</strong></a></li>
@@ -167,7 +167,8 @@
         <li><a href="#__3-background-error-bars__"><strong>3 Background, error bars</strong></a></li>
         <li><a href="#__4-inset-a-smaller-figure__"><strong>4 Inset a smaller figure</strong></a></li>
         <li><a href="#__5-remove-the-withe-grid-lines-in-saved-pdf-file__"><strong>5 Remove the withe grid lines in saved PDF file</strong></a></li>
-        <li><a href="#__5-make-a-colormap-with-your-own-colors__"><strong>5 Make a colormap with your own colors</strong></a></li>
+        <li><a href="#__6-make-a-color-map-with-your-own-colors__"><strong>6 Make a color map with your own colors</strong></a></li>
+        <li><a href="#__7-text-with-the-latex-style__"><strong>7 Text with the $LaTeX$ style</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -176,8 +177,8 @@
 </div>
     <div class="post-content">
       <h2 id="__1-pseudo-color-map-with-polar-projection__"><strong>1 Pseudo-color map with polar projection</strong></h2>
-<p>We uasually need to plot pseudo-color maps in polar projection besides
-except of thoese in Cartesian projection. Setting the <code>projection</code> as
+<p>We usually need to plot pseudo-color maps in polar projection besides
+except of those in Cartesian projection. Setting the <code>projection</code> as
 <code>polar</code> in method <code>subplot</code>. Here , we give an example of python code.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -213,7 +214,7 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="__2-color-bar-ticks-ans-axes-settings__"><strong>2 Color bar, ticks ans axes settings</strong></h2>
+</div><h2 id="__2-color-bar-tick-axis-grid-line-and-frame-settings__"><strong>2 Color bar, tick, axis, grid line and frame settings</strong></h2>
 <h3 id="__21-color-bar__"><strong>2.1 Color bar</strong></h3>
 <p><code>shrink</code>: Relative length of color bar;  <br>
 <code>aspect</code>: The ratio of height (length) to width;<br>
@@ -276,6 +277,19 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 </code></pre></td></tr></table>
 </div>
 </div></li>
+<li>
+<p>The positions of ticks:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">)</span> <span class="c1"># Put the x ticks on the top side.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span> <span class="c1"># Put the y ticks on the right side.</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <h3 id="__23-label__"><strong>2.3 Label</strong></h3>
 <ul>
@@ -315,8 +329,8 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 </div><ul>
 <li>
 <p><code>The position of axes</code>:</p>
-<p><code>ax.xaxis_label_position('top')</code>: Setting <code>'bottom'</code> to put it on the bottom side;
-<code>ax.yaxis_label_position('right')</code>: Setting <code>'left'</code> to put it on the left side.</p>
+<p><code>ax.xaxis.set_label_position('top')</code>: Setting <code>'bottom'</code> to put it on the bottom side;
+<code>ax.yaxis.set_label_position('right')</code>: Setting <code>'left'</code> to put it on the left side.</p>
 </li>
 <li>
 <p>The width of the frame:</p>
@@ -397,7 +411,42 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="__3-background-error-bars__"><strong>3 Background, error bars</strong></h2>
+</div><ul>
+<li>
+<p>Settings of the figure frame.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">bwidth</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="c1"># Set the width of the frame.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">bwidth</span><span class="p">)</span>
+<span class="c1"># Set the frame color.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;#666666&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;#333333&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;#333333&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;#333333&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="__3-background-error-bars__"><strong>3 Background, error bars</strong></h2>
 <p><code>background</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -494,7 +543,7 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">bazz</span><span class="p">,</span> <span class="n">sloww</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">PP</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;CMRmap&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">rasterized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="__5-make-a-colormap-with-your-own-colors__"><strong>5 Make a colormap with your own colors</strong></h2>
+</div><h2 id="__6-make-a-color-map-with-your-own-colors__"><strong>6 Make a color map with your own colors</strong></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -527,6 +576,21 @@ except of thoese in Cartesian projection. Setting the <code>projection</code> as
 	  <span class="o">+</span> <span class="s1">&#39;#FF2103    #FE1F00    #FE1A00    #FE1600    #FE1400    #FE1000&#39;</span>\
 	  <span class="o">+</span> <span class="s1">&#39;#FE0c00    #FE0a00    #FD0700    #FD0200&#39;</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;cmap&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="mi">101</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="__7-text-with-the-latex-style__"><strong>7 Text with the $LaTeX$ style</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib</span>
+
+<span class="c1"># Set True for using the LaTeX style.</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.usetex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
 </code></pre></td></tr></table>
 </div>
 </div>
