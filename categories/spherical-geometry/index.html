@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Geophydog</title>
+  <title>spherical geometry · Geophydog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,9 +26,9 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://geophydog.cool/" />
-  <link href="https://geophydog.cool/index.xml" rel="alternate" type="application/rss+xml" title="Geophydog" />
-  <link href="https://geophydog.cool/index.xml" rel="feed" type="application/rss+xml" title="Geophydog" />
+<link rel="canonical" href="https://geophydog.cool/categories/spherical-geometry/" />
+  <link href="https://geophydog.cool/categories/spherical-geometry/index.xml" rel="alternate" type="application/rss+xml" title="Geophydog" />
+  <link href="https://geophydog.cool/categories/spherical-geometry/index.xml" rel="feed" type="application/rss+xml" title="Geophydog" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +41,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Geophydog" />
+<meta property="og:title" content="spherical geometry" />
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://geophydog.cool/" />
+<meta property="og:url" content="https://geophydog.cool/categories/spherical-geometry/" />
 <meta property="og:updated_time" content="2021-03-02T16:05:43+08:00" />
-<meta itemprop="name" content="Geophydog">
+<meta itemprop="name" content="spherical geometry">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Geophydog"/>
+<meta name="twitter:title" content="spherical geometry"/>
 <meta name="twitter:description" content="Hello, there! Hope you have a nice journey!."/>
 
 <!--[if lte IE 9]>
@@ -122,133 +122,27 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/colorful_strings_in_c/">Print Colorful Strings in C</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-14 </span>
-      <div class="post-category">
-          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      It&rsquo;s wonderful to print colorful strings on your terminal and here we show you how to do that.
-1 2 3 4 5 6 7 8 9 10 11  #include &lt;stdio.h&gt; int main() { char ss[1024] = {&#34;Colorful!!!&#34;}; printf(&#34;\033[0;31m %s \033[0;39m\n&#34;, ss); // red  printf(&#34;\033[0;32m %s \033[0;39m\n&#34;, ss); // green  printf(&#34;\033[0;33m %s \033[0;39m\n&#34;, ss); // yellow  printf(&#34;\033[0;34m %s \033[0;39m\n&#34;, ss); // blue  printf(&#34;\033[0;35m %s \033[0;39m\n&#34;, ss); // purple  return 0; }   
-    </div>
-    <div class="read-more">
-      <a href="/post/colorful_strings_in_c/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
+          <section id="archive" class="archive">
+  <div class="archive-title category">
+        <h2 class="archive-name">spherical geometry</h2>
+      </div>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/func_ptr_and_ptr_func/">Function Pointer &amp; Pointer Function</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-14 </span>
-      <div class="post-category">
-          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
-          </div>
+  <div class="archive-post">
+      <span class="archive-post-time">
+        2021-03-02
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/geometry_on_a_sphere/" class="archive-post-link">
+          Geometry on a Sphere
+        </a>
+      </span>
     </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 2  int *f(int x, int y);   Let&rsquo;s give a code demo to show function pointer.
-1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x + y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p+1)); return 0; }   Output 20
-    </div>
-    <div class="read-more">
-      <a href="/post/func_ptr_and_ptr_func/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
+</section>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/awk_notes/">Awk notes</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      <div class="post-category">
-          <a href="/categories/awk/"> awk </a>
-          </div>
-    </div>
-  </header>
+<nav class="pagination">
   
-  <div class="post-content">
-    <div class="post-summary">
-      1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
-1  awk &#39;!a[$2,$3]++&#39; pushLog.log   Above command will print the unique lines after removing repeated in columns 2 and 3.
-For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
-1  saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!
-    </div>
-    <div class="read-more">
-      <a href="/post/awk_notes/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/basemap/">Basemap in Python</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      <div class="post-category">
-          <a href="/categories/visualization/"> visualization </a>
-          <a href="/categories/python/"> python </a>
-          </div>
-    </div>
-  </header>
   
-  <div class="post-content">
-    <div class="post-summary">
-      1 Installation Here, the platforms are windows 10 and Anaconda-3.5.3.0 (Python 3.7).
- Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl  Now, we&rsquo;ve installed Basemap and enjoy it!
-2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13  from mpl_toolkits.
-    </div>
-    <div class="read-more">
-      <a href="/post/basemap/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/nice_cover/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Hello, there. Hope you have a nice journey. 1 1 2 3 4 5
-2 2 3 4 5 6
-3 3 4 5 6 7
-    </div>
-    <div class="read-more">
-      <a href="/post/nice_cover/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/5/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
-    <a class="next" href="/page/7/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+</nav>
         </div>
         
 
@@ -302,14 +196,6 @@ For instance, there are some SAC files with same header gcarc, and can use the f
 
 
 <script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 
