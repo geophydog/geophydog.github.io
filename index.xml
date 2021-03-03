@@ -208,7 +208,8 @@ where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wa
       
       <guid>https://geophydog.cool/post/plotting_issues_in_python/</guid>
       <description>1 Pseudo-color map with polar projection We usually need to plot pseudo-color maps in polar projection besides except of those in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.</description>
+Example:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.</description>
     </item>
     
     <item>
