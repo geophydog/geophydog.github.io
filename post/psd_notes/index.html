@@ -49,7 +49,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2021-03-11T14:32:42+08:00" />
 <meta itemprop="dateModified" content="2021-03-11T14:32:42+08:00" />
-<meta itemprop="wordCount" content="987">
+<meta itemprop="wordCount" content="1460">
 
 
 
@@ -156,6 +156,7 @@
             <li><a href="#__1-introduction__"><strong>1 Introduction</strong></a></li>
             <li><a href="#__2-basic-principles__"><strong>2 Basic principles</strong></a></li>
             <li><a href="#__3-a-realistic-example__"><strong>3 A Realistic Example</strong></a></li>
+            <li><a href="#__4-the-psd-probability-density-function-estimation__"><strong>4 The PSD Probability Density Function Estimation</strong></a></li>
             <li><a href="#__bibliography__"><strong>Bibliography</strong></a></li>
           </ul>
         </li>
@@ -403,6 +404,161 @@ Similar to the idea of short time Fourier transform, window function can be also
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/PSD/PSD_Comparison.png" alt="PSD"></p>
+<h3 id="__4-the-psd-probability-density-function-estimation__"><strong>4 The PSD Probability Density Function Estimation</strong></h3>
+<p>The PSD probability density function (PSDPDF) is used to visualize the PSD of seismic noise and one can consider long-duration seismic noise data. By dividing the noise time series into many segments (overlap involved if necessary), we map every PSD curve  into the PSDPDF figure. In detail, we accumulate the number of all PSD curve at every frequency value, and the probability at some power value and frequency could be obtained by dividing the cumulative number is with the sum of all numbers at this frequency.</p>
+<p>Here we collect one-year seismic noise data recorded by a seismic station ($CASY$ in network $IU$) in Antarctica in 2020. We divide the noise time series into daily segments to compute the PSDPDF of noise at this seismic station.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span> <span class="k">as</span> <span class="n">sgolay</span>
+<span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">convolve2d</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;IU.CASY*.SAC&#39;</span><span class="p">))</span>
+
+<span class="n">nfft</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">17</span>
+<span class="n">nr</span> <span class="o">=</span> <span class="mi">251</span>
+<span class="n">hn</span> <span class="o">=</span> <span class="n">nfft</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">psd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nr</span><span class="p">,</span> <span class="n">hn</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hn</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sac</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">sac</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">nfft</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">nfft</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">+=</span> <span class="n">fd</span><span class="p">[:</span><span class="n">hn</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hn</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="mi">250</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="mi">250</span>
+        <span class="n">psd</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        
+<span class="n">f1</span> <span class="o">=</span> <span class="mf">5e-4</span><span class="p">;</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">0.45</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nfft</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">nfft</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fn1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="o">*</span><span class="n">nfft</span><span class="o">/</span><span class="n">fs</span><span class="p">);</span> <span class="n">fn2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f2</span><span class="o">*</span><span class="n">nfft</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+
+<span class="n">nrf</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[::</span><span class="n">nrf</span><span class="p">]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">psd</span><span class="p">[:,</span> <span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="p">]</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[</span><span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">);</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[::</span><span class="n">nrf</span><span class="p">]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[::</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="n">nrf</span><span class="p">]</span>
+<span class="n">sl</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">sl</span><span class="p">,</span> <span class="n">sl</span><span class="p">))</span><span class="o">/</span><span class="n">sl</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">250</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span> <span class="mi">171</span><span class="p">];</span> <span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span> <span class="mi">171</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">P</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">P</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;CMRmap_r&#39;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Probability (%)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pp</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5e-3</span><span class="p">,</span> <span class="o">-</span><span class="mi">125</span><span class="p">,</span> <span class="s1">&#39;Hum&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
+                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
+                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
+                   <span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">6e-2</span><span class="p">,</span> <span class="o">-</span><span class="mi">130</span><span class="p">,</span> <span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
+                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
+                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
+                   <span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.11</span><span class="p">,</span> <span class="o">-</span><span class="mi">115</span><span class="p">,</span> <span class="s1">&#39;DF&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
+                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
+                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
+                   <span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Freuqency (Hz)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity PSD (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/PSD/PSDPDF_IU.CASY.png" alt="IU.CASY PSDPDF"></p>
+<p>The hum, SF (single-frequency, the primary) and DF (double-frequency, the secondary) microseisms are marked on the figure. The gray curve denotes the average PSD from $366$-day ambient seismic noise data segments.</p>
 <h3 id="__bibliography__"><strong>Bibliography</strong></h3>
 <p>Nakata, Nori; Gualtieri, Lucia; Fichtner, Andreas (2019). *Seismic Ambient Noise || Noise-Based Monitoring. , 10.1017/9781108264808(9).</p>
 <p>Peterson, J. 1993. Observations and modeling of seismic background noise. U.S. Geol.
