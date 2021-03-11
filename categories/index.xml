@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Tue, 02 Mar 2021 16:05:43 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Mar 2021 14:32:42 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>data procrssing</title>
+      <link>https://geophydog.cool/categories/data-procrssing/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/data-procrssing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fft</title>
+      <link>https://geophydog.cool/categories/fft/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/fft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spectral analysis</title>
+      <link>https://geophydog.cool/categories/spectral-analysis/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/spectral-analysis/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>spherical geometry</title>
@@ -85,29 +112,11 @@
     </item>
     
     <item>
-      <title>fft</title>
-      <link>https://geophydog.cool/categories/fft/</link>
-      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/fft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>seismic interferometry</title>
       <link>https://geophydog.cool/categories/seismic-interferometry/</link>
       <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/seismic-interferometry/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spectral analysis</title>
-      <link>https://geophydog.cool/categories/spectral-analysis/</link>
-      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/spectral-analysis/</guid>
       <description></description>
     </item>
     
