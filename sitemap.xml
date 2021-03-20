@@ -2,14 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://geophydog.cool/tags/ambient-noise/</loc>
-    <lastmod>2021-03-11T14:32:42+08:00</lastmod>
+    <loc>https://geophydog.cool/tags/ambient-seismic-noise/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/array-processing/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/array-processing/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/beamforming/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://geophydog.cool/categories/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/ncf_cross_spectral_beamforming/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/seismic-array/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/beamforming/</loc>
+    <lastmod>2021-03-20T15:33:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/ambient-noise/</loc>
     <lastmod>2021-03-11T14:32:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -51,20 +121,6 @@
   </url>
   
   <url>
-    <loc>https://geophydog.cool/</loc>
-    <lastmod>2021-03-11T14:32:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/post/</loc>
-    <lastmod>2021-03-11T14:32:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://geophydog.cool/tags/psd/</loc>
     <lastmod>2021-03-11T14:32:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -80,13 +136,6 @@
   
   <url>
     <loc>https://geophydog.cool/categories/spectral-analysis/</loc>
-    <lastmod>2021-03-11T14:32:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/</loc>
     <lastmod>2021-03-11T14:32:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -359,13 +408,6 @@
   </url>
   
   <url>
-    <loc>https://geophydog.cool/categories/array-processing/</loc>
-    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://geophydog.cool/tags/array-response-function/</loc>
     <lastmod>2020-12-24T11:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -381,13 +423,6 @@
   
   <url>
     <loc>https://geophydog.cool/tags/array-transfer-function/</loc>
-    <lastmod>2020-12-24T11:42:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/beamforming/</loc>
     <lastmod>2020-12-24T11:42:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -494,13 +529,6 @@
   <url>
     <loc>https://geophydog.cool/tags/seismic-interferometry/</loc>
     <lastmod>2020-09-29T13:43:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/beamforming/</loc>
-    <lastmod>2020-09-25T08:56:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -738,13 +766,6 @@
   
   <url>
     <loc>https://geophydog.cool/post/cross_spectra_beamforing/</loc>
-    <lastmod>2020-09-07T22:40:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/seismic-array/</loc>
     <lastmod>2020-09-07T22:40:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

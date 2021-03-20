@@ -49,7 +49,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2021-03-11T14:32:42+08:00" />
 <meta itemprop="dateModified" content="2021-03-11T14:32:42+08:00" />
-<meta itemprop="wordCount" content="1460">
+<meta itemprop="wordCount" content="1464">
 
 
 
@@ -276,24 +276,24 @@ Similar to the idea of short time Fourier transform, window function can be also
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">overlap_psd</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">):</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">overlap_psd</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">seg</span> <span class="o">&lt;</span> <span class="n">overlap</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ensure segment &gt; overlap!&#39;</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="n">over_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">seg</span><span class="o">-</span><span class="n">overlap</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
-    <span class="n">seg_t</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">/</span> <span class="n">fs</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span><span class="p">;</span> <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dt</span>
+    <span class="n">over_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">seg</span><span class="o">-</span><span class="n">overlap</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">seg_t</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">*</span> <span class="n">dt</span>
     <span class="n">ti</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">t0</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">t0</span>
-    <span class="k">while</span> <span class="n">t1</span> <span class="o">&lt;</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">endtime</span><span class="o">-</span><span class="n">seg_t</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">t1</span> <span class="o">&lt;</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">endtime</span><span class="o">-</span><span class="n">seg_t</span><span class="p">:</span>
         <span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">seg_t</span>
-        <span class="n">trcc</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">trcc</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
-        <span class="n">trcc</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">trcc</span><span class="o">.</span><span class="n">data</span><span class="p">);</span> <span class="n">trcc</span><span class="o">.</span><span class="n">detrend</span><span class="p">();</span> <span class="n">trcc</span><span class="o">.</span><span class="n">taper</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-        <span class="n">dd</span> <span class="o">=</span> <span class="n">trcc</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">trc</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">trc</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+        <span class="n">trc</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">trc</span><span class="o">.</span><span class="n">data</span><span class="p">);</span> <span class="n">trc</span><span class="o">.</span><span class="n">detrend</span><span class="p">();</span> <span class="n">trc</span><span class="o">.</span><span class="n">taper</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="n">dd</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span> <span class="n">seg</span><span class="p">)</span>
         <span class="n">p</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">seg</span>
         <span class="n">p1</span> <span class="o">+=</span> <span class="n">p</span>
@@ -366,7 +366,7 @@ Similar to the idea of short time Fourier transform, window function can be also
 <span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
 <span class="n">seg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span>
 <span class="n">overlap</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">f1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
+<span class="n">f1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">trc</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
 
 <span class="c1"># Welch.</span>
 <span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">trc</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">seg</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">overlap</span><span class="p">)</span>
@@ -377,7 +377,7 @@ Similar to the idea of short time Fourier transform, window function can be also
 <span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
 <span class="n">seg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span>
 <span class="n">overlap</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">f3</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
+<span class="n">f3</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">trc</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
 
 <span class="c1"># Smoothing the PSD results with the Savitzky-Golay filter.</span>
 <span class="n">sl</span> <span class="o">=</span> <span class="mi">201</span>
@@ -388,10 +388,10 @@ Similar to the idea of short time Fourier transform, window function can be also
 
 <span class="c1"># Plot the PSD results.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Full&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;50</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Welch&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;0</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Full&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;50 \</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Welch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;0 \</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">4e-3</span><span class="p">,</span> <span class="n">fs</span><span class="o">*</span><span class="mf">0.48</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
@@ -589,7 +589,11 @@ Surv. Tech. Rept., 93-322, 1–95</p>
           <a href="/tags/ambient-noise/">ambient noise</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/ncf_cross_spectral_beamforming/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Cross Spectral Beamforming in Ambient Noise Cross-correlation</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/geometry_on_a_sphere/">
             <span class="next-text nav-default">Geometry on a Sphere</span>
             <span class="next-text nav-mobile">Next</span>
