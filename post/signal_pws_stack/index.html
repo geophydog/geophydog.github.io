@@ -49,7 +49,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2021-01-16T11:17:54+08:00" />
 <meta itemprop="dateModified" content="2021-01-16T11:17:54+08:00" />
-<meta itemprop="wordCount" content="899">
+<meta itemprop="wordCount" content="1196">
 
 
 
@@ -155,6 +155,8 @@
             <li><a href="#__2-basic-principles__"><strong>2 Basic principles</strong></a></li>
             <li><a href="#__3-a-numerical-example__"><strong>3. A numerical example</strong></a></li>
             <li><a href="#__4-a-realistic-application__"><strong>4. A realistic application</strong></a></li>
+            <li><a href="#__5-an-extension-of-pws-tf-pws__"><strong>5 An Extension of PWS: tf-PWS</strong></a></li>
+            <li><a href="#__6-an-application-of-tf-pws__"><strong>6 An Application of tf-PWS</strong></a></li>
             <li><a href="#__references__"><strong>References</strong></a></li>
           </ul>
         </li>
@@ -243,7 +245,7 @@ specially, this formula means linear stacking when $\nu=0$.</p>
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
-<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">hilbert</span> <span class="c1"># The method of implementing Hilbert transform.</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">hilbert</span>
 
 <span class="c1"># Gte the coherence of input stream.</span>
 <span class="k">def</span> <span class="nf">get_coh</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">sl</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
@@ -315,13 +317,6 @@ specially, this formula means linear stacking when $\nu=0$.</p>
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">PWS</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">sl</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
@@ -329,36 +324,105 @@ specially, this formula means linear stacking when $\nu=0$.</p>
     <span class="n">n</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">npts</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-    <span class="n">data_ht</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">st</span><span class="p">):</span>
-        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">data</span>
-        <span class="n">data_ht</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">data_pha</span> <span class="o">=</span> <span class="n">data_ht</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">data_ht</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data_pha</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]))</span>
-    <span class="n">c</span> <span class="o">/=</span> <span class="n">m</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="n">h</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">sm</span><span class="p">:</span>
         <span class="n">operator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">sl</span><span class="p">)</span> <span class="o">/</span> <span class="n">sl</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">**</span> <span class="n">v</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">m</span>
-    <span class="n">tr</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">tr</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">s</span>
+    <span class="n">stc</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">stc</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">stc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tr</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="o">*</span><span class="n">c</span><span class="o">**</span><span class="n">v</span>
     <span class="k">return</span> <span class="n">tr</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Here, we compare the stacked signals from PWS with different power numbers $\nu$ and linear stacking.</p>
-<p><img src="/CCF-AMBIENT-IMG/PWS_Linear.png" alt="pws-linear"></p>
+<p><img src="/CCF-AMBIENT-IMG/STACK_PWS.png" alt="pws-linear"></p>
 <p>The power number $\nu$ of coherence $c(t)$ are indicated by the numbers on the right panel. Note that the SNRs become higher with the increase of the power number $\nu$. However, one must understand that the waveforms from PWS may change, especially for the larger power number $\nu$.</p>
+<h3 id="__5-an-extension-of-pws-tf-pws__"><strong>5 An Extension of PWS: tf-PWS</strong></h3>
+<p>The stacked waveform using PWS changes much due to the non-linear influence. Here,  Schimmel  et al. (2011) have developed an extension of the PWS: tf-PWS in time-frequency domain. The steps are</p>
+<p>(1) Transform the trace into time-frequency domain with <a href="https://en.wikipedia.org/wiki/S_transform">Stockwell transform</a> or S transform;
+$$
+S(\tau, f)=\int_{-\infty}^{\infty}u(t)w(\tau-t, f)e^{-i2\pi ft} \tag{4},
+$$
+where $w(\tau-t, f)=\frac{|f|}{k\sqrt{2\pi}}e^{-f^2(\tau-t)^2/(2k^2)}$ with $k&gt;0$ is an Gaussian window function. The new coherence function is defined by
+$$
+c(\tau, f)=|\frac{1}{N}\sum_{n=1}^N \frac{S_n(\tau, f)e^{i2\pi ft}}{|S_n(\tau, f)|}|^\nu \tag{5}.
+$$
+The stacked waveform with tf-PWS in time-frequency domain is
+$$
+S_{tf-PWS}(\tau, f)=c(\tau, f)S_{linear}(\tau, f) \tag{6},
+$$
+where, $S_{linear}(\tau, f)$ is the linear stacking of all traces in time-frequency domain using S transform.</p>
+<p>We apply an inverse S transform to $S_{tf-PWS}(\tau, f)$ and obtain the tf-PWS waveform $s(\tau)$.</p>
+<h3 id="__6-an-application-of-tf-pws__"><strong>6 An Application of tf-PWS</strong></h3>
+<p>We use the same noise cross-correlations to check the tf-PWS. You need to install the Python library <a href="https://github.com/claudiodsf/stockwell">stockwell</a> first if you want to try the following example.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">stockwell</span> <span class="kn">import</span> <span class="n">st</span>
+
+<span class="k">def</span> <span class="nf">tf_PWS</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">b</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">npts</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">e</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">fn1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="o">/</span><span class="n">df</span><span class="p">);</span> <span class="n">fn2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f2</span><span class="o">/</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">st</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="n">T</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">ph</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">F</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="n">ph</span>
+    <span class="n">c</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+    <span class="n">stc</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">stc</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">st</span><span class="p">(</span><span class="n">stc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">)</span>
+    <span class="n">pws</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">ist</span><span class="p">(</span><span class="n">ds</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="n">v</span><span class="p">,</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">)</span>
+    <span class="n">tr</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">pws</span>
+    <span class="k">return</span> <span class="n">tr</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/CCF-AMBIENT-IMG/STACK_tf-PWS.png" alt="tf-PWS"></p>
+<p>We can find that the stacked waveforms with tf-PWS do not change much but noise is suppressed. We compare the stacked waveforms with the PWS and tf-PWS, and we can see that the difference is more obvious when the power number $\nu$ increases.</p>
+<p><img src="/CCF-AMBIENT-IMG/STACK_PWS_tf-PWS.png" alt="PWS_tf-PWS"></p>
 <h3 id="__references__"><strong>References</strong></h3>
-<p>Schimmel, M., and H. Paulssen (1997), Noise reduction and detection of weak, coherent signals through phase weighted stacks, Geophys. J. Int., 130, 497 – 505.</p>
-<p>Shapiro, N. M., and M. Campillo (2004). Emergence of broadband Rayleigh waves from correlations of the ambient seismic noise, Geophys. Res. Lett. 31, no. 7, doi: 10.1029/2004GL019491.</p>
 <p>Dias, R.C., Julià, J. &amp; Schimmel, M. Rayleigh-Wave, Group-Velocity Tomography of the Borborema Province, NE Brazil, from Ambient Seismic Noise. <em>Pure Appl. Geophys.</em> <strong>172,</strong> 1429–1449.</p>
 <p>Dantas, Odmaksuel Anísio Bezerra, Do Nascimento, A. F. , &amp; Schimmel, M. . (2018). Retrieval of body-wave reflections using ambient noise interferometry using a small-scale experiment. <em>Pure &amp; Applied Geophysics</em>.</p>
+<p>Schimmel, M., and H. Paulssen (1997), Noise reduction and detection of weak, coherent signals through phase weighted stacks, Geophys. J. Int., 130, 497 – 505.</p>
+<p>M. Schimmel, E. Stutzmann2and J. Gallart. Using instantaneous phase coherence for signal extraction from ambient noise data at a local to a global scale. <em>Geophysical Journal International</em>(1), 494-506.</p>
+<p>Shapiro, N. M., and M. Campillo (2004). Emergence of broadband Rayleigh waves from correlations of the ambient seismic noise, Geophys. Res. Lett. 31, no. 7, doi: 10.1029/2004GL019491.</p>
     </div>
 
     <div class="post-copyright">
