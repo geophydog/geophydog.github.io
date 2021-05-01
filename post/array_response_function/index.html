@@ -49,7 +49,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2020-12-24T11:42:11+08:00" />
 <meta itemprop="dateModified" content="2020-12-24T11:42:11+08:00" />
-<meta itemprop="wordCount" content="3185">
+<meta itemprop="wordCount" content="3259">
 
 
 
@@ -200,6 +200,7 @@ ARF(\omega, \theta, s, \theta_0, s_0) = \frac{1}{N}\sum_{n=1}^Ne^{-i\omega {[s s
 $$</p>
 <p>where, $\Delta x_n=x_n-x_0$ and $\Delta x_n=x_n-x_0$.</p>
 <p>Here, we compute the array response function of a seismic array (NR) installed in Africa.</p>
+<p><img src="/Array_Processing/AFRICA_NR_NET.png" alt="NR NET"></p>
 <p>We fist give some useful tools to conduct the following work:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -280,6 +281,14 @@ $$</p>
 </span><span class="lnt">75
 </span><span class="lnt">76
 </span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -295,7 +304,7 @@ $$</p>
     <span class="n">az</span> <span class="o">=</span> <span class="p">(</span><span class="n">th</span> <span class="o">/</span> <span class="n">d2r</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
     <span class="k">return</span> <span class="n">az</span>
 
-<span class="c1"># Distance in kilometer between two points.</span>
+<span class="c1"># Distance in kilometer between two points on our planet Earth.</span>
 <span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">6371</span><span class="p">):</span>
     <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
     <span class="n">dla</span> <span class="o">=</span> <span class="p">(</span><span class="n">la2</span> <span class="o">-</span> <span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
@@ -305,43 +314,51 @@ $$</p>
     <span class="n">d</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">c</span>
     <span class="k">return</span> <span class="n">d</span>
 
-<span class="c1"># The relative position of two pints.</span>
+<span class="c1"># The relative position of given two pints.</span>
 <span class="k">def</span> <span class="nf">new_xy</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
-    <span class="n">az</span> <span class="o">=</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+    <span class="n">az</span> <span class="o">=</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
     <span class="n">dist</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">az</span><span class="p">)</span><span class="o">*</span><span class="n">dist</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">az</span><span class="p">)</span><span class="o">*</span><span class="n">dist</span><span class="p">]</span>
 
+<span class="c1"># Relative positions to the geometric array center.</span>
+<span class="k">def</span> <span class="nf">reference_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">):</span>
+	<span class="n">pos</span> <span class="o">=</span> <span class="n">xy</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+	<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+	<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+	<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])):</span>
+			<span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_xy</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x0</span>
+		<span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">y0</span>
+		<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;kilometer&#39;</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">pos</span> <span class="o">*</span> <span class="mf">1e3</span>
+		<span class="k">return</span> <span class="n">pos</span>
+
+<span class="c1"># Cross positions of all stations</span>
+<span class="k">def</span> <span class="nf">cross_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">):</span>
+	<span class="n">pos</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+	<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+				<span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_xy</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+				<span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+		<span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;kilometer&#39;</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">pos</span> <span class="o">*</span> <span class="mf">1e3</span>
+		<span class="k">return</span> <span class="n">pos</span>
+
 <span class="c1"># Relative positions of give raw corrdinates.</span>
-<span class="k">def</span> <span class="nf">relative_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">):</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">ptype</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-        <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])):</span>
-                <span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_xy</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span><span class="o">*</span><span class="mf">1e3</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">pos</span> <span class="o">=</span> <span class="n">xy</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x0</span><span class="p">;</span> <span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">y0</span>
-            <span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;kilometer&#39;</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">pos</span><span class="o">*</span><span class="mf">1e3</span>
-            <span class="k">return</span> <span class="n">pos</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-                    <span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_xy</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span><span class="o">*</span><span class="mf">1e3</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-                    <span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-            <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;kilometer&#39;</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">pos</span><span class="o">*</span><span class="mf">1e3</span>
-            <span class="k">return</span> <span class="n">pos</span>
+<span class="k">def</span> <span class="nf">relative_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">ptype</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">reference_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">cross_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
 
 <span class="c1"># Array response function.</span>
 <span class="k">def</span> <span class="nf">array_response</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="mi">181</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="mf">5e-5</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;meter&#39;</span><span class="p">):</span>
@@ -361,7 +378,7 @@ $$</p>
     <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>We use formula $(1)$ to compute the ARF of NR:</p>
+</div><p>A plane wave with slowness of 0 is given and we use formula $(1)$ to compute the ARF of NR :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -462,7 +479,7 @@ $$</p>
 </div>
 </div><p><img src="/Array_Processing/Relative_position_ARF_NR.png" alt="rel_NR"></p>
 <h3 id="__12-the-improvement-of-the-resolution__"><strong>1.2 The Improvement of the Resolution</strong></h3>
-<p>However, the above figure show a poor resolution of ARF, and the side lobes are not suppressed well. Thus, we need to improve the resolution and suppress the side lobes utilizing the cross positions instead of relative positions (Seismic Ambient Noise, edited by Nakata et al., 20019, page 35). The new ARF is given by</p>
+<p>However, the above figure show a poor resolution of ARF, and the side lobes are not suppressed well. Thus, we need to improve the resolution and suppress the side lobes utilizing the cross positions instead of relative positions (Seismic Ambient Noise, edited by Nakata et al., 20019, page 35). The new ARF formula is given by</p>
 <p>$$
 ARF(\omega, \vec{s}, \vec{s}_0)= \frac{1}{N(N-1)} \sum_{m=1}^{N-1} \sum_{n=m+1}^N e^{-i\omega(\vec{s}-\vec{s}_0)\cdot(\vec{r}_n-\vec{r}_m)} \tag{4}.
 $$</p>
@@ -530,7 +547,7 @@ $$</p>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/Array_Processing/Cross_position_ARF_NR.png" alt="cross_NR"></p>
-<p>The figure show a better resolution and the main lobe is very clear.</p>
+<p>The figure show a better resolution and the main lobe  (where the slowness of the given plane wave is 0) is very clear.</p>
 <h2 id="__2-codes-of-investigating-the-array-configuration__"><strong>2 Codes of Investigating the Array Configuration</strong></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -49,7 +49,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2021-03-20T15:33:02+08:00" />
 <meta itemprop="dateModified" content="2021-03-20T15:33:02+08:00" />
-<meta itemprop="wordCount" content="1804">
+<meta itemprop="wordCount" content="1910">
 
 
 
@@ -176,6 +176,7 @@
 <p>We suppose that one has installed these Python packages:</p>
 <p><code>numpy</code> , <code>matplotlib</code>, <code>scipy</code>, <code>obspy</code> and <code>geopy</code>.</p>
 <h4 id="__21-single-frequency-analysis__"><strong>2.1 Single-frequency analysis</strong></h4>
+<p>One can find the proper way of estimating a narrow band signal when considering the near frequencies (which differ by $\pm 10 \%$ from the center frequency, Gal et al., 2014; Nakata et al., 2019). Here, we just show the results of single frequency value.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -343,8 +344,8 @@
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/Array_Processing/Noise_Source_stack_2008-10.png" alt="CSB"></p>
-<h4 id="__22-frequency-band-analysis__"><strong>2.2 Frequency-band analysis</strong></h4>
-<p>We just compute the sum of all spectra of every single frequency to obtain the beamforming spectra on the given frequency band. Here we show the results when the frequency band is given and we set the frequency band as  0.09$-$ 0.11 $Hz$ and the spectra can be obtained by</p>
+<h4 id="__22-extension-to-broadband-data-analysis__"><strong>2.2 Extension to Broadband Data Analysis</strong></h4>
+<p>We just compute the sum of all spectra of every single frequency to obtain the FK beamforming spectra on the given frequency band. Here we show the results when the frequency band is given and we set the frequency band as  0.09$-$ 0.11 $Hz$ and the spectra can be obtained by</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -680,8 +681,10 @@
 <p>We think they are body waves originating from distant storms and more work is need to conducted for recognizing the body wave phases. If we assume that what the seismic phase is, we can use back-projection to find the regions of the distant storms and compare them with the significant wave height data (e. g., Gerstoft et al., 2006; Euler et al., 2017). For more details, see these research articles. Note that, <code>how do we find the position with given back-azimuth and horizontal slowness (ray parameter) of some body phase</code> can be figured out using some body wave ray toolkits, such as <a href="https://docs.obspy.org/tutorial/code_snippets/travel_time.html">obspy</a> (see <a href="http://geophydog.cool/post/obspy_ray_parameter/">Calculating ray parameters of body waves with obspy</a> to find the specific steps ) or <a href="http://www.seis.sc.edu/taup/">TauP</a>.</p>
 <h3 id="__bibliography__"><strong>Bibliography</strong></h3>
 <p>Euler, G. G., Wiens, D. A., &amp; Nyblade, A. A. (2014). Evidence for bathymetric control on the distribution of body wave microseism sources from temporary seismic arrays in africa. Geophysical Journal International , 197 (3), 1869-1883.</p>
+<p>Gal, M. , Reading, A. M. , Ellingsen, S. P. , Koper, K. D. , Gibbons, S. J. , &amp; SP Näsholm. (2015). Improved implementation of the fk and capon methods for array analysis of seismic noise. <em>Geophysical Journal International</em>(2), 1045-1054.</p>
 <p>Gerstoft, P., M. C. Fehler, and K. G. Sabra (2006), When Katrina hit California, Geophys. Res. Lett., 33, L17308.</p>
 <p>Gerstoft, P., P. M. Shearer, N. Harmon, and J. Zhang (2008), Global P, PP, and PKP wave microseisms observed from distant storms, Geophys. Res. Lett., 35, L23306.</p>
+<p>Nakata, N. , Gualtieri, L. , &amp; Fichtner, A. . (2019). Seismic Ambient Noise. P. 43$-$44.</p>
     </div>
 
     <div class="post-copyright">
