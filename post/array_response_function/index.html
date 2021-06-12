@@ -49,7 +49,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2020-12-24T11:42:11+08:00" />
 <meta itemprop="dateModified" content="2020-12-24T11:42:11+08:00" />
-<meta itemprop="wordCount" content="3259">
+<meta itemprop="wordCount" content="3056">
 
 
 
@@ -201,7 +201,58 @@ $$</p>
 <p>where, $\Delta x_n=x_n-x_0$ and $\Delta x_n=x_n-x_0$.</p>
 <p>Here, we compute the array response function of a seismic array (NR) installed in Africa.</p>
 <p><img src="/Array_Processing/AFRICA_NR_NET.png" alt="NR NET"></p>
-<p>We fist give some useful tools to conduct the following work:</p>
+<p>The Python method  of computing ARF  was implemented in <code>get_arf</code> in the following codes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">geopy.distance</span> <span class="kn">import</span> <span class="n">geodesic</span>
+<span class="kn">from</span> <span class="nn">obspy.taup.taup_geo</span> <span class="kn">import</span> <span class="n">calc_dist_azi</span> <span class="k">as</span> <span class="n">cda</span>
+
+<span class="k">def</span> <span class="nf">get_arf</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="mf">5e-4</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="mi">121</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">sn</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">bn</span><span class="p">)</span>
+    <span class="n">B</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">b0</span> <span class="o">=</span> <span class="n">b0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">sn</span><span class="p">,</span> <span class="n">bn</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">xy</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x0</span><span class="p">;</span> <span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">y0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">shift</span> <span class="o">=</span>  <span class="n">S</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span><span class="o">*</span><span class="n">s0</span><span class="p">)</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> \
+                      <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b0</span><span class="p">))</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">tmp</span><span class="o">*</span><span class="n">shift</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="n">p</span> <span class="o">/=</span> <span class="n">p</span><span class="o">.</span><span class="n">max</span><span class="p">();</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>A plane wave with slowness of 0 is given and we use formula $(1)$ to compute the ARF of NR :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -262,123 +313,75 @@ $$</p>
 </span><span class="lnt">56
 </span><span class="lnt">57
 </span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load geographical positions of seismic network and convert them to Cartesian system.</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;NR_NET.lst&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">xy</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+            <span class="n">p0</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">geodesic</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">ellipsoid</span><span class="o">=</span><span class="s1">&#39;WGS-84&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">km</span> <span class="o">*</span> <span class="mf">1e3</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cda</span><span class="p">(</span><span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">6371</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">az</span> <span class="o">=</span> <span class="n">az</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">az</span><span class="p">);</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">az</span><span class="p">)</span>
+            <span class="n">xy</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">])</span>       
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
 
-<span class="c1"># Compute the azimuth (bearing) of point 2 relative to point 1.</span>
-<span class="k">def</span> <span class="nf">azimuth</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">):</span>
-    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span>
-    <span class="n">dlo</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo2</span> <span class="o">-</span> <span class="n">lo1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlo</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la2</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dlo</span><span class="p">)</span>
-    <span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">az</span> <span class="o">=</span> <span class="p">(</span><span class="n">th</span> <span class="o">/</span> <span class="n">d2r</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
-    <span class="k">return</span> <span class="n">az</span>
+<span class="c1"># Parameter settings.</span>
+<span class="c1"># Back-azimuth of plane wave source and corresponding slowness.</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">b0</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span> <span class="n">s0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Scanning ranges of slowness.</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s2</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">sn</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span> <span class="n">bn</span><span class="o">=</span>  <span class="mi">121</span>
+<span class="c1"># Compute array response function spectra.</span>
+<span class="c1"># Refrence position .</span>
+<span class="n">baz1</span><span class="p">,</span> <span class="n">slow1</span><span class="p">,</span> <span class="n">pow1</span> <span class="o">=</span> <span class="n">get_arf</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="n">b0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">s0</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="n">s2</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="n">bn</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="n">sn</span><span class="p">)</span>
 
-<span class="c1"># Distance in kilometer between two points on our planet Earth.</span>
-<span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">6371</span><span class="p">):</span>
-    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
-    <span class="n">dla</span> <span class="o">=</span> <span class="p">(</span><span class="n">la2</span> <span class="o">-</span> <span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
-    <span class="n">dlo</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo2</span> <span class="o">-</span> <span class="n">lo1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dla</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span> <span class="o">*</span> <span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlo</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">c</span>
-    <span class="k">return</span> <span class="n">d</span>
+<span class="c1"># Visualization of ARF spectra.</span>
+<span class="c1"># Coordinates of seismic network in Cartesian system.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span>
+            <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;E-W (km)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;N-S (km)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 
-<span class="c1"># The relative position of given two pints.</span>
-<span class="k">def</span> <span class="nf">new_xy</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
-    <span class="n">az</span> <span class="o">=</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
-    <span class="n">dist</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">az</span><span class="p">)</span><span class="o">*</span><span class="n">dist</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">az</span><span class="p">)</span><span class="o">*</span><span class="n">dist</span><span class="p">]</span>
+<span class="c1"># ARF of reference position.</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">baz1</span><span class="p">,</span> <span class="n">slow1</span><span class="p">,</span> <span class="n">pow1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">CMRmap</span><span class="p">,</span>
+               <span class="n">vmin</span><span class="o">=-</span><span class="mi">15</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.13</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Beam power (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_theta_direction</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slowness (s/km)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="c1"># Relative positions to the geometric array center.</span>
-<span class="k">def</span> <span class="nf">reference_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">):</span>
-	<span class="n">pos</span> <span class="o">=</span> <span class="n">xy</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-	<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-	<span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-	<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])):</span>
-			<span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_xy</span><span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x0</span>
-		<span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">y0</span>
-		<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;kilometer&#39;</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">pos</span> <span class="o">*</span> <span class="mf">1e3</span>
-		<span class="k">return</span> <span class="n">pos</span>
-
-<span class="c1"># Cross positions of all stations</span>
-<span class="k">def</span> <span class="nf">cross_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">):</span>
-	<span class="n">pos</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-	<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-				<span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_xy</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-				<span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-		<span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-		<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;kilometer&#39;</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">pos</span> <span class="o">*</span> <span class="mf">1e3</span>
-		<span class="k">return</span> <span class="n">pos</span>
-
-<span class="c1"># Relative positions of give raw corrdinates.</span>
-<span class="k">def</span> <span class="nf">relative_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;degree&#39;</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-	<span class="k">if</span> <span class="n">ptype</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">reference_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">cross_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
-
-<span class="c1"># Array response function.</span>
-<span class="k">def</span> <span class="nf">array_response</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="mi">181</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="mf">5e-5</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="s1">&#39;meter&#39;</span><span class="p">):</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="n">relative_position</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="n">ptype</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
-    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
-    <span class="n">b0</span> <span class="o">=</span> <span class="n">b0</span><span class="o">*</span><span class="n">d2r</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">sn</span><span class="p">,</span> <span class="n">bn</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">sn</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">bn</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
-    <span class="n">bp</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>
-    <span class="n">B</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])):</span>
-        <span class="n">shift</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="n">s0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b0</span><span class="p">))</span> <span class="o">+</span> \
-                <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="n">s0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b0</span><span class="p">))</span>
-        <span class="n">p</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">tmp</span><span class="o">*</span><span class="n">shift</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>A plane wave with slowness of 0 is given and we use formula $(1)$ to compute the ARF of NR :</p>
+</div><p><img src="/Array_Processing/Relative_position_ARF_NR.png" alt="rel_NR"></p>
+<h3 id="__12-the-improvement-of-the-resolution__"><strong>1.2 The Improvement of the Resolution</strong></h3>
+<p>However, the above figure show a poor resolution of ARF, and the side lobes are not suppressed well. Thus, we need to improve the resolution and suppress the side lobes utilizing the cross positions instead of relative positions (Seismic Ambient Noise, edited by Nakata et al., 20019, page 35). The new ARF formula is given by</p>
+<p>$$
+ARF(\omega, \vec{s}, \vec{s}_0)= \frac{1}{N^2} \sum_{m=1}^N \sum_{n=1}^N \omega_m \omega_n e^{-i\omega(\vec{s}-\vec{s}_0)\cdot(\vec{r}_n-\vec{r}_m)} \tag{4}.
+$$</p>
+<p>We also use the NR network to compute its ARF.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -423,125 +426,48 @@ $$</p>
 </span><span class="lnt">40
 </span><span class="lnt">41
 </span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Read lin the latitude and longitude data in degrees.</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;NET_NR.lst&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-        <span class="n">pos</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])])</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-    
-<span class="c1"># Parameter settings.</span>
-<span class="c1"># Back-azimuth of plane wave source and corresponding slowness.</span>
-<span class="n">b0</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span> <span class="n">s0</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">sn</span> <span class="o">=</span> <span class="mi">101</span><span class="p">;</span> <span class="n">bn</span> <span class="o">=</span> <span class="mi">181</span>
-<span class="c1"># Frequency of the plane wave</span>
-<span class="n">f0</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="c1"># Factor from degree to kilometer.</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">111194.92664455</span><span class="p">;</span> <span class="n">sys</span> <span class="o">=</span> <span class="s1">&#39;degree</span>
-<span class="c1"># Array response&#39;</span>
-<span class="n">b1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">array_response</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="n">sn</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="n">bn</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f0</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="n">b0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">s0</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-    <span class="n">s1</span> <span class="o">*=</span> <span class="n">g</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">s1</span><span class="o">*=</span><span class="mf">1e3</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
 
-<span class="c1"># Visualization.</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;CMRmap&#39;</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">P1</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="n">P1</span> <span class="o">/=</span> <span class="n">P1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">P1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P1</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">P1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.13</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_cs_arf</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="mf">5e-4</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="mi">121</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">sn</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">bn</span><span class="p">)</span>
+    <span class="n">B</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">sn</span><span class="p">,</span> <span class="n">bn</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>
+    <span class="n">per</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">xy</span><span class="p">[</span><span class="n">per</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="n">per</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">shift</span> <span class="o">=</span>  <span class="n">S</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b0</span><span class="p">)</span><span class="o">*</span><span class="n">s0</span><span class="p">)</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> \
+                      <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b0</span><span class="p">))</span><span class="o">*</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">tmp</span><span class="o">*</span><span class="n">shift</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="n">p</span> <span class="o">/=</span> <span class="n">p</span><span class="o">.</span><span class="n">max</span><span class="p">();</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p</span> 
+
+
+<span class="c1"># ARF of cross position.</span>
+<span class="n">baz2</span><span class="p">,</span> <span class="n">slow2</span><span class="p">,</span> <span class="n">pow2</span> <span class="o">=</span> <span class="n">get_cs_arf</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="n">b0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">s0</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="o">=</span><span class="n">s2</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="n">bn</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="n">sn</span><span class="p">)</span>
+
+<span class="c1"># Visualization of ARF.</span>
+<span class="n">slow2</span> <span class="o">*=</span> <span class="mf">1e3</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">baz2</span><span class="p">,</span> <span class="n">slow2</span><span class="p">,</span> <span class="n">pow2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">CMRmap</span><span class="p">,</span>
+               <span class="n">vmin</span><span class="o">=-</span><span class="mi">15</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.13</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Beam power (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_direction</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b1</span><span class="p">))</span><span class="o">*</span><span class="n">s1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b1</span><span class="p">))</span><span class="o">*</span><span class="n">s1</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slowness (s/degree)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slowness (s/km)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img src="/Array_Processing/Relative_position_ARF_NR.png" alt="rel_NR"></p>
-<h3 id="__12-the-improvement-of-the-resolution__"><strong>1.2 The Improvement of the Resolution</strong></h3>
-<p>However, the above figure show a poor resolution of ARF, and the side lobes are not suppressed well. Thus, we need to improve the resolution and suppress the side lobes utilizing the cross positions instead of relative positions (Seismic Ambient Noise, edited by Nakata et al., 20019, page 35). The new ARF formula is given by</p>
-<p>$$
-ARF(\omega, \vec{s}, \vec{s}_0)= \frac{1}{N(N-1)} \sum_{m=1}^{N-1} \sum_{n=m+1}^N e^{-i\omega(\vec{s}-\vec{s}_0)\cdot(\vec{r}_n-\vec{r}_m)} \tag{4}.
-$$</p>
-<p>We also use the NR network to compute its ARF.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">b2</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">array_response</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="n">sn</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="n">bn</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f0</span><span class="p">,</span> <span class="n">b0</span><span class="o">=</span><span class="n">b0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">s0</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sys</span><span class="o">=</span><span class="n">sys</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-    <span class="n">s2</span> <span class="o">*=</span> <span class="n">g</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">s2</span> <span class="o">*=</span> <span class="mf">1e3</span>
-    
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">P2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span> <span class="n">P2</span> <span class="o">/=</span> <span class="n">P2</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">P2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P2</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.13</span><span class="p">)</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Beam power (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_direction</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b2</span><span class="p">))</span><span class="o">*</span><span class="n">s2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b2</span><span class="p">))</span><span class="o">*</span><span class="n">s2</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">sys</span> <span class="o">==</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slowness (s/degree)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slowness (s/km)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_theta_direction</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slowness (s/km)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></td></tr></table>
