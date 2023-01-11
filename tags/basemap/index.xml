@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basemap on Geophydog</title>
+    <link>https://geophydog.cool/tags/basemap/</link>
+    <description>Recent content in Basemap on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Sat, 12 Sep 2020 14:24:47 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/basemap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basemap in Python</title>
+      <link>https://geophydog.cool/post/basemap/</link>
+      <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/basemap/</guid>
+      <description>1 Installation Here, the platforms are windows 10 and Anaconda-3.5.3.0 (Python 3.7).
+Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Now, we&amp;rsquo;ve installed Basemap and enjoy it!
+2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13 from mpl_toolkits.basemap import Basemap import matplotlib.</description>
+    </item>
+    
+  </channel>
+</rss>

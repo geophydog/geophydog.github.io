@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>filter on Geophydog</title>
+    <link>https://geophydog.cool/categories/filter/</link>
+    <description>Recent content in filter on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Wed, 16 Sep 2020 08:56:15 +0800</lastBuildDate><atom:link href="https://geophydog.cool/categories/filter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Journey to Digital Filter Design: One-way and Two-way Filters</title>
+      <link>https://geophydog.cool/post/one-way_two-way_filter/</link>
+      <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/one-way_two-way_filter/</guid>
+      <description>1 One-way filtering For given filter transfer function $H(\omega)$, the filtered data $X_1(\omega)$ is $$ \begin{cases} X_1(\omega) &amp;amp;= H(\omega) \cdot X(\omega)\\ x_1(t) &amp;amp;= \mathscr{R} \{ \mathscr{F}^{-1}[X_1(\omega)] \} \end{cases} \tag{1}. $$ Eq. $(1)$ is called $one-way$ filtering, and it ensure that the onsets of original and filtered signals are at the same moment.
+2 Two-way filtering However, if we want to ensure that the peaks of original and filtered signals are at the same moment, we need to filter again, which is named $two-way$ filtering.</description>
+    </item>
+    
+    <item>
+      <title>The Journey to Digital Filter Design: Band-pass Filter</title>
+      <link>https://geophydog.cool/post/band-pass_filter/</link>
+      <pubDate>Tue, 15 Sep 2020 23:47:06 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/band-pass_filter/</guid>
+      <description>1 Basic princeples To design a Butterworth band-pass filter, we can combine a low-pass filter and a high-pass filter as below, $$ H(z) = H_{lp}(z) \cdot H_{hp}(z) \tag{1}. $$ In previous blogs, we&amp;rsquo;ve gone over the Butterworth low-pass and high-pass filters. Here, we use the designed filters to construct a band-pass filter. You can also design a Butterworth band-stop filter according to the designed low-pass and high-pass filters if necessary. $$ \begin{cases} H_{lp}(z) &amp;amp;= H_{\omega_2}(z)\\ H_{hp}(z) &amp;amp;= H_{\omega_1}(z) \end{cases} \tag{2}.</description>
+    </item>
+    
+    <item>
+      <title>The Journey to Digital Filter Design: High-pass Filter</title>
+      <link>https://geophydog.cool/post/high-pass_filter/</link>
+      <pubDate>Tue, 15 Sep 2020 23:42:50 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/high-pass_filter/</guid>
+      <description>1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\ &amp;amp;tan\frac{\omega_c}{2}e^{j\frac{k}{N}\pi}, \text{ for } N \text{ is odd and }k=0, 1, 2, \cdots, 2N-1.</description>
+    </item>
+    
+    <item>
+      <title>The Journey to Digital Filter Design: Low-pass Filter</title>
+      <link>https://geophydog.cool/post/low-pass_filter/</link>
+      <pubDate>Fri, 11 Sep 2020 22:04:26 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/low-pass_filter/</guid>
+      <description>Butterworth filters $$ |H(w)|^2=\frac{1}{1+( \frac{tan\frac{\omega}{2}} {tan\frac{\omega_c}{2}})^{2N}} \tag{1} $$
+Low-pass filter Given the attenuation values $A_c$ and $A_r$ at cut-off frequencies $\omega_c$ and $\omega_r$, respectively, we first calculate the orders $N$ of filter. We know, $$ \begin{aligned} A_r &amp;amp;= -20lg|H(\omega_s)|\\ &amp;amp;= -20lg\frac{1}{\sqrt{1+(\frac{tan\frac{\omega _r}{2}}{\frac{\omega_c}{2}})^{2N}}} \end{aligned} \tag{2}, $$ and the orders $N$ is given by $$ N = \frac{1}{2}\frac{lg(10^{\frac{A_r}{10}}-1)}{lg(\frac{tan\frac{\omega_r}{2}}{tan\frac{\omega_c}{2}})} \tag{3}. $$ However, if you give the filter orders $N$, it can control the width of transition band of the filter.</description>
+    </item>
+    
+  </channel>
+</rss>

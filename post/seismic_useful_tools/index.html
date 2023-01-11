@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Useful seismic tools - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/seismic_useful_tools/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Useful seismic tools" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/seismic_useful_tools/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-12-30T09:31:49+08:00" />
+<meta property="article:modified_time" content="2020-12-30T09:31:49+08:00" />
+<meta itemprop="name" content="Useful seismic tools">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2020-12-30T09:31:49+08:00" />
+<meta itemprop="dateModified" content="2020-12-30T09:31:49+08:00" />
+<meta itemprop="wordCount" content="634">
+<meta itemprop="keywords" content="data processing,visualization,seismic tools,seismology," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Useful seismic tools"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Useful seismic tools</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-30 </span>
+        <div class="post-category">
+            <a href="/categories/seismic-data-processing/"> seismic data processing </a>
+            <a href="/categories/visualization/"> visualization </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--seismic-data-processing">⬇️  Seismic Data Processing</a></li>
+        <li><a href="#--convert-seismic-data">⬇️  Convert Seismic Data</a></li>
+        <li><a href="#--travel-time-ray-parameter-and-ray-path-calculation">⬇️  Travel time, ray parameter and ray path calculation</a></li>
+        <li><a href="#--visualization">⬇️  Visualization</a></li>
+        <li><a href="#--synthetic-seismograms">⬇️  Synthetic Seismograms</a></li>
+        <li><a href="#-focal-mechanism">⬇️ Focal mechanism</a></li>
+        <li><a href="#-earthquake-location">⬇️ Earthquake location</a></li>
+        <li><a href="#-numerical-computation">⬇️ ​Numerical computation</a></li>
+        <li><a href="#-seisman">⬇️ SeisMan</a></li>
+      </ul>
+    </li>
+    <li><a href="#to-be-continued">to be continued</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>✏️</p>
+<h2 id="--seismic-data-processing">⬇️  Seismic Data Processing</h2>
+<ul>
+<li>
+<p>0️⃣ 1️⃣ <a href="http://ds.iris.edu/ds/nodes/dmc/forms/sac/">SAC</a>
+<code> Seismic data pre-processing and plot. </code></p>
+</li>
+<li>
+<p>0️⃣ 2️⃣ <a href="http://docs.obspy.org/tutorial/">ObsPy</a>
+<code> Read data (SEED, MiniSEED, SAC, SEDY and so on.) </code></p>
+</li>
+</ul>
+<hr>
+<p>✏️ ✏️</p>
+<h2 id="--convert-seismic-data">⬇️  Convert Seismic Data</h2>
+<ul>
+<li>
+<p>0️⃣ 1️⃣ <a href="http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/">rdseed</a>
+<code> SEED -&gt; SAC. </code></p>
+</li>
+<li>
+<p>0️⃣ 2️⃣ <a href="http://docs.obspy.org/tutorial/">ObsPy</a>
+<code> SEED -&gt; SAC   MiniSEED -&gt; SAC   SEDY -&gt; SAC   </code></p>
+</li>
+<li>
+<p>0️⃣ 3️⃣ <a href="https://github.com/iris-edu/mseed2sac">mseed2sac</a>
+<code> MiniSEED -&gt; SAC </code></p>
+</li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️</p>
+<h2 id="--travel-time-ray-parameter-and-ray-path-calculation">⬇️  Travel time, ray parameter and ray path calculation</h2>
+<ul>
+<li>
+<p>0️⃣ 1️⃣ <a href="http://www.seis.sc.edu/taup/">TauP</a>
+<code> Travel time, incident, takeoff, ray parameter and ray path calculation and show. </code></p>
+</li>
+<li>
+<p>0️⃣ 2️⃣ <a href="http://docs.obspy.org/tutorial/code_snippets/travel_time.html#cartesian-ray-paths">ObsPy TauP</a>
+<code> TauP implemented by ObsPy. </code></p>
+</li>
+<li>
+<p>0️⃣ 3️⃣ <a href="https://pyrocko.org/docs/current/apps/cake/manual.html#python-script-examples">Cake</a>
+<code> Cake is a tool which can be used to solve classical seismic ray theory problems for layered earth models (layer cake models). </code></p>
+</li>
+<li>
+<p>0️⃣ 4️⃣ <a href="http://rses.anu.edu.au/seismology/soft/fmmcode/">FM3D</a>
+<code> 3D FAST MARCHING CODE. </code></p>
+</li>
+<li>
+<p>0️⃣ 5️⃣ <a href="https://github.com/gozwei/pySeismicFMM">pySeismicFMM</a>
+<code> Calculating 3-D travel times by FAST MARCHING. </code></p>
+</li>
+<li>
+<p>0️⃣ 6️⃣ <a href="https://github.com/kensuke1984/Kibrary/wiki/ANISOtime">ANISOtime</a>
+<code> Calculating travel times in homogeneous layers, transversely isotropic (TI), spherically symmetric medium. </code></p>
+</li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️ ✏️</p>
+<h2 id="--visualization">⬇️  Visualization</h2>
+<ul>
+<li>
+<p>0️⃣ 1️⃣ <a href="http://gmt.soest.hawaii.edu/">GMT</a><br>
+<code> Almost the most usual mapping software in geophysical field. </code></p>
+</li>
+<li>
+<p>0️⃣ 2️⃣ <a href="https://matplotlib.org/">matplotlib</a><br>
+<code> Not only in seismology, it's useful to plot beautiful figures. </code></p>
+</li>
+<li>
+<p>0️⃣ 3️⃣ <a href="http://ds.iris.edu/ds/nodes/dmc/forms/sac/">SAC</a><br>
+<code> Plot simple figures and seismic data processing. </code></p>
+</li>
+<li>
+<p>0️⃣ 4️⃣ <a href="http://www.eas.slu.edu/People/LZhu/home.html">PSSAC</a><br>
+<code> Show seismic waveforms calling GMT coomand. </code></p>
+</li>
+<li>
+<p>0️⃣ 5️⃣ <a href="http://www.povray.org/">POV-Ray</a><br>
+<code> Apply colors to drawing and it's beautiful. </code></p>
+</li>
+<li>
+<p>0️⃣ 6️⃣ <a href="https://www.echartsjs.com/examples/zh/index.html">ECharts</a><br>
+<code> Awesome figures, tables building created by BAIDU Inc and implemented by JavaScript. </code></p>
+</li>
+<li>
+<p>0️⃣ 7️⃣ <a href="https://pyecharts.org/#/zh-cn/intro">PyECharts</a><br>
+<code> A python library implementing ECHarts. </code></p>
+</li>
+<li>
+<p>0️⃣ 8️⃣<a href="http://docs.obspy.org/tutorial/">ObsPy</a> <br>
+<code> Spectragram, beachball or seismic data processing. </code></p>
+</li>
+<li>
+<p>0️⃣ 9️⃣ <a href="https://pyrocko.org/docs/current/apps/snuffler/tutorial.html">Snuffler</a><br>
+<code> View seismic waveforms. </code></p>
+</li>
+<li>
+<p>1️⃣ 0️⃣ <a href="https://www.desmos.com/">Desmos</a> <br>
+<code> Demo of graphs of mathematical functions. </code></p>
+</li>
+<li>
+<p>1️⃣ 1️⃣ <a href="https://www.geogebra.org/">GeoGebra</a>
+<code> Geometry Algebra, a amazing tool. </code></p>
+</li>
+<li>
+<p>1️⃣ 2️⃣ <a href="https://www.wolfram.com/mathematica/">Mathematica</a></p>
+<p><code>Data processing, visualization, numerical and symbolic computation.</code></p>
+</li>
+<li>
+<p>1️⃣ 3️⃣ <a href="http://www.jiniannet.com/Page/allcolor">Obtaining colors</a></p>
+<p>You can get these colors on line when you upload your picture</p>
+</li>
+<li>
+<p>1️⃣ 4️⃣ <a href="https://www.sioe.cn/yingyong/yanse-rgb-16/">Choosing colors</a></p>
+<p><code>There are many colors and you can choose them if necessary.</code></p>
+</li>
+<li>
+<p>1️⃣ 5️⃣ <a href="https://www.eoas.ubc.ca/~rich/mapug.html">M_Map</a></p>
+<p><code>A Matlab packge for geographical mapping tool.</code></p>
+</li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️ ✏️ ✏️</p>
+<h2 id="--synthetic-seismograms">⬇️  Synthetic Seismograms</h2>
+<ul>
+<li>
+<p>0️⃣ 1️⃣ <a href="https://pyrocko.org/docs/current/apps/fomosto/">Fomosto</a>
+<code> Computing synthetic and store seismograms. </code></p>
+</li>
+<li>
+<p>0️⃣ 2️⃣ <a href="http://www.eas.slu.edu/People/LZhu/home.html">fk</a>
+<code> Computing synthetic seismograms in horizontal layered medium. </code></p>
+</li>
+<li>
+<p>0️⃣ 3️⃣ <a href="http://www-solid.eps.s.u-tokyo.ac.jp/~dsm/software/software.htm">DSM</a>
+<code> Synthesizing seismograms in homogeneous layers, transversely isotropic (TI),  spherically symmetric medium with Direct Solution Method (DSM). </code></p>
+</li>
+<li>
+<p>0️⃣ 4️⃣ <a href="https://seiscode.iris.washington.edu/projects/yaseis">yaseis</a>
+<code> Computing synthetic seismograms inhomogeneous layers, transversely isotropic (TI),  spherically symmetric medium. </code></p>
+</li>
+<li>
+<p>0️⃣ 5️⃣ <a href="https://github.com/geodynamics/mineos">Mineos</a>
+<code> Computing synthetic seismograms in a spherically symmetric non-rotating Earth by summing normal modes. </code></p>
+</li>
+<li>
+<p>0️⃣ 6️⃣ <a href="https://git.scc.kit.edu/GPIAG-Software/SOFI2D/">SOFI2D</a>
+<code> Computing 2-D PSV wavefield in viscoelastic medium with finite difference method. </code></p>
+</li>
+<li>
+<p>0️⃣ 7️⃣ <a href="https://git.scc.kit.edu/GPIAG-Software/SOFI2D_sh">SOFI2D-sh</a>
+<code> Computing 2-D SH wavefield in viscoelastic medium with finite difference method. </code></p>
+</li>
+<li>
+<p>0️⃣ 8️⃣ <a href="https://git.scc.kit.edu/GPIAG-Software/SOFI3D">SOFI3D</a>
+`
+Computing 3-D wave field in viscoelastic medium with finite difference method.</p>
+</li>
+<li>
+<p>0️⃣ 9️⃣ <a href="https://github.com/geodynamics/sw4">sw4</a>
+<code> 3-D seismic modeling with finite difference method. </code></p>
+</li>
+<li>
+<p>1️⃣ 0️⃣ <a href="https://github.com/tktmyd/OpenSWPC">OpenSWPC</a>
+<code> 2/3-D  seismic wave propagation modeling with finite difference method. </code></p>
+</li>
+<li>
+<p>1️⃣ 1️⃣ <a href="https://github.com/geodynamics/axisem">AxiSEM</a>
+<code> AxiSEM is a parallel spectral-element method to solve 3D wave propagation  in a sphere with axisymmetric or spherically symmetric visco-elastic, acoustic, anisotropic structures. </code></p>
+</li>
+<li>
+<p>1️⃣ 2️⃣ <a href="http://www.gmg.ruhr-uni-bochum.de/geophysik/seismology/nexd.html">NEXD</a>
+<code> NEXD: A SOFTWARE PACKAGE FOR HIGH ORDER SIMULATION OF SEISMIC WAVES  USING THE NODAL DISCONTINUOUS GALERKIN METHOD. </code></p>
+</li>
+<li>
+<p>1️⃣ 3️⃣ <a href="https://geodynamics.org/cig/software/">PRINCETON GEODYNAMICS SOFTWARES</a></p>
+</li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️ ✏️ ✏️ ✏️</p>
+<h2 id="-focal-mechanism">⬇️ Focal mechanism</h2>
+<ul>
+<li>
+<p>0️⃣ 1️⃣ <a href="http://www.eas.slu.edu/People/LZhu/home.html">gCAP</a>
+<code> Inversion of seismic source parameters with generalized Cut And Paste (gCAP) method. </code></p>
+</li>
+<li>
+<p>0️⃣ 2️⃣ <a href="https://github.com/fabriziobernardi/pydmt">pydmt</a>
+<code> Time Domain Moment Tensor Inversion, </code></p>
+</li>
+<li>
+<p>0️⃣ 3️⃣ <a href="https://earthquake.usgs.gov/research/software/#HASH">HASH</a>
+<code> First motion polarity. </code></p>
+</li>
+<li>
+<p>0️⃣ 4️⃣ <a href="https://seiscode.iris.washington.edu/projects/focmec">focmec</a>
+<code> Determine and display focal mechanism. </code></p>
+</li>
+<li>
+<p>0️⃣ 5️⃣ <a href="http://eost.u-strasbg.fr/wphase/">WPhase</a>
+<code> W Phase source inversion. Fast and reliable moment tensor estimation. </code></p>
+</li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️ ✏️ ✏️ ✏️ ✏️</p>
+<h2 id="-earthquake-location">⬇️ Earthquake location</h2>
+<ul>
+<li>0️⃣ 1️⃣ <a href="https://www.ldeo.columbia.edu/~felixw/hypoDD.html">HypoDD</a>
+<code> HypoDD is a Fortran computer program package for relocating earthquakes with the double-difference (DD) algorithm. </code></li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️ ✏️ ✏️ ✏️ ✏️ ✏️</p>
+<h2 id="-numerical-computation">⬇️ ​Numerical computation</h2>
+<ul>
+<li>0️⃣ 1️⃣ <a href="https://www.gnu.org/software/gsl/">GSL</a>
+<code> The GNU Scientific Library (GSL) is a numerical library implemented by C and C++. </code></li>
+</ul>
+<hr>
+<p>✏️ ✏️ ✏️ ✏️ ✏️ ✏️ ✏️ ✏️ ✏️</p>
+<h2 id="-seisman">⬇️ SeisMan</h2>
+<p><a href="https://blog.seisman.info/">SeisMan&rsquo;s blogs</a></p>
+<h1 id="to-be-continued">to be continued</h1>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-12-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/data-processing/">data processing</a>
+          <a href="/tags/visualization/">visualization</a>
+          <a href="/tags/seismic-tools/">seismic tools</a>
+          <a href="/tags/seismology/">seismology</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/matlab_gui_guide/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Matlab GUI Design: the guide tool</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/cross-correlation_spectrum/">
+            <span class="next-text nav-default">Obtain right Cross-Correlation spectrum</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Signal Stacking: Phase-Weighted Stack (PWS) - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/signal_pws_stack/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Signal Stacking: Phase-Weighted Stack (PWS)" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/signal_pws_stack/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-01-16T11:17:54+08:00" />
+<meta property="article:modified_time" content="2021-01-16T11:17:54+08:00" />
+<meta itemprop="name" content="Signal Stacking: Phase-Weighted Stack (PWS)">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-01-16T11:17:54+08:00" />
+<meta itemprop="dateModified" content="2021-01-16T11:17:54+08:00" />
+<meta itemprop="wordCount" content="1196">
+<meta itemprop="keywords" content="signal processing,PWS,signal stacking," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Signal Stacking: Phase-Weighted Stack (PWS)"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Signal Stacking: Phase-Weighted Stack (PWS)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-01-16 </span>
+        <div class="post-category">
+            <a href="/categories/signal-stacking/"> signal stacking </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#__1-introduction__"><strong>1 Introduction</strong></a></li>
+            <li><a href="#__2-basic-principles__"><strong>2 Basic principles</strong></a></li>
+            <li><a href="#__3-a-numerical-example__"><strong>3. A numerical example</strong></a></li>
+            <li><a href="#__4-a-realistic-application__"><strong>4. A realistic application</strong></a></li>
+            <li><a href="#__5-an-extension-of-pws-tf-pws__"><strong>5 An Extension of PWS: tf-PWS</strong></a></li>
+            <li><a href="#__6-an-application-of-tf-pws__"><strong>6 An Application of tf-PWS</strong></a></li>
+            <li><a href="#__references__"><strong>References</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="__1-introduction__"><strong>1 Introduction</strong></h3>
+<p>In realistic  world, seismic signals are contaminated by random noise, but we need signals with high signal-to-noise ratios (SNRs) to conduct the following work of, such as probing the interiors of our planet. Therefore, signal processing experts or seismologist came up with some signal stacking strategies to enhance the SNRs. Linear stacking is usually used to suppress the noise, and  generally, we can obtain clear signals using linear stacking. However, we want to accelerate the convergence of signals in ambient noise cross-correlation applications (e.g.,  Shapiro &amp; Campillo, 2004; Dias et al., 2015 ) if we only have small data sets. Linear stacking may not work well in such situation. Fortunately, seismologists proposed some novel signal stacking rules to accelerate the convergence of coherent signals. Here, we introduce the phase-weighted stack rule ( Schimmel &amp; Paulssen, 1997 ) and give two examples to present this signal stacking rule.</p>
+<h3 id="__2-basic-principles__"><strong>2 Basic principles</strong></h3>
+<p>Closely following the study of Schimmel &amp; Paulssen (1997),  analytical signal can be obtained from the real signal and its corresponding HIlbert transfom (the imaginary signal). That is
+$$
+\begin{aligned}
+s(t) &amp;= x(t)+iy(t) \\
+&amp;= A(t)e^{i\phi (t)}
+\end{aligned} \tag{1},
+$$
+where, $x(t)$ is the real signal, $y(t)$ is the imaginary signal, $A(t)$ is the envelope of the analytical and $e^{i\phi (t)}$ is the phase term.</p>
+<p>No amplitude information is involved, the coherence can be defined by
+$$
+c(t)=|\frac{1}{N}\sum_{k=1}^Ne^{i\phi_k(t)}| \tag{2}.
+$$
+We  can obtain phase-weight stacked signal by the multiplication of the real signal and coherence terms,
+$$
+s(t)=\frac{1}{N}\sum_{j=1}^Nx(t)_jc(t)^\nu \tag{3},
+$$
+specially, this formula means linear stacking when $\nu=0$.</p>
+<h3 id="__3-a-numerical-example__"><strong>3. A numerical example</strong></h3>
+<p>Here, we give an example of measuring the coherence of several signals. First, we add different noise levels to the original signal. Using eq. $(2)$, the coherence of these signals can be obtained.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">hilbert</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Gte the coherence of input stream.</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_coh</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sl</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">npts</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dt</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ht</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">st</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pha</span> <span class="o">=</span> <span class="n">ht</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ht</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pha</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Smooth the coherence if necessary.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">sm</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">m</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">sl</span><span class="p">)</span><span class="o">/</span><span class="n">sl</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span> <span class="o">**</span> <span class="n">v</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span> <span class="n">c</span><span class="o">/</span><span class="n">m</span> <span class="p">)</span> <span class="o">**</span> <span class="n">v</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">v</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">st</span> <span class="o">=</span> <span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">st</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;bandpass&#39;</span><span class="p">,</span> <span class="n">freqmin</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">freqmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">corners</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">zerophase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d1</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d1</span><span class="p">))</span><span class="o">*</span><span class="n">d1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.05</span>
+</span></span><span class="line"><span class="cl"><span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d1</span><span class="p">))</span><span class="o">*</span><span class="n">d1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.10</span>
+</span></span><span class="line"><span class="cl"><span class="n">st</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d1</span><span class="p">))</span><span class="o">*</span><span class="n">d1</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.20</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">t</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">get_coh</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;+%5 noise&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;+%10 noise&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">st</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;+%20 noise&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/CCF-AMBIENT-IMG/Coherence_PWS.png" alt="coherence"></p>
+<p>In the time window of $5-10 \ s$, the coherence $c(t)$ is approximately $1$ , because this window contains the lower-frequency coherent signals.</p>
+<h3 id="__4-a-realistic-application__"><strong>4. A realistic application</strong></h3>
+<p>Some researchers utilize the PWS to accelerate the covergence of noise cross-correlation time functions (e.g., Dias et al., 2015; Dantas et al., 2018), and we use the PWS strategy to suppress the noise contaminating the noise cross-correlation functions from hurricane events. The PWS is given by the following Python code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">PWS</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sl</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">npts</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dt</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">st</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">+=</span> <span class="n">h</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">sm</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">operator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">sl</span><span class="p">)</span> <span class="o">/</span> <span class="n">sl</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stc</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stc</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tr</span> <span class="o">=</span> <span class="n">stc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tr</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="o">*</span><span class="n">c</span><span class="o">**</span><span class="n">v</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here, we compare the stacked signals from PWS with different power numbers $\nu$ and linear stacking.</p>
+<p><img src="/CCF-AMBIENT-IMG/STACK_PWS.png" alt="pws-linear"></p>
+<p>The power number $\nu$ of coherence $c(t)$ are indicated by the numbers on the right panel. Note that the SNRs become higher with the increase of the power number $\nu$. However, one must understand that the waveforms from PWS may change, especially for the larger power number $\nu$.</p>
+<h3 id="__5-an-extension-of-pws-tf-pws__"><strong>5 An Extension of PWS: tf-PWS</strong></h3>
+<p>The stacked waveform using PWS changes much due to the non-linear influence. Here,  Schimmel  et al. (2011) have developed an extension of the PWS: tf-PWS in time-frequency domain. The steps are</p>
+<p>(1) Transform the trace into time-frequency domain with <a href="https://en.wikipedia.org/wiki/S_transform">Stockwell transform</a> or S transform;
+$$
+S(\tau, f)=\int_{-\infty}^{\infty}u(t)w(\tau-t, f)e^{-i2\pi ft} \tag{4},
+$$
+where $w(\tau-t, f)=\frac{|f|}{k\sqrt{2\pi}}e^{-f^2(\tau-t)^2/(2k^2)}$ with $k&gt;0$ is an Gaussian window function. The new coherence function is defined by
+$$
+c(\tau, f)=|\frac{1}{N}\sum_{n=1}^N \frac{S_n(\tau, f)e^{i2\pi ft}}{|S_n(\tau, f)|}|^\nu \tag{5}.
+$$
+The stacked waveform with tf-PWS in time-frequency domain is
+$$
+S_{tf-PWS}(\tau, f)=c(\tau, f)S_{linear}(\tau, f) \tag{6},
+$$
+where, $S_{linear}(\tau, f)$ is the linear stacking of all traces in time-frequency domain using S transform.</p>
+<p>We apply an inverse S transform to $S_{tf-PWS}(\tau, f)$ and obtain the tf-PWS waveform $s(\tau)$.</p>
+<h3 id="__6-an-application-of-tf-pws__"><strong>6 An Application of tf-PWS</strong></h3>
+<p>We use the same noise cross-correlations to check the tf-PWS. You need to install the Python library <a href="https://github.com/claudiodsf/stockwell">stockwell</a> first if you want to try the following example.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">stockwell</span> <span class="kn">import</span> <span class="n">st</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">tf_PWS</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dt</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">npts</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sac</span><span class="o">.</span><span class="n">e</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fn1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="o">/</span><span class="n">df</span><span class="p">);</span> <span class="n">fn2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f2</span><span class="o">/</span><span class="n">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">st</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">T</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ph</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">F</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">c</span> <span class="o">+=</span> <span class="n">ph</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stc</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stc</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ds</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">st</span><span class="p">(</span><span class="n">stc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pws</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">ist</span><span class="p">(</span><span class="n">ds</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="n">v</span><span class="p">,</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">fn2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tr</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">pws</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/CCF-AMBIENT-IMG/STACK_tf-PWS.png" alt="tf-PWS"></p>
+<p>We can find that the stacked waveforms with tf-PWS do not change much but noise is suppressed. We compare the stacked waveforms with the PWS and tf-PWS, and we can see that the difference is more obvious when the power number $\nu$ increases.</p>
+<p><img src="/CCF-AMBIENT-IMG/STACK_PWS_tf-PWS.png" alt="PWS_tf-PWS"></p>
+<h3 id="__references__"><strong>References</strong></h3>
+<p>Dias, R.C., Julià, J. &amp; Schimmel, M. Rayleigh-Wave, Group-Velocity Tomography of the Borborema Province, NE Brazil, from Ambient Seismic Noise. <em>Pure Appl. Geophys.</em> <strong>172,</strong> 1429–1449.</p>
+<p>Dantas, Odmaksuel Anísio Bezerra, Do Nascimento, A. F. , &amp; Schimmel, M. . (2018). Retrieval of body-wave reflections using ambient noise interferometry using a small-scale experiment. <em>Pure &amp; Applied Geophysics</em>.</p>
+<p>Schimmel, M., and H. Paulssen (1997), Noise reduction and detection of weak, coherent signals through phase weighted stacks, Geophys. J. Int., 130, 497 – 505.</p>
+<p>M. Schimmel, E. Stutzmann2and J. Gallart. Using instantaneous phase coherence for signal extraction from ambient noise data at a local to a global scale. <em>Geophysical Journal International</em>(1), 494-506.</p>
+<p>Shapiro, N. M., and M. Campillo (2004). Emergence of broadband Rayleigh waves from correlations of the ambient seismic noise, Geophys. Res. Lett. 31, no. 7, doi: 10.1029/2004GL019491.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-01-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/signal-processing/">signal processing</a>
+          <a href="/tags/pws/">PWS</a>
+          <a href="/tags/signal-stacking/">signal stacking</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/data_source/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Ocean and Climate Data Source</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/matlab_guide_popupmenu/">
+            <span class="next-text nav-default">Matlab GUI Design: popupmenu</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

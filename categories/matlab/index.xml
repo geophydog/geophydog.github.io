@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>“matlab” on Geophydog</title>
+    <link>https://geophydog.cool/categories/matlab/</link>
+    <description>Recent content in “matlab” on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Wed, 06 Jan 2021 19:15:14 +0800</lastBuildDate><atom:link href="https://geophydog.cool/categories/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matlab GUI Design: popupmenu</title>
+      <link>https://geophydog.cool/post/matlab_guide_popupmenu/</link>
+      <pubDate>Wed, 06 Jan 2021 19:15:14 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/matlab_guide_popupmenu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matlab GUI Design: axes</title>
+      <link>https://geophydog.cool/post/matlab_guide_axes/</link>
+      <pubDate>Sat, 02 Jan 2021 15:26:48 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/matlab_guide_axes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Seismic Data Processing in Matlab</title>
+      <link>https://geophydog.cool/post/seismic_data_processing_in_matlab/</link>
+      <pubDate>Wed, 30 Dec 2020 15:29:30 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/seismic_data_processing_in_matlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matlab GUI Design: the guide tool</title>
+      <link>https://geophydog.cool/post/matlab_gui_guide/</link>
+      <pubDate>Wed, 30 Dec 2020 12:29:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/matlab_gui_guide/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

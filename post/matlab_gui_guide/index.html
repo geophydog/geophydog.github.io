@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Matlab GUI Design: the guide tool - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/matlab_gui_guide/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Matlab GUI Design: the guide tool" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/matlab_gui_guide/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-12-30T12:29:18+08:00" />
+<meta property="article:modified_time" content="2020-12-30T12:29:18+08:00" />
+<meta itemprop="name" content="Matlab GUI Design: the guide tool">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2020-12-30T12:29:18+08:00" />
+<meta itemprop="dateModified" content="2020-12-30T12:29:18+08:00" />
+<meta itemprop="wordCount" content="386">
+<meta itemprop="keywords" content="matlab,gui,guide," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Matlab GUI Design: the guide tool"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Matlab GUI Design: the guide tool</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-30 </span>
+        <div class="post-category">
+            <a href="/categories/matlab/"> “matlab” </a>
+            <a href="/categories/gui/"> gui </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#__1-what-is-guide__"><strong>1 What is <code>guide</code></strong></a></li>
+            <li><a href="#__2-the-first-glimpse-of-guide__"><strong>2 The first glimpse of <code>guide</code></strong></a></li>
+            <li><a href="#__3-create-our-first-gui-app__"><strong>3 Create our first GUI app</strong></a></li>
+            <li><a href="#__4-the-first-widget-button__"><strong>4 The first widget: button</strong></a></li>
+            <li><a href="#__5-run-the-gui-app__"><strong>5 Run the GUI app</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="__1-what-is-guide__"><strong>1 What is <code>guide</code></strong></h3>
+<p><a href="https://www.mathworks.com/">MATLAB</a> is a scientific computation software and is very friendly, because it provides us many useful data processing functions. If you are not familiar with it, however, this may cost some time to learn about it. Fortunately, MATLAB prepare a GUI tool for us, called <code>guide</code>.  <code>guide</code> provides us point-and-click of MATLAB applications, and you can share these applications within MATLAB or as a desktop application.</p>
+<h3 id="__2-the-first-glimpse-of-guide__"><strong>2 The first glimpse of <code>guide</code></strong></h3>
+<p>Suppose that you have installed MATLAB and just type <code>guide</code>and press <code>enter</code> in the command prompt window and you will see this.</p>
+<p><img src="/MATLAB_GUI/Fig01.png" alt="type guide"></p>
+<p>One should notes that the language of my  MATLAB interface is Chinese and these option positions of the English version interface are the same as the Chinese version.</p>
+<h3 id="__3-create-our-first-gui-app__"><strong>3 Create our first GUI app</strong></h3>
+<p>Now we want to create our first <code>guide</code> app. These are several steps before we go into the GUI design world.</p>
+<ul>
+<li>1 Click &ldquo;create new GUI&rdquo;;</li>
+<li>2 Choose a blank GUI;</li>
+<li>3 You can choose to save this GUI file;</li>
+<li>4 Press <code>yes</code> to finish our  settings.</li>
+</ul>
+<p><img src="/MATLAB_GUI/Fig02.png" alt="settings"></p>
+<p>There comes the GUI interface and a corresponding MATLAB file.</p>
+<p><img src="/MATLAB_GUI/Fig03.png" alt="new GUI"></p>
+<p>We will show you how to add a push button on our GUI and some information can be printed in the command prompt window you push the button.</p>
+<h3 id="__4-the-first-widget-button__"><strong>4 The first widget: button</strong></h3>
+<ul>
+<li>1 Choose the button option to add a push button;</li>
+<li>2 Double-click on chosen button and a GUI setting interface will appear;</li>
+<li>3 Set the background color (optional);</li>
+<li>4 Set font size (optional);</li>
+<li>5 Set font style (optional);</li>
+<li>6 Set a string displayed on the button if necessary;</li>
+<li>7 Change the handle name of the button and this is <code>important</code> because it locates the callback function of this button;</li>
+<li>8 Press <code>save</code>  on the GUI file (<code>untitled.fig</code>) and the callback function will appear in the corresponding MATLAB file (<code>untitled.m</code>);</li>
+<li>9 Implement this callback function and it will be executed when you run the GUI app.</li>
+</ul>
+<p><img src="/MATLAB_GUI/Fig04.png" alt="button"></p>
+<h3 id="__5-run-the-gui-app__"><strong>5 Run the GUI app</strong></h3>
+<p>Run this GUI app and push the button, and the string <code>The button was pressed!</code> will be displayed in the command prompt window.</p>
+<p><img src="/MATLAB_GUI/Fig05.png" alt="run it"></p>
+<p>Here we introduce a very simple demo  of creating a <code>guide</code> GUI, and we will show you  how to add more widgets on the GUI app in next parts. Enjoy it!.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-12-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/matlab/">matlab</a>
+          <a href="/tags/gui/">gui</a>
+          <a href="/tags/guide/">guide</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/seismic_data_processing_in_matlab/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Seismic Data Processing in Matlab</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/seismic_useful_tools/">
+            <span class="next-text nav-default">Useful seismic tools</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

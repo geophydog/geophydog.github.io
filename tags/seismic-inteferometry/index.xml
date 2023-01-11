@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>seismic inteferometry on Geophydog</title>
+    <link>https://geophydog.cool/tags/seismic-inteferometry/</link>
+    <description>Recent content in seismic inteferometry on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Mon, 28 Dec 2020 15:29:40 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/seismic-inteferometry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obtain right Cross-Correlation spectrum</title>
+      <link>https://geophydog.cool/post/cross-correlation_spectrum/</link>
+      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/cross-correlation_spectrum/</guid>
+      <description>1 Background Ambient seismic noise cross-correlation has far-reaching implications for the passive seismic surface wave imaging from regional to continental scales (e.g. Campillo &amp;amp; Paul, Shapiro &amp;amp; Campillo, 2004). Spectral analysis of cross-correlations is the key to retrieving reliable dispersion information about surface waves. Based on the Fourier spectra of event seismic surface wave data, however, we need to shift the cross-correlation time function before doing FFT to obtain the right spectra.</description>
+    </item>
+    
+  </channel>
+</rss>

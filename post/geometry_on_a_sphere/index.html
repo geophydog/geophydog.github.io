@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Geometry on a Sphere - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/geometry_on_a_sphere/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Geometry on a Sphere" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/geometry_on_a_sphere/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-02T16:05:43+08:00" />
+<meta property="article:modified_time" content="2021-03-02T16:05:43+08:00" />
+<meta itemprop="name" content="Geometry on a Sphere">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-03-02T16:05:43+08:00" />
+<meta itemprop="dateModified" content="2021-03-02T16:05:43+08:00" />
+<meta itemprop="wordCount" content="1976">
+<meta itemprop="keywords" content="geographical geometry,spherical geometry," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Geometry on a Sphere"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Geometry on a Sphere</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-02 </span>
+        <div class="post-category">
+            <a href="/categories/spherical-geometry/"> spherical geometry </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#__1-the-great-circle-distance__"><strong>1 The great-circle distance</strong></a></li>
+            <li><a href="#__2-the-azimuth-and-back-azimuth__"><strong>2 The azimuth and back-azimuth</strong></a></li>
+            <li><a href="#__3-the-mid-point-of-two-points__"><strong>3 The mid-point of two points</strong></a></li>
+            <li><a href="#__4-intermediate-point-the-point-on-the-great-circle-arc-with-given-fraction__"><strong>4 Intermediate point: the point on the great-circle arc with given fraction</strong></a></li>
+            <li><a href="#__5-searching-the-destination-point-with-given-distance-and-azimuth__"><strong>5 Searching the destination point with given distance and azimuth</strong></a></li>
+            <li><a href="#__6-intersection-point-of-two-great-circle-paths-when-the-start-points-and-azimuths-are-given__"><strong>6 Intersection point of two great-circle paths when the start points and azimuths are given</strong></a></li>
+            <li><a href="#__7-the-cross-track-distance__"><strong>7 The cross-track distance</strong></a></li>
+            <li><a href="#__8-the-closest-point-to-the-poles__"><strong>8 The closest point to the pole(s)</strong></a></li>
+            <li><a href="#__bibliography__"><strong>Bibliography</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Plane geometry is familiar to us after we got through the life at  junior middle school and senior high school. Spherical geometry, however, is a little difficult for us. Here, some topics, e.g., the great-circle distance, azimuth or back-azimuth will be introduced and implemented with the Python codes in the following sections.</p>
+<h3 id="__1-the-great-circle-distance__"><strong>1 The great-circle distance</strong></h3>
+<p>Often, we calculate the great-circle distance of given two points in geophysics, for example, the distance from the seismic station to the epicenter. Supposing that we have two geographical points, and let&rsquo;s say $P_1:\ (\phi_1, \lambda_1)$ and $P_2: \ (\phi_2, \lambda_2)$, where, $\phi$ and $\lambda$ represent the latitude and longitude, respectively. Using <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a>, we can calculate the great-circle distance.</p>
+<p><img src="/Geometry/Geometry1.png" alt="Geometry">
+$$
+\left \{
+\begin{aligned}
+a &amp;= sin^2(\frac{\Delta \phi}{2}) + cos\phi_1 \cdot cos\phi_2 \cdot sin^2(\frac{\Delta \lambda}{2}) \\
+c &amp;= 2 \cdot tan^{-1}(\frac{\sqrt{a}}{\sqrt{1-a}}) \text{ or } 2 \cdot sin^{-1}(\sqrt{a})\\
+d &amp;= c \cdot R
+\end{aligned}
+\right. \tag{1},
+$$
+where, $R$ is the average radius of our planet Earth, $\Delta \phi=\phi_2-\phi_1$ and $\Delta \lambda=\lambda_2-\lambda_1$. Here, we using the Python codes to give an example.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># The average radius of the Earth in km.</span>
+</span></span><span class="line"><span class="cl"><span class="n">R</span> <span class="o">=</span> <span class="mi">6371</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># The start point.</span>
+</span></span><span class="line"><span class="cl"><span class="n">la1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">lo1</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># The end point.</span>
+</span></span><span class="line"><span class="cl"><span class="n">la2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">lo2</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Convertion factor from degree to radian.</span>
+</span></span><span class="line"><span class="cl"><span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl"><span class="n">dla</span> <span class="o">=</span> <span class="p">(</span><span class="n">la2</span><span class="o">-</span><span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl"><span class="n">dlo</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo2</span><span class="o">-</span><span class="n">lo1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dla</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlo</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d1</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">c</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The implementation of finding the great-circle distance is in the <a href="https://docs.obspy.org/packages/autogen/obspy.taup.taup_geo.calc_dist_azi.html#obspy.taup.taup_geo.calc_dist_azi">Obspy</a> library. We compare the results from above codes and the Obspy.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">obspy.taup.taup_geo</span> <span class="kn">import</span> <span class="n">calc_dist_azi</span> <span class="k">as</span> <span class="n">cda</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">d2</span><span class="p">,</span> <span class="n">az2</span><span class="p">,</span> <span class="n">baz2</span> <span class="o">=</span> <span class="n">cda</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d2</span> <span class="o">*=</span> <span class="n">d2r</span><span class="o">*</span><span class="n">R</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>this:  1568.5205568 </code><br>
+<code>obspy: 1568.520556798576</code></p>
+<p>$\color{red}{\text{One should note that we need to convert the degrees to radians} }$</p>
+<p>$\color{red}{\text{ when we use trigonometric functions.}}$</p>
+<hr>
+<h3 id="__2-the-azimuth-and-back-azimuth__"><strong>2 The azimuth and back-azimuth</strong></h3>
+<p>The azimuth or bearing is defined by the angle from the north to the great-circle arc of two geographical points. Here, we directly give the formula of calculating the azimuth $\theta$.
+$$
+\left \{
+\begin{aligned}
+y &amp;= sin(\Delta \lambda) \cdot cos\phi_2 \\
+x &amp;= cos\phi_1 \cdot sin\phi_2 - sin\phi_1 \cdot cos\phi_2 \cdot cos(\Delta \lambda) \\
+\alpha &amp;= tan^{-1}\frac{y}{x} \\
+\theta_a &amp;= (\alpha \cdot 180 / \pi + 360) % 360
+\end{aligned}
+\right. \tag{2}.
+$$
+Exchange the order of $P_1$ and $P_2$ if one wants to calculate the back-azimuth $\theta_b$.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlo</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dlo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">az1</span> <span class="o">=</span> <span class="p">(</span><span class="n">th</span> <span class="o">/</span> <span class="n">d2r</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this: &#39;</span><span class="p">,</span> <span class="n">az1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">obspy:&#39;</span><span class="p">,</span> <span class="n">az2</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>this:  44.5614514133 </code><br>
+<code>obspy: 44.56145141325769</code></p>
+<hr>
+<h3 id="__3-the-mid-point-of-two-points__"><strong>3 The mid-point of two points</strong></h3>
+<p>Now we suppose to find the mid-point $P_m: \ (\phi_m, \lambda_m)$ of the given two points, and this mid-point is defined as the half-way point along the great-circle arc between the given two points. The formula is given by
+$$
+\left \{
+\begin{aligned}
+b_x &amp;= cos(\phi_2) \cdot cos(\Delta \lambda) \\
+b_y &amp;= cos(\phi_2) \cdot sin(\Delta \lambda) \\
+\phi_m &amp;= tan^{-1}(\frac{sin\phi_1+sin\phi_2}{\sqrt{(cos\phi_1+b_x)^2+b_y^2}})\\
+\lambda_m &amp;= \lambda_1 + tan^{-1}(\frac{b_y}{cos\phi_1+b_x})
+\end{aligned}
+\right. \tag{3}.
+$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">bx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dla</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">by</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dla</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">),</span> <span class="p">(</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span><span class="o">+</span><span class="n">bx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">by</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> <span class="p">)</span> <span class="o">/</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl"><span class="n">lom</span> <span class="o">=</span> <span class="n">lo1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lo1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span><span class="o">+</span><span class="n">bx</span><span class="p">)</span> <span class="o">/</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">lom</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>5.01900069786 4.9616312267</code></p>
+<p>Let&rsquo;s check whether this result is reasonable or not. We set a function of calculating the great-circle distance first and use it to calculate the distances of the $P_m$ between $P_1$ and $P_2$, respectively. We also write a function of calculating the azimuth from the start point to the end point.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">km</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dla</span> <span class="o">=</span> <span class="p">(</span><span class="n">la2</span><span class="o">-</span><span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dlo</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo2</span><span class="o">-</span><span class="n">lo1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dla</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlo</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">km</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">R</span> <span class="o">*</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">azimuth</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dla</span> <span class="o">=</span> <span class="p">(</span><span class="n">la2</span> <span class="o">-</span> <span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dlo</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo2</span> <span class="o">-</span> <span class="n">lo1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlo</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dlo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">th</span> <span class="o">/</span> <span class="n">d2r</span> <span class="o">+</span> <span class="mi">360</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;distance in km:&#39;</span><span class="p">,</span> <span class="n">dist</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">lom</span><span class="p">),</span> <span class="n">dist</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">lom</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;azimuth:&#39;</span><span class="p">,</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">lom</span><span class="p">),</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">lom</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>distance in km: 784.260278399 784.260278399</code></p>
+<p><code>azimuth: 44.5614514133 44.7790409161</code></p>
+<hr>
+<h3 id="__4-intermediate-point-the-point-on-the-great-circle-arc-with-given-fraction__"><strong>4 Intermediate point: the point on the great-circle arc with given fraction</strong></h3>
+<p>An intermediate point $P_i: \ (\phi_i, \lambda_i)$ at arbitrary fraction $\alpha$ along the great circle path between the given two points can also be calculated. The formula is
+$$
+\left \{
+\begin{aligned}
+a &amp;= \frac{ sin[(1-\alpha)\cdot\Delta] }{sin\Delta} \\
+b &amp;= \frac{ sin(\alpha \cdot \Delta) } {sin\Delta} \\
+x &amp;= a \cdot cos\phi_1 \cdot cos\lambda_1 + b \cdot cos \phi_2 \cdot cos\lambda_2 \\
+y &amp;= a \cdot cos\phi_1 \cdot sin\lambda_1 + b \cdot cos\phi_2 \cdot sin\lambda_2 \\
+z &amp;= a \cdot sin\phi_1 + b \cdot sin\phi_2\\
+\phi_i &amp;= tan^{-1}(\frac{z}{\sqrt{(x^2+y^2)}})\\
+\lambda_i &amp;= tan^{-1}(\frac{y}{x})
+\end{aligned}
+\right. \tag{4},
+$$
+where, $\Delta$ is the great-circle angular distance of the given two points $P_1$ and $P_2$.</p>
+<p>Again, we write a function of calculating the intermediate point  as below. The intermediate point is $P_1$ when $\alpha=0$ and $P_2$ when $\alpha=1$.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">im_point</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">6371</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">delta</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">,</span> <span class="n">km</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span> <span class="o">=</span> <span class="n">la1</span><span class="o">*</span><span class="n">d2r</span><span class="p">,</span> <span class="n">lo1</span><span class="o">*</span><span class="n">d2r</span><span class="p">,</span> <span class="n">la2</span><span class="o">*</span><span class="n">d2r</span><span class="p">,</span> <span class="n">lo2</span><span class="o">*</span><span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">delta</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">delta</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lo1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lo2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lo1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lo2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lai</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">lai</span><span class="o">/</span><span class="n">d2r</span><span class="p">,</span> <span class="n">loi</span><span class="o">/</span><span class="n">d2r</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We set the fraction $\alpha=0.5$ that is the mid-point to verify our Python codes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">im_point</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">6371</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>(5.0190006978611459, 4.9616312267025062)</code></p>
+<hr>
+<h3 id="__5-searching-the-destination-point-with-given-distance-and-azimuth__"><strong>5 Searching the destination point with given distance and azimuth</strong></h3>
+<p>The destination which we term here, is the point when the great-circle distance and azimuth from the start point are given. This can be solved by
+$$
+\left \{
+\begin{aligned}
+\phi_d &amp;= sin^{-1}(sin\phi_1\cdot cos\Delta+cos\phi_1 \cdot sin(\Delta) \cdot cos \theta_a) \\
+\lambda_d &amp;= \lambda_1 + tan^{-1}(\frac{sin\theta_a\cdot sin\Delta \cdot cos\phi_1} {cos\Delta-sin\phi_1\cdot sin\phi_d})
+\end{aligned}
+\right. \tag{5}.
+$$</p>
+<p>Here, we check our codes with the start point $P_1$, azimuth and the distance from $P_1$ to $P_2$.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">dest_point</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="n">la1</span> <span class="o">*=</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lo1</span> <span class="o">*=</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">az</span> <span class="o">*=</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">delta</span> <span class="o">*=</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">az</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lod</span> <span class="o">=</span> <span class="n">lo1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">az</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lad</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">lad</span><span class="o">/</span><span class="n">d2r</span><span class="p">,</span> <span class="n">lod</span><span class="o">/</span><span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dest_point</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="mf">44.56145141325769</span><span class="p">,</span> <span class="n">dist</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">km</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">/</span><span class="n">d2r</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>(10.0, 10.0)</code></p>
+<hr>
+<h3 id="__6-intersection-point-of-two-great-circle-paths-when-the-start-points-and-azimuths-are-given__"><strong>6 Intersection point of two great-circle paths when the start points and azimuths are given</strong></h3>
+<p><img src="/Geometry/Geometry3.png" alt="Geometry2"></p>
+<p>Where is the intersection point $P_i: \ (\phi_i, \lambda_i)$ of two great-circle arcs when we have two start points and corresponding azimuth?  First we convert the geographical point on a sphere to Cartecian coordinate according to
+$$
+P(\phi, \lambda) \rightarrow
+\left [
+\begin{array}{l}
+&amp; cos\phi \cdot cos\lambda \\
+&amp; cos\phi \cdot sin\lambda \\
+&amp; sin\phi
+\end{array}
+\right ] \tag{6},
+$$
+where, $\phi$ and $\lambda$ are latitude and longitude, respectively. With given the start point $\vec{a_0}$, azimuth $\theta_a$ and the great-circle angular distance $\Delta_a$, we can constrain the end point $\vec{a_1}$ on the great-circle arc. Similarly, we have the second great-circle arc   according to these parameters: $\vec{b_0}$, $\theta_b$ and $\Delta_b$.</p>
+<p>Let&rsquo;s define two vectors,
+$$
+\left \{
+\begin{aligned}
+\vec{p} &amp;= \vec{a_0} \times \vec{a_1} \\
+\vec{q} &amp;= \vec{b_0} \times \vec{b_1}
+\end{aligned}
+\right. \tag{7}.
+$$
+A new unit vector $\vec{t}$ defined as
+$$
+\vec{t} = \frac{\vec{p} \times \vec{q}}{|\vec{p} \times \vec{q}|} \tag{8}.
+$$
+Four scalars are given by
+$$
+\left \{
+\begin{aligned}
+s_1 &amp;= \vec{a_0} \times \vec{p} \cdot \vec{t} \\
+s_2 &amp;= \vec{a_1} \times \vec{p} \cdot \vec{t} \\
+s_3 &amp;= \vec{b_0} \times \vec{q} \cdot \vec{t} \\
+s_4 &amp;= \vec{b_1} \times \vec{q} \cdot \vec{t}
+\end{aligned}
+\right. \tag{9},
+$$
+and we can find the intersection point by checking whether $-s_1, s_2, -s_3$ and $s_4$ are all the same sign. The last vector $\vec{t}$ is modified by
+$$
+\left \{
+\begin{aligned}
+\vec{t} &amp;= \vec{t}  \ \text{  if all the signs of the above four scalars are positive} \\
+\vec{t} &amp;= -\vec{t} \ \text{ if all the signs of the above four scalars are negative}
+\end{aligned}
+\right. \tag{10}.
+$$</p>
+<p>Let $x, y$ and $z$ be the components of the vector $t$, and the geographical information $(\phi, \lambda)$ of the intersection is given by
+$$
+\left \{
+\begin{aligned}
+\phi &amp;= tan^{-1}(\frac{z}{\sqrt{x^2+y^2}}) \\
+\lambda &amp;= tan^{-1}(\frac{y}{x})
+\end{aligned}
+\right. \tag{11}
+$$
+The Python codes are</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">az1</span><span class="p">,</span> <span class="n">az2</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">180</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">s2c</span><span class="p">(</span><span class="n">la</span><span class="p">,</span> <span class="n">lo</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lo</span><span class="o">*</span><span class="n">d2r</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                         <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">la</span><span class="o">*</span><span class="n">d2r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lo</span><span class="o">*</span><span class="n">d2r</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                         <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">la</span><span class="o">*</span><span class="n">d2r</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a0</span> <span class="o">=</span> <span class="n">s2c</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">);</span> <span class="n">b0</span> <span class="o">=</span> <span class="n">s2c</span><span class="p">(</span><span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a1</span> <span class="o">=</span> <span class="n">dest_point</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">az1</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a1</span> <span class="o">=</span> <span class="n">s2c</span><span class="p">(</span><span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b1</span> <span class="o">=</span> <span class="n">dest_point</span><span class="p">(</span><span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">az2</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b1</span> <span class="o">=</span> <span class="n">s2c</span><span class="p">(</span><span class="n">b1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">);</span> <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span> <span class="n">t</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="o">-</span><span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">flag</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tmp</span> <span class="o">=</span> <span class="n">t</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">flag</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tmp</span> <span class="o">=</span> <span class="o">-</span><span class="n">t</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No intersection!&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">la</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">la</span><span class="p">,</span> <span class="n">lo</span><span class="p">])</span> <span class="o">/</span> <span class="n">d2r</span>   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We give two start points $(0, 0), (0, -10)$, corresponding azimuths $180, 90$ degrees and great-circle angular distances $20$ degrees, and the intersection point is reasonably $(0, 0)$. Let&rsquo;s check!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>[  6.09219391e-16   1.21843878e-15]</code></p>
+<p>The result is not strictly $(0, 0)$, and this may be caused by the computation errors.</p>
+<hr>
+<h3 id="__7-the-cross-track-distance__"><strong>7 The cross-track distance</strong></h3>
+<p>The cross-track distance is defined as the distance from a point to a great-circle arc, and this was used in our research about coda interferometry. We encountered a situation that we wanted to divide the large earthquakes into several groups according to the distances of the epicenters to the great-circle paths constrained by the station pairs in coda cross-correlations.</p>
+<p><img src="/Geometry/Geometry4.png" alt="Geometry4"></p>
+<p>Therefore, the cross-track distance is a reasonable evaluation criteria, and it is given by
+$$
+\Delta = |sin^{-1}[sin\Delta_{13}\cdot sin(\theta_{13}-\theta_{12})]|, \tag{12}
+$$</p>
+<p>where $\Delta_{13}$ is the great-circle angular distance from $P_1$ to $P_3$, $\theta_{13}$ is the azimuth of $P_1$ to $P_3$ and $\theta_{12}$ $P_1$ to $P_2$.</p>
+<p>Here, we set the first two geographical points $P_1:(0, -10),\ P_2:(0, 10)$ and the third point is $P_3:(10, 0)$. We know that the reasonable cross-track distance is $10$ degrees, and let&rsquo;s verify that.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">cross_track</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">,</span> <span class="n">la3</span><span class="p">,</span> <span class="n">lo3</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">km</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d2r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dt13</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la3</span><span class="p">,</span> <span class="n">lo3</span><span class="p">,</span> <span class="n">km</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">th12</span> <span class="o">=</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la2</span><span class="p">,</span> <span class="n">lo2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">th13</span> <span class="o">=</span> <span class="n">azimuth</span><span class="p">(</span><span class="n">la1</span><span class="p">,</span> <span class="n">lo1</span><span class="p">,</span> <span class="n">la3</span><span class="p">,</span> <span class="n">lo3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dt</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dt13</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="n">th13</span><span class="o">-</span><span class="n">th12</span><span class="p">)</span><span class="o">*</span><span class="n">d2r</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">km</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">R</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">d2r</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">cross_track</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">km</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>10.0</code></p>
+<hr>
+<h3 id="__8-the-closest-point-to-the-poles__"><strong>8 The closest point to the pole(s)</strong></h3>
+<p>First give the latitude $\phi$ of the start point and azimuth $ \theta$, and the latitude on this great-circle path can be solved by
+$$
+\phi_m=cos^{-1}(|sin\theta \cdot cos\phi|) \tag{13},
+$$
+and this can derived from <a href="http://www.edwilliams.org/avform147.htm#Clairaut">Clairaut&rsquo;s formula</a>.</p>
+<hr>
+<h3 id="__bibliography__"><strong>Bibliography</strong></h3>
+<p><a href="http://www.movable-type.co.uk/scripts/latlong.html">http://www.movable-type.co.uk/scripts/latlong.html</a></p>
+<p><a href="https://docs.obspy.org/packages/autogen/obspy.taup.taup_geo.calc_dist_azi.html#obspy.taup.taup_geo.calc_dist_azi">https://docs.obspy.org/packages/autogen/obspy.taup.taup_geo.calc_dist_azi.html#obspy.taup.taup_geo.calc_dist_azi</a></p>
+<p><a href="https://enrico.spinielli.net/2014/10/19/understanding-great-circle-arcs_57/">https://enrico.spinielli.net/2014/10/19/understanding-great-circle-arcs_57/</a></p>
+<p><a href="http://www.edwilliams.org/avform147.htm#Clairaut">http://www.edwilliams.org/avform147.htm#Clairaut</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-03-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/geographical-geometry/">geographical geometry</a>
+          <a href="/tags/spherical-geometry/">spherical geometry</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/psd_notes/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Estimating the Power Spectral Density of Ambient Seismic Noise</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/data_source/">
+            <span class="next-text nav-default">Ocean and Climate Data Source</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

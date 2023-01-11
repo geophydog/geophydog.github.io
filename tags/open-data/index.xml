@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open data on Geophydog</title>
+    <link>https://geophydog.cool/tags/open-data/</link>
+    <description>Recent content in open data on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Tue, 26 Jan 2021 16:14:05 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/open-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ocean and Climate Data Source</title>
+      <link>https://geophydog.cool/post/data_source/</link>
+      <pubDate>Tue, 26 Jan 2021 16:14:05 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/data_source/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

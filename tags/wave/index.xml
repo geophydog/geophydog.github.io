@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wave on Geophydog</title>
+    <link>https://geophydog.cool/tags/wave/</link>
+    <description>Recent content in wave on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Mon, 02 Nov 2020 20:44:01 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/wave/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boundary Conditions in PDE</title>
+      <link>https://geophydog.cool/post/boundary_conditions/</link>
+      <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/boundary_conditions/</guid>
+      <description>Boundary condition is necessary when we find the numerial solutions to some equations. Here, we show you some kinds of boundary contions in solving partial difference equation.
+1 Dirichlet (fixed) $$ \left \{ \begin{aligned} p(t, x_{min}) &amp;amp;= 0\\ p(t, x_{max}) &amp;amp;= 0 \end{aligned} \right. \tag{1}, $$ where, $p(t, x)$ is what we want to find, let&amp;rsquo;s say, pressure in acoustic wave equation.
+2 Neumann $$ \left \{ \begin{aligned} p(t, x_{min}) &amp;amp;= p(t, x_{min}+\Delta x)\\ p(t, x_{max}) &amp;amp;= p(t, x_{max}-\Delta x) \end{aligned} \right.</description>
+    </item>
+    
+    <item>
+      <title>Numerical Modeling of Acoustic Wave Propagation</title>
+      <link>https://geophydog.cool/post/acoustic_wave_modeling/</link>
+      <pubDate>Mon, 21 Sep 2020 22:34:07 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/acoustic_wave_modeling/</guid>
+      <description>1 Acoustic wave equation The acoustic wave equation in vector form is given by
+$$ p_{tt}=c^2 \nabla^2 p \tag{1} $$
+where, $p$ is the acoustic pressure, $c$ is the propagation speed of acoustic wave, $p_{tt}$ is the second time derivative of $p$, and $\nabla^2$ denotes the $Laplacian$ operator. We will discretize the equation using finite difference method in the following parts.
+2 Propagation in 1D space The Taylar&amp;rsquo;s series of $p(t+\Delta t)$ and $p(t-\Delta t)$ are given by</description>
+    </item>
+    
+  </channel>
+</rss>

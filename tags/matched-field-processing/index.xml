@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>matched-field-processing on Geophydog</title>
+    <link>https://geophydog.cool/tags/matched-field-processing/</link>
+    <description>Recent content in matched-field-processing on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Sat, 04 Jun 2022 09:41:56 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/matched-field-processing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matched Field Processing: a generalized beamforming</title>
+      <link>https://geophydog.cool/post/matched_field_processing/</link>
+      <pubDate>Sat, 04 Jun 2022 09:41:56 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/matched_field_processing/</guid>
+      <description>1. Basic descriptions Matched filed processing (MFP) is a location algorithm that was first applied in ocean acoustics (Baggeroer and Kuperman, 1988). It has been widely used to locate quakes or microseisms in seismology (e.g., Cros et al., 2011; Gal et al., 2018). We here give a short and simple derivation of MFP as follows.
+1.1 MFP power Computing the Fourier spectrum vector, $$ \boldsymbol{u}(\omega) = [u_1(\omega), u_2(\omega), \cdots, u_N(\omega)]^T, \tag{1} $$ where, $N$ is the total number of receivers, $T$ means transpose operator, $u_i(\omega)$ is the Fourier spectrum of recordings by receiver $i$, and $\omega$ is angular frequency.</description>
+    </item>
+    
+  </channel>
+</rss>

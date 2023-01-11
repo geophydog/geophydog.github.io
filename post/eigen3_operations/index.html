@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Basic Operations in Eigen3 C&#43;&#43; - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="1. Settings of Eigen 1.1 Here Eigen3 Type sudo apt-get install libeigen3-dev to install Eigen3. It will be installed in the default directory /usr/include/eigen3. Just copy Eigen under /usr/include/eigen3 to the directory /usr/include. 1.2 Header files 1 2 #include &amp;lt;Eigen/Dense&amp;gt; using namespace Eigen; 1.3 Tips MatrixXd m(r, c); &amp;ldquo;X&amp;rdquo; means &amp;ldquo;dynamic&amp;rdquo;, &amp;ldquo;d&amp;rdquo; means basic data type &amp;ldquo;double&amp;rdquo;， &amp;ldquo;r&amp;rdquo; and &amp;ldquo;c&amp;rdquo; indicate no. of rows an columns.
+MatrixXf m(r, c); &amp;ldquo;X&amp;rdquo; also means &amp;ldquo;dynamic&amp;rdquo;，&amp;ldquo;f&amp;rdquo; means &amp;ldquo;float&amp;rdquo;." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/eigen3_operations/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Basic Operations in Eigen3 C&#43;&#43;" />
+<meta property="og:description" content="1. Settings of Eigen 1.1 Here Eigen3 Type sudo apt-get install libeigen3-dev to install Eigen3. It will be installed in the default directory /usr/include/eigen3. Just copy Eigen under /usr/include/eigen3 to the directory /usr/include. 1.2 Header files 1 2 #include &lt;Eigen/Dense&gt; using namespace Eigen; 1.3 Tips MatrixXd m(r, c); &ldquo;X&rdquo; means &ldquo;dynamic&rdquo;, &ldquo;d&rdquo; means basic data type &ldquo;double&rdquo;， &ldquo;r&rdquo; and &ldquo;c&rdquo; indicate no. of rows an columns.
+MatrixXf m(r, c); &ldquo;X&rdquo; also means &ldquo;dynamic&rdquo;，&ldquo;f&rdquo; means &ldquo;float&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/eigen3_operations/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-09-04T10:37:51+08:00" />
+<meta property="article:modified_time" content="2020-09-04T10:37:51+08:00" />
+<meta itemprop="name" content="Basic Operations in Eigen3 C&#43;&#43;">
+<meta itemprop="description" content="1. Settings of Eigen 1.1 Here Eigen3 Type sudo apt-get install libeigen3-dev to install Eigen3. It will be installed in the default directory /usr/include/eigen3. Just copy Eigen under /usr/include/eigen3 to the directory /usr/include. 1.2 Header files 1 2 #include &lt;Eigen/Dense&gt; using namespace Eigen; 1.3 Tips MatrixXd m(r, c); &ldquo;X&rdquo; means &ldquo;dynamic&rdquo;, &ldquo;d&rdquo; means basic data type &ldquo;double&rdquo;， &ldquo;r&rdquo; and &ldquo;c&rdquo; indicate no. of rows an columns.
+MatrixXf m(r, c); &ldquo;X&rdquo; also means &ldquo;dynamic&rdquo;，&ldquo;f&rdquo; means &ldquo;float&rdquo;."><meta itemprop="datePublished" content="2020-09-04T10:37:51+08:00" />
+<meta itemprop="dateModified" content="2020-09-04T10:37:51+08:00" />
+<meta itemprop="wordCount" content="1424">
+<meta itemprop="keywords" content="Eigen3,Matrix,Linear Algebra," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Basic Operations in Eigen3 C&#43;&#43;"/>
+<meta name="twitter:description" content="1. Settings of Eigen 1.1 Here Eigen3 Type sudo apt-get install libeigen3-dev to install Eigen3. It will be installed in the default directory /usr/include/eigen3. Just copy Eigen under /usr/include/eigen3 to the directory /usr/include. 1.2 Header files 1 2 #include &lt;Eigen/Dense&gt; using namespace Eigen; 1.3 Tips MatrixXd m(r, c); &ldquo;X&rdquo; means &ldquo;dynamic&rdquo;, &ldquo;d&rdquo; means basic data type &ldquo;double&rdquo;， &ldquo;r&rdquo; and &ldquo;c&rdquo; indicate no. of rows an columns.
+MatrixXf m(r, c); &ldquo;X&rdquo; also means &ldquo;dynamic&rdquo;，&ldquo;f&rdquo; means &ldquo;float&rdquo;."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Basic Operations in Eigen3 C&#43;&#43;</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-09-04 </span>
+        <div class="post-category">
+            <a href="/categories/scientific-computation/"> Scientific Computation </a>
+            <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#__1-settings-of-eigen__"><strong>1. Settings of Eigen</strong></a>
+          <ul>
+            <li><a href="#__11-here-eigen3__"><strong>1.1 Here Eigen3</strong></a></li>
+            <li><a href="#__12-header-files__"><strong>1.2 Header files</strong></a></li>
+            <li><a href="#__13-tips__"><strong>1.3 Tips</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#__2-basic-numerical-operations__"><strong>2. Basic numerical operations</strong></a>
+          <ul>
+            <li><a href="#__21-definitions-of-matrix-in-eigen__"><strong>2.1 Definitions of matrix in Eigen</strong></a></li>
+            <li><a href="#__22-resize-reshape-in-matlab-or-python-and-fill__"><strong>2.2 Resize (reshape in matlab or python) and fill</strong></a></li>
+            <li><a href="#__23-special-matrices-in-eigen3__"><strong>2.3 Special matrices in Eigen3</strong></a></li>
+            <li><a href="#__24-blocks-of-matrix__"><strong>2.4 Blocks of matrix</strong></a></li>
+            <li><a href="#__25-swaping-elements__"><strong>2.5 Swaping elements</strong></a></li>
+            <li><a href="#__26-tranpose__"><strong>2.6 Tranpose</strong></a></li>
+            <li><a href="#__27-products-of-matrices__"><strong>2.7 Products of Matrices</strong></a></li>
+            <li><a href="#__28-element-operations__"><strong>2.8 Element operations</strong></a></li>
+            <li><a href="#__29-simplifying-matrices__"><strong>2.9 Simplifying matrices</strong></a></li>
+            <li><a href="#__210-dot-product__"><strong>2.10 Dot product</strong></a></li>
+            <li><a href="#__211-type-convertion__"><strong>2.11 Type convertion</strong></a></li>
+            <li><a href="#__212-linear-equation-system-bfax--bfb__"><strong>2.12 Linear equation system: $\bf{Ax} = \bf{b}$</strong></a></li>
+            <li><a href="#__213-eigensystem-problems-of-real-matrix__"><strong>2.13 Eigensystem problems of real matrix</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#__3-operations-of-complex-matrix__"><strong>3. Operations of complex matrix.</strong></a>
+          <ul>
+            <li><a href="#__31-definitions__"><strong>3.1 Definitions.</strong></a></li>
+            <li><a href="#__32-getting-elements-real-and-imaginary-parts__"><strong>3.2 Getting elements, real and imaginary parts.</strong></a></li>
+            <li><a href="#__33-eigensystem-problems__"><strong>3.3 Eigensystem problems</strong></a></li>
+            <li><a href="#__bibliography__"><strong>Bibliography</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="__1-settings-of-eigen__"><strong>1. Settings of Eigen</strong></h2>
+<h3 id="__11-here-eigen3__"><strong>1.1 Here Eigen3</strong></h3>
+<ul>
+<li>Type <code>sudo apt-get install libeigen3-dev</code>  to install Eigen3.</li>
+<li>It will be installed in the default directory <code>/usr/include/eigen3</code>.</li>
+<li>Just copy <code>Eigen</code> under <code>/usr/include/eigen3</code> to the directory <code>/usr/include</code>.</li>
+</ul>
+<h3 id="__12-header-files__"><strong>1.2 Header files</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">Eigen</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__13-tips__"><strong>1.3 Tips</strong></h3>
+<p><code>MatrixXd m(r, c);</code>
+&ldquo;X&rdquo; means &ldquo;dynamic&rdquo;, &ldquo;d&rdquo; means basic data type &ldquo;double&rdquo;， &ldquo;r&rdquo; and &ldquo;c&rdquo; indicate no. of rows an columns.</p>
+<p><code>MatrixXf m(r, c);</code>
+&ldquo;X&rdquo; also means &ldquo;dynamic&rdquo;，&ldquo;f&rdquo; means &ldquo;float&rdquo;.</p>
+<p><code>MatrixXcd c(r, c);</code>
+&ldquo;X&rdquo; means &ldquo;dynamic&rdquo;，&ldquo;c&rdquo; means &ldquo;complex&rdquo;,  &ldquo;d&rdquo; means &ldquo;double&rdquo;.</p>
+<h2 id="__2-basic-numerical-operations__"><strong>2. Basic numerical operations</strong></h2>
+<h3 id="__21-definitions-of-matrix-in-eigen__"><strong>2.1 Definitions of matrix in Eigen</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">M1</span><span class="p">;</span>                <span class="c1">// Fix rows and columns, same as Matrix5d.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">M2</span><span class="p">;</span>          <span class="c1">// Fix rows.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">Dynamic</span><span class="p">,</span> <span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">C</span><span class="p">;</span>     <span class="c1">// Same as MatrixXd.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">RowMajor</span><span class="o">&gt;</span> <span class="n">E</span><span class="p">;</span>       <span class="c1">// Storing according to rows, default is column majority.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Matrix3f</span> <span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">;</span>                       <span class="c1">// Float maxtrix with size of 3 x 3.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Vector3f</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>                       <span class="c1">// Column vetor with 3 x 1.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">RowVector3f</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>                    <span class="c1">// Row vector with 1 x 3.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">VectorXd</span> <span class="n">v</span><span class="p">;</span>                             <span class="c1">// Dynamic double vectors.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// In Eigen3      // In matlab           
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>          <span class="c1">// length(v)          // Length of vector v.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">.</span><span class="n">rows</span><span class="p">()</span>          <span class="c1">// size(C,1)          // Rows of matrix.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">.</span><span class="n">cols</span><span class="p">()</span>          <span class="c1">// size(C,2)          // Columns of matrix.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">v</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>              <span class="c1">// v(i+1)             // Indexing of vector.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>            <span class="c1">// C(i+1,j+1)         // Indexing of matrix.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__22-resize-reshape-in-matlab-or-python-and-fill__"><strong>2.2 Resize (reshape in matlab or python) and fill</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">MatrixXd</span> <span class="nf">A</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="nl">MatrixXdf</span><span class="p">:</span><span class="n">Random</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>  <span class="c1">// Giving values.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>                             <span class="c1">// Change the dimensions.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">MaxtrixXd</span> <span class="nf">A</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>     <span class="c1">// Initialize A. The elements can also be
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>     <span class="c1">// matrices, which are stacked along cols
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">;</span>     <span class="c1">// and then the rows are stacked.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MaxtrixXd</span> <span class="nf">B</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">;</span>     <span class="c1">// B is three horizontally stacked A&#39;s.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>       <span class="c1">// Fill A with all elements of 1.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__23-special-matrices-in-eigen3__"><strong>2.3 Special matrices in Eigen3</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// In Eigen3                        // In matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MatrixXd</span><span class="o">::</span><span class="n">Identity</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>       <span class="c1">// eye(rows, cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">.</span><span class="n">setIdentity</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>            <span class="c1">// C = eye(rows,cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MatrixXd</span><span class="o">::</span><span class="n">Zero</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>           <span class="c1">// zeros(rows,cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">.</span><span class="n">setZero</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>                <span class="c1">// C = zeros(rows,cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MatrixXd</span><span class="o">::</span><span class="n">Ones</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>           <span class="c1">// ones(rows,cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">.</span><span class="n">setOnes</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>                <span class="c1">// C = ones(rows,cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MatrixXd</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>         <span class="c1">// rand(rows,cols)*2-1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">C</span><span class="p">.</span><span class="n">setRandom</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)</span>              <span class="c1">// C = rand(rows,cols)*2-1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">VectorXd</span><span class="o">::</span><span class="n">LinSpaced</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">low</span><span class="p">,</span><span class="n">high</span><span class="p">)</span>  <span class="c1">// linspace(low,high,size)&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">v</span><span class="p">.</span><span class="n">setLinSpaced</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">low</span><span class="p">,</span><span class="n">high</span><span class="p">)</span>       <span class="c1">// v = linspace(low,high,size)&#39;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__24-blocks-of-matrix__"><strong>2.4 Blocks of matrix</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// In Eigen3                       // In matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>                          <span class="c1">// x(1:n)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">head</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="p">()</span>                        <span class="c1">// x(1:n)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>                          <span class="c1">// x(end - n + 1: end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">tail</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="p">()</span>                        <span class="c1">// x(end - n + 1: end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">segment</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>                    <span class="c1">// x(i+1 : i+n)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">segment</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                    <span class="c1">// x(i+1 : i+n)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">block</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>          <span class="c1">// P(i+1 : i+rows, j+1 : j+cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">block</span><span class="o">&lt;</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>          <span class="c1">// P(i+1 : i+rows, j+1 : j+cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>                           <span class="c1">// P(i+1, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>                           <span class="c1">// P(:, j+1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">leftCols</span><span class="o">&lt;</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">()</span>                 <span class="c1">// P(:, 1:cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">leftCols</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>                   <span class="c1">// P(:, 1:cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">middleCols</span><span class="o">&lt;</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>              <span class="c1">// P(:, j+1:j+cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">middleCols</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>              <span class="c1">// P(:, j+1:j+cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">rightCols</span><span class="o">&lt;</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">()</span>                <span class="c1">// P(:, end-cols+1:end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">rightCols</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>                  <span class="c1">// P(:, end-cols+1:end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">topRows</span><span class="o">&lt;</span><span class="n">rows</span><span class="o">&gt;</span><span class="p">()</span>                  <span class="c1">// P(1:rows, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">topRows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>                    <span class="c1">// P(1:rows, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">middleRows</span><span class="o">&lt;</span><span class="n">rows</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>              <span class="c1">// P(i+1:i+rows, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">middleRows</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">rows</span><span class="p">)</span>              <span class="c1">// P(i+1:i+rows, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">bottomRows</span><span class="o">&lt;</span><span class="n">rows</span><span class="o">&gt;</span><span class="p">()</span>               <span class="c1">// P(end-rows+1:end, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">bottomRows</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>                 <span class="c1">// P(end-rows+1:end, :)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">topLeftCorner</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>        <span class="c1">// P(1:rows, 1:cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">topRightCorner</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>       <span class="c1">// P(1:rows, end-cols+1:end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">bottomLeftCorner</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>     <span class="c1">// P(end-rows+1:end, 1:cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">bottomRightCorner</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>    <span class="c1">// P(end-rows+1:end, end-cols+1:end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">topLeftCorner</span><span class="o">&lt;</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">()</span>       <span class="c1">// P(1:rows, 1:cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">topRightCorner</span><span class="o">&lt;</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">()</span>      <span class="c1">// P(1:rows, end-cols+1:end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">bottomLeftCorner</span><span class="o">&lt;</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">()</span>    <span class="c1">// P(end-rows+1:end, 1:cols)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">P</span><span class="p">.</span><span class="n">bottomRightCorner</span><span class="o">&lt;</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="o">&gt;</span><span class="p">()</span>   <span class="c1">// P(end-rows+1:end, end-cols+1:end)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__25-swaping-elements__"><strong>2.5 Swaping elements</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// In Eigen3                       // In matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>               <span class="c1">// R(i, :) = P(:, i)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="n">j1</span><span class="p">).</span><span class="n">swap</span><span class="p">(</span><span class="n">mat1</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="n">j2</span><span class="p">));</span>      <span class="c1">// R(:, [j1 j2]) = R(:, [j2, j1])
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__26-tranpose__"><strong>2.6 Tranpose</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Views, transpose, etc; all read-write except for .adjoint().
+</span></span></span><span class="line"><span class="cl"><span class="c1">// In Eigen3                       // In matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">adjoint</span><span class="p">()</span>                        <span class="c1">// R&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span>                      <span class="c1">// R.&#39; or conj(R&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">diagonal</span><span class="p">()</span>                       <span class="c1">// diag(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">asDiagonal</span><span class="p">()</span>                     <span class="c1">// diag(x)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">transpose</span><span class="p">().</span><span class="n">colwise</span><span class="p">().</span><span class="n">reverse</span><span class="p">();</span> <span class="c1">// rot90(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">conjugate</span><span class="p">()</span>                      <span class="c1">// conj(R)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__27-products-of-matrices__"><strong>2.7 Products of Matrices</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Matrix-vector.  Matrix-matrix.   Matrix-scalar.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">y</span>  <span class="o">=</span> <span class="n">M</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>          <span class="n">R</span>  <span class="o">=</span> <span class="n">P</span><span class="o">*</span><span class="n">Q</span><span class="p">;</span>        <span class="n">R</span>  <span class="o">=</span> <span class="n">P</span><span class="o">*</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span>  <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">M</span><span class="p">;</span>          <span class="n">R</span>  <span class="o">=</span> <span class="n">P</span> <span class="o">-</span> <span class="n">Q</span><span class="p">;</span>      <span class="n">R</span>  <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">P</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">*=</span> <span class="n">M</span><span class="p">;</span>            <span class="n">R</span>  <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">Q</span><span class="p">;</span>      <span class="n">R</span>  <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">R</span> <span class="o">*=</span> <span class="n">Q</span><span class="p">;</span>          <span class="n">R</span>  <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">P</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">R</span> <span class="o">+=</span> <span class="n">Q</span><span class="p">;</span>          <span class="n">R</span> <span class="o">*=</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                   <span class="n">R</span> <span class="o">-=</span> <span class="n">Q</span><span class="p">;</span>          <span class="n">R</span> <span class="o">/=</span> <span class="n">s</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__28-element-operations__"><strong>2.8 Element operations</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Vectorized operations on each element independently
+</span></span></span><span class="line"><span class="cl"><span class="c1">// In Eigen3              // In matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">cwiseProduct</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>    <span class="c1">// R = P .* Q
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">*</span> <span class="n">s</span><span class="p">.</span><span class="n">array</span><span class="p">();</span><span class="c1">// R = P .* s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">cwiseQuotient</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>   <span class="c1">// R = P ./ Q
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">/</span> <span class="n">Q</span><span class="p">.</span><span class="n">array</span><span class="p">();</span><span class="c1">// R = P ./ Q
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">+</span> <span class="n">s</span><span class="p">.</span><span class="n">array</span><span class="p">();</span><span class="c1">// R = P + s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span><span class="p">.</span><span class="n">array</span><span class="p">();</span><span class="c1">// R = P - s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">+=</span> <span class="n">s</span><span class="p">;</span>           <span class="c1">// R = R + s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">-=</span> <span class="n">s</span><span class="p">;</span>           <span class="c1">// R = R - s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">Q</span><span class="p">.</span><span class="n">array</span><span class="p">();</span>    <span class="c1">// R &lt; Q
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">Q</span><span class="p">.</span><span class="n">array</span><span class="p">();</span>   <span class="c1">// R &lt;= Q
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">cwiseInverse</span><span class="p">();</span>         <span class="c1">// 1 ./ P
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">inverse</span><span class="p">();</span>      <span class="c1">// 1 ./ P
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">sin</span><span class="p">()</span>           <span class="c1">// sin(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">cos</span><span class="p">()</span>           <span class="c1">// cos(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">pow</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>          <span class="c1">// P .^ s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">square</span><span class="p">()</span>        <span class="c1">// P .^ 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">cube</span><span class="p">()</span>          <span class="c1">// P .^ 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">cwiseSqrt</span><span class="p">()</span>             <span class="c1">// sqrt(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">sqrt</span><span class="p">()</span>          <span class="c1">// sqrt(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">exp</span><span class="p">()</span>           <span class="c1">// exp(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">log</span><span class="p">()</span>           <span class="c1">// log(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">cwiseMax</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>             <span class="c1">// max(R, P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">max</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">array</span><span class="p">())</span>  <span class="c1">// max(R, P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">cwiseMin</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>             <span class="c1">// min(R, P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">min</span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">array</span><span class="p">())</span>  <span class="c1">// min(R, P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">cwiseAbs</span><span class="p">()</span>              <span class="c1">// abs(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">abs</span><span class="p">()</span>           <span class="c1">// abs(P)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">cwiseAbs2</span><span class="p">()</span>             <span class="c1">// abs(P.^2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">().</span><span class="n">abs2</span><span class="p">()</span>          <span class="c1">// abs(P.^2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">array</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">).</span><span class="n">select</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">);</span>  <span class="c1">// (R &lt; s ? P : Q)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__29-simplifying-matrices__"><strong>2.9 Simplifying matrices</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Reductions.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Eigen                  // Matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">minCoeff</span><span class="p">()</span>              <span class="c1">// min(R(:))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">maxCoeff</span><span class="p">()</span>              <span class="c1">// max(R(:))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">minCoeff</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span>    <span class="c1">// [s, i] = min(R(:)); [r, c] = ind2sub(size(R), i);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span> <span class="o">=</span> <span class="n">R</span><span class="p">.</span><span class="n">maxCoeff</span><span class="p">(</span><span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span>    <span class="c1">// [s, i] = max(R(:)); [r, c] = ind2sub(size(R), i);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">sum</span><span class="p">()</span>                   <span class="c1">// sum(R(:))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">sum</span><span class="p">()</span>         <span class="c1">// sum(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">sum</span><span class="p">()</span>         <span class="c1">// sum(R, 2) or sum(R&#39;)&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">prod</span><span class="p">()</span>                  <span class="c1">// prod(R(:))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">prod</span><span class="p">()</span>        <span class="c1">// prod(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">prod</span><span class="p">()</span>        <span class="c1">// prod(R, 2) or prod(R&#39;)&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">trace</span><span class="p">()</span>                 <span class="c1">// trace(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>                   <span class="c1">// all(R(:))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">all</span><span class="p">()</span>         <span class="c1">// all(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">all</span><span class="p">()</span>         <span class="c1">// all(R, 2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">any</span><span class="p">()</span>                   <span class="c1">// any(R(:))
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">any</span><span class="p">()</span>         <span class="c1">// any(R)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">R</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">any</span><span class="p">()</span>         <span class="c1">// any(R, 2)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__210-dot-product__"><strong>2.10 Dot product</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Dot products, norms, etc.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Eigen                  // Matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">norm</span><span class="p">()</span>                  <span class="c1">// norm(x). 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">squaredNorm</span><span class="p">()</span>           <span class="c1">// dot(x, x)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>                  <span class="c1">// dot(x, y)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>                <span class="c1">// cross(x, y) Requires #include &lt;Eigen/Geometry&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__211-type-convertion__"><strong>2.11 Type convertion</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"> <span class="n">Type</span> <span class="n">conversion</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Eigen                           // Matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>                  <span class="c1">// double(A)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span>                   <span class="c1">// single(A)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>                     <span class="c1">// int32(A)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">real</span><span class="p">();</span>                          <span class="c1">// real(A)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">imag</span><span class="p">();</span>                          <span class="c1">// imag(A)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// if the original type equals destination type, no work is done
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__212-linear-equation-system-bfax--bfb__"><strong>2.12 Linear equation system: $\bf{Ax} = \bf{b}$</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Solve Ax = b. Result stored in x. Matlab: x = A \ b.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">ldlt</span><span class="p">().</span><span class="n">solve</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>  <span class="c1">// #include &lt;Eigen/Cholesky&gt;LDLT: Inprovement of Cholesky
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">llt</span><span class="p">()</span> <span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>  <span class="c1">// A sym. p.d.      #include &lt;Eigen/Cholesky&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">lu</span><span class="p">()</span>  <span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>  <span class="c1">// Stable and fast. #include &lt;Eigen/LU&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">qr</span><span class="p">()</span>  <span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>  <span class="c1">// No pivoting.     #include &lt;Eigen/QR&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">svd</span><span class="p">()</span> <span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>  <span class="c1">// Stable, slowest. #include &lt;Eigen/SVD&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// .ldlt() -&gt; .matrixL() and .matrixD()
+</span></span></span><span class="line"><span class="cl"><span class="c1">// .llt()  -&gt; .matrixL()
+</span></span></span><span class="line"><span class="cl"><span class="c1">// .lu()   -&gt; .matrixL() and .matrixU()
+</span></span></span><span class="line"><span class="cl"><span class="c1">// .qr()   -&gt; .matrixQ() and .matrixR()
+</span></span></span><span class="line"><span class="cl"><span class="c1">// .svd()  -&gt; .matrixU(), .singularValues(), and .matrixV()
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__213-eigensystem-problems-of-real-matrix__"><strong>2.13 Eigensystem problems of real matrix</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// In Eigen3                      // In matlab
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">A</span><span class="p">.</span><span class="n">eigenvalues</span><span class="p">();</span>                  <span class="c1">// eig(A);                // Finding eigenvalues.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">EigenSolver</span><span class="o">&lt;</span><span class="n">Matrix3d</span><span class="o">&gt;</span> <span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>     <span class="c1">// [vec val] = eig(A);    // Eigensolver.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">eig</span><span class="p">.</span><span class="n">eigenvalues</span><span class="p">();</span>                <span class="c1">// val                    // Eigenvalues.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">eig</span><span class="p">.</span><span class="n">eigenvectors</span><span class="p">();</span>               <span class="c1">// vec                    // Eigenvectors.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="__3-operations-of-complex-matrix__"><strong>3. Operations of complex matrix.</strong></h2>
+<h3 id="__31-definitions__"><strong>3.1 Definitions.</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">MatrixXcd</span> <span class="nf">c</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>                  <span class="c1">// Declaring a r x c complex matrix.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">c</span><span class="p">.</span><span class="n">real</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">MatrixXd</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// Giving values to the real part.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">c</span><span class="p">.</span><span class="n">imag</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">MatrixXd</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// Giving values to the imaginary part.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__32-getting-elements-real-and-imaginary-parts__"><strong>3.2 Getting elements, real and imaginary parts.</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">MatrixXcd</span> <span class="n">array</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">array</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">MatrixXd</span> <span class="n">real</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">real</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">MatrixXd</span> <span class="n">imag</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">imag</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__33-eigensystem-problems__"><strong>3.3 Eigensystem problems</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">MatrixXcd</span> <span class="nf">M</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>                     <span class="c1">// Declaration of a dynamic complex matrix of r x c.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">M</span><span class="p">.</span><span class="n">real</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">MatrixXd</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>    <span class="c1">// Giving a random matrix to the real part of matrix M.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">M</span><span class="p">.</span><span class="n">imag</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">MatrixXd</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>    <span class="c1">// Giving a random matrix to the imaginary part of matrix M.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">ComplexEigenSolver</span><span class="o">&lt;</span><span class="n">MatrixXcd</span><span class="o">&gt;</span> <span class="n">es</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>   <span class="c1">// Complex eigensolver.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MatrixXcd</span> <span class="n">val</span> <span class="o">=</span> <span class="n">es</span><span class="p">.</span><span class="n">eigenvalues</span><span class="p">();</span>      <span class="c1">// Finding eigenvalues.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MatrixXcd</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">es</span><span class="p">.</span><span class="n">eigenvectors</span><span class="p">();</span>     <span class="c1">// Finding eigen vectors.
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__bibliography__"><strong>Bibliography</strong></h3>
+<p><a href="https://blog.csdn.net/Zzhouzhou237/article/details/105078647">https://blog.csdn.net/Zzhouzhou237/article/details/105078647</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-09-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/eigen3/">Eigen3</a>
+          <a href="/tags/matrix/">Matrix</a>
+          <a href="/tags/linear-algebra/">Linear Algebra</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/advanced_eigen3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Advanced Operations in Eigen3</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/hilbert_transform/">
+            <span class="next-text nav-default">Hilbert Transform</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

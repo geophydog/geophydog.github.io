@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Awk notes - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
+1 awk &amp;#39;!a[$2,$3]&#43;&#43;&amp;#39; pushLog.log Above command will print the unique lines after removing repeated in columns 2 and 3.
+For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
+1 saclst gcarc f *.SAC | sort -k2 -n -r | awk &amp;#39;!a[$2]&#43;&#43;&amp;#39; It will show the lines after removing repeated lines." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/awk_notes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Awk notes" />
+<meta property="og:description" content="1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
+1 awk &#39;!a[$2,$3]&#43;&#43;&#39; pushLog.log Above command will print the unique lines after removing repeated in columns 2 and 3.
+For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
+1 saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!a[$2]&#43;&#43;&#39; It will show the lines after removing repeated lines." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/awk_notes/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-09-12T20:30:29+08:00" />
+<meta property="article:modified_time" content="2020-09-12T20:30:29+08:00" />
+<meta itemprop="name" content="Awk notes">
+<meta itemprop="description" content="1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
+1 awk &#39;!a[$2,$3]&#43;&#43;&#39; pushLog.log Above command will print the unique lines after removing repeated in columns 2 and 3.
+For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
+1 saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!a[$2]&#43;&#43;&#39; It will show the lines after removing repeated lines."><meta itemprop="datePublished" content="2020-09-12T20:30:29+08:00" />
+<meta itemprop="dateModified" content="2020-09-12T20:30:29+08:00" />
+<meta itemprop="wordCount" content="605">
+<meta itemprop="keywords" content="awk,linux," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Awk notes"/>
+<meta name="twitter:description" content="1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
+1 awk &#39;!a[$2,$3]&#43;&#43;&#39; pushLog.log Above command will print the unique lines after removing repeated in columns 2 and 3.
+For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
+1 saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!a[$2]&#43;&#43;&#39; It will show the lines after removing repeated lines."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Awk notes</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-09-12 </span>
+        <div class="post-category">
+            <a href="/categories/awk/"> awk </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#__1-remove-repeated-lines__"><strong>1 Remove repeated lines</strong></a></li>
+        <li><a href="#__2-print-single-and-double-quation-marks--and-__"><strong>2 Print single and double quation marks: <code>&quot;</code> and <code>'</code></strong></a></li>
+        <li><a href="#__3-arrays__"><strong>3 Arrays</strong></a>
+          <ul>
+            <li><a href="#__31-1d-array__"><strong>3.1 1D array</strong></a></li>
+            <li><a href="#__32-2d-array__"><strong>3.2 2D array</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#__4-use-lengtharray-to-get-length-of-array__"><strong>4 Use <code>length(array)</code> to get length of <code>array</code></strong></a></li>
+        <li><a href="#__5-sort-elements-of-a-array__"><strong>5 Sort elements of a array</strong></a></li>
+        <li><a href="#__6-index-of-array__"><strong>6 Index of array</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="__1-remove-repeated-lines__"><strong>1 Remove repeated lines</strong></h2>
+<p>Sometimes we want to remove these repeated lines according to some column(s).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39;!a[$2,$3]++&#39;</span>  pushLog.log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Above command will print the unique lines after removing repeated in columns
+<code>2</code> and <code>3</code>.</p>
+<p>For instance, there are some SAC files with same header <code>gcarc</code>, and can use
+the following command to achieve that.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">saclst gcarc f *.SAC <span class="p">|</span> sort -k2 -n -r <span class="p">|</span> awk <span class="s1">&#39;!a[$2]++&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It will show the lines after removing repeated lines.</p>
+<h2 id="__2-print-single-and-double-quation-marks--and-__"><strong>2 Print single and double quation marks: <code>&quot;</code> and <code>'</code></strong></h2>
+<p>Add back slash before double quotation marks.</p>
+<ul>
+<li><code>&quot;</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;BEGIN{for(i=1;i&lt;=10;i++) {print &#34;\&#34;&#34;}}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>However, we need two single quotation marks to close <code>\'</code>.</p>
+<ul>
+<li><code>'</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">awk &#39;BEGIN{for(i=1;i&lt;=10;i++) {print &#34;&#39;\&#39;&#39;&#34;}}&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="__3-arrays__"><strong>3 Arrays</strong></h2>
+<h3 id="__31-1d-array__"><strong>3.1 1D array</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;BEGIN{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i=1;i&lt;=5;i++){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        array[i] = i*2 - 1
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for ( i in array ){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print i&#34; = &#34; array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We get output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">4 = 7
+</span></span><span class="line"><span class="cl">5 = 9
+</span></span><span class="line"><span class="cl">1 = 1
+</span></span><span class="line"><span class="cl">2 = 3
+</span></span><span class="line"><span class="cl">3 = 5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__32-2d-array__"><strong>3.2 2D array</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;BEGIN{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i=1;i&lt;=5;i++){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        for(j=1;j&lt;=5;j++){
+</span></span></span><span class="line"><span class="cl"><span class="s1">            array[i,j] = i + j
+</span></span></span><span class="line"><span class="cl"><span class="s1">            print i&#34; + &#34;j&#34; = &#34;array[i,j]
+</span></span></span><span class="line"><span class="cl"><span class="s1">        }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i in array){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        split(i,array2,SUBSEP)
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print array2[1]&#34; + &#34;array2[2]&#34; = &#34;array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1 + 1 = 2
+</span></span><span class="line"><span class="cl">1 + 2 = 3
+</span></span><span class="line"><span class="cl">1 + 3 = 4
+</span></span><span class="line"><span class="cl">2 + 1 = 3
+</span></span><span class="line"><span class="cl">2 + 2 = 4
+</span></span><span class="line"><span class="cl">2 + 3 = 5
+</span></span><span class="line"><span class="cl">3 + 1 = 4
+</span></span><span class="line"><span class="cl">3 + 2 = 5
+</span></span><span class="line"><span class="cl">3 + 3 = 6
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3 + 3 = 6
+</span></span><span class="line"><span class="cl">1 + 1 = 2
+</span></span><span class="line"><span class="cl">2 + 1 = 3
+</span></span><span class="line"><span class="cl">1 + 2 = 3
+</span></span><span class="line"><span class="cl">3 + 1 = 4
+</span></span><span class="line"><span class="cl">2 + 2 = 4
+</span></span><span class="line"><span class="cl">1 + 3 = 4
+</span></span><span class="line"><span class="cl">3 + 2 = 5
+</span></span><span class="line"><span class="cl">2 + 3 = 5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Attention must be paid to the output, and the lines are unordered.</p>
+<h2 id="__4-use-lengtharray-to-get-length-of-array__"><strong>4 Use <code>length(array)</code> to get length of <code>array</code></strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;BEGIN{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    info=&#34;it is a test&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    len=split(info,array,&#34; &#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print len, length(array)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i in array){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print i&#34; = &#34;array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">4 4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4 = test
+</span></span><span class="line"><span class="cl">1 = it
+</span></span><span class="line"><span class="cl">2 = is
+</span></span><span class="line"><span class="cl">3 = a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="__5-sort-elements-of-a-array__"><strong>5 Sort elements of a array</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;BEGIN{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    info=&#34;it is a test&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    len=split(info,array,&#34; &#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print len, length(array)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print &#34;----not sorted----&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i=1;i&lt;=len;i++){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print i&#34; = &#34; array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i in array){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print i&#34; = &#34; array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print &#34;------sort-----&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i in array){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print i&#34; = &#34; array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print &#34;asort(array) = &#34;,asort(array)
+</span></span></span><span class="line"><span class="cl"><span class="s1">    for(i=1;i&lt;=len;i++){
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print i&#34; = &#34;array[i]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">4 4
+</span></span><span class="line"><span class="cl">----not sorted----
+</span></span><span class="line"><span class="cl">1 = it
+</span></span><span class="line"><span class="cl">2 = is
+</span></span><span class="line"><span class="cl">3 = a
+</span></span><span class="line"><span class="cl">4 = test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4 = test
+</span></span><span class="line"><span class="cl">1 = it
+</span></span><span class="line"><span class="cl">2 = is
+</span></span><span class="line"><span class="cl">3 = a
+</span></span><span class="line"><span class="cl">------sort-----
+</span></span><span class="line"><span class="cl">4 = test
+</span></span><span class="line"><span class="cl">1 = it
+</span></span><span class="line"><span class="cl">2 = is
+</span></span><span class="line"><span class="cl">3 = a
+</span></span><span class="line"><span class="cl">asort(array) =  4
+</span></span><span class="line"><span class="cl">1 = a
+</span></span><span class="line"><span class="cl">2 = is
+</span></span><span class="line"><span class="cl">3 = it
+</span></span><span class="line"><span class="cl">4 = test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="__6-index-of-array__"><strong>6 Index of array</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk <span class="s1">&#39;BEGIN{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[1]=&#34;a&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[2]=&#34;b&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[3]=&#34;c&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[4]=&#34;d&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[&#34;first&#34;]=1
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[&#34;second&#34;]=2
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[&#34;three&#34;]=3
+</span></span></span><span class="line"><span class="cl"><span class="s1">    array[&#34;four&#34;]=4
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print array[4],array[&#34;four&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print array[2],array[&#34;second&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">d 4
+</span></span><span class="line"><span class="cl">b 2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It&rsquo;s like the direcionary in python, is it?</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-09-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/awk/">awk</a>
+          <a href="/tags/linux/">linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/func_ptr_and_ptr_func/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Function Pointer &amp; Pointer Function</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/basemap/">
+            <span class="next-text nav-default">Basemap in Python</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

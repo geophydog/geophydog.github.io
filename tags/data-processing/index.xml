@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data processing on Geophydog</title>
+    <link>https://geophydog.cool/tags/data-processing/</link>
+    <description>Recent content in data processing on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Thu, 11 Mar 2021 14:32:42 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/data-processing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Estimating the Power Spectral Density of Ambient Seismic Noise</title>
+      <link>https://geophydog.cool/post/psd_notes/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/psd_notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Useful seismic tools</title>
+      <link>https://geophydog.cool/post/seismic_useful_tools/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/seismic_useful_tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Seismic Data Processing in Python</title>
+      <link>https://geophydog.cool/post/python_data_processing/</link>
+      <pubDate>Sat, 19 Sep 2020 21:14:22 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/python_data_processing/</guid>
+      <description>1 Obtaining Seismic Data Using Obspy 1.1 Basic usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 from obspy.clients.fdsn import Client from obspy.core import UTCDateTime # Create a data service from &amp;#39;IRIS&amp;#39; data center. client = Client(&amp;#39;IRIS&amp;#39;) # Setting the start time of waveforms. t1 = UTCDateTime(&amp;#39;2019-09-04T00:00:00&amp;#39;) # End time of waveforms: 3600 seconds shift relative to t1. t2 = t1 + 3600 # Get waveforms.</description>
+    </item>
+    
+  </channel>
+</rss>

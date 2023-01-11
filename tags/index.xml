@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Geophydog</title>
+    <link>https://geophydog.cool/tags/</link>
+    <description>Recent content in Tags on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Tue, 10 Jan 2023 18:49:53 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ambient Noise</title>
+      <link>https://geophydog.cool/tags/ambient-noise/</link>
+      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/ambient-noise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>beamforming</title>
+      <link>https://geophydog.cool/tags/beamforming/</link>
+      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/beamforming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>body wave</title>
+      <link>https://geophydog.cool/tags/body-wave/</link>
+      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/body-wave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>source-location</title>
+      <link>https://geophydog.cool/tags/source-location/</link>
+      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/source-location/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>array-processing</title>
+      <link>https://geophydog.cool/tags/array-processing/</link>
+      <pubDate>Sat, 04 Jun 2022 09:41:56 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/array-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matched-field-processing</title>
+      <link>https://geophydog.cool/tags/matched-field-processing/</link>
+      <pubDate>Sat, 04 Jun 2022 09:41:56 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/matched-field-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ambient seismic noise</title>
+      <link>https://geophydog.cool/tags/ambient-seismic-noise/</link>
+      <pubDate>Sat, 20 Mar 2021 15:33:02 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/ambient-seismic-noise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic array</title>
+      <link>https://geophydog.cool/tags/seismic-array/</link>
+      <pubDate>Sat, 20 Mar 2021 15:33:02 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismic-array/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data processing</title>
+      <link>https://geophydog.cool/tags/data-processing/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/data-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fft</title>
+      <link>https://geophydog.cool/tags/fft/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/fft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PSD</title>
+      <link>https://geophydog.cool/tags/psd/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/psd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spectral analysis</title>
+      <link>https://geophydog.cool/tags/spectral-analysis/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/spectral-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geographical geometry</title>
+      <link>https://geophydog.cool/tags/geographical-geometry/</link>
+      <pubDate>Tue, 02 Mar 2021 16:05:43 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/geographical-geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spherical geometry</title>
+      <link>https://geophydog.cool/tags/spherical-geometry/</link>
+      <pubDate>Tue, 02 Mar 2021 16:05:43 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/spherical-geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hurricane</title>
+      <link>https://geophydog.cool/tags/hurricane/</link>
+      <pubDate>Tue, 26 Jan 2021 16:14:05 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/hurricane/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open data</title>
+      <link>https://geophydog.cool/tags/open-data/</link>
+      <pubDate>Tue, 26 Jan 2021 16:14:05 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/open-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sea wave height</title>
+      <link>https://geophydog.cool/tags/sea-wave-height/</link>
+      <pubDate>Tue, 26 Jan 2021 16:14:05 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/sea-wave-height/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typhoon</title>
+      <link>https://geophydog.cool/tags/typhoon/</link>
+      <pubDate>Tue, 26 Jan 2021 16:14:05 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/typhoon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PWS</title>
+      <link>https://geophydog.cool/tags/pws/</link>
+      <pubDate>Sat, 16 Jan 2021 11:17:54 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/pws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>signal processing</title>
+      <link>https://geophydog.cool/tags/signal-processing/</link>
+      <pubDate>Sat, 16 Jan 2021 11:17:54 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/signal-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>signal stacking</title>
+      <link>https://geophydog.cool/tags/signal-stacking/</link>
+      <pubDate>Sat, 16 Jan 2021 11:17:54 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/signal-stacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gui</title>
+      <link>https://geophydog.cool/tags/gui/</link>
+      <pubDate>Wed, 06 Jan 2021 19:15:14 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guide</title>
+      <link>https://geophydog.cool/tags/guide/</link>
+      <pubDate>Wed, 06 Jan 2021 19:15:14 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matlab</title>
+      <link>https://geophydog.cool/tags/matlab/</link>
+      <pubDate>Wed, 06 Jan 2021 19:15:14 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/matlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic data processing</title>
+      <link>https://geophydog.cool/tags/seismic-data-processing/</link>
+      <pubDate>Wed, 30 Dec 2020 15:29:30 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismic-data-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismology</title>
+      <link>https://geophydog.cool/tags/seismology/</link>
+      <pubDate>Wed, 30 Dec 2020 15:29:30 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic tools</title>
+      <link>https://geophydog.cool/tags/seismic-tools/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismic-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://geophydog.cool/tags/visualization/</link>
+      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic inteferometry</title>
+      <link>https://geophydog.cool/tags/seismic-inteferometry/</link>
+      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismic-inteferometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“Bessel function”</title>
+      <link>https://geophydog.cool/tags/bessel-function/</link>
+      <pubDate>Fri, 25 Dec 2020 17:16:30 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/bessel-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>array response function</title>
+      <link>https://geophydog.cool/tags/array-response-function/</link>
+      <pubDate>Thu, 24 Dec 2020 11:42:11 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/array-response-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>array transfer function</title>
+      <link>https://geophydog.cool/tags/array-transfer-function/</link>
+      <pubDate>Thu, 24 Dec 2020 11:42:11 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/array-transfer-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phase velocity</title>
+      <link>https://geophydog.cool/tags/phase-velocity/</link>
+      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/phase-velocity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>surface wave</title>
+      <link>https://geophydog.cool/tags/surface-wave/</link>
+      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/surface-wave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arrow</title>
+      <link>https://geophydog.cool/tags/arrow/</link>
+      <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/arrow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gmt</title>
+      <link>https://geophydog.cool/tags/gmt/</link>
+      <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/gmt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vector</title>
+      <link>https://geophydog.cool/tags/vector/</link>
+      <pubDate>Sun, 08 Nov 2020 18:31:43 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/vector/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numerical modeling</title>
+      <link>https://geophydog.cool/tags/numerical-modeling/</link>
+      <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/numerical-modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wave</title>
+      <link>https://geophydog.cool/tags/wave/</link>
+      <pubDate>Mon, 02 Nov 2020 20:44:01 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/wave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seismic interferometry</title>
+      <link>https://geophydog.cool/tags/seismic-interferometry/</link>
+      <pubDate>Tue, 29 Sep 2020 13:43:54 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/seismic-interferometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>obspy</title>
+      <link>https://geophydog.cool/tags/obspy/</link>
+      <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/obspy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://geophydog.cool/tags/python/</link>
+      <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>animation</title>
+      <link>https://geophydog.cool/tags/animation/</link>
+      <pubDate>Fri, 18 Sep 2020 17:36:40 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filter design</title>
+      <link>https://geophydog.cool/tags/filter-design/</link>
+      <pubDate>Wed, 16 Sep 2020 08:56:15 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/filter-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>function pointer</title>
+      <link>https://geophydog.cool/tags/function-pointer/</link>
+      <pubDate>Mon, 14 Sep 2020 16:12:24 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/function-pointer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pointer function</title>
+      <link>https://geophydog.cool/tags/pointer-function/</link>
+      <pubDate>Mon, 14 Sep 2020 16:12:24 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/pointer-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>https://geophydog.cool/tags/awk/</link>
+      <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://geophydog.cool/tags/linux/</link>
+      <pubDate>Sat, 12 Sep 2020 20:30:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basemap</title>
+      <link>https://geophydog.cool/tags/basemap/</link>
+      <pubDate>Sat, 12 Sep 2020 14:24:47 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/basemap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cross-correlation</title>
+      <link>https://geophydog.cool/tags/cross-correlation/</link>
+      <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/cross-correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EGFs</title>
+      <link>https://geophydog.cool/tags/egfs/</link>
+      <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/egfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Normalization</title>
+      <link>https://geophydog.cool/tags/normalization/</link>
+      <pubDate>Tue, 08 Sep 2020 22:11:34 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/normalization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigen3</title>
+      <link>https://geophydog.cool/tags/eigen3/</link>
+      <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/eigen3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://geophydog.cool/tags/linear-algebra/</link>
+      <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/linear-algebra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matrix</title>
+      <link>https://geophydog.cool/tags/matrix/</link>
+      <pubDate>Sat, 05 Sep 2020 10:30:18 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hilbert transform</title>
+      <link>https://geophydog.cool/tags/hilbert-transform/</link>
+      <pubDate>Thu, 03 Sep 2020 21:23:30 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/hilbert-transform/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

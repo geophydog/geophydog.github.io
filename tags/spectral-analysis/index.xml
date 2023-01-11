@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spectral analysis on Geophydog</title>
+    <link>https://geophydog.cool/tags/spectral-analysis/</link>
+    <description>Recent content in spectral analysis on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Thu, 11 Mar 2021 14:32:42 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/spectral-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Estimating the Power Spectral Density of Ambient Seismic Noise</title>
+      <link>https://geophydog.cool/post/psd_notes/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/psd_notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fourier Transform</title>
+      <link>https://geophydog.cool/post/fourier_transform/</link>
+      <pubDate>Thu, 03 Sep 2020 17:11:08 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/fourier_transform/</guid>
+      <description>1 Introduction The $Fourier \ Transform$ convert the signal in one domain to another domain, for instance from time domain to frequency domain. The definition of $Fourier \ Transform$ is given by $$ X(\omega) = \int_{-\infty}^\infty x(t)e^{-i \omega t} \tag{1}. $$
+For the operation in programming, we need its discrete form, namely, $$ X(k) = \sum_{n=0}^{N-1}x(n) e^{\frac{-i2\pi kn}{N}} \tag{2}, $$ where, $k$ is the index of the $k_{th}$ frequency point, and we can find the $k_{th}$ frequency like this $$ f_k = \frac{kf_s}{N} \tag{3}, $$ $f_s$ is sampling rate of signal and $f_s=\frac{1}{\Delta t}$.</description>
+    </item>
+    
+  </channel>
+</rss>

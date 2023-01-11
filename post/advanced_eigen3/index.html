@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Advanced Operations in Eigen3 - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="1 Matrix &amp;lt;-&amp;gt; C/C&#43;&#43; array 1.1 Matrix -&amp;gt; C/C&#43;&#43; array .data() stores the address, so we can give the address to a pointer.
+1.2. C/C&#43;&#43; array -&amp;gt; Matrix Using Map to convert a C/C&#43;&#43; array to a Matrix.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 #include &amp;lt;iostream&amp;gt; #include &amp;lt;Eigen/Dense&amp;gt; using namespace Eigen; using namespace std; int main(int argc, char *argv[]){ int n; n = atoi(argv[1]); MatrixXf b(n, 1); b = MatrixXf::Random(n, 1); cout &amp;lt;&amp;lt; &amp;#34;b:\n&amp;#34; &amp;lt;&amp;lt; b &amp;lt;&amp;lt; endl; // convert Matrix b to C/C&#43;&#43; array c." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/advanced_eigen3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Advanced Operations in Eigen3" />
+<meta property="og:description" content="1 Matrix &lt;-&gt; C/C&#43;&#43; array 1.1 Matrix -&gt; C/C&#43;&#43; array .data() stores the address, so we can give the address to a pointer.
+1.2. C/C&#43;&#43; array -&gt; Matrix Using Map to convert a C/C&#43;&#43; array to a Matrix.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 #include &lt;iostream&gt; #include &lt;Eigen/Dense&gt; using namespace Eigen; using namespace std; int main(int argc, char *argv[]){ int n; n = atoi(argv[1]); MatrixXf b(n, 1); b = MatrixXf::Random(n, 1); cout &lt;&lt; &#34;b:\n&#34; &lt;&lt; b &lt;&lt; endl; // convert Matrix b to C/C&#43;&#43; array c." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/advanced_eigen3/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-09-05T10:30:18+08:00" />
+<meta property="article:modified_time" content="2020-09-05T10:30:18+08:00" />
+<meta itemprop="name" content="Advanced Operations in Eigen3">
+<meta itemprop="description" content="1 Matrix &lt;-&gt; C/C&#43;&#43; array 1.1 Matrix -&gt; C/C&#43;&#43; array .data() stores the address, so we can give the address to a pointer.
+1.2. C/C&#43;&#43; array -&gt; Matrix Using Map to convert a C/C&#43;&#43; array to a Matrix.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 #include &lt;iostream&gt; #include &lt;Eigen/Dense&gt; using namespace Eigen; using namespace std; int main(int argc, char *argv[]){ int n; n = atoi(argv[1]); MatrixXf b(n, 1); b = MatrixXf::Random(n, 1); cout &lt;&lt; &#34;b:\n&#34; &lt;&lt; b &lt;&lt; endl; // convert Matrix b to C/C&#43;&#43; array c."><meta itemprop="datePublished" content="2020-09-05T10:30:18+08:00" />
+<meta itemprop="dateModified" content="2020-09-05T10:30:18+08:00" />
+<meta itemprop="wordCount" content="419">
+<meta itemprop="keywords" content="Eigen3,Matrix,Linear Algebra," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Advanced Operations in Eigen3"/>
+<meta name="twitter:description" content="1 Matrix &lt;-&gt; C/C&#43;&#43; array 1.1 Matrix -&gt; C/C&#43;&#43; array .data() stores the address, so we can give the address to a pointer.
+1.2. C/C&#43;&#43; array -&gt; Matrix Using Map to convert a C/C&#43;&#43; array to a Matrix.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 #include &lt;iostream&gt; #include &lt;Eigen/Dense&gt; using namespace Eigen; using namespace std; int main(int argc, char *argv[]){ int n; n = atoi(argv[1]); MatrixXf b(n, 1); b = MatrixXf::Random(n, 1); cout &lt;&lt; &#34;b:\n&#34; &lt;&lt; b &lt;&lt; endl; // convert Matrix b to C/C&#43;&#43; array c."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Advanced Operations in Eigen3</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-09-05 </span>
+        <div class="post-category">
+            <a href="/categories/scientific-computation/"> Scientific Computation </a>
+            <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#__1-matrix---cc-array__"><strong>1 Matrix &lt;-&gt; C/C++ array</strong></a>
+          <ul>
+            <li><a href="#__11-matrix---cc-array__"><strong>1.1 Matrix -&gt; C/C++ array</strong></a></li>
+            <li><a href="#__12-cc-array---matrix__"><strong>1.2. C/C++ array -&gt; Matrix</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#__2-fft-in-eigen3__"><strong>2 FFT in Eigen3</strong></a>
+          <ul>
+            <li><a href="#21-installation">2.1 Installation</a></li>
+            <li><a href="#__22-compared-with-fftw3__"><strong>2.2 Compared with FFTW3</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="__1-matrix---cc-array__"><strong>1 Matrix &lt;-&gt; C/C++ array</strong></h2>
+<h3 id="__11-matrix---cc-array__"><strong>1.1 Matrix -&gt; C/C++ array</strong></h3>
+<p><code>.data()</code> stores the address, so we can give the address to a pointer.</p>
+<h3 id="__12-cc-array---matrix__"><strong>1.2. C/C++ array -&gt; Matrix</strong></h3>
+<p>Using <code>Map</code> to convert a C/C++ array to a Matrix.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">Eigen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MatrixXf</span> <span class="n">b</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="n">MatrixXf</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;b:</span><span class="se">\n</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// convert Matrix b to C/C++ array c.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">float</span> <span class="o">*</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// convert C/C++ array c to Matrix d.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">MatrixXf</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">MatrixXf</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;d:</span><span class="se">\n</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="__2-fft-in-eigen3__"><strong>2 FFT in Eigen3</strong></h2>
+<h3 id="21-installation">2.1 Installation</h3>
+<ul>
+<li>First type <code>sudo apt-get install libeigen3-dev</code> to install Eigen3;</li>
+<li>Eigen3 was installed in the default directory <code>/usr/include/eigen3</code>;</li>
+<li>Copy <code>unsupported</code> under <code>/usr/include/eigen3</code> to the directory <code>/usr/include</code>.</li>
+</ul>
+<h3 id="__22-compared-with-fftw3__"><strong>2.2 Compared with FFTW3</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;fftw3.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unsupported/Eigen/FFT&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">Eigen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//using namespace un
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Eigen</span><span class="o">::</span><span class="n">FFT</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">fft</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MatrixXf</span> <span class="n">input</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">input</span> <span class="o">=</span> <span class="n">MatrixXf</span><span class="o">::</span><span class="n">Random</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">MatrixXcf</span> <span class="n">output</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clock_t</span> <span class="n">t11</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//for(int i = 0; i &lt; input.cols(); i ++)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">output</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">fft</span><span class="p">.</span><span class="n">fwd</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        cout &lt;&lt; &#34;Input:\n&#34; &lt;&lt; input &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cm">        cout &lt;&lt; &#34;Output:\n&#34; &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cm">        cout &lt;&lt; &#34;Real:\n&#34; &lt;&lt; output.real() &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cm">        cout &lt;&lt; &#34;Imag:\n&#34; &lt;&lt; output.imag() &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">        cout &lt;&lt; &#34;type:\n&#34; &lt;&lt; typeid(input).name() &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clock_t</span> <span class="n">t12</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fftw_complex</span> <span class="o">*</span><span class="n">in</span><span class="p">,</span> <span class="o">*</span><span class="n">out</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fftw_plan</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">fftw_complex</span> <span class="o">*</span><span class="p">)</span> <span class="n">fftw_malloc</span><span class="p">(</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fftw_complex</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">fftw_complex</span> <span class="o">*</span><span class="p">)</span> <span class="n">fftw_malloc</span><span class="p">(</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fftw_complex</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">in</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">in</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clock_t</span> <span class="n">t21</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">fftw_plan_dft_1d</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">FFTW_FORWARD</span><span class="p">,</span> <span class="n">FFTW_ESTIMATE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fftw_execute</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fftw_destroy_plan</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">clock_t</span> <span class="n">t22</span> <span class="o">=</span> <span class="n">clock</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Time used for Eigen3 FFT: &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">t12</span><span class="o">-</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">t11</span><span class="p">)</span><span class="o">/</span><span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; s!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Time used for FFT3: &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">t22</span><span class="o">-</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">t21</span><span class="p">)</span><span class="o">/</span><span class="n">CLOCKS_PER_SEC</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; s!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">fftw_free</span><span class="p">(</span><span class="n">in</span><span class="p">);</span> <span class="n">fftw_free</span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>The efficiency of FFTW is 2 - 3 times of FFT in Eigen3.</code></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-09-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/eigen3/">Eigen3</a>
+          <a href="/tags/matrix/">Matrix</a>
+          <a href="/tags/linear-algebra/">Linear Algebra</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/cross_spectra_beamforing/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Cross Spectral Beamforming</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/eigen3_operations/">
+            <span class="next-text nav-default">Basic Operations in Eigen3 C&#43;&#43;</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Seismic Data Processing in Matlab - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/seismic_data_processing_in_matlab/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Seismic Data Processing in Matlab" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/seismic_data_processing_in_matlab/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-12-30T15:29:30+08:00" />
+<meta property="article:modified_time" content="2020-12-30T15:29:30+08:00" />
+<meta itemprop="name" content="Seismic Data Processing in Matlab">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2020-12-30T15:29:30+08:00" />
+<meta itemprop="dateModified" content="2020-12-30T15:29:30+08:00" />
+<meta itemprop="wordCount" content="3594">
+<meta itemprop="keywords" content="“matlab”,seismic data processing,seismology," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Seismic Data Processing in Matlab"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Seismic Data Processing in Matlab</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-30 </span>
+        <div class="post-category">
+            <a href="/categories/matlab/"> matlab </a>
+            <a href="/categories/seismic-data-processing/"> seismic data processing </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#__1-read-in-and-write-out-sac-format-data__"><strong>1 Read in and Write out SAC Format Data</strong></a>
+          <ul>
+            <li><a href="#__11-read-in-sac__"><strong>1.1 Read in SAC</strong></a></li>
+            <li><a href="#__12-write-out-sac__"><strong>1.2 Write out SAC</strong></a></li>
+            <li><a href="#__13-generate-a-default-sac-header-structure__"><strong>1.3 Generate a Default SAC Header Structure</strong></a></li>
+            <li><a href="#__14-demo-of-write-out-sac-file-with-new-data__"><strong>1.4 Demo of Write out SAC File with New Data</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="__1-read-in-and-write-out-sac-format-data__"><strong>1 Read in and Write out SAC Format Data</strong></h2>
+<p><a href="https://www.mathworks.com/">Matlab</a> is very powerful for data processing and some seismologists utilize it to processing seismic data. Here we show you how to read in and write out a <a href="http://ds.iris.edu/ds/nodes/dmc/manuals/sac/">SAC</a> format file using Matlab.</p>
+<h3 id="__11-read-in-sac__"><strong>1.1 Read in SAC</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% READ SAC FILE: HEADER VARIABLES AND DATA.                               %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span>[ sachead, data ] <span class="p">=</span><span class="w"> </span><span class="nf">readSAC</span><span class="p">(</span> fname <span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">%% Check parameters.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">nargin</span> <span class="o">&lt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fprintf</span><span class="p">(</span> <span class="s">&#39;Usage: [ sachead, data ] = readSAC( fname )\n&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sachead</span> <span class="p">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="p">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">	<span class="n">fid</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">fid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="n">fprintf</span><span class="p">(</span><span class="n">strcat</span><span class="p">(</span><span class="s">&#39;Error opening SAC file: %s.\n&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sachead</span> <span class="p">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="p">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c">%% --------------- Read in  70 float header variables ------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%------------------------------ read 70  float -------------------------- %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span> <span class="p">=</span> <span class="n">fread</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s">&#39;single&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">delta</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>	<span class="p">;</span>		    <span class="c">% RF time increment, sec    %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">depmin</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>			<span class="c">%    minimum amplitude      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">depmax</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>			<span class="c">%    maximum amplitude      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">scale</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>			<span class="c">%    amplitude scale factor %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">odelta</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>		    <span class="c">%    observed time inc      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">b</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>				<span class="c">% RD initial time - wrt nz* %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">e</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>				<span class="c">% RD end time               %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">o</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>				<span class="c">%    event start            %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">a</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>				<span class="c">%    1st arrival time       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">internal1</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>		<span class="c">%    internal use           %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t0</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t1</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t2</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t3</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>			    <span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t4</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t5</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t6</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t7</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t8</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">19</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">t9</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>				<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">f</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">21</span><span class="p">);</span>				<span class="c">%    event end, sec &gt; 0     %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp0</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp1</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp2</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp3</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp4</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">26</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp5</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">27</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp6</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">28</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp7</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">29</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp8</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">resp9</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>			<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">stla</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%  T station latititude      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">stlo</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%  T station longitude       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">stel</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%  T station elevation, m    %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">stdp</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%  T station depth, m        %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">evla</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%    event latitude          %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">evlo</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%    event longitude         %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">evel</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">38</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%    event elevation         %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">evdp</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span>	<span class="p">;</span>			<span class="c">%    event depth             %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">mag</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>	<span class="p">;</span>	        <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user0</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">41</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user1</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user2</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">43</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user3</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">44</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user4</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user5</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">46</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user6</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">47</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user7</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">48</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user8</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">49</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">user9</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>			<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">dist</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span>	<span class="p">;</span>		    <span class="c">%    stn-event distance, km  %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">az</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span>	<span class="p">;</span>		    <span class="c">%    event-stn azimuth       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">baz</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">53</span><span class="p">)</span>	<span class="p">;</span>		    <span class="c">%    stn-event azimuth       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">gcarc</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">54</span><span class="p">);</span>			<span class="c">%    stn-event dist, degrees %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">internal2</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>		<span class="c">%    internal use            %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">internal3</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">56</span><span class="p">);</span>		<span class="c">%    internal use            %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">depmen</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">57</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    mean value, amplitude   %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">cmpaz</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">58</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    component azimuth       %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">cmpinc</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">59</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    component inclination   %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">xminimum</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    Minimum value of X (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">xmaximum</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    Maximum value of X (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">yminimum</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">62</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    Minimum value of Y (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">ymaximum</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">63</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    Maximum value of Y (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused6</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused7</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused8</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused9</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">67</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused10</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">68</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused11</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused12</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span> <span class="p">;</span>       <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c">%% ---------------- Read in 40 integer header variables ----------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% --------------------------- read 40 integers -------------------------- %	</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span> <span class="p">=</span> <span class="n">fread</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s">&#39;int32&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nzyear</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>           <span class="c">%    Reference year          %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nzjday</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>           <span class="c">%    Reference julian day    %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nzhour</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>           <span class="c">%    Reference hour          %</span>
+</span></span><span class="line"><span class="cl"> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nzmin</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>            <span class="c">%    Reference minite        %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nzsec</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>            <span class="c">%    Reference second        %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nzmsec</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>           <span class="c">%    Reference mili-second   %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nvhdr</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">norid</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nevid</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">npts</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">internal7</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nwfid</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nxsize</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nysize</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused15</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">iftype</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">idep</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">iztype</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused16</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">19</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">iinst</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">istreg</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">21</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">ievreg</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">ievtyp</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">iqual</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">isynth</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">imagtyp</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">26</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">imagsrc</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">27</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused19</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">28</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused20</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">29</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused21</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused22</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused23</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused24</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused25</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">34</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused26</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">35</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">leven</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">lpspol</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">37</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">lovrok</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">38</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">lcalda</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">39</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">unused27</span><span class="p">=</span><span class="n">tt</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%% -------------- Read in 23 character header variables ---------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% ------------------------ read 192 characters -------------------------- %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">xx</span> <span class="p">=</span> <span class="n">fread</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="s">&#39;*char&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kstnm</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">);</span>		    <span class="c">%    station name           %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kevnm</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">9</span><span class="p">:</span><span class="mi">24</span><span class="p">);</span>		    <span class="c">%    event name             %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">khole</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">25</span><span class="p">:</span><span class="mi">32</span><span class="p">);</span>		<span class="c">%    man-made event name    %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">ko</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">33</span><span class="p">:</span><span class="mi">40</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    event origin time id   %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">ka</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">41</span><span class="p">:</span><span class="mi">48</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    1st arrival time ident %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt0</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">49</span><span class="p">:</span><span class="mi">56</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 0 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt1</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">57</span><span class="p">:</span><span class="mi">64</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 1 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt2</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">65</span><span class="p">:</span><span class="mi">72</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 2 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt3</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">73</span><span class="p">:</span><span class="mi">80</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 3 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt4</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">81</span><span class="p">:</span><span class="mi">88</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 4 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt5</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">89</span><span class="p">:</span><span class="mi">96</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    time pick 5 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt6</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">97</span><span class="p">:</span><span class="mi">104</span><span class="p">)</span>	<span class="p">;</span>	    <span class="c">%    time pick 6 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt7</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">105</span><span class="p">:</span><span class="mi">112</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 7 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt8</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">113</span><span class="p">:</span><span class="mi">120</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 8 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kt9</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">121</span><span class="p">:</span><span class="mi">128</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    time pick 9 ident      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kf</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">129</span><span class="p">:</span><span class="mi">136</span><span class="p">)</span>	<span class="p">;</span>		<span class="c">%    end of event ident     %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kuser0</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">137</span><span class="p">:</span><span class="mi">144</span><span class="p">);</span>		<span class="c">%    available to user      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kuser1</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">145</span><span class="p">:</span><span class="mi">152</span><span class="p">);</span>		<span class="c">%    available to user      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kuser2</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">153</span><span class="p">:</span><span class="mi">160</span><span class="p">);</span>		<span class="c">%    available to user      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kcmpnm</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">161</span><span class="p">:</span><span class="mi">168</span><span class="p">);</span>		<span class="c">%    component name         %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">knetwk</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">169</span><span class="p">:</span><span class="mi">176</span><span class="p">);</span>		<span class="c">%    network name           %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kdatrd</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">177</span><span class="p">:</span><span class="mi">184</span><span class="p">);</span>		<span class="c">%    date data read         %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kinst</span><span class="p">=</span><span class="n">xx</span><span class="p">(</span><span class="mi">185</span><span class="p">:</span><span class="mi">192</span><span class="p">)</span>	<span class="p">;</span>	<span class="c">%    instrument name        %	</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%% ---------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% --------------------------- read data---------------------------------- %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">data</span> <span class="p">=</span> <span class="n">fread</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="n">sachead</span><span class="p">.</span><span class="n">npts</span><span class="p">,</span> <span class="s">&#39;single&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% ------------------------- close file ---------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="n">fclose</span><span class="p">(</span> <span class="n">fid</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__12-write-out-sac__"><strong>1.2 Write out SAC</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% Write SAC format data.                                                  %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% Usage: writeSAC( SACFileName, sachead, data);                           %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%        SACFileName: File name written;                                  %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%        sachead: Header variables struct of SAC;                         %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%        data: Single 1-D amplitude vector of SAC.                        % </span>
+</span></span><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span><span class="nf">writeSAC</span><span class="p">(</span> SACName, sachead, data <span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">%% Check parameters.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">nargin</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fprintf</span><span class="p">(</span> <span class="s">&#39;Usage: writeAllSAC( SACName, sachead, data )\n&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% Open binary file to be written.</span>
+</span></span><span class="line"><span class="cl"><span class="n">fid</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span> <span class="n">SACName</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% Check opening file.</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">fid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fprintf</span><span class="p">(</span> <span class="s">&#39;Error writing SAC file: %s.\n&#39;</span><span class="p">,</span> <span class="n">SACName</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%% ------------- Write out 70 float header variables -------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%------------------------------ write 70 float -------------------------- %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s">&#39;single&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">=</span> <span class="n">sachead</span><span class="p">.</span><span class="n">delta</span>	<span class="p">;</span>	        <span class="c">%    time increment, sec    %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="p">=</span> <span class="n">sachead</span><span class="p">.</span><span class="n">depmin</span><span class="p">;</span>		    <span class="c">%    minimum amplitude      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="p">=</span> <span class="n">sachead</span><span class="p">.</span><span class="n">depmax</span><span class="p">;</span>		    <span class="c">%    maximum amplitude      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="p">=</span> <span class="n">sachead</span><span class="p">.</span><span class="n">scale</span><span class="p">;</span>			    <span class="c">%    amplitude scale factor %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="p">=</span> <span class="n">sachead</span><span class="p">.</span><span class="n">odelta</span><span class="p">;</span>		    <span class="c">%    observed time inc      %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="p">=</span> <span class="n">sachead</span><span class="p">.</span><span class="n">b</span><span class="p">;</span>				    <span class="c">%    initial time - wrt nz* %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">e</span><span class="p">;</span> 			    <span class="c">%    end time               %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">o</span><span class="p">;</span> 			    <span class="c">%    event start            %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">a</span> <span class="p">;</span>			    <span class="c">%    1st arrival time       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">internal1</span><span class="p">;</span> 	     <span class="c">%    internal use           %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t0</span><span class="p">;</span>			    <span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t1</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t2</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t3</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t4</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t5</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t6</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t7</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t8</span><span class="p">;</span> 			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">t9</span><span class="p">;</span>			<span class="c">%    user-defined time pick %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">f</span><span class="p">;</span> 			<span class="c">%    event end, sec &gt; 0     %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp0</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp1</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp2</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp3</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp4</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp5</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp6</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">29</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp7</span><span class="p">;</span>		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp8</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">resp9</span><span class="p">;</span> 		<span class="c">%    instrument respnse parm %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">stla</span><span class="p">;</span> 		<span class="c">%  T station latititude      %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">stlo</span><span class="p">;</span> 		<span class="c">%  T station longitude       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">stel</span><span class="p">;</span> 		<span class="c">%  T station elevation, m    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">stdp</span><span class="p">;</span> 		<span class="c">%  T station depth, m        %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">evla</span><span class="p">;</span> 		<span class="c">%    event latitude          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">evlo</span><span class="p">;</span> 		<span class="c">%    event longitude         %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">38</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">evel</span><span class="p">;</span> 		<span class="c">%    event elevation         %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">evdp</span><span class="p">;</span> 		<span class="c">%    event depth             %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">mag</span><span class="p">;</span> 	    <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user0</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user1</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user2</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user3</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user4</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">46</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user5</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user6</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user7</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user8</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">user9</span><span class="p">;</span> 		<span class="c">%    available to user       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">dist</span><span class="p">;</span> 		<span class="c">%    stn-event distance, km  %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">az</span><span class="p">;</span> 		<span class="c">%    event-stn azimuth       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">53</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">baz</span><span class="p">;</span> 		<span class="c">%    stn-event azimuth       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">54</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">gcarc</span><span class="p">;</span> 	    <span class="c">%    stn-event dist, degrees %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">internal2</span><span class="p">;</span> 	<span class="c">%    internal use            %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">56</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">internal3</span><span class="p">;</span> 	<span class="c">%    internal use            %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">57</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">depmen</span><span class="p">;</span> 	<span class="c">%    mean value, amplitude   %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">58</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">cmpaz</span><span class="p">;</span> 		<span class="c">%    component azimuth       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">59</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">cmpinc</span><span class="p">;</span> 	<span class="c">%    component inclination   %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">xminimum</span><span class="p">;</span>   <span class="c">%    Minimum value of X (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">xmaximum</span><span class="p">;</span> 	<span class="c">%    Maximum value of X (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">62</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">yminimum</span><span class="p">;</span> 	<span class="c">%    Minimum value of Y (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">63</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">ymaximum</span><span class="p">;</span> 	<span class="c">%    Maximum value of Y (Spectral files only)	%</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused6</span><span class="p">;</span> 	<span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused7</span><span class="p">;</span> 	<span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused8</span><span class="p">;</span> 	<span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">67</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused9</span><span class="p">;</span> 	<span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">68</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused10</span><span class="p">;</span> 	<span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused11</span><span class="p">;</span> 	<span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span> <span class="p">=</span>    <span class="n">sachead</span><span class="p">.</span><span class="n">unused12</span><span class="p">;</span>   <span class="c">%    reserved for future use %</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fwrite</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="s">&#39;single&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c">%% --------------- Write out 40 integer header variables ---------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% --------------------------- write 40 integers ------------------------- %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s">&#39;int32&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">	<span class="n">tt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">=</span>    <span class="n">sachead</span><span class="p">.</span><span class="n">nzyear</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nzjday</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nzhour</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nzmin</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nzsec</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nzmsec</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nvhdr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">norid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nevid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">npts</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">internal7</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nwfid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nxsize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">nysize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused15</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">iftype</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">idep</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">iztype</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused16</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">iinst</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">istreg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">ievreg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">ievtyp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">iqual</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">isynth</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">imagtyp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">imagsrc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused19</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">29</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused21</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused22</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused23</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused24</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused25</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused26</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">leven</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">lpspol</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">38</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">lovrok</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">lcalda</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tt</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">unused27</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">fwrite</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="s">&#39;int32&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%% ------------- Write out 23 character header variables ---------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% ------------------------ write 192 character -------------------------- %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">xx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">)</span>      <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kstnm</span><span class="p">;</span> 		<span class="c">%  F station name           %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">9</span><span class="p">:</span><span class="mi">24</span><span class="p">)</span>     <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kevnm</span><span class="p">;</span> 		<span class="c">%    event name             %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">25</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>    <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">khole</span><span class="p">;</span> 		<span class="c">%    man-made event name    %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">33</span><span class="p">:</span><span class="mi">40</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">ko</span><span class="p">;</span> 		<span class="c">%    event origin time id   %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">41</span><span class="p">:</span><span class="mi">48</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">ka</span><span class="p">;</span> 		<span class="c">%    1st arrival time ident %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">49</span><span class="p">:</span><span class="mi">56</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt0</span><span class="p">;</span> 		<span class="c">%    time pick 0 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">57</span><span class="p">:</span><span class="mi">64</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt1</span><span class="p">;</span> 		<span class="c">%    time pick 1 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">65</span><span class="p">:</span><span class="mi">72</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt2</span><span class="p">;</span> 		<span class="c">%    time pick 2 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">73</span><span class="p">:</span><span class="mi">80</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt3</span><span class="p">;</span> 		<span class="c">%    time pick 3 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">81</span><span class="p">:</span><span class="mi">88</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt4</span><span class="p">;</span> 		<span class="c">%    time pick 4 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">89</span><span class="p">:</span><span class="mi">96</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt5</span><span class="p">;</span> 	    <span class="c">%    time pick 5 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">97</span><span class="p">:</span><span class="mi">104</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt6</span><span class="p">;</span> 	    <span class="c">%    time pick 6 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">105</span><span class="p">:</span><span class="mi">112</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt7</span><span class="p">;</span> 		<span class="c">%    time pick 7 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">113</span><span class="p">:</span><span class="mi">120</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt8</span><span class="p">;</span> 		<span class="c">%    time pick 8 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">121</span><span class="p">:</span><span class="mi">128</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kt9</span><span class="p">;</span> 		<span class="c">%    time pick 9 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">129</span><span class="p">:</span><span class="mi">136</span><span class="p">)</span>	 <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kf</span><span class="p">;</span> 		<span class="c">%    end of event ident     %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">137</span><span class="p">:</span><span class="mi">144</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kuser0</span><span class="p">;</span>     <span class="c">%    available to user      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">145</span><span class="p">:</span><span class="mi">152</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kuser1</span><span class="p">;</span> 	<span class="c">%    available to user      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">153</span><span class="p">:</span><span class="mi">160</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kuser2</span><span class="p">;</span> 	<span class="c">%    available to user      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">161</span><span class="p">:</span><span class="mi">168</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kcmpnm</span><span class="p">;</span> 	<span class="c">%  F component name         %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">169</span><span class="p">:</span><span class="mi">176</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">knetwk</span><span class="p">;</span> 	<span class="c">%    network name           %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">177</span><span class="p">:</span><span class="mi">184</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kdatrd</span><span class="p">;</span> 	<span class="c">%    date data read         %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">xx</span><span class="p">(</span><span class="mi">185</span><span class="p">:</span><span class="mi">192</span><span class="p">)</span>  <span class="p">=</span> 	<span class="n">sachead</span><span class="p">.</span><span class="n">kinst</span><span class="p">;</span> 	    <span class="c">%    instrument name        %;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">    <span class="n">fwrite</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="n">xx</span><span class="p">,</span> <span class="s">&#39;char&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c">%% ---------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% --------------------------- write data--------------------------------- %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">fwrite</span><span class="p">(</span> <span class="n">fid</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s">&#39;single&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% --------------------------- close file id ----------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="n">fclose</span><span class="p">(</span> <span class="n">fid</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__13-generate-a-default-sac-header-structure__"><strong>1.3 Generate a Default SAC Header Structure</strong></h3>
+<p>Be careful, you need to separately set the header variables <code>nvhdr</code> and <code>iftype</code> as <code>6</code> and <code>1</code> when you create a default SAC header structure. Here the SAC version number is <code>101.6a</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%           Create SAC header struct with default values.                 %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% ----------------------------------------------------------------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">%sachead: Output SAC header struct.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span>sachead <span class="p">=</span><span class="w"> </span><span class="nf">defaultSACHeader</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">%% Create 70 SAC header variables with float type.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">delta</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       time increment, sec       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">depmin</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       minimum amplitude         %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">depmax</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       maximum amplitude         %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">scale</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       amplitude scale factor    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">odelta</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       observed time inc         %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">b</span>         <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       initial time - wrt nz*    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">e</span>         <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       end time                  %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">o</span>         <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event start               %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">a</span>         <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       1st arrival time          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">internal1</span> <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       internal use              %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t0</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t1</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t2</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t3</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t4</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t5</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t6</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t7</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t8</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">t9</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       user-defined time pick    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">f</span>         <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event end, sec &gt; 0        %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp0</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp1</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp2</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp3</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp4</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp5</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp6</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp7</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp8</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">resp9</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       instrument respnse parm    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">stla</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%     T station latititude         %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">stlo</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%     T station longitude          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">stel</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%     T station elevation, m       %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">stdp</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%     T station depth, m           %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">evla</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event latitude             %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">evlo</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event longitude            %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">evel</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event elevation            %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">evdp</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event depth                %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">mag</span>       <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user0</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user1</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user2</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user3</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user4</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user5</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user6</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user7</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user8</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">user9</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       available to user          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">dist</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       stn-event distance, km     %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">az</span>        <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       event-stn azimuth          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">baz</span>       <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       stn-event azimuth          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">gcarc</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       stn-event dist, degrees    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">internal2</span> <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       internal use               %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">internal3</span> <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       internal use               %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">depmen</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       mean value, amplitude      %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">cmpaz</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       component azimuth          %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">cmpinc</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       component inclination      %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">xminimum</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       Minimum value of X (Spectral files only   %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">xmaximum</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       Maximum value of X (Spectral files only)  %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">yminimum</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       Minimum value of Y (Spectral files only)  %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">ymaximum</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       Maximum value of Y (Spectral files only)  %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused6</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused7</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused8</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused9</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused10</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused11</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused12</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>    <span class="c">%       reserved for future use    %</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c">%% ------------ Create 40 integer header variables --------------- %</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">nzyear</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nzjday</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nzhour</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nzmin</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nzsec</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nzmsec</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nvhdr</span>      <span class="p">=</span>      <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">norid</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nevid</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">npts</span>       <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">internal7</span>  <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nwfid</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nxsize</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">nysize</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused15</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">iftype</span>     <span class="p">=</span>      <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">idep</span>       <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">iztype</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused16</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">iinst</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">istreg</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">ievreg</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">ievtyp</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">iqual</span>      <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">isynth</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">imagtyp</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">imagsrc</span>    <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused19</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused20</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused21</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused22</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused23</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused24</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused25</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused26</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">leven</span>      <span class="p">=</span>      <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">lpspol</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">lovrok</span>     <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">lcalda</span>     <span class="p">=</span>      <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">unused27</span>   <span class="p">=</span> <span class="o">-</span><span class="mi">12345</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%% ------------ Create 23 character header variables -------------- %</span>
+</span></span><span class="line"><span class="cl"><span class="c">% ------------------------ write 192 character --------------%------------ %</span>
+</span></span><span class="line"><span class="cl">	<span class="n">sachead</span><span class="p">.</span><span class="n">kstnm</span>  <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%  F station name           %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kevnm</span>  <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345          &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>    <span class="c">%    event name             %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">khole</span>  <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    man-made event name    %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">ko</span>     <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    event origin time id   %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">ka</span>     <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    1st arrival time ident %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt0</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 0 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt1</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 1 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt2</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 2 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt3</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 3 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt4</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 4 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt5</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    time pick 5 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt6</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    time pick 6 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt7</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 7 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt8</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 8 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kt9</span>    <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    time pick 9 ident      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kf</span>     <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 		   <span class="c">%    end of event ident     %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kuser0</span> <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>            <span class="c">%    available to user      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kuser1</span> <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    available to user      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kuser2</span> <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    available to user      %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kcmpnm</span> <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%  F component name         %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">knetwk</span> <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    network name           %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kdatrd</span> <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    date data read         %;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sachead</span><span class="p">.</span><span class="n">kinst</span>  <span class="p">=</span> <span class="p">(</span><span class="s">&#39;-12345  &#39;</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span> 	       <span class="c">%    instrument name        %;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__14-demo-of-write-out-sac-file-with-new-data__"><strong>1.4 Demo of Write out SAC File with New Data</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="mi">5001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">:</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">hd</span> <span class="o">=</span> <span class="n">defaultSACHeader</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">hd</span><span class="o">.</span><span class="n">npts</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">hd</span><span class="o">.</span><span class="n">delta</span> <span class="o">=</span> <span class="n">dt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">hd</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">hd</span><span class="o">.</span><span class="n">e</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="n">end</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">hd</span><span class="o">.</span><span class="n">depmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">);</span> <span class="n">hd</span><span class="o">.</span><span class="n">depmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">);</span> <span class="n">hd</span><span class="o">.</span><span class="n">depmen</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="n">writeSAC</span><span class="p">(</span><span class="s1">&#39;Example2.SAC&#39;</span><span class="p">,</span> <span class="n">hd</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-12-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/matlab/">“matlab”</a>
+          <a href="/tags/seismic-data-processing/">seismic data processing</a>
+          <a href="/tags/seismology/">seismology</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/matlab_guide_axes/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Matlab GUI Design: axes</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/matlab_gui_guide/">
+            <span class="next-text nav-default">Matlab GUI Design: the guide tool</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

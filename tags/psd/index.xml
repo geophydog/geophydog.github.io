@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PSD on Geophydog</title>
+    <link>https://geophydog.cool/tags/psd/</link>
+    <description>Recent content in PSD on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Thu, 11 Mar 2021 14:32:42 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/psd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Estimating the Power Spectral Density of Ambient Seismic Noise</title>
+      <link>https://geophydog.cool/post/psd_notes/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/psd_notes/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
