@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 30 Dec 2020 09:31:49 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2020 09:31:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Useful seismic tools</title>
       <link>https://geophydog.cool/post/seismic_useful_tools/</link>
@@ -25,7 +29,7 @@
       <guid>https://geophydog.cool/post/plotting_issues_in_python/</guid>
       <description>1 Pseudo-color map with polar projection We usually need to plot pseudo-color maps in polar projection besides except of those in Cartesian projection. Setting the projection as polar in method subplot. Here , we give an example of python code.
 Example:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  import numpy as np import matplotlib.pyplot as plt theta = np.linspace(0, 2*np.pi, 121) r = np.</description>
     </item>
     
     <item>
@@ -34,7 +38,7 @@ Example:
       <pubDate>Mon, 14 Sep 2020 16:30:22 +0800</pubDate>
       
       <guid>https://geophydog.cool/post/gmt_errorbar/</guid>
-      <description> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 R=0/10/0/100 J=X5i/5i PS=error-bar-gmt.ps PDF=error-bar-gmt.pdf awk &amp;#39;BEGIN{for(i=2;i&amp;lt;10;i++){print i,i*i}}&amp;#39; &amp;gt; tmp.lst psxy -R$R -J$J -K -T &amp;gt; $PS psxy tmp.lst -R -J -K -O -B1:&amp;#34;X-axis&amp;#34;:/10:&amp;#34;Y-axis&amp;#34;:WSen -W1p,&amp;#34;--&amp;#34; &amp;gt;&amp;gt; $PS awk &amp;#39;{print $1,$2,3.5,1}&amp;#39; tmp.lst | psxy -R -J -K -O -Ey/3p &amp;gt;&amp;gt; $PS psxy tmp.lst -R -J -K -O -Si0.5c -Gblack &amp;gt;&amp;gt; $PS psxy -R -J -O -T&amp;gt;&amp;gt; $PS ps2pdf $PS $PDF </description>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14  R=0/10/0/100 J=X5i/5i PS=error-bar-gmt.ps PDF=error-bar-gmt.pdf awk &amp;#39;BEGIN{for(i=2;i&amp;lt;10;i++){print i,i*i}}&amp;#39; &amp;gt; tmp.lst psxy -R$R -J$J -K -T &amp;gt; $PS psxy tmp.lst -R -J -K -O -B1:&amp;#34;X-axis&amp;#34;:/10:&amp;#34;Y-axis&amp;#34;:WSen -W1p,&amp;#34;--&amp;#34; &amp;gt;&amp;gt; $PS awk &amp;#39;{print $1,$2,3.5,1}&amp;#39; tmp.lst | psxy -R -J -K -O -Ey/3p &amp;gt;&amp;gt; $PS psxy tmp.lst -R -J -K -O -Si0.5c -Gblack &amp;gt;&amp;gt; $PS psxy -R -J -O -T&amp;gt;&amp;gt; $PS ps2pdf $PS $PDF   </description>
     </item>
     
     <item>
@@ -44,8 +48,8 @@ Example:
       
       <guid>https://geophydog.cool/post/basemap/</guid>
       <description>1 Installation Here, the platforms are windows 10 and Anaconda-3.5.3.0 (Python 3.7).
-Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Now, we&amp;rsquo;ve installed Basemap and enjoy it!
-2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13 from mpl_toolkits.basemap import Basemap import matplotlib.</description>
+ Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl  Now, we&amp;rsquo;ve installed Basemap and enjoy it!
+2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13  from mpl_toolkits.</description>
     </item>
     
   </channel>

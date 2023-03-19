@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 23 Dec 2020 10:32:52 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/phase-velocity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Dec 2020 10:32:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/phase-velocity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Multi-channel analysis of Surface waves (MASW)</title>
       <link>https://geophydog.cool/post/masw_phase_shift/</link>

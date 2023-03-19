@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.109.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://geophydog.cool/" />
@@ -37,7 +37,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link href="/sass/main.min.8452f0d62dad176c854eaf1ef7eb3cdfa7651088d7f411fdc99c5c3efb76bf90.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,8 +45,10 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
+<meta property="og:updated_time" content="2022-06-04T09:41:56+08:00" />
 <meta itemprop="name" content="Geophydog">
-<meta itemprop="description" content="Hello, there! Hope you have a nice journey!."><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Geophydog"/>
 <meta name="twitter:description" content="Hello, there! Hope you have a nice journey!."/>
 
@@ -123,29 +125,6 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/func_ptr_and_ptr_func/">Function Pointer &amp; Pointer Function</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-14 </span>
-      <div class="post-category">
-          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
-1 int *f(int x, int y); Let&rsquo;s give a code demo to show function pointer.
-1 2 3 4 5 6 7 8 9 10 11 12 13 int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x + y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p+1)); return 0; } Output 20
-    </div>
-    <div class="read-more">
-      <a href="/post/func_ptr_and_ptr_func/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/awk_notes/">Awk notes</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-09-12 </span>
@@ -158,9 +137,9 @@
   <div class="post-content">
     <div class="post-summary">
       1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
-1 awk &#39;!a[$2,$3]++&#39; pushLog.log Above command will print the unique lines after removing repeated in columns 2 and 3.
+1  awk &#39;!a[$2,$3]++&#39; pushLog.log   Above command will print the unique lines after removing repeated in columns 2 and 3.
 For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
-1 saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!a[$2]++&#39; It will show the lines after removing repeated lines.
+1  saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!
     </div>
     <div class="read-more">
       <a href="/post/awk_notes/" class="read-more-link">Read more...</a>
@@ -183,8 +162,8 @@ For instance, there are some SAC files with same header gcarc, and can use the f
   <div class="post-content">
     <div class="post-summary">
       1 Installation Here, the platforms are windows 10 and Anaconda-3.5.3.0 (Python 3.7).
-Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Now, we&rsquo;ve installed Basemap and enjoy it!
-2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13 from mpl_toolkits.basemap import Basemap import matplotlib.
+ Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl  Now, we&rsquo;ve installed Basemap and enjoy it!
+2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13  from mpl_toolkits.
     </div>
     <div class="read-more">
       <a href="/post/basemap/" class="read-more-link">Read more...</a>
@@ -228,10 +207,34 @@ Open anaconda prompt type pip install geos to install library geos; Go https://w
   <div class="post-content">
     <div class="post-summary">
       Butterworth filters $$ |H(w)|^2=\frac{1}{1+( \frac{tan\frac{\omega}{2}} {tan\frac{\omega_c}{2}})^{2N}} \tag{1} $$
-Low-pass filter Given the attenuation values $A_c$ and $A_r$ at cut-off frequencies $\omega_c$ and $\omega_r$, respectively, we first calculate the orders $N$ of filter. We know, $$ \begin{aligned} A_r &amp;= -20lg|H(\omega_s)|\\ &amp;= -20lg\frac{1}{\sqrt{1+(\frac{tan\frac{\omega _r}{2}}{\frac{\omega_c}{2}})^{2N}}} \end{aligned} \tag{2}, $$ and the orders $N$ is given by $$ N = \frac{1}{2}\frac{lg(10^{\frac{A_r}{10}}-1)}{lg(\frac{tan\frac{\omega_r}{2}}{tan\frac{\omega_c}{2}})} \tag{3}. $$ However, if you give the filter orders $N$, it can control the width of transition band of the filter.
+Low-pass filter Given the attenuation values $A_c$ and $A_r$ at cut-off frequencies $\omega_c$ and $\omega_r$, respectively, we first calculate the orders $N$ of filter. We know, $$ \begin{aligned} A_r &amp;= -20lg|H(\omega_s)|\\
+&amp;= -20lg\frac{1}{\sqrt{1+(\frac{tan\frac{\omega _r}{2}}{\frac{\omega_c}{2}})^{2N}}} \end{aligned} \tag{2}, $$ and the orders $N$ is given by $$ N = \frac{1}{2}\frac{lg(10^{\frac{A_r}{10}}-1)}{lg(\frac{tan\frac{\omega_r}{2}}{tan\frac{\omega_c}{2}})} \tag{3}. $$ However, if you give the filter orders $N$, it can control the width of transition band of the filter.
     </div>
     <div class="read-more">
       <a href="/post/low-pass_filter/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/cross_correlation_from_noise/">Cross-correlations From Seismic Ambient Noise</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-08 </span>
+      <div class="post-category">
+          <a href="/categories/seismic-interferometry/"> Seismic Interferometry </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      New responses between station pairs can be extracted from diffuse wave field by cross-correlating ambient seismic noise or coda (Campillo &amp; Paul, 2003; Bensen et al., 2007). However, some processing techniques should be taken into consideration to retrieve clear emperical green&rsquo;s functions (EGFs). Here we show these steps in detail.
+$\boxed{\text{Data processing steps}}$
+1. Cut data 2. Removing mean, trend and tapering 3. Removing instrument response 4. Band-pass filtering 5. Temperal normalization $\boxed{\text{One-bit}}$ $$ \tilde{d_j}=sign(d_j) \tag{1} $$ $\boxed{\text{run absolute mean}}$ $$ \begin{aligned} w_j &amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\
+    </div>
+    <div class="read-more">
+      <a href="/post/cross_correlation_from_noise/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -300,7 +303,7 @@ Low-pass filter Given the attenuation values $A_c$ and $A_r$ at cut-off frequenc
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

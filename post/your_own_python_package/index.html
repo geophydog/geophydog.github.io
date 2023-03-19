@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.109.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://geophydog.cool/post/your_own_python_package/" />
@@ -36,7 +36,7 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link href="/sass/main.min.8452f0d62dad176c854eaf1ef7eb3cdfa7651088d7f411fdc99c5c3efb76bf90.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -44,15 +44,20 @@
 <meta property="og:description" content="Python is very convenient for us to develop a package. How to install your own python package and import it like numpy or other packages? Here, we&rsquo;ll give a very simple example to you.
 1 Prepare your python package Create a empty directory called whatever, and here we name it Lib_Hello. Now give a name to your python package and we call it HelloPackage, and in directory HelloPackage, implement a python module." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://geophydog.cool/post/your_own_python_package/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://geophydog.cool/post/your_own_python_package/" />
 <meta property="article:published_time" content="2020-09-22T20:12:37+08:00" />
 <meta property="article:modified_time" content="2020-09-22T20:12:37+08:00" />
 <meta itemprop="name" content="How to Distribute and Install Your Own Python Package">
 <meta itemprop="description" content="Python is very convenient for us to develop a package. How to install your own python package and import it like numpy or other packages? Here, we&rsquo;ll give a very simple example to you.
-1 Prepare your python package Create a empty directory called whatever, and here we name it Lib_Hello. Now give a name to your python package and we call it HelloPackage, and in directory HelloPackage, implement a python module."><meta itemprop="datePublished" content="2020-09-22T20:12:37+08:00" />
+1 Prepare your python package Create a empty directory called whatever, and here we name it Lib_Hello. Now give a name to your python package and we call it HelloPackage, and in directory HelloPackage, implement a python module.">
+<meta itemprop="datePublished" content="2020-09-22T20:12:37+08:00" />
 <meta itemprop="dateModified" content="2020-09-22T20:12:37+08:00" />
 <meta itemprop="wordCount" content="487">
-<meta itemprop="keywords" content="python," /><meta name="twitter:card" content="summary"/>
+
+
+
+<meta itemprop="keywords" content="python," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Distribute and Install Your Own Python Package"/>
 <meta name="twitter:description" content="Python is very convenient for us to develop a package. How to install your own python package and import it like numpy or other packages? Here, we&rsquo;ll give a very simple example to you.
 1 Prepare your python package Create a empty directory called whatever, and here we name it Lib_Hello. Now give a name to your python package and we call it HelloPackage, and in directory HelloPackage, implement a python module."/>
@@ -164,19 +169,19 @@
   </div>
 </div>
     <div class="post-content">
-      <p>Python is very convenient for us to develop a package. How to
+      <p>Python is very convenient for us to develop a package. How to 
 install your own python package and import it like <code>numpy</code> or
 other packages? Here, we&rsquo;ll give a very simple example to you.</p>
 <h3 id="__1-prepare-your-python-package__"><strong>1 Prepare your python package</strong></h3>
-<p>Create a empty directory called whatever, and here we name it
-<code>Lib_Hello</code>. Now give a name to your python package and we call it
+<p>Create a empty directory called whatever, and here we name it 
+<code>Lib_Hello</code>. Now give a name to your python package and we call it 
 <code>HelloPackage</code>, and in directory <code>HelloPackage</code>, implement a python
 module. Here, we write a module named <code>print_hello.py</code> and crate a
 python file <code>__init__.py</code> in the same directory. You can write nothing
 in <code>__init__.py</code>. A file <code>setup.py</code> should be created as below,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -184,13 +189,13 @@ in <code>__init__.py</code>. A file <code>setup.py</code> should be created as b
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span>  <span class="n">setup</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">setup</span><span class="p">(</span><span class="n">name</span>     <span class="o">=</span> <span class="s1">&#39;HelloPackage&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">version</span>  <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">author</span>   <span class="o">=</span> <span class="s1">&#39;Geophydog&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">packages</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;HelloPackage&#39;</span><span class="p">])</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span>  <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">name</span>     <span class="o">=</span> <span class="s1">&#39;HelloPackage&#39;</span><span class="p">,</span>
+      <span class="n">version</span>  <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+      <span class="n">author</span>   <span class="o">=</span> <span class="s1">&#39;Geophydog&#39;</span><span class="p">,</span>
+      <span class="n">packages</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;HelloPackage&#39;</span><span class="p">])</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><code>name</code>: the compressed package name;     <br>
 <code>version</code>: the version no. of your python package;       <br>
@@ -200,7 +205,7 @@ in the list if you have other packages. Implement your module in file <code>prin
 the simple codes are given by the following lines,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -208,37 +213,37 @@ the simple codes are given by the following lines,</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hello</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">hello</span>
-</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">                        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hello</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">hello</span>
+        <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+                        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>This module is a simple python class that print the message you give
 for several times.
 Lastly, the directory tree looks like</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── HelloPackage
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   └── print_hello.py
-</span></span><span class="line"><span class="cl">└── setup.py
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">├── HelloPackage
+│   ├── __init__.py
+│   └── print_hello.py
+└── setup.py
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="__2-build-your-package__"><strong>2 Build your package</strong></h3>
 <p>In the directory <code>Lib_Hello</code>, just type command <code>python setup.py build</code> and a
 directory <code>build</code> will be generated. The directory tree is like</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -249,23 +254,23 @@ directory <code>build</code> will be generated. The directory tree is like</p>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── HelloPackage
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   └── print_hello.py
-</span></span><span class="line"><span class="cl">├── build
-</span></span><span class="line"><span class="cl">│   └── lib
-</span></span><span class="line"><span class="cl">│       └── HelloPackage
-</span></span><span class="line"><span class="cl">│           ├── __init__.py
-</span></span><span class="line"><span class="cl">│           └── print_hello.py
-</span></span><span class="line"><span class="cl">└── setup.py
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">├── HelloPackage
+│   ├── __init__.py
+│   └── print_hello.py
+├── build
+│   └── lib
+│       └── HelloPackage
+│           ├── __init__.py
+│           └── print_hello.py
+└── setup.py
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="__3-distribute-your-package__"><strong>3 Distribute your package</strong></h3>
 <p>Type <code>python setup.py sdist</code> in directory <code>Lib_Hello</code> and you&rsquo;ll find a new
 directory <code>dist</code>. The directory tree is given by</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -279,19 +284,19 @@ directory <code>dist</code>. The directory tree is given by</p>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── HelloPackage
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   └── print_hello.py
-</span></span><span class="line"><span class="cl">├── MANIFEST
-</span></span><span class="line"><span class="cl">├── build
-</span></span><span class="line"><span class="cl">│   └── lib
-</span></span><span class="line"><span class="cl">│       └── HelloPackage
-</span></span><span class="line"><span class="cl">│           ├── __init__.py
-</span></span><span class="line"><span class="cl">│           └── print_hello.py
-</span></span><span class="line"><span class="cl">├── dist
-</span></span><span class="line"><span class="cl">│   └── HelloPackage-1.0.tar.gz
-</span></span><span class="line"><span class="cl">└── setup.py
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">├── HelloPackage
+│   ├── __init__.py
+│   └── print_hello.py
+├── MANIFEST
+├── build
+│   └── lib
+│       └── HelloPackage
+│           ├── __init__.py
+│           └── print_hello.py
+├── dist
+│   └── HelloPackage-1.0.tar.gz
+└── setup.py
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="__4-install-your-package__"><strong>4 Install your package</strong></h3>
 <p>Got into the directory <code>dist</code> and you&rsquo;ll find a compressed package
@@ -301,22 +306,22 @@ to install your package.</p>
 <h3 id="__5-test-your-package__"><strong>5 Test your package</strong></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">HelloPackage.print_hello</span> <span class="kn">import</span> <span class="n">Hello</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="n">Hello</span><span class="p">(</span><span class="s1">&#39;Hello from Geophydog&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">h</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">HelloPackage.print_hello</span> <span class="kn">import</span> <span class="n">Hello</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">Hello</span><span class="p">(</span><span class="s1">&#39;Hello from Geophydog&#39;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>The output will show</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -328,17 +333,17 @@ to install your package.</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span><span class="line"><span class="cl">Hello from Geophydog
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+Hello from Geophydog
+</code></pre></td></tr></table>
 </div>
 </div><p>So far, we&rsquo;ve distributed and installed a python package. It&rsquo;s very simple, isn&rsquo;t it?</p>
 
@@ -433,7 +438,7 @@ to install your package.</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

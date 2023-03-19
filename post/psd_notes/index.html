@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.109.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://geophydog.cool/post/psd_notes/" />
@@ -35,21 +35,26 @@
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<link href="/sass/main.min.2d16330b9b808f2827fb80842f1fb7be07dda2fe3a6fd081efdf06311b0a2c9a.css" rel="stylesheet">
+<link href="/sass/main.min.8452f0d62dad176c854eaf1ef7eb3cdfa7651088d7f411fdc99c5c3efb76bf90.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Estimating the Power Spectral Density of Ambient Seismic Noise" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://geophydog.cool/post/psd_notes/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://geophydog.cool/post/psd_notes/" />
 <meta property="article:published_time" content="2021-03-11T14:32:42+08:00" />
 <meta property="article:modified_time" content="2021-03-11T14:32:42+08:00" />
 <meta itemprop="name" content="Estimating the Power Spectral Density of Ambient Seismic Noise">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-03-11T14:32:42+08:00" />
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2021-03-11T14:32:42+08:00" />
 <meta itemprop="dateModified" content="2021-03-11T14:32:42+08:00" />
 <meta itemprop="wordCount" content="1464">
-<meta itemprop="keywords" content="PSD,fft,spectral analysis,data processing,ambient noise," /><meta name="twitter:card" content="summary"/>
+
+
+
+<meta itemprop="keywords" content="PSD,fft,spectral analysis,data processing,ambient noise," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Estimating the Power Spectral Density of Ambient Seismic Noise"/>
 <meta name="twitter:description" content=""/>
 
@@ -189,7 +194,7 @@ Similar to the idea of short time Fourier transform, window function can be also
 <p>We will compare the PSD results from different estimation strategies in the following parts. Some pre-processing steps should be finished, e.g., removing mean, trend, doing tapering and removing the instrument response. The velocity waveform after removing instrument response is show as the below figure.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -214,36 +219,36 @@ Similar to the idea of short time Fourier transform, window function can be also
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span> <span class="k">as</span> <span class="n">sgolay</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">welch</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.usetex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">tr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;II.MSEY.00.LHZ.SAC&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">trc</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="mf">1e6</span>
-</span></span><span class="line"><span class="cl"><span class="n">dt</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
-</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="mf">1e3</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#4682B4&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Time $\times 10^3$ (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Velocity ($\mu $m/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span> <span class="k">as</span> <span class="n">sgolay</span>
+<span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">welch</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.usetex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">tr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;II.MSEY.00.LHZ.SAC&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">trc</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="mf">1e6</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="mf">1e3</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#4682B4&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Time $\times 10^3$ (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Velocity ($\mu $m/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="/PSD/Waveform.png" alt="waveform"></p>
 <p>We implement a Python method to estimate the average PSD of discrete time series with dividing the data into several segments:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -271,38 +276,38 @@ Similar to the idea of short time Fourier transform, window function can be also
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">overlap_psd</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">seg</span> <span class="o">&lt;</span> <span class="n">overlap</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ensure segment &gt; overlap!&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dt</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span><span class="p">;</span> <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dt</span>
-</span></span><span class="line"><span class="cl">    <span class="n">over_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">seg</span><span class="o">-</span><span class="n">overlap</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
-</span></span><span class="line"><span class="cl">    <span class="n">seg_t</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">*</span> <span class="n">dt</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ti</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="n">t0</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span>
-</span></span><span class="line"><span class="cl">    <span class="n">t1</span> <span class="o">=</span> <span class="n">t0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">t1</span> <span class="o">&lt;</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">endtime</span><span class="o">-</span><span class="n">seg_t</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">seg_t</span>
-</span></span><span class="line"><span class="cl">        <span class="n">trc</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="n">trc</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">trc</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">trc</span><span class="o">.</span><span class="n">data</span><span class="p">);</span> <span class="n">trc</span><span class="o">.</span><span class="n">detrend</span><span class="p">();</span> <span class="n">trc</span><span class="o">.</span><span class="n">taper</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dd</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
-</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span> <span class="n">seg</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">seg</span>
-</span></span><span class="line"><span class="cl">        <span class="n">p1</span> <span class="o">+=</span> <span class="n">p</span>
-</span></span><span class="line"><span class="cl">        <span class="n">t1</span> <span class="o">+=</span> <span class="n">over_t</span>
-</span></span><span class="line"><span class="cl">        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="n">f1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">seg</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p1</span> <span class="o">/=</span> <span class="n">index</span><span class="p">;</span> <span class="n">p1</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">f1</span><span class="p">,</span> <span class="n">p1</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">overlap_psd</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">seg</span> <span class="o">&lt;</span> <span class="n">overlap</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ensure segment &gt; overlap!&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span><span class="p">;</span> <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dt</span>
+    <span class="n">over_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">seg</span><span class="o">-</span><span class="n">overlap</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">seg_t</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">ti</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">t0</span>
+    <span class="k">while</span> <span class="n">t1</span> <span class="o">&lt;</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">endtime</span><span class="o">-</span><span class="n">seg_t</span><span class="p">:</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">seg_t</span>
+        <span class="n">trc</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">trc</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+        <span class="n">trc</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">trc</span><span class="o">.</span><span class="n">data</span><span class="p">);</span> <span class="n">trc</span><span class="o">.</span><span class="n">detrend</span><span class="p">();</span> <span class="n">trc</span><span class="o">.</span><span class="n">taper</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="n">dd</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span> <span class="n">seg</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">seg</span>
+        <span class="n">p1</span> <span class="o">+=</span> <span class="n">p</span>
+        <span class="n">t1</span> <span class="o">+=</span> <span class="n">over_t</span>
+        <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">seg</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">p1</span> <span class="o">/=</span> <span class="n">index</span><span class="p">;</span> <span class="n">p1</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f1</span><span class="p">,</span> <span class="n">p1</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>The PSD results from several estimation strategies are computed.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -350,53 +355,53 @@ Similar to the idea of short time Fourier transform, window function can be also
 </span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># The whole window.</span>
-</span></span><span class="line"><span class="cl"><span class="n">d0</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
-</span></span><span class="line"><span class="cl"><span class="n">n0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n0</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">n0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">p0</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">d0</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">n0</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Overlapped windows.</span>
-</span></span><span class="line"><span class="cl"><span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
-</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
-</span></span><span class="line"><span class="cl"><span class="n">seg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span>
-</span></span><span class="line"><span class="cl"><span class="n">overlap</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">//</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">f1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">trc</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Welch.</span>
-</span></span><span class="line"><span class="cl"><span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">trc</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">seg</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">overlap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">p2</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># No overlaped windows.</span>
-</span></span><span class="line"><span class="cl"><span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
-</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
-</span></span><span class="line"><span class="cl"><span class="n">seg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span>
-</span></span><span class="line"><span class="cl"><span class="n">overlap</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">f3</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">trc</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Smoothing the PSD results with the Savitzky-Golay filter.</span>
-</span></span><span class="line"><span class="cl"><span class="n">sl</span> <span class="o">=</span> <span class="mi">201</span>
-</span></span><span class="line"><span class="cl"><span class="n">p0</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">sl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">p1</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">p2</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">p3</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Plot the PSD results.</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Full&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;50 \</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Welch&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;0 \</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">4e-3</span><span class="p">,</span> <span class="n">fs</span><span class="o">*</span><span class="mf">0.48</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;frequency (Hz)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PSD (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># The whole window.</span>
+<span class="n">d0</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
+<span class="n">n0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n0</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">n0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">d0</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">n0</span> <span class="p">)</span>
+
+<span class="c1"># Overlapped windows.</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
+<span class="n">seg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span>
+<span class="n">overlap</span> <span class="o">=</span> <span class="n">seg</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">f1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">trc</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
+
+<span class="c1"># Welch.</span>
+<span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">trc</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">seg</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">overlap</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+<span class="c1"># No overlaped windows.</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">trc</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">trc</span><span class="o">.</span><span class="n">data</span>
+<span class="n">seg</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span>
+<span class="n">overlap</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">f3</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">overlap_psd</span><span class="p">(</span><span class="n">trc</span><span class="p">,</span> <span class="n">seg</span><span class="p">,</span> <span class="n">overlap</span><span class="p">)</span>
+
+<span class="c1"># Smoothing the PSD results with the Savitzky-Golay filter.</span>
+<span class="n">sl</span> <span class="o">=</span> <span class="mi">201</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">sl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Plot the PSD results.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Full&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;50 \</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Welch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;0 \</span><span class="si">% o</span><span class="s1">verlap&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">4e-3</span><span class="p">,</span> <span class="n">fs</span><span class="o">*</span><span class="mf">0.48</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;frequency (Hz)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PSD (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="/PSD/PSD_Comparison.png" alt="PSD"></p>
 <h3 id="__4-the-psd-probability-density-function-estimation__"><strong>4 The PSD Probability Density Function Estimation</strong></h3>
@@ -404,7 +409,7 @@ Similar to the idea of short time Fourier transform, window function can be also
 <p>Here we collect one-year seismic noise data recorded by a seismic station ($CASY$ in network $IU$) in Antarctica in 2020. We divide the noise time series into daily segments to compute the PSDPDF of noise at this seismic station.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -478,79 +483,79 @@ Similar to the idea of short time Fourier transform, window function can be also
 </span><span class="lnt">72
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span> <span class="k">as</span> <span class="n">sgolay</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">convolve2d</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;IU.CASY*.SAC&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">nfft</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">17</span>
-</span></span><span class="line"><span class="cl"><span class="n">nr</span> <span class="o">=</span> <span class="mi">251</span>
-</span></span><span class="line"><span class="cl"><span class="n">hn</span> <span class="o">=</span> <span class="n">nfft</span> <span class="o">//</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">psd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nr</span><span class="p">,</span> <span class="n">hn</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hn</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sac</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">tr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">sac</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fd</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">nfft</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">nfft</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">+=</span> <span class="n">fd</span><span class="p">[:</span><span class="n">hn</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hn</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="mi">250</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">index</span> <span class="o">=</span> <span class="mi">250</span>
-</span></span><span class="line"><span class="cl">        <span class="n">psd</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="n">f1</span> <span class="o">=</span> <span class="mf">5e-4</span><span class="p">;</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">0.45</span>
-</span></span><span class="line"><span class="cl"><span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
-</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nfft</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">nfft</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fn1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="o">*</span><span class="n">nfft</span><span class="o">/</span><span class="n">fs</span><span class="p">);</span> <span class="n">fn2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f2</span><span class="o">*</span><span class="n">nfft</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">nrf</span> <span class="o">=</span> <span class="mi">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[::</span><span class="n">nrf</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">P</span> <span class="o">=</span> <span class="n">psd</span><span class="p">[:,</span> <span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">pp</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pp</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[</span><span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">);</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[::</span><span class="n">nrf</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[::</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="n">nrf</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">sl</span> <span class="o">=</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="n">P</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">sl</span><span class="p">,</span> <span class="n">sl</span><span class="p">))</span><span class="o">/</span><span class="n">sl</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">db</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">250</span>
-</span></span><span class="line"><span class="cl"><span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span> <span class="mi">171</span><span class="p">];</span> <span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span> <span class="mi">171</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">P</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">P</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;CMRmap_r&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Probability (%)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pp</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5e-3</span><span class="p">,</span> <span class="o">-</span><span class="mi">125</span><span class="p">,</span> <span class="s1">&#39;Hum&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">6e-2</span><span class="p">,</span> <span class="o">-</span><span class="mi">130</span><span class="p">,</span> <span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.11</span><span class="p">,</span> <span class="o">-</span><span class="mi">115</span><span class="p">,</span> <span class="s1">&#39;DF&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Freuqency (Hz)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity PSD (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">savgol_filter</span> <span class="k">as</span> <span class="n">sgolay</span>
+<span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">convolve2d</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;IU.CASY*.SAC&#39;</span><span class="p">))</span>
+
+<span class="n">nfft</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">17</span>
+<span class="n">nr</span> <span class="o">=</span> <span class="mi">251</span>
+<span class="n">hn</span> <span class="o">=</span> <span class="n">nfft</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">psd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nr</span><span class="p">,</span> <span class="n">hn</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hn</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sac</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">sac</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">nfft</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">nfft</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">+=</span> <span class="n">fd</span><span class="p">[:</span><span class="n">hn</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hn</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="mi">250</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="mi">250</span>
+        <span class="n">psd</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        
+<span class="n">f1</span> <span class="o">=</span> <span class="mf">5e-4</span><span class="p">;</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">0.45</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nfft</span><span class="p">)</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="n">nfft</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fn1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f1</span><span class="o">*</span><span class="n">nfft</span><span class="o">/</span><span class="n">fs</span><span class="p">);</span> <span class="n">fn2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f2</span><span class="o">*</span><span class="n">nfft</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+
+<span class="n">nrf</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[::</span><span class="n">nrf</span><span class="p">]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">psd</span><span class="p">[:,</span> <span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="p">]</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">sgolay</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[</span><span class="n">fn1</span><span class="p">:</span> <span class="n">fn2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">);</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[::</span><span class="n">nrf</span><span class="p">]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[::</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="n">nrf</span><span class="p">]</span>
+<span class="n">sl</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">sl</span><span class="p">,</span> <span class="n">sl</span><span class="p">))</span><span class="o">/</span><span class="n">sl</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">250</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span> <span class="mi">171</span><span class="p">];</span> <span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span> <span class="mi">171</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">P</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">P</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;CMRmap_r&#39;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Probability (%)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pp</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5e-3</span><span class="p">,</span> <span class="o">-</span><span class="mi">125</span><span class="p">,</span> <span class="s1">&#39;Hum&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
+                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
+                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
+                   <span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">6e-2</span><span class="p">,</span> <span class="o">-</span><span class="mi">130</span><span class="p">,</span> <span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
+                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
+                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
+                   <span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.11</span><span class="p">,</span> <span class="o">-</span><span class="mi">115</span><span class="p">,</span> <span class="s1">&#39;DF&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
+                   <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;#333333&#39;</span><span class="p">,</span>
+                   <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#87CEFA&#39;</span><span class="p">,</span>
+                   <span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Freuqency (Hz)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity PSD (dB)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img src="/PSD/PSDPDF_IU.CASY.png" alt="IU.CASY PSDPDF"></p>
 <p>The hum, SF (single-frequency, the primary) and DF (double-frequency, the secondary) microseisms are marked on the figure. The gray curve denotes the average PSD from $366$-day ambient seismic noise data segments.</p>
@@ -653,7 +658,7 @@ Surv. Tech. Rept., 93-322, 1–95</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

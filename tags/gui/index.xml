@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 06 Jan 2021 19:15:14 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2021 19:15:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Matlab GUI Design: popupmenu</title>
       <link>https://geophydog.cool/post/matlab_guide_popupmenu/</link>

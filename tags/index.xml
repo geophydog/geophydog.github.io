@@ -7,42 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Tue, 10 Jan 2023 18:49:53 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ambient Noise</title>
-      <link>https://geophydog.cool/tags/ambient-noise/</link>
-      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/ambient-noise/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Sat, 04 Jun 2022 09:41:56 +0800</lastBuildDate>
     
-    <item>
-      <title>beamforming</title>
-      <link>https://geophydog.cool/tags/beamforming/</link>
-      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/beamforming/</guid>
-      <description></description>
-    </item>
+	<atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    <item>
-      <title>body wave</title>
-      <link>https://geophydog.cool/tags/body-wave/</link>
-      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/body-wave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>source-location</title>
-      <link>https://geophydog.cool/tags/source-location/</link>
-      <pubDate>Tue, 10 Jan 2023 18:49:53 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/source-location/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>array-processing</title>
@@ -54,11 +22,29 @@
     </item>
     
     <item>
+      <title>beamforming</title>
+      <link>https://geophydog.cool/tags/beamforming/</link>
+      <pubDate>Sat, 04 Jun 2022 09:41:56 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/beamforming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>matched-field-processing</title>
       <link>https://geophydog.cool/tags/matched-field-processing/</link>
       <pubDate>Sat, 04 Jun 2022 09:41:56 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/matched-field-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>source-location</title>
+      <link>https://geophydog.cool/tags/source-location/</link>
+      <pubDate>Sat, 04 Jun 2022 09:41:56 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/source-location/</guid>
       <description></description>
     </item>
     
@@ -77,6 +63,15 @@
       <pubDate>Sat, 20 Mar 2021 15:33:02 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/seismic-array/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ambient Noise</title>
+      <link>https://geophydog.cool/tags/ambient-noise/</link>
+      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/ambient-noise/</guid>
       <description></description>
     </item>
     

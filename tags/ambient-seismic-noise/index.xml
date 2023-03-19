@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Sat, 20 Mar 2021 15:33:02 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/ambient-seismic-noise/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Mar 2021 15:33:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/ambient-seismic-noise/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Cross Spectral Beamforming in Ambient Noise Cross-correlation</title>
       <link>https://geophydog.cool/post/ncf_cross_spectral_beamforming/</link>

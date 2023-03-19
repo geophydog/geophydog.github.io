@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Tue, 08 Sep 2020 22:11:34 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/normalization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Sep 2020 22:11:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/normalization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Cross-correlations From Seismic Ambient Noise</title>
       <link>https://geophydog.cool/post/cross_correlation_from_noise/</link>
@@ -16,7 +20,7 @@
       <guid>https://geophydog.cool/post/cross_correlation_from_noise/</guid>
       <description>New responses between station pairs can be extracted from diffuse wave field by cross-correlating ambient seismic noise or coda (Campillo &amp;amp; Paul, 2003; Bensen et al., 2007). However, some processing techniques should be taken into consideration to retrieve clear emperical green&amp;rsquo;s functions (EGFs). Here we show these steps in detail.
 $\boxed{\text{Data processing steps}}$
-1. Cut data 2. Removing mean, trend and tapering 3. Removing instrument response 4. Band-pass filtering 5. Temperal normalization $\boxed{\text{One-bit}}$ $$ \tilde{d_j}=sign(d_j) \tag{1} $$ $\boxed{\text{run absolute mean}}$ $$ \begin{aligned} w_j &amp;amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\ \tilde{d_j} &amp;amp;= \frac{d_j}{w_j} \end{aligned} \tag{2}.</description>
+1. Cut data 2. Removing mean, trend and tapering 3. Removing instrument response 4. Band-pass filtering 5. Temperal normalization $\boxed{\text{One-bit}}$ $$ \tilde{d_j}=sign(d_j) \tag{1} $$ $\boxed{\text{run absolute mean}}$ $$ \begin{aligned} w_j &amp;amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\</description>
     </item>
     
   </channel>

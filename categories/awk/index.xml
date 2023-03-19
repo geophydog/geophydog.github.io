@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Sat, 12 Sep 2020 20:30:29 +0800</lastBuildDate><atom:link href="https://geophydog.cool/categories/awk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Sep 2020 20:30:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/categories/awk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Awk notes</title>
       <link>https://geophydog.cool/post/awk_notes/</link>
@@ -15,9 +19,9 @@
       
       <guid>https://geophydog.cool/post/awk_notes/</guid>
       <description>1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
-1 awk &amp;#39;!a[$2,$3]++&amp;#39; pushLog.log Above command will print the unique lines after removing repeated in columns 2 and 3.
+1  awk &amp;#39;!a[$2,$3]++&amp;#39; pushLog.log   Above command will print the unique lines after removing repeated in columns 2 and 3.
 For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
-1 saclst gcarc f *.SAC | sort -k2 -n -r | awk &amp;#39;!a[$2]++&amp;#39; It will show the lines after removing repeated lines.</description>
+1  saclst gcarc f *.SAC | sort -k2 -n -r | awk &amp;#39;!</description>
     </item>
     
   </channel>

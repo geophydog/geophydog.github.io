@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Thu, 03 Sep 2020 21:23:30 +0800</lastBuildDate><atom:link href="https://geophydog.cool/tags/hilbert-transform/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Sep 2020 21:23:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/hilbert-transform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Hilbert Transform</title>
       <link>https://geophydog.cool/post/hilbert_transform/</link>
@@ -16,7 +20,9 @@
       <guid>https://geophydog.cool/post/hilbert_transform/</guid>
       <description>Firstly, compute the FFT of real signal $x(n)$ $$ X(k) = \mathscr{F}[x(n)]=\sum_{n=0}^{N-1}x(n)e^{-\frac{i2\pi kn}{N}} \tag{1}. $$
 Let the FFT of $h(n)$ be $H(k)$ to yield
-$$ H(k)= \begin{cases} &amp;amp;X(k), &amp;amp;\text{ for } k=0 \\ &amp;amp;2X(k), &amp;amp;\text{ for } k=1, 2, \cdots, \frac{N}{2}-1 \\ &amp;amp;0, &amp;amp;\text{ for } k=\frac{N}{2}, \frac{N}{2}+1,\cdots, N-1 \end{cases} \tag{2}. $$
+$$ H(k)= \begin{cases} &amp;amp;X(k), &amp;amp;\text{ for } k=0 \\
+&amp;amp;2X(k), &amp;amp;\text{ for } k=1, 2, \cdots, \frac{N}{2}-1 \\
+&amp;amp;0, &amp;amp;\text{ for } k=\frac{N}{2}, \frac{N}{2}+1,\cdots, N-1 \end{cases} \tag{2}. $$
 The hilbert transform $h(n)$ of the real signal $x(n)$ is given by
 $$ h(n) = \mathscr{I} \{ \mathscr{F}^{-1}[H(k)] \} \tag{3}.</description>
     </item>
