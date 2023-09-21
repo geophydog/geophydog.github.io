@@ -52,7 +52,7 @@ Assuming a signal $u(t)$ and its Fourier spectrum $U(\omega)$ of a receiver, we 
 Assuming a signal $u(t)$ and its Fourier spectrum $U(\omega)$ of a receiver, we have a signal vector of an array composed of $N$ receivers at frequency $\omega$.">
 <meta itemprop="datePublished" content="2023-09-20T14:32:30+08:00" />
 <meta itemprop="dateModified" content="2023-09-20T14:32:30+08:00" />
-<meta itemprop="wordCount" content="1163">
+<meta itemprop="wordCount" content="1160">
 
 
 
@@ -476,7 +476,7 @@ and the MUSIC beamformers to check their resolution and robustness.</p>
 <span class="n">pp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="n">sn</span><span class="o">-</span><span class="n">dsn</span><span class="p">:</span><span class="n">sn</span><span class="o">+</span><span class="n">dsn</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">pp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="n">sn</span><span class="o">-</span><span class="n">dsn</span><span class="p">:</span><span class="n">sn</span><span class="o">+</span><span class="n">dsn</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">pp1</span> <span class="o">/=</span> <span class="n">pp1</span><span class="o">.</span><span class="n">max</span><span class="p">();</span> <span class="n">pp2</span> <span class="o">/=</span> <span class="n">pp2</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">pn</span> <span class="o">=</span> <span class="mi">1</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">pp1</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bartlett&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">pp2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MUSIC&#39;</span><span class="p">)</span>
