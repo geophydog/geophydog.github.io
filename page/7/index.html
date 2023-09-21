@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2022-06-04T09:41:56+08:00" />
+<meta property="og:updated_time" content="2023-09-20T14:32:30+08:00" />
 <meta itemprop="name" content="Geophydog">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
@@ -123,6 +123,29 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/func_ptr_and_ptr_func/">Function Pointer &amp; Pointer Function</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-14 </span>
+      <div class="post-category">
+          <a href="/categories/c/c&#43;&#43;/"> c/c&#43;&#43; </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 Ponter function Function pointer is a pointer in c, and it returns a pointer of some type. For instance, its declaration follows
+1 2  int *f(int x, int y);   Let&rsquo;s give a code demo to show function pointer.
+1 2 3 4 5 6 7 8 9 10 11 12 13  int *add2Num() { int x = 10, y = 20; static int out[3] = {0}; out[0] = 10; out[1] = y; out[2] = x + y; return out; } int main() { int *p = NULL; p = add2Num(); printf(&#34;%d\n&#34;, *(p+1)); return 0; }   Output 20
+    </div>
+    <div class="read-more">
+      <a href="/post/func_ptr_and_ptr_func/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/awk_notes/">Awk notes</a></h1>
@@ -212,29 +235,6 @@ Low-pass filter Given the attenuation values $A_c$ and $A_r$ at cut-off frequenc
     </div>
     <div class="read-more">
       <a href="/post/low-pass_filter/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/cross_correlation_from_noise/">Cross-correlations From Seismic Ambient Noise</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-08 </span>
-      <div class="post-category">
-          <a href="/categories/seismic-interferometry/"> Seismic Interferometry </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      New responses between station pairs can be extracted from diffuse wave field by cross-correlating ambient seismic noise or coda (Campillo &amp; Paul, 2003; Bensen et al., 2007). However, some processing techniques should be taken into consideration to retrieve clear emperical green&rsquo;s functions (EGFs). Here we show these steps in detail.
-$\boxed{\text{Data processing steps}}$
-1. Cut data 2. Removing mean, trend and tapering 3. Removing instrument response 4. Band-pass filtering 5. Temperal normalization $\boxed{\text{One-bit}}$ $$ \tilde{d_j}=sign(d_j) \tag{1} $$ $\boxed{\text{run absolute mean}}$ $$ \begin{aligned} w_j &amp;= \frac{1}{2N+1}\sum_{n=j-N}^{j+N}|d_n| \\
-    </div>
-    <div class="read-more">
-      <a href="/post/cross_correlation_from_noise/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

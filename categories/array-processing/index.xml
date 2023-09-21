@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Sat, 04 Jun 2022 09:41:56 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Sep 2023 14:32:30 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/array-processing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MUltiple SIgnal Classification (MUSIC) Algorithm for Array Processing</title>
+      <link>https://geophydog.cool/post/music_array_process/</link>
+      <pubDate>Wed, 20 Sep 2023 14:32:30 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/music_array_process/</guid>
+      <description>1. MUSIC algorithm The naive beamforming technique, Bartlett beamformer, has a poor resolution although its stability and robustness are good. Schmidt proposed a new beamformer algorithm call multiple signal classification (MUSIC) for addressing the resolution while keeping the stability of beamformer (1986). Here we briefly introduce the MUSIC algorithm and also give some Python codes to show how this technique works.
+Assuming a signal $u(t)$ and its Fourier spectrum $U(\omega)$ of a receiver, we have a signal vector of an array composed of $N$ receivers at frequency $\omega$.</description>
+    </item>
     
     <item>
       <title>Matched Field Processing: a generalized beamforming</title>
