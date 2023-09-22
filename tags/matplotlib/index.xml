@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>psd on Geophydog</title>
-    <link>https://geophydog.cool/tags/psd/</link>
-    <description>Recent content in psd on Geophydog</description>
+    <title>matplotlib on Geophydog</title>
+    <link>https://geophydog.cool/tags/matplotlib/</link>
+    <description>Recent content in matplotlib on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
     <lastBuildDate>Fri, 22 Sep 2023 12:22:46 +0800</lastBuildDate>
     
-	<atom:link href="https://geophydog.cool/tags/psd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://geophydog.cool/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <guid>https://geophydog.cool/post/colormaps_for_fantastic_visualizations/</guid>
       <description>Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for us to master. There are many styles for different individuals for they favor different colors, markers, and line styles. Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.
 1. Empirical probability image We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density curve of ambient seismic noise.</description>
-    </item>
-    
-    <item>
-      <title>Estimating the Power Spectral Density of Ambient Seismic Noise</title>
-      <link>https://geophydog.cool/post/psd_notes/</link>
-      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/post/psd_notes/</guid>
-      <description></description>
     </item>
     
   </channel>

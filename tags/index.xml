@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Wed, 20 Sep 2023 14:32:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Sep 2023 12:22:46 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>matplotlib</title>
+      <link>https://geophydog.cool/tags/matplotlib/</link>
+      <pubDate>Fri, 22 Sep 2023 12:22:46 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>psd</title>
+      <link>https://geophydog.cool/tags/psd/</link>
+      <pubDate>Fri, 22 Sep 2023 12:22:46 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/psd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://geophydog.cool/tags/python/</link>
+      <pubDate>Fri, 22 Sep 2023 12:22:46 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://geophydog.cool/tags/visualization/</link>
+      <pubDate>Fri, 22 Sep 2023 12:22:46 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/visualization/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>array-processing</title>
@@ -99,15 +135,6 @@
       <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/fft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PSD</title>
-      <link>https://geophydog.cool/tags/psd/</link>
-      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/psd/</guid>
       <description></description>
     </item>
     
@@ -247,15 +274,6 @@
     </item>
     
     <item>
-      <title>Visualization</title>
-      <link>https://geophydog.cool/tags/visualization/</link>
-      <pubDate>Wed, 30 Dec 2020 09:31:49 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/visualization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>seismic inteferometry</title>
       <link>https://geophydog.cool/tags/seismic-inteferometry/</link>
       <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
@@ -369,15 +387,6 @@
       <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/obspy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://geophydog.cool/tags/python/</link>
-      <pubDate>Fri, 25 Sep 2020 08:56:35 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/python/</guid>
       <description></description>
     </item>
     

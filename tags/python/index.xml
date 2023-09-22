@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Fri, 25 Sep 2020 08:56:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Sep 2023 12:22:46 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Colormaps for Fantastic Visualizations</title>
+      <link>https://geophydog.cool/post/colormaps_for_fantastic_visualizations/</link>
+      <pubDate>Fri, 22 Sep 2023 12:22:46 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/colormaps_for_fantastic_visualizations/</guid>
+      <description>Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for us to master. There are many styles for different individuals for they favor different colors, markers, and line styles. Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.
+1. Empirical probability image We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density curve of ambient seismic noise.</description>
+    </item>
     
     <item>
       <title>Calculating Ray Parameters Using Obspy</title>

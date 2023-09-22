@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Colormaps for Fantastic Visualizations - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for us to master. There are many styles for different individuals for they favor different colors, markers, and line styles. Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.
+1. Empirical probability image We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density curve of ambient seismic noise." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/colormaps_for_fantastic_visualizations/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8452f0d62dad176c854eaf1ef7eb3cdfa7651088d7f411fdc99c5c3efb76bf90.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Colormaps for Fantastic Visualizations" />
+<meta property="og:description" content="Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for us to master. There are many styles for different individuals for they favor different colors, markers, and line styles. Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.
+1. Empirical probability image We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density curve of ambient seismic noise." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/colormaps_for_fantastic_visualizations/" />
+<meta property="article:published_time" content="2023-09-22T12:22:46+08:00" />
+<meta property="article:modified_time" content="2023-09-22T12:22:46+08:00" />
+<meta itemprop="name" content="Colormaps for Fantastic Visualizations">
+<meta itemprop="description" content="Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for us to master. There are many styles for different individuals for they favor different colors, markers, and line styles. Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.
+1. Empirical probability image We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density curve of ambient seismic noise.">
+<meta itemprop="datePublished" content="2023-09-22T12:22:46+08:00" />
+<meta itemprop="dateModified" content="2023-09-22T12:22:46+08:00" />
+<meta itemprop="wordCount" content="876">
+
+
+
+<meta itemprop="keywords" content="visualization,python,matplotlib,psd," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Colormaps for Fantastic Visualizations"/>
+<meta name="twitter:description" content="Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for us to master. There are many styles for different individuals for they favor different colors, markers, and line styles. Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.
+1. Empirical probability image We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density curve of ambient seismic noise."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Colormaps for Fantastic Visualizations</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-09-22 </span>
+        <div class="post-category">
+            <a href="/categories/visualization/"> visualization </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-empirical-probability-image">1. Empirical probability image</a></li>
+            <li><a href="#2-how-to-make-your-favorite-colormaps-using-the-matplotlib-package">2. How to make your favorite colormaps using the <code>matplotlib</code> package</a></li>
+            <li><a href="#3-some-useful-colormaps">3. Some useful colormaps</a></li>
+            <li><a href="#4-the-power-spectral-density-curve-probability-of-seismic-ambient-noise-excited-by-ocean-waves">4. The power spectral density curve probability of seismic ambient noise excited by ocean waves</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Visualization is frequenctly used to show scientific ideas or experimental results, but it is difficult for
+us to master. There are many styles for different individuals for they favor different colors, markers, and line styles.
+Color choice is very important to visualize data among above terms. Here we give some colors for making clear our ideas.</p>
+<h3 id="1-empirical-probability-image">1. Empirical probability image</h3>
+<p>We usually use hit counts to compute empirical probability from large datasets, for example, the power spectral density
+curve of ambient seismic noise. First we generate a synthetic curve, and add noise to this synthetic curve for counting
+hits on this curve. Finally, we normalize these hit counts along the horizontal axis to obtain the empirical probability
+images.</p>
+<p>Import required packages.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-how-to-make-your-favorite-colormaps-using-the-matplotlib-package">2. How to make your favorite colormaps using the <code>matplotlib</code> package</h3>
+<p>First set a list containing colors, and these colors may be simple &lsquo;r&rsquo;, &lsquo;g&rsquo;, &lsquo;b&rsquo; &hellip;
+or hexadecimal RGB colors. Then we can use <code>matplotlib.colors.LinearSegmentedColormap.from_list</code> to
+make our colormaps. The following example may help you.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">]</span>
+<span class="c1"># or col = [&#39;#FFFFFF&#39;, &#39;FF0000&#39;, &#39;#00000&#39;]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;cmap&#39;</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The variable <code>camp</code> can be used to visualize our data in methods like <code>plt.pcolormesh()</code>
+or <code>plt.contourf()</code>.</p>
+<h3 id="3-some-useful-colormaps">3. Some useful colormaps</h3>
+<p>Generate a synthetic curve and count hits on this curve.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">n</span> <span class="o">=</span> <span class="mi">201</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">5e-2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+<span class="n">sl</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">20</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.5</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">sl</span><span class="p">)</span><span class="o">/</span><span class="n">sl</span><span class="p">,</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">1001</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="n">s0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.5</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">si</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ss</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">pdf</span><span class="p">[</span><span class="n">si</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pdf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">pdf</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pdf</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Here we set some colors to make colormaps for visualizing the empirical probability image.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">c01</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #92D1F3 #5AB592 #EEAC4C #DC4244 #81151D&#39;</span>
+<span class="n">c02</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FDFDFD #ECF6FE #D6E2FE #B5C9FB #8FB1FF #7F96FE #6271F8 #467B4B #3BBC3E #B3D16E  #B9FA6C #FEFA14 #FFA108 #E70001 #820001 #3F0706&#39;</span>
+<span class="n">c03</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FBFDFF #EEF7FF #EEF7FF #9DCDFF #C3E095 #F1F821 #FFC000 #FF6900 #C72E00 #9E0500&#39;</span>
+<span class="n">c04</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FAFCFB #F1FFFF #BAFEFF #84FEFF #08FFCA #08FF00 #8FFE01 #FFDE00 #FFDE00 #FFDE00 #FE3000 #FE3000&#39;</span>
+<span class="n">c05</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FCFDBA #FEFC7C #FEF80d #FFD007 #FE8C02 #FE3F09 #D40003 #7C0102 #160104&#39;</span>
+<span class="n">c06</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #EDF3F3 #3E9C43 #3E9C43 #FCFE00 #FF6B00 #FF3300 #A01430&#39;</span>
+<span class="n">c07</span> <span class="o">=</span> <span class="s1">&#39;#FBFDFE #ECF6F9 #DDEFF5 #CFE8F0 #C0E1EC #B0D9E7 #B9DEC5 #C8E59B #D7EC6F #E6F345 #F5FA1B #FFEE00 #FFBF00 #FF9100 #FF6100 #FF3300&#39;</span>
+<span class="n">c08</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FBFBFB #F5F2FF #D9D1F9 #B4B9FA #9C9BF5 #7EA1D6 #5CA1A7 #35A96C #63C100 #C9D600 #FFDB00 #FF7D00 #F13E00 #F00000 #81151D&#39;</span>
+<span class="n">c09</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #ECECEC #A3D6EF #76C9F4 #4FC0E7 #66CFB0 #7CDB85 #FCDA44 #FBBC3B #FA5C54 #DF1D28 #81151D&#39;</span>
+<span class="n">c10</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FDFDFD #CACACC #A9A9CC #8080CC #5855CA #85449B #D33959 #FF432F #FF8020 #FFBA11 #FFD909&#39;</span>
+<span class="n">c11</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #F5F5FF #D7D7FF #A4A4FF #5C5CFF #3030FF #002EBD #007B5C #2DC105 #A3E401 #EBF900 #FFD700 #FF7100 #FF4500 #FF0000&#39;</span>
+<span class="n">c12</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #F2FAFE #E0F3FD #C1E7FB #7EBEE7 #5BA0D4 #47A097 #71BF4B #D9DF57 #F8B345 #E74B2A #C12027 #9A2425&#39;</span>
+<span class="n">c13</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FDFDFD #E3FFFE #AFF9FA #78DDE0 #6099E9 #2A52F4 #0106F0 #112572&#39;</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #FDFDFD #FBFEA7 #FF712F #FC4C20 #F50806 #B5070a #830e0e #4C1210&#39;</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #FFFEFD #FFE6FD #FCC6FF #FD83FC #FF3AFE #F20bFF #8200FF #4D00FF&#39;</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #F9EDDA #EFDACF #DFBDBF #CC99AE #B387B8 #7C6BB9 #4B53B2 #3943A4 #3943A4&#39;</span>
+<span class="n">c17</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #ECEDED #93FF4A #D9F105 #FF6900 #FD0100 #971127 #550000&#39;</span>
+<span class="n">c18</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #F0F0F0 #E0E0E0 #A0A0A0 #777777 #444444 #222222 #111111 #000000&#39;</span>
+<span class="n">c19</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #EFFCFF #B5F0FE #76E3FE #01ADF9 #0074E6 #001ED0 #4900C8 #A500BD #9F00AA&#39;</span>
+<span class="n">c20</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #F8F3F4 #CECCE3 #94B2D4 #2E89AD #0f7872 #065C4A #014833 #17155F&#39;</span>
+<span class="n">c21</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #F2F8F3 #CCECFA #8FC0F5 #478CF3 #0173FA #83B0B9 #AEC790 #D6DC64 #EDF515 #FAD403 #FB9F01 #F75317 #F91106 #B8457E&#39;</span>
+<span class="n">c22</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FFFFD3 #FEFF99 #FEE67F #FFB24E #E64E05 #9E0412 #36045B #000aA9 #1533FB #0f87F8 #09FAE9&#39;</span>
+<span class="n">c23</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FDFDFD #F3F8FF #98D4FB #62AFF8 #3998F5 #8EBCEA #F390C9 #E6007F #C53594 #85008A #3C0092&#39;</span>
+<span class="n">c24</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF #FEFEFE #F9FAFF #E4EAFF #C6D1F7 #DED398 #FFF131 #FFD644 #FFB950 #FF6062 #FF006B #FF002B #B11028 #81151D&#39;</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">c01</span><span class="p">,</span> <span class="n">c02</span><span class="p">,</span> <span class="n">c03</span><span class="p">,</span> <span class="n">c04</span><span class="p">,</span> <span class="n">c05</span><span class="p">,</span> <span class="n">c06</span><span class="p">,</span> <span class="n">c07</span><span class="p">,</span> <span class="n">c08</span><span class="p">,</span> <span class="n">c09</span><span class="p">,</span> <span class="n">c10</span><span class="p">,</span> <span class="n">c11</span><span class="p">,</span> <span class="n">c12</span><span class="p">,</span> <span class="n">c13</span><span class="p">,</span> <span class="n">c14</span><span class="p">,</span> <span class="n">c15</span><span class="p">,</span> <span class="n">c16</span><span class="p">,</span> <span class="n">c17</span><span class="p">,</span> <span class="n">c18</span><span class="p">,</span> <span class="n">c19</span><span class="p">,</span> <span class="n">c20</span><span class="p">,</span> <span class="n">c21</span><span class="p">,</span> <span class="n">c22</span><span class="p">,</span> <span class="n">c23</span><span class="p">,</span> <span class="n">c24</span><span class="p">]</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="n">nr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">//</span> <span class="n">nc</span>
+<span class="k">if</span> <span class="n">nr</span> <span class="o">*</span> <span class="n">nc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">nr</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)):</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;cmap&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="mi">201</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pdf</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s1">&#39;c</span><span class="si">%02d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/Colors_Colormaps/psd.png" alt="psd_cmaps"></p>
+<p>Just copy corresponding colors accoding to the order number on panels in above figure if you like.</p>
+<h3 id="4-the-power-spectral-density-curve-probability-of-seismic-ambient-noise-excited-by-ocean-waves">4. The power spectral density curve probability of seismic ambient noise excited by ocean waves</h3>
+<p>We collected three-year seismic data made by broadband station <code>IC.HIA</code> installed in China to compute the empirical
+probability of power spectral density curve on the band of [2, 60] second. This image show the features of power spectral density
+of seismic ambient noise generated by sea waves.
+Here we use colomap made from <code>c09</code> color string to show the probability image.</p>
+<p><img src="/Colors_Colormaps/IC.HIA.PSD.png" alt="IC_PSD"></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-09-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/visualization/">visualization</a>
+          <a href="/tags/python/">python</a>
+          <a href="/tags/matplotlib/">matplotlib</a>
+          <a href="/tags/psd/">psd</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/music_array_process/">
+            <span class="next-text nav-default">MUltiple SIgnal Classification (MUSIC) Algorithm for Array Processing</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

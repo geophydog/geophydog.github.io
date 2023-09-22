@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2023-09-20T14:32:30+08:00" />
+<meta property="og:updated_time" content="2023-09-22T12:22:46+08:00" />
 <meta itemprop="name" content="Geophydog">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
@@ -123,6 +123,34 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/hilbert_transform/">Hilbert Transform</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-03 </span>
+      <div class="post-category">
+          <a href="/categories/signal-processing/"> signal processing </a>
+          <a href="/categories/spectral-analysis/"> spectral analysis </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Firstly, compute the FFT of real signal $x(n)$ $$ X(k) = \mathscr{F}[x(n)]=\sum_{n=0}^{N-1}x(n)e^{-\frac{i2\pi kn}{N}} \tag{1}. $$
+Let the FFT of $h(n)$ be $H(k)$ to yield
+$$ H(k)= \begin{cases} &amp;X(k), &amp;\text{ for } k=0 \\
+&amp;2X(k), &amp;\text{ for } k=1, 2, \cdots, \frac{N}{2}-1 \\
+&amp;0, &amp;\text{ for } k=\frac{N}{2}, \frac{N}{2}+1,\cdots, N-1 \end{cases} \tag{2}. $$
+The hilbert transform $h(n)$ of the real signal $x(n)$ is given by
+$$ h(n) = \mathscr{I} \{ \mathscr{F}^{-1}[H(k)] \} \tag{3}.
+    </div>
+    <div class="read-more">
+      <a href="/post/hilbert_transform/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/about/">About</a></h1>
