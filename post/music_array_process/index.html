@@ -52,7 +52,7 @@ Assuming a signal $u(t)$ and its Fourier spectrum $U(\omega)$ of a receiver, we 
 Assuming a signal $u(t)$ and its Fourier spectrum $U(\omega)$ of a receiver, we have a signal vector of an array composed of $N$ receivers at frequency $\omega$.">
 <meta itemprop="datePublished" content="2023-09-20T14:32:30+08:00" />
 <meta itemprop="dateModified" content="2023-09-20T14:32:30+08:00" />
-<meta itemprop="wordCount" content="1162">
+<meta itemprop="wordCount" content="1206">
 
 
 
@@ -213,7 +213,8 @@ $$</p>
 <p>$$
 P(\omega) =\frac{1}{ \vec{a}(\omega) \bar{N}_e(\omega) \vec{a}^H(\omega) } \tag{8},
 $$
-with $\vec{a}(\omega)$ denoteing the steering vector $\vec{a}_n=e^{-i\omega \Delta t_n}$.</p>
+with $\vec{a}(\omega)$ denoteing the steering vector $\vec{a}_n=e^{-i\omega \Delta t_n}$.
+The denominator term of formula $(8)$ will be zero when we project the steering vector onto the noise matrix subspace spanned by eigenvectors of noise. In such cases, $P(\omega)$ will take a very large value, which is a peak case in the function $P(\omega)$.</p>
 <p>$\Delta t_n$ is the time delay with a form of</p>
 <p>$$
 \Delta t_n = \vec{s} \cdot \vec{r}_n \tag{9}
