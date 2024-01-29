@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>two-station method on Geophydog</title>
+    <link>https://geophydog.cool/tags/two-station-method/</link>
+    <description>Recent content in two-station method on Geophydog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Geophydog All rights reserved</copyright>
+    <lastBuildDate>Sun, 28 Jan 2024 19:12:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://geophydog.cool/tags/two-station-method/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Image transform technique for estimating phase velocity dispersion curve</title>
+      <link>https://geophydog.cool/post/image_transform_dispersion_curve/</link>
+      <pubDate>Sun, 28 Jan 2024 19:12:51 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/image_transform_dispersion_curve/</guid>
+      <description>Background Ambient noise tomography is widely used to image th earth&amp;rsquo;s interior in past over two decades for various scales. Stacked cross-correlations from seismic ambient noise can be approxmately the Green&amp;rsquo;s functions between receivers. Surface waves extracted from ambient noise cross-correlations are frequently utilized to estimate multi-layered shear wave velocity structure. The key to surface wave imageing is reliable dispersion curves. Two-staion techniques, like frequency-time analysis (Levshin et al., 1989), image transform (Yao et al.</description>
+    </item>
+    
+  </channel>
+</rss>

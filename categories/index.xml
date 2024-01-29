@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Fri, 22 Sep 2023 12:22:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 11:28:39 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ambient noise</title>
+      <link>https://geophydog.cool/categories/ambient-noise/</link>
+      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/ambient-noise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>surface-wave</title>
+      <link>https://geophydog.cool/categories/surface-wave/</link>
+      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/surface-wave/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>visualization</title>
@@ -171,15 +189,6 @@
       <pubDate>Fri, 25 Dec 2020 17:16:30 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/scientific-computation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>surface wave</title>
-      <link>https://geophydog.cool/categories/surface-wave/</link>
-      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/surface-wave/</guid>
       <description></description>
     </item>
     

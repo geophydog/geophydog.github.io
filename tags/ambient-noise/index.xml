@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 14:32:42 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 11:28:39 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/tags/ambient-noise/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Synthetic ambient noise and noise cross-correlations</title>
+      <link>https://geophydog.cool/post/synthetic_ambient_noise/</link>
+      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/synthetic_ambient_noise/</guid>
+      <description>1. Background Ambient noise tomography has been a very popular imaging strategy of investigating the earth&amp;rsquo;s interior in past over two decades. The basic principle of this method is that stacked cross-correlations from noise recordings made by two receivers can be approximately the Green&amp;rsquo;s function from one receiver to another. We have the need of synthesizing ambient noise for validating this important idea, or exploring characteristics of ambient noise. Here we introduce a simple way of computing synthetic ambient noise.</description>
+    </item>
     
     <item>
       <title>Estimating the Power Spectral Density of Ambient Seismic Noise</title>

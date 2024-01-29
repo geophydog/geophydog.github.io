@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Fri, 22 Sep 2023 12:22:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 11:28:39 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ambient Noise</title>
+      <link>https://geophydog.cool/tags/ambient-noise/</link>
+      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/ambient-noise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dispersion-curve</title>
+      <link>https://geophydog.cool/tags/dispersion-curve/</link>
+      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/dispersion-curve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>surface-wave</title>
+      <link>https://geophydog.cool/tags/surface-wave/</link>
+      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/surface-wave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>two-station method</title>
+      <link>https://geophydog.cool/tags/two-station-method/</link>
+      <pubDate>Sun, 28 Jan 2024 19:12:51 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/tags/two-station-method/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>matplotlib</title>
@@ -108,15 +144,6 @@
       <pubDate>Sat, 20 Mar 2021 15:33:02 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/seismic-array/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ambient Noise</title>
-      <link>https://geophydog.cool/tags/ambient-noise/</link>
-      <pubDate>Thu, 11 Mar 2021 14:32:42 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/ambient-noise/</guid>
       <description></description>
     </item>
     
@@ -315,15 +342,6 @@
       <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
       
       <guid>https://geophydog.cool/tags/phase-velocity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>surface wave</title>
-      <link>https://geophydog.cool/tags/surface-wave/</link>
-      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/tags/surface-wave/</guid>
       <description></description>
     </item>
     

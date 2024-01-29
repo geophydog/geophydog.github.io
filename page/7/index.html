@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2023-09-22T12:22:46+08:00" />
+<meta property="og:updated_time" content="2024-01-29T11:28:39+08:00" />
 <meta itemprop="name" content="Geophydog">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
@@ -125,6 +125,50 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/high-pass_filter/">The Journey to Digital Filter Design: High-pass Filter</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-15 </span>
+      <div class="post-category">
+          <a href="/categories/filter/"> filter </a>
+          <a href="/categories/signal-processing/"> signal processing </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 Basic princeples For a Butterworth high-pass filter, the squared frequency response is given by $$ |H(\omega)|^2 = \frac{1}{1+(\frac{tan\frac{\omega_c}{2}}{\frac{\omega}{2}})^{2N}} \tag{1}. $$ Using $tan\frac{\omega}{2}=\frac{1}{j}\frac{1-e^{-j\omega}}{1+e^{-j\omega}}$ and $z=e^{-j\omega}$, we have $$ |H(z)|^2=\frac{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}}{(-1)^N(\frac{1-z^{-1}}{1+z^{-1}})^{2N}+tan^{2N}\frac{\omega_c}{2}} \tag{2}. $$ We know there $N$ repeated zeros $1$ of this transfer function, and the poles are little bit complicated. We first calculate $q_k=\frac{1-z_k^{-1}}{1+z^{-1}}$. $$ q_k= \begin{cases} &amp;tan\frac{\omega_c}{2}e^{j\frac{2k+1}{2N}\pi}, \text{ for } N \text{ is even and }k=0, 1, 2, \cdots, 2N-1;\\
+    </div>
+    <div class="read-more">
+      <a href="/post/high-pass_filter/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/gmt_errorbar/">Error Bars in GMT</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-14 </span>
+      <div class="post-category">
+          <a href="/categories/visualization/"> visualization </a>
+          <a href="/categories/gmt/"> GMT </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 2 3 4 5 6 7 8 9 10 11 12 13 14  R=0/10/0/100 J=X5i/5i PS=error-bar-gmt.ps PDF=error-bar-gmt.pdf awk &#39;BEGIN{for(i=2;i&lt;10;i++){print i,i*i}}&#39; &gt; tmp.lst psxy -R$R -J$J -K -T &gt; $PS psxy tmp.lst -R -J -K -O -B1:&#34;X-axis&#34;:/10:&#34;Y-axis&#34;:WSen -W1p,&#34;--&#34; &gt;&gt; $PS awk &#39;{print $1,$2,3.5,1}&#39; tmp.lst | psxy -R -J -K -O -Ey/3p &gt;&gt; $PS psxy tmp.lst -R -J -K -O -Si0.5c -Gblack &gt;&gt; $PS psxy -R -J -O -T&gt;&gt; $PS ps2pdf $PS $PDF   
+    </div>
+    <div class="read-more">
+      <a href="/post/gmt_errorbar/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/colorful_strings_in_c/">Print Colorful Strings in C</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-09-14 </span>
@@ -192,51 +236,6 @@ For instance, there are some SAC files with same header gcarc, and can use the f
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/basemap/">Basemap in Python</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      <div class="post-category">
-          <a href="/categories/visualization/"> visualization </a>
-          <a href="/categories/python/"> python </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Installation Here, the platforms are windows 10 and Anaconda-3.5.3.0 (Python 3.7).
- Open anaconda prompt type pip install geos to install library geos; Go https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download two libraries: pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl Type commands: pip install pyproj‑2.6.1.post1‑cp37‑cp37m‑win_amd64.whl and pip install basemap‑1.2.2‑cp37‑cp37m‑win_amd64.whl  Now, we&rsquo;ve installed Basemap and enjoy it!
-2 The First Basemap 2.1 Satellite map 1 2 3 4 5 6 7 8 9 10 11 12 13  from mpl_toolkits.
-    </div>
-    <div class="read-more">
-      <a href="/post/basemap/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/nice_cover/"></a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Hello, there. Hope you have a nice journey. 1 1 2 3 4 5
-2 2 3 4 5 6
-3 3 4 5 6 7
-    </div>
-    <div class="read-more">
-      <a href="/post/nice_cover/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -283,7 +282,7 @@ For instance, there are some SAC files with same header gcarc, and can use the f
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
   </span>
 </div>
 
