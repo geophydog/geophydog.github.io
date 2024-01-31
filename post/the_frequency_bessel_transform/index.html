@@ -174,9 +174,9 @@ principle of this newly proposed array stacking method.</p>
 is approximately proportional to the imaginary part of the Green&rsquo;s function $G_{ZZ}(\omega, r)$ between two receivers with
 distance of $r$,
 $$
-C_{ZZ}(\omega,r) \approx A\cdot Im{G_{ZZ}(\omega, r)}, \tag{1}
+C_{ZZ}(\omega,r) \approx A\cdot Im\{G_{ZZ}(\omega, r)\}, \tag{1}
 $$
-in which, $\omega$ is angular frequency, and $Im{\cdot}$ represents imaginary part. Wang et al (2019) defined
+in which, $\omega$ is angular frequency, and $Im\{\cdot\}$ represents imaginary part. Wang et al (2019) defined
 the spectrum $I(\omega, k)$ of the F-J transform as
 $$
 I(\omega, k)=\int_0^{+\infty}C_{ZZ}(\omega, r)J_0(kr)rdr, \tag{2}
@@ -184,18 +184,18 @@ $$
 where, $J_0$ is the zeroth-order Bessel function of the first kind. For a flat multi-layered medium, 
 $G_{AA}(\omega, r)$ due to an isotropic source is expressed as
 $$
-G_{ZZ}(\omega, r=\int_0^{+\infty}g_z(\omega, \kappa)J_0(\kappa r)\kappa d\kappa, \tag{3}
+G_{ZZ}(\omega, r)=\int_0^{+\infty}g_z(\omega, \kappa)J_0(\kappa r)\kappa d\kappa, \tag{3}
 $$
 where, $g_z(\omega, k)$ is the kernel function of the medium, and it is inversely proportional to the surface wave
 dispersion equation, which means that $g_{z}(\omega, \kappa)$ reaches infinity at roots (dispersion curve) of dispersion equation.
 Now we use $(1)$, $(2)$ and $(3)$ to obtain
 $$
-I(\omega, k)=\int_0^{+\infty}Im{\int_0^{+\infty}J_0(\kappa r) \kappa d\kappa}J_0(kr)rdr. \tag{4}
+I(\omega, k)=\int_0^{+\infty}Im\{\int_0^{+\infty}J_0(\kappa r) \kappa d\kappa\}J_0(kr)rdr. \tag{4}
 $$
 Note the orthogonality of $J_0$, $\int_0J_0(kr)rdr\int_0^{+\infty}J_0(\kappa r)\kappa d\kappa=\frac{\delta(k-\kappa)}{k}$,
 and thus we have
 $$
-I(\omega, k) \approx A \cdot Im{g_z(\omega, k)}. \tag{5}
+I(\omega, k) \approx A \cdot Im\{g_z(\omega, k)\}. \tag{5}
 $$
 $(5)$ shows that $I(\omega, k)$ is infinity at the dispersion point. This is the basic idea that we can estimate dispersion curves
 utilizing the F-J Transform.</p>
