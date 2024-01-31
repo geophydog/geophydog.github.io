@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves - Geophydog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Geophydog" /><meta name="description" content="Background Passive dense array surface wave tomography plays a significant role in probing the earth&amp;rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&amp;rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://geophydog.cool/post/the_frequency_bessel_transform/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.8452f0d62dad176c854eaf1ef7eb3cdfa7651088d7f411fdc99c5c3efb76bf90.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves" />
+<meta property="og:description" content="Background Passive dense array surface wave tomography plays a significant role in probing the earth&rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://geophydog.cool/post/the_frequency_bessel_transform/" />
+<meta property="article:published_time" content="2024-01-29T17:51:29+08:00" />
+<meta property="article:modified_time" content="2024-01-29T17:51:29+08:00" />
+<meta itemprop="name" content="The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves">
+<meta itemprop="description" content="Background Passive dense array surface wave tomography plays a significant role in probing the earth&rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al.">
+<meta itemprop="datePublished" content="2024-01-29T17:51:29+08:00" />
+<meta itemprop="dateModified" content="2024-01-29T17:51:29+08:00" />
+<meta itemprop="wordCount" content="345">
+
+
+
+<meta itemprop="keywords" content="surface wave,array processing,dispersion curve,frequency-Bessel transform,F-J," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves"/>
+<meta name="twitter:description" content="Background Passive dense array surface wave tomography plays a significant role in probing the earth&rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Geophydog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/home">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/">
+        <li class="mobile-menu-item">Blogs</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/post/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Geophydog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/home">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/">Blogs</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-01-29 </span>
+        <div class="post-category">
+            <a href="/categories/array-processing/"> array processing </a>
+            <a href="/categories/surface-wave/"> surface wave </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#principles-of-the-f-j-transform">Principles of the F-J transform</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="background">Background</h2>
+<p>Passive dense array surface wave tomography plays a significant role in probing the earth&rsquo;s interior with
+the development of a large number of dense seismic arrays, attracting researchers&rsquo; growing interest in
+imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis
+of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array
+stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main
+advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al., 2019).
+More importantly, this method facilitates the estimation of multimodal dispersion curves for investimating
+underground shear wave velocity structure (Wu et al., 2020; Li et al., 2021). Here we introduce the basic
+principle of this newly proposed array stacking method.</p>
+<h2 id="principles-of-the-f-j-transform">Principles of the F-J transform</h2>
+<p>The vertical-vertical (Z-Z) component cross-correlations in frequency domain $C_{ZZ}(\omega, r)$ from ambient seismic noise
+is approximately proportional to the imaginary part of the Green&rsquo;s function $G_{ZZ}(\omega, r)$ between two receivers with
+distance of $r$,
+$$
+C_{ZZ}(\omega,r) \approx A\cdot Im{G_{ZZ}(\omega, r)}, \tag{1}
+$$
+in which, $\omega$ is angular frequency, and $Im{\cdot}$ represents imaginary part. Wang et al (2019) defined
+the spectrum $I(\omega, k)$ of the F-J transform as
+$$
+I(\omega, k)=\int_0^{+\infty}C_{ZZ}(\omega, r)J_0(kr)rdr, \tag{2}
+$$
+where, $J_0$ is the zeroth-order Bessel function of the first kind. For a flat multi-layered medium, 
+$G_{AA}(\omega, r)$ due to an isotropic source is expressed as
+$$
+G_{ZZ}(\omega, r=\int_0^{+\infty}g_z(\omega, \kappa)J_0(\kappa r)\kappa d\kappa, \tag{3}
+$$
+where, $g_z(\omega, k)$ is the kernel function of the medium, and it is inversely proportional to the surface wave
+dispersion equation, which means that $g_{z}(\omega, \kappa)$ reaches infinity at roots (dispersion curve) of dispersion equation.
+Now we use $(1)$, $(2)$ and $(3)$ to obtain
+$$
+I(\omega, k)=\int_0^{+\infty}Im{\int_0^{+\infty}J_0(\kappa r) \kappa d\kappa}J_0(kr)rdr. \tag{4}
+$$
+Note the orthogonality of $J_0$, $\int_0J_0(kr)rdr\int_0^{+\infty}J_0(\kappa r)\kappa d\kappa=\frac{\delta(k-\kappa)}{k}$,
+and thus we have
+$$
+I(\omega, k) \approx A \cdot Im{g_z(\omega, k)}. \tag{5}
+$$
+$(5)$ shows that $I(\omega, k)$ is infinity at the dispersion point. This is the basic idea that we can estimate dispersion curves
+utilizing the F-J Transform.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Geophydog</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-01-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/surface-wave/">surface wave</a>
+          <a href="/tags/array-processing/">array processing</a>
+          <a href="/tags/dispersion-curve/">dispersion curve</a>
+          <a href="/tags/frequency-bessel-transform/">frequency-Bessel transform</a>
+          <a href="/tags/f-j/">F-J</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/synthetic_ambient_noise/">
+            <span class="next-text nav-default">Synthetic ambient noise and noise cross-correlations</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:geophydogvon@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/xuping-feng-7a0b01147/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/geophydog" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/feng-xu-ping-62" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://geophydog.cool/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Geophydog All rights reserved</span>
+  </span>
+</div>
+
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

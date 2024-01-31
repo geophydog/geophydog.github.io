@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hello, there! Hope you have a nice journey!." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://geophydog.cool/" />
-<meta property="og:updated_time" content="2024-01-29T11:28:39+08:00" />
+<meta property="og:updated_time" content="2024-01-29T17:51:29+08:00" />
 <meta itemprop="name" content="Geophydog">
 <meta itemprop="description" content="Hello, there! Hope you have a nice journey!.">
 <meta name="twitter:card" content="summary"/>
@@ -123,6 +123,30 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/awk_notes/">Awk notes</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-09-12 </span>
+      <div class="post-category">
+          <a href="/categories/awk/"> awk </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 Remove repeated lines Sometimes we want to remove these repeated lines according to some column(s).
+1  awk &#39;!a[$2,$3]++&#39; pushLog.log   Above command will print the unique lines after removing repeated in columns 2 and 3.
+For instance, there are some SAC files with same header gcarc, and can use the following command to achieve that.
+1  saclst gcarc f *.SAC | sort -k2 -n -r | awk &#39;!
+    </div>
+    <div class="read-more">
+      <a href="/post/awk_notes/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/basemap/">Basemap in Python</a></h1>
@@ -212,29 +236,6 @@ $\boxed{\text{Data processing steps}}$
     </div>
     <div class="read-more">
       <a href="/post/cross_correlation_from_noise/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/cross_spectra_beamforing/">Cross Spectral Beamforming</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-07 </span>
-      <div class="post-category">
-          <a href="/categories/beamforming/"> beamforming </a>
-          <a href="/categories/array-processing/"> array processing </a>
-          <a href="/categories/ambient-noise/"> ambient noise </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 Basic principles Detection of coherent seismic signals is an interesting topic in seismology. However, it&rsquo;s difficult to identify these coherent signals with single station because of the low signal to noise ratios (SNRs). Based on the array processing techniques in radial astronomy, radar and acoustics, the seismic array methods have been developed well in the past several decades. Here, we just follow the articles contributed by (Capon, 1970; Euler et al.
-    </div>
-    <div class="read-more">
-      <a href="/post/cross_spectra_beamforing/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

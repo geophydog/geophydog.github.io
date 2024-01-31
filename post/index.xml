@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Mon, 29 Jan 2024 11:28:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 17:51:29 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves</title>
+      <link>https://geophydog.cool/post/the_frequency_bessel_transform/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/the_frequency_bessel_transform/</guid>
+      <description>Background Passive dense array surface wave tomography plays a significant role in probing the earth&amp;rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&amp;rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al.</description>
+    </item>
     
     <item>
       <title>Synthetic ambient noise and noise cross-correlations</title>

@@ -2,6 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://geophydog.cool/categories/array-processing/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/array-processing/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/dispersion-curve/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/f-j/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/frequency-bessel-transform/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/surface-wave/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/surface-wave/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/tags/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/post/the_frequency_bessel_transform/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://geophydog.cool/tags/ambient-noise/</loc>
     <lastmod>2024-01-29T11:28:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,56 +100,7 @@
   </url>
   
   <url>
-    <loc>https://geophydog.cool/categories/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/dispersion-curve/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/post/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/surface-wave/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/surface-wave/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://geophydog.cool/post/synthetic_ambient_noise/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/</loc>
     <lastmod>2024-01-29T11:28:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -123,20 +158,6 @@
   <url>
     <loc>https://geophydog.cool/categories/visualization/</loc>
     <lastmod>2023-09-22T12:22:46+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/array-processing/</loc>
-    <lastmod>2023-09-20T14:32:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/tags/array-processing/</loc>
-    <lastmod>2023-09-20T14:32:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

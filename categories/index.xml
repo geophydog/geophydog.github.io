@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Mon, 29 Jan 2024 11:28:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 17:51:29 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>array processing</title>
+      <link>https://geophydog.cool/categories/array-processing/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/array-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>surface-wave</title>
+      <link>https://geophydog.cool/categories/surface-wave/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/surface-wave/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ambient noise</title>
@@ -22,29 +40,11 @@
     </item>
     
     <item>
-      <title>surface-wave</title>
-      <link>https://geophydog.cool/categories/surface-wave/</link>
-      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/surface-wave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>visualization</title>
       <link>https://geophydog.cool/categories/visualization/</link>
       <pubDate>Fri, 22 Sep 2023 12:22:46 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/visualization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>array processing</title>
-      <link>https://geophydog.cool/categories/array-processing/</link>
-      <pubDate>Wed, 20 Sep 2023 14:32:30 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/array-processing/</guid>
       <description></description>
     </item>
     
