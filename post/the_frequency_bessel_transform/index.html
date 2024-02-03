@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Background Passive dense array surface wave tomography plays a significant role in probing the earth&rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al.">
 <meta itemprop="datePublished" content="2024-01-29T17:51:29+08:00" />
 <meta itemprop="dateModified" content="2024-01-29T17:51:29+08:00" />
-<meta itemprop="wordCount" content="345">
+<meta itemprop="wordCount" content="346">
 
 
 
@@ -190,7 +190,7 @@ where, $g_z(\omega, k)$ is the kernel function of the medium, and it is inversel
 dispersion equation, which means that $g_{z}(\omega, \kappa)$ reaches infinity at roots (dispersion curve) of dispersion equation.
 Now we use $(1)$, $(2)$ and $(3)$ to obtain
 $$
-I(\omega, k)=\int_0^{+\infty}Im\{\int_0^{+\infty}J_0(\kappa r) \kappa d\kappa\}J_0(kr)rdr. \tag{4}
+I(\omega, k)=\int_0^{+\infty}Im\{\int_0^{+\infty}g_z(\kappa r)J_0(\kappa r) \kappa d\kappa\}J_0(kr)rdr. \tag{4}
 $$
 Note the orthogonality of $J_0$, $\int_0J_0(kr)rdr\int_0^{+\infty}J_0(\kappa r)\kappa d\kappa=\frac{\delta(k-\kappa)}{k}$,
 and thus we have
