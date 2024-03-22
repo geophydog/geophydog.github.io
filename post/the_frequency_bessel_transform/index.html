@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Background Passive dense array surface wave tomography plays a significant role in probing the earth&rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al.">
 <meta itemprop="datePublished" content="2024-01-29T17:51:29+08:00" />
 <meta itemprop="dateModified" content="2024-01-29T17:51:29+08:00" />
-<meta itemprop="wordCount" content="796">
+<meta itemprop="wordCount" content="797">
 
 
 
@@ -199,10 +199,10 @@ $$
 I(\omega, k) \approx A \cdot Im\{g_z(\omega, k)\}. \tag{5}
 $$
 $(5)$ shows that $I(\omega, k)$ is infinity at the dispersion point. This is the basic idea that we can estimate dispersion curves
-utilizing the F-J Transform.</p>
+utilizing the F-J transform.</p>
 <h2 id="utilizing-the-cc-fjpy-package-to-estimate-dispersion-curves">Utilizing the CC-FJpy package to estimate dispersion curves</h2>
-<p>There is a convenient Python package call CC-FJpy for extracting dispersion curves developed by members from Xiaofei Chen&rsquo;s team.
-We find this package on this website (<a href="https://github.com/ColinLii/CC-FJpy)">https://github.com/ColinLii/CC-FJpy)</a>. Here we show the dispersion diagram result computed
+<p>There is a convenient Python package named CC-FJpy for extracting dispersion curves developed by members from Xiaofei Chen&rsquo;s team.
+We can find this package on this website (<a href="https://github.com/ColinLii/CC-FJpy)">https://github.com/ColinLii/CC-FJpy)</a>. Here we show the dispersion diagram result computed
 using this package. Cross-corrrelation functions are from synthetic ambient noise based on the following source-receiver configuration.
 <img src="/Surface_Waves/SYN_NOISE_CONFIG.png" alt="noise"></p>
 <p>We utilize 100 receivers and 2000 sources to synthesize seismic event. Synthetic ambient noise is generated according to steps
