@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dispersion-curve on Geophydog</title>
-    <link>https://geophydog.cool/tags/dispersion-curve/</link>
-    <description>Recent content in dispersion-curve on Geophydog</description>
+    <title>dispersion curve on Geophydog</title>
+    <link>https://geophydog.cool/categories/dispersion-curve/</link>
+    <description>Recent content in dispersion curve on Geophydog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
     <lastBuildDate>Mon, 29 Jan 2024 17:51:29 +0800</lastBuildDate>
     
-	<atom:link href="https://geophydog.cool/tags/dispersion-curve/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://geophydog.cool/categories/dispersion-curve/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,21 +22,21 @@
     </item>
     
     <item>
-      <title>Synthetic ambient noise and noise cross-correlations</title>
-      <link>https://geophydog.cool/post/synthetic_ambient_noise/</link>
-      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/post/synthetic_ambient_noise/</guid>
-      <description>1. Background Ambient noise tomography has been a very popular imaging strategy of investigating the earth&amp;rsquo;s interior in past over two decades. The basic principle of this method is that stacked cross-correlations from noise recordings made by two receivers can be approximately the Green&amp;rsquo;s function from one receiver to another. We have the need of synthesizing ambient noise for validating this important idea, or exploring characteristics of ambient noise. Here we introduce a simple way of computing synthetic ambient noise.</description>
-    </item>
-    
-    <item>
       <title>Image transform technique for estimating phase velocity dispersion curve</title>
       <link>https://geophydog.cool/post/image_transform_dispersion_curve/</link>
       <pubDate>Sun, 28 Jan 2024 19:12:51 +0800</pubDate>
       
       <guid>https://geophydog.cool/post/image_transform_dispersion_curve/</guid>
       <description>Background Ambient noise tomography is widely used to image th earth&amp;rsquo;s interior in past over two decades for various scales. Stacked cross-correlations from seismic ambient noise can be approxmately the Green&amp;rsquo;s functions between receivers. Surface waves extracted from ambient noise cross-correlations are frequently utilized to estimate multi-layered shear wave velocity structure. The key to surface wave imageing is reliable dispersion curves. Two-staion techniques, like frequency-time analysis (Levshin et al., 1989), image transform (Yao et al.</description>
+    </item>
+    
+    <item>
+      <title>Multi-channel analysis of Surface waves (MASW)</title>
+      <link>https://geophydog.cool/post/masw_phase_shift/</link>
+      <pubDate>Wed, 23 Dec 2020 10:32:52 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/masw_phase_shift/</guid>
+      <description></description>
     </item>
     
   </channel>

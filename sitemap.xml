@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://geophydog.cool/categories/ambient-noise/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://geophydog.cool/categories/array-processing/</loc>
     <lastmod>2024-01-29T17:51:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,6 +30,20 @@
   </url>
   
   <url>
+    <loc>https://geophydog.cool/categories/cross-correlation/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/dispersion-curve/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://geophydog.cool/tags/dispersion-curve/</loc>
     <lastmod>2024-01-29T17:51:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,6 +52,13 @@
   
   <url>
     <loc>https://geophydog.cool/tags/f-j/</loc>
+    <lastmod>2024-01-29T17:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://geophydog.cool/categories/f-j-transform/</loc>
     <lastmod>2024-01-29T17:51:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -87,13 +115,6 @@
   
   <url>
     <loc>https://geophydog.cool/tags/ambient-noise/</loc>
-    <lastmod>2024-01-29T11:28:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/ambient-noise/</loc>
     <lastmod>2024-01-29T11:28:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -494,13 +515,6 @@
   <url>
     <loc>https://geophydog.cool/post/seismic_useful_tools/</loc>
     <lastmod>2020-12-30T09:31:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://geophydog.cool/categories/cross-correlation/</loc>
-    <lastmod>2020-12-28T15:29:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

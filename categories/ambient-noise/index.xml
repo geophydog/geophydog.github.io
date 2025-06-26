@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Geophydog All rights reserved</copyright>
-    <lastBuildDate>Mon, 29 Jan 2024 11:28:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2024 17:51:29 +0800</lastBuildDate>
     
 	<atom:link href="https://geophydog.cool/categories/ambient-noise/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The frequency-Bessel (F-J) transform for estimating multimodal surface wave dispersion curves: synthetic experiments and field applications</title>
+      <link>https://geophydog.cool/post/the_frequency_bessel_transform/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/the_frequency_bessel_transform/</guid>
+      <description>1. Background Passive dense array surface wave tomography plays a significant role in probing the earth&amp;rsquo;s interior with the development of a large number of dense seismic arrays, attracting researchers&amp;rsquo; growing interest in imaging applications in various scales. These array methods, like beamforming and MASW (multichannel analysis of surface wave) have been widely used to estimate dispersion curves in past several decades. A new array stacking technique, the frequency-Bessel (F-J) transform, was proposed about five years ago with some main advantages of extracting dispersion curves of high-resolution and broad frequency band (Wang et al.</description>
+    </item>
     
     <item>
       <title>Synthetic ambient noise and noise cross-correlations</title>
@@ -19,6 +28,15 @@
       
       <guid>https://geophydog.cool/post/synthetic_ambient_noise/</guid>
       <description>1. Background Ambient noise tomography has been a very popular imaging strategy of investigating the earth&amp;rsquo;s interior in past over two decades. The basic principle of this method is that stacked cross-correlations from noise recordings made by two receivers can be approximately the Green&amp;rsquo;s function from one receiver to another. We have the need of synthesizing ambient noise for validating this important idea, or exploring characteristics of ambient noise. Here we introduce a simple way of computing synthetic ambient noise.</description>
+    </item>
+    
+    <item>
+      <title>Cross Spectral Beamforming in Ambient Noise Cross-correlation</title>
+      <link>https://geophydog.cool/post/ncf_cross_spectral_beamforming/</link>
+      <pubDate>Sat, 20 Mar 2021 15:33:02 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/post/ncf_cross_spectral_beamforming/</guid>
+      <description></description>
     </item>
     
     <item>

@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>ambient noise</title>
+      <link>https://geophydog.cool/categories/ambient-noise/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/ambient-noise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>array processing</title>
       <link>https://geophydog.cool/categories/array-processing/</link>
       <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
@@ -22,20 +31,38 @@
     </item>
     
     <item>
+      <title>cross-correlation</title>
+      <link>https://geophydog.cool/categories/cross-correlation/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/cross-correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dispersion curve</title>
+      <link>https://geophydog.cool/categories/dispersion-curve/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/dispersion-curve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>F-J transform</title>
+      <link>https://geophydog.cool/categories/f-j-transform/</link>
+      <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
+      
+      <guid>https://geophydog.cool/categories/f-j-transform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>surface-wave</title>
       <link>https://geophydog.cool/categories/surface-wave/</link>
       <pubDate>Mon, 29 Jan 2024 17:51:29 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/surface-wave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ambient noise</title>
-      <link>https://geophydog.cool/categories/ambient-noise/</link>
-      <pubDate>Mon, 29 Jan 2024 11:28:39 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/ambient-noise/</guid>
       <description></description>
     </item>
     
@@ -162,15 +189,6 @@
       <pubDate>Wed, 30 Dec 2020 15:29:30 +0800</pubDate>
       
       <guid>https://geophydog.cool/categories/seismic-data-processing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cross-correlation</title>
-      <link>https://geophydog.cool/categories/cross-correlation/</link>
-      <pubDate>Mon, 28 Dec 2020 15:29:40 +0800</pubDate>
-      
-      <guid>https://geophydog.cool/categories/cross-correlation/</guid>
       <description></description>
     </item>
     
